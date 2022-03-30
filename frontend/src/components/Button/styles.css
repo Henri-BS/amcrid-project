@@ -1,0 +1,26 @@
+:root {
+    --primary: #9e1e78;
+}
+
+.cl-btn {
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-size: 20px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: var(--primary);
+    margin-bottom: 30px;
+    margin-right: 10px;
+    text-decoration-color: transparent;
+}
+
+.cl-btn:hover {
+    padding: 8px 28px;
+    transition: all 0.3s ease-out;
+    background-color: transparent;
+    color: #bd158a;
+    border-radius: 4px;
+    border: 2px solid var(--primary);
+    text-decoration-color: transparent;
+}

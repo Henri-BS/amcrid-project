@@ -1,5 +1,6 @@
 :root {
-    --primary: #9e1e78;
+    --prim: #68044a;
+    --seco: #94076a;
 }
 
 .cl-btn {
@@ -9,7 +10,7 @@
     border: none;
     color: #fff;
     cursor: pointer;
-    background-color: var(--primary);
+    background-color: var(--prim);
     margin-bottom: 30px;
     margin-right: 10px;
     text-decoration-color: transparent;
@@ -19,7 +20,7 @@
     padding: 8px 28px;
     transition: all 0.3s ease-out;
     background-color: transparent;
-    color: #bd158a;
+    color: var(--seco);
     border-radius: 4px;
     border: 2px solid var(--primary);
     text-decoration-color: transparent;

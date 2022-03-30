@@ -1,11 +1,10 @@
-import NavBar from 'components/NavBar';
+import { Button } from 'components/Button';
 import React from 'react';
-import './App.css';
 
 function App() {
   return (
     <>
-   <NavBar />
+ <Button />
     <div > 
     <h2>"Nada aqui por enquanto"</h2>
     </div>

@@ -1,26 +1,26 @@
 export const MenuItems = [
     {
-        title: 'Lista de Jogos',
-        path: '/lista-de-jogos',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Lista de Personagens',
+        title: 'Tutorial',
         path: '/',
         cName: 'dropdown-link'
     },
     {
-        title: 'Lista de Plataformas',
+        title: 'Missões Principais',
         path: '/',
         cName: 'dropdown-link'
     },
     {
-        title: 'Lista de Desenvolvedoras',
+        title: 'Missões Secundárias',
         path: '/',
         cName: 'dropdown-link'
     },
     {
-        title: 'Ver mais',
+        title: 'Ranking',
+        path: '/',
+        cName: 'dropdown-link'
+    },
+    {
+        title: 'Forúm',
         path: '/',
         cName: 'dropdown-link'
     }

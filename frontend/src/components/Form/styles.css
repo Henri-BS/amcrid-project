@@ -1,0 +1,76 @@
+:root {
+    --prim: #731c3d;
+    --seco: #94076a;
+    --tert: #440431;
+}
+
+.cl-form-container {
+    max-height: 300px;
+    max-width: 380px;
+    background-color: rgb(25, 24, 34);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.cl-form {
+    width: calc(100% - 20px);
+}
+
+.cl-form-group {
+    margin-bottom: 20px;
+}
+
+.cl-form-group label {
+    font-size: 12px;
+    color: rgb(142, 140, 148);
+}
+
+.cl-form-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.cl-form-btn {
+    padding: 8px 28px;
+    border-radius: 4px;
+    font-size: 18px;
+    border: none;
+    background-color: #054650;
+    color: #fff;
+    cursor: pointer;
+    text-decoration-color: transparent;
+}
+
+.cl-form-btn:hover {
+    padding: 6px 26px;
+    transition: all 0.3s ease-out;
+    background-color: var(--primary);
+    color: #fff;
+    border-radius: 4px;
+    border: 2px solid #054650;
+}
+
+.cl-quest-card-image {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.cl-card-bottom-container {
+    background-color: #0b1218;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 10px 20px 10px;
+    border-radius: 0 0 8px 8px;
+    cursor: pointer;
+    text-decoration-color: transparent;
+}
+
+.cl-card-bottom-container h3 {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    min-height: 40px;
+    color: #fff;
+}

@@ -1,11 +1,11 @@
-import { Button } from 'components/Button';
 import Footer from 'components/Footer';
+import Navbar from 'components/NavBar';
 import React from 'react';
 
 function App() {
   return (
     <>
- <Button />
+ <Navbar />
     <div > 
     <h2>"Nada aqui por enquanto"</h2>
     </div>

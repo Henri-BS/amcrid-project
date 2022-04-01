@@ -3,6 +3,7 @@ import "./styles.css";
 import IGithub from "assets/img/git.svg";
 import ILinkedin from "assets/img/linked.svg";
 import IGmail from "assets/img/gmail.svg";
+import IWLogo from "assets/img/w-logo.svg";
 
 function Footer() {
     return (
@@ -35,19 +36,19 @@ function Footer() {
                             <hr />
                             <div className="row mb-3 mt-48 mx-16 ">
                                 <a href="https://github.com/Henri-BS" color="inherit">
-                                    <img className='footer-logo' src={IGithub} alt='logo' />
+                                    <img className='footer-img' src={IGithub} alt='logo' />
                                     /Github
                                 </a>
                             </div>
                             <div className="row mb-3 mt-48 mx-16 ">
                                 <a href="https://www.linkedin.com/in/h-b-santos-1758351a3/" color="inherit">
-                                    <img className='footer-logo' src={ILinkedin} alt='logo' />
+                                    <img className='footer-img' src={ILinkedin} alt='logo' />
                                     /LinkedIn
                                 </a>
                             </div>
                             <div className="row mb-3 mt-20 mx-16 ">
                                 <a href="mailto:rickalmeida720@gmail.com" color="inherit">
-                                    <img className='footer-logo' src={IGmail} alt='logo' />
+                                    <img className='footer-img' src={IGmail} alt='logo' />
                                     /Gmail
                                 </a>
                             </div>
@@ -57,11 +58,13 @@ function Footer() {
                 </div>
                 <div className="footer-base-container">
                     <div className="row">
-                        <div className="col-2">
+                        <div className="footer-logo col-2">
+                        <img src={IWLogo} alt='logo' />
 
                         </div>
                         <div className="footer-base-text-container col-10">
-                            <h5>Todos os direitos reservados</h5>
+                            <h5>ClassLock.Inc</h5>
+                            todos os direitos reservados.
                         </div>
                     </div>
                 </div>

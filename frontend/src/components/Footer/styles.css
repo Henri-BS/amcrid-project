@@ -1,23 +1,13 @@
-:root {
-    --prim: #731c3d;
-    --seco: #94076a;
-    --tert: #440431;
-}
-
 .footer-max-container {
     width: 100%;
-    min-height: 1000px;
-    background-color: var(--tert);
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+    background-color: var(--prim);
+    position: absolute;
 }
 
 .footer-container {
     margin: 320;
     width: 100%;
-    height: 530.667px;
-    background-color: var(--tert);
+    background-color: var(--prim);
     color: #fff;
     padding: 40px 0px 40px 0px;
 }

@@ -2,7 +2,7 @@ import './styles.css'
 
 function Form() {
 
-    const game = {
+    const quest = {
         id: 1,
         image: "https://s3.wp.wsu.edu/uploads/sites/609/2019/10/ITSrollout-1188x792.jpg",
         title: "Segurança da Informação",
@@ -13,7 +13,7 @@ function Form() {
     return (
         <>
             <div className="cl-form-container">
-                <img className="cl-quest-card-image" src={game.image} alt={game.title} />
+                <img className="cl-quest-card-image" src={quest.image} alt={quest.title} />
                 <div className="cl-card-bottom-container">
                     <h3>Segurança da Informação</h3>               
                     <p>Sobre segurança da Informação responda: qual seria...</p>
@@ -35,9 +35,9 @@ function Form() {
                         </div>
                     </form >
                     <div className="cl-form-btn-container">
-                        <button type="submit" className="btn btn-primary cl-form-btn">Salvar</button>
+                        <button type="submit" className="btn cl-form-btn">Salvar</button>
                     </div>
-                    <button className="btn btn-primary cl-form-btn mt-3">Cancelar</button>
+                    <button className="btn  cl-form-btn mt-3">Cancelar</button>
                  </div>
             </div>
             </>

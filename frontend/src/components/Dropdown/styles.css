@@ -1,11 +1,5 @@
-:root {
-    --prim: #731c3d;
-    --seco: #94076a;
-    --tert: #440431;
-}
-
 .dropdonw-menu {
-    background: var(--tert);
+    background: var(--prim);
     width: 340px;
     position: absolute;
     top: 80px;
@@ -21,11 +15,10 @@
 }
 
 .dropdonw-menu li:hover {
-    background: transparent;
     width: 280px;
     height: 64px;
     border-radius: 3px;
-    border: 3px solid var(--prim);
+    background-color: var(--prim);
 }
 
 .dropdown-menu.clicked {

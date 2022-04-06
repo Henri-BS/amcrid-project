@@ -2,9 +2,9 @@ import { ReactComponent as StarFull} from 'assets/img/star1.svg';
 import { ReactComponent as StarHalf} from 'assets/img/star2.svg';
 import { ReactComponent as StarEmpty} from 'assets/img/star3.svg';
 
-function GameStars() {
+function QuestStars() {
     return (
-<div className="gmnc-stars-container">
+<div className="cl-stars-container">
 <StarFull />
 <StarFull />
 <StarFull />
@@ -14,4 +14,4 @@ function GameStars() {
     );
 }
 
-export default GameStars;
+export default QuestStars;

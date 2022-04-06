@@ -1,4 +1,4 @@
-import GameStars from "components/GameStars";
+import QuestStars from "components/QuestStars";
 import "./styles.css"
 function QuestScore() {
 
@@ -8,7 +8,7 @@ function QuestScore() {
     return (
         <div className="cl-info-container">
             <p className="cl-info-value">{score > 0 ? score.toFixed(1) : '-'} </p>
-            <GameStars />
+            <QuestStars />
             <p className="cl-info-count">{count} avaliações</p>
         </div>
     );

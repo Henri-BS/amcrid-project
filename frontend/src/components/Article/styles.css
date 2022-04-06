@@ -1,0 +1,18 @@
+.article-container {
+    background-color: #0b1218;
+    margin: 0;
+    width: initial;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.article-container h2 {
+    text-align: center;
+    padding: 30px;
+}
+
+.article-content {
+    display: grid;
+    padding: 30px;
+    text-align: justify;
+}

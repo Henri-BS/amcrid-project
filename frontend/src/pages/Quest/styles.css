@@ -1,0 +1,9 @@
+.quest-container {
+    background-color: #141f29;
+    color: #fff;
+    max-inline-size: 100%;
+    max-zoom: 100%;
+    margin: 0;
+    padding: 20px;
+    min-height: 800px;
+}

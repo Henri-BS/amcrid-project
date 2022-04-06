@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+.container {
+    background-color: #141f29;
+    color: #fff;
+    max-inline-size: 100%;
+    max-zoom: 100%;
+    margin: 0;
+    height: 100%;
+    position: initial;
+    min-height: 1000px;
+}
+
+.article-nav-container {
+    height: 300px;
+    padding: 20px 10px 20px 10px;
+}
+
+.quest-nav-container {
+    background-color: #141f29;
+    margin-bottom: 5px;
+    position: relative;
+}

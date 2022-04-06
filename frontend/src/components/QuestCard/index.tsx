@@ -16,7 +16,7 @@ return (
     <img className="cl-quest-card-image" src={quest.image} alt={quest.title} />
     <div className="cl-card-bottom-container">  <h3>{quest.title}</h3>
  <QuestScore />
- <Link to="cl/game/1">
+ <Link to="/quest/1">
      <div className="btn btn-primary cl-form-btn">
 Acessar 
 </div>

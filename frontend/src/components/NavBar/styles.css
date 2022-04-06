@@ -1,11 +1,12 @@
-:root {
-    --prim: #440431;
-    --seco: #94076a;
-    --tert: #731c3d;
+#root {
+    --prim: #1d0816;
+    --seco: #661829;
+    --tert: #860d2b;
+    --quar: #571425;
 }
 
 .navbar {
-    background: var(--prim);
+    background: #1d0816;
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -53,8 +54,8 @@
 }
 
 .nav-links:hover {
-    background-color: var(--tert);
-    border-radius: 4px;
+    background-color: #a31836;
+    border-radius: 50px;
     transition: all 0.2s ease-out;
     color: #fff;
 }
@@ -79,19 +80,20 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 90vh;
+        height: 70vh;
         position: absolute;
         top: 80px;
         left: -100%;
         opacity: 1;
-        transition: all 0.5s ease;
+        transition: all 0.9s ease;
     }
     .nav-menu.active {
-        background: var(--seco);
+        background: var(--quar);
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
         z-index: 1;
+        padding: 10px;
     }
     .nav-links {
         text-align: center;
@@ -100,8 +102,8 @@
         display: table;
     }
     .nav-links:hover {
-        background-color: var(--tert);
-        border-radius: 0;
+        background-color: #a31836;
+        border-radius: 50px;
     }
     .navbar-logo {
         position: absolute;

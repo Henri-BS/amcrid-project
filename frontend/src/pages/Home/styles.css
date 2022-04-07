@@ -12,8 +12,6 @@
     max-zoom: 100%;
     margin: 0;
     height: 100%;
-    position: initial;
-    min-height: 1000px;
 }
 
 .article-nav-container {
@@ -23,6 +21,4 @@
 
 .quest-nav-container {
     background-color: #141f29;
-    margin-bottom: 5px;
-    position: relative;
 }

@@ -1,6 +1,4 @@
 .cl-form-container {
-    max-height: 300px;
-    max-width: 380px;
     background-color: rgb(25, 24, 34);
     margin-top: 5px;
     margin-bottom: 5px;
@@ -59,6 +57,7 @@
     border-radius: 0 0 8px 8px;
     cursor: pointer;
     text-decoration-color: transparent;
+    margin-bottom: 5px;
 }
 
 .cl-card-bottom-container h3 {

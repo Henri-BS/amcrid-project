@@ -2,8 +2,8 @@
 import Pagination from 'components/Pagination';
 import './styles.css'
 import ArticleNav from 'components/ArticleNav';
-import Form from 'components/Form/index ';
 import Article from 'components/Article';
+import QuestCard from 'components/QuestCard';
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
           <div className="quest-nav-container">
             <div className=" row">
               <div className="col-4">
-                <Form />
+                <QuestCard />
               </div>
               <div className="col-8">
                 <Article />

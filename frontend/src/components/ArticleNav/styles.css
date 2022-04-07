@@ -20,6 +20,14 @@
     text-decoration: transparent;
 }
 
+.article-card-container hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: var(--tert);
+    border: 0;
+    opacity: 1;
+}
+
 .viewed-container {
     text-align: end;
     font-size: smaller;

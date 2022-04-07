@@ -1,7 +1,7 @@
 .footer-max-container {
+    height: 690.667px;
     width: 100%;
     background-color: var(--prim);
-    position: absolute;
 }
 
 .footer-container {
@@ -9,7 +9,7 @@
     width: 100%;
     background-color: var(--prim);
     color: #fff;
-    padding: 40px 0px 40px 0px;
+    padding: 40px 20px 40px 20px;
 }
 
 .footer-container h3 {

@@ -1,22 +1,22 @@
 .cl-btn {
-    padding: 10px 30px;
-    border-radius: 4px;
+    padding: 10px 30px 10px 30px;
+    border-radius: 20px;
     font-size: 20px;
     border: none;
     color: #fff;
     cursor: pointer;
-    background-color: var(--seco);
-    margin-bottom: 30px;
-    margin-right: 10px;
+    background-color: transparent;
+    border: 2px solid var(--seco);
     text-decoration-color: transparent;
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 .cl-btn:hover {
-    padding: 8px 28px;
     background-color: var(--tert);
     transition: all 0.3s ease-out;
     color: #fff;
-    border-radius: 4px;
+    border-radius: 50px;
     border: 2px solid var(--seco);
     text-decoration-color: transparent;
 }

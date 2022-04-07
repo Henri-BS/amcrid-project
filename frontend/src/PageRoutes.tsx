@@ -9,22 +9,22 @@ import Footer from "components/Footer";
 const PageRoutes = () => {
     return (
         <>
-        
-            <BrowserRouter> 
-            <Navbar />
+
+            <BrowserRouter>
+                <Navbar />
                 <Routes>
-                    <Route path="/" element={<Home />}/>
-                    <Route path="/explorar" element={<Explore />}/>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/explorar" element={<Explore />} />
 
                     <Route path="/post">
-                    <Route path=":postId" element={<Post />}/>
+                        <Route path=":postId" element={<Post />} />
                     </Route>
-                    
+
                     <Route path="/quest">
-                        <Route path=":questId" element={<Quest />}/>
+                        <Route path=":questId" element={<Quest />} />
                     </Route>
                 </Routes>
-                <Footer/>
+                <Footer />
             </BrowserRouter>
         </>
     );

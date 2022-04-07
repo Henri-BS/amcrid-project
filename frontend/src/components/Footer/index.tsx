@@ -7,7 +7,7 @@ import IWLogo from "assets/img/w-logo.svg";
 
 function Footer() {
     return (
-        <div className="footer-max-container">
+        <div className="footer-max-container ">
             <div className="footer-container">
                 <div className="row">
                     <div className="footer-grid-container col-sm-12 col-md-4 mt-48 mx-16">

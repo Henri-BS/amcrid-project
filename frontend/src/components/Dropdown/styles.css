@@ -1,12 +1,13 @@
 .dropdonw-menu {
-    background: var(--prim);
-    width: 340px;
+    background: var(--tert);
+    max-width: 330px;
     position: absolute;
     top: 80px;
     list-style: none;
-    text-align: start;
-    margin-top: 3px;
-    border-radius: 3px;
+    text-align: center;
+    border-radius: 30px;
+    padding: 15px 10px 15px 10px;
+    justify-content: space-between;
 }
 
 .dropdown-menu li {
@@ -15,10 +16,9 @@
 }
 
 .dropdonw-menu li:hover {
-    width: 280px;
     height: 64px;
-    border-radius: 3px;
-    background-color: var(--prim);
+    border-radius: 50px;
+    background-color: var(--quar);
 }
 
 .dropdown-menu.clicked {

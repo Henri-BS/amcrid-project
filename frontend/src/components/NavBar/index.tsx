@@ -57,6 +57,7 @@ function Navbar() {
               </Link>
               {dropdown && <Dropdown />}
             </li>
+            
             <li className='nav-item'>
               <Link
                 to='/suporte'
@@ -66,7 +67,9 @@ function Navbar() {
                 Suporte
               </Link>
             </li>
+
             
+          
             <li>
               <Link
                 to='/sign-up'

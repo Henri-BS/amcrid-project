@@ -3,6 +3,7 @@
     --seco: #661829;
     --tert: #860d2b;
     --quar: #571425;
+    --quin: #1d0816d7;
 }
 
 .navbar {
@@ -80,7 +81,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 70vh;
+        height: 16in;
         position: absolute;
         top: 80px;
         left: -100%;
@@ -88,22 +89,12 @@
         transition: all 0.9s ease;
     }
     .nav-menu.active {
-        background: var(--quar);
+        background: var(--quin);
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
         z-index: 1;
-        padding: 10px;
-    }
-    .nav-links {
-        text-align: center;
-        padding: 2rem;
-        width: 100%;
-        display: table;
-    }
-    .nav-links:hover {
-        background-color: #a31836;
-        border-radius: 50px;
+        padding: 40px 30px 20px 30px;
     }
     .navbar-logo {
         position: absolute;
@@ -111,7 +102,7 @@
         left: 0;
         transform: translate(20%, 20%);
         justify-self: start;
-        margin-left: 20px;
+        margin-left: 40px;
     }
     .menu-icon {
         display: block;
@@ -126,21 +117,35 @@
         color: #fff;
         font-size: 2rem;
     }
+    .nav-links {
+        display: block;
+        background: var(--tert);
+        text-align: center;
+        padding: 1.5rem;
+        margin: auto;
+        width: 100%;
+        border-radius: 50px;
+        display: table;
+        font-size: 1.5rem;
+    }
+    .nav-links:hover {
+        background-color: #a31836;
+        transition: 250ms;
+    }
     .nav-links-mobile {
         display: block;
         text-align: center;
-        padding: 1.5rem;
-        margin: 2rem auto;
-        border-radius: 4px;
-        width: 80%;
+        padding: 1em;
+        border-radius: 50px;
+        width: 100%;
         background: var(--tert);
         text-decoration: none;
         color: #fff;
         font-size: 1.5rem;
     }
     .nav-links-mobile:hover {
-        background: #fff;
-        color: var(--tert);
+        background-color: #a31836;
+        color: #fff;
         transition: 250ms;
     }
     button {

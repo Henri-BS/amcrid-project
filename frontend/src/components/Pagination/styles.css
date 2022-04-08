@@ -25,15 +25,14 @@
 }
 
 .cl-pagination-button {
-    background-color: #141f29;
     width: 40px;
     height: 40px;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--primary);
+    border: 3px solid var(--sec);
     cursor: pointer;
 }
 
@@ -42,8 +41,8 @@
 }
 
 .cl-pagination-button:disabled {
-    background-color: #141f29;
-    border: 1px solid var(--sec);
+    background-color: transparent;
+    border: 3px solid var(--sec);
     cursor: unset;
     color: #fff;
 }
@@ -53,7 +52,6 @@
 }
 
 .cl-pagination-container p {
-    background-color: #141f29;
     margin: 0;
     font-size: 12px;
     color: #fff;

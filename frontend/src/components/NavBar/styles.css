@@ -1,11 +1,3 @@
-#root {
-    --prim: #1d0816;
-    --seco: #661829;
-    --tert: #860d2b;
-    --quar: #571425;
-    --quin: #1d0816d7;
-}
-
 .navbar {
     background: #1d0816;
     height: 80px;
@@ -55,7 +47,7 @@
 }
 
 .nav-links:hover {
-    background-color: #a31836;
+    background-color: var(--octo);
     border-radius: 50px;
     transition: all 0.2s ease-out;
     color: #fff;
@@ -81,7 +73,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 16in;
+        height: 14.3in;
         position: absolute;
         top: 80px;
         left: -100%;
@@ -129,7 +121,7 @@
         font-size: 1.5rem;
     }
     .nav-links:hover {
-        background-color: #a31836;
+        background-color: var(--octo);
         transition: 250ms;
     }
     .nav-links-mobile {
@@ -144,7 +136,7 @@
         font-size: 1.5rem;
     }
     .nav-links-mobile:hover {
-        background-color: #a31836;
+        background-color: var(--octo);
         color: #fff;
         transition: 250ms;
     }

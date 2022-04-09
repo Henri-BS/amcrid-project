@@ -9,7 +9,6 @@ import Footer from "components/Footer";
 const PageRoutes = () => {
     return (
         <>
-
             <BrowserRouter>
                 <Navbar />
                 <Routes>

@@ -1,5 +1,4 @@
 import {ReactComponent as Arrow} from 'assets/img/arrow.svg';
-
 import './styles.css';
 
 
@@ -21,3 +20,27 @@ function Pagination(){
 }
 
 export default Pagination;
+
+export function PaginationLeft(){
+    return(
+        <div className="cl-pagination-one-container">
+    <div className="cl-pagination-one-box">
+        <button className="cl-pagination-one-button" disabled={true}>
+            <Arrow />
+        </button>
+        </div>
+        </div>
+    );
+}
+
+export function PaginationRight(){
+    return (
+    <div className="cl-pagination-one-container">
+    <div className="cl-pagination-one-box">
+    <button className="cl-pagination-one-button" disabled={false}>
+            <Arrow className="cl-flip-horizontal" />
+        </button>
+    </div>
+</div>
+);
+}

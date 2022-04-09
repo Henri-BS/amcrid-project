@@ -1,5 +1,5 @@
 .footer-max-container {
-    height: 690.667px;
+    height: 20in;
     width: 100%;
     background-color: var(--prim);
 }
@@ -9,7 +9,7 @@
     width: 100%;
     background-color: var(--prim);
     color: #fff;
-    padding: 40px 20px 40px 20px;
+    padding: 100px 20px 40px 20px;
 }
 
 .footer-container h3 {
@@ -25,6 +25,7 @@
 .footer-base-container {
     height: 90px;
     width: 100%;
+    padding-top: 80px;
 }
 
 .footer-base-text-container {
@@ -35,7 +36,7 @@
 .footer-grid-container {
     justify-content: center;
     align-items: center;
-    margin: 0px 20px 30px 20px;
+    margin: 0px 20px 60px 20px;
     max-width: 380px;
 }
 

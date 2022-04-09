@@ -1,11 +1,13 @@
+import Article from 'components/Article';
 import React from 'react';
+import './styles.css';
 
 export default function Post() {
   return (
     <>
-    <div className='container'>
-      <h1>post</h1>
-      </div>
+<div className="container">
+<Article />
+</div>
     </>
   );
 }

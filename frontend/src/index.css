@@ -1,9 +1,13 @@
-:root {
-    --primary: #68044a;
-}
-
-.text-primary {
-    color: var(--primary) !important;
+#root {
+    --prim: #1d0816;
+    --seco: #661829;
+    --tert: #860d2b;
+    --quar: #571425;
+    --quin: #1d0816d7;
+    --sena: #c2c2c2;
+    --sept: #141f29;
+    --octo: #a31836;
+    --nona: #141f29bd;
 }
 
 body {

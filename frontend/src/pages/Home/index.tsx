@@ -1,5 +1,5 @@
 
-import Pagination from 'components/Pagination';
+import { PaginationLeft, PaginationRight } from 'components/Pagination';
 import './styles.css'
 import ArticleNav from 'components/ArticleNav';
 import Article from 'components/Article';
@@ -9,31 +9,38 @@ export default function Home() {
   return (
     <>
       <div className="container">
-          <Pagination />
-          <div className="article-nav-continer row flex-row">
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-              <ArticleNav />
+
+        <div className="row">
+          <div className="col-1 p-0">
+            <PaginationLeft />
+          </div>
+
+          <div className="col-10 article-scroll-container ">
+            <div className="article-item"><ArticleNav /></div>
+            <div className="article-item"><ArticleNav /></div>
+            <div className="article-item"><ArticleNav /></div>
+            <div className="article-item"><ArticleNav /></div>
+            <div className="article-item"><ArticleNav /></div>
+            <div className="article-item"><ArticleNav /></div>
+            <div className="article-item"><ArticleNav /></div>
+
+          </div>
+
+          <div className="col-1 p-0">
+            <PaginationRight />
+          </div>
+        </div>
+
+        <div className="quest-nav-container">
+          <div className=" row">
+            <div className="col-4">
+              <QuestCard />
             </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-              <ArticleNav />
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-              <ArticleNav />
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-              <ArticleNav />
+            <div className="col-8">
+              <Article />
             </div>
           </div>
-          <div className="quest-nav-container">
-            <div className=" row">
-              <div className="col-4">
-                <QuestCard />
-              </div>
-              <div className="col-8">
-                <Article />
-              </div>
-            </div>
-          </div>
+        </div>
       </div>
     </>
   );

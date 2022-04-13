@@ -14,16 +14,31 @@
     height: 100%;
 }
 
+.pagination-page-container {
+    position: relative;
+    padding: auto;
+    background-color: var(--nona);
+    min-width: 60px;
+}
+
+.article-max-container {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
 .article-scroll-container {
     max-height: 300px;
+    width: 100%;
     padding: 20px 10px 20px 10px;
     display: flex;
     overflow-x: auto;
+    border-radius: 10px;
 }
 
 .article-scroll-container::-webkit-scrollbar {
-    width: 0;
     height: 0;
+    width: 0;
 }
 
 .article-item {
@@ -35,4 +50,17 @@
 
 .quest-nav-container {
     background-color: var(--sept);
+    padding: 10px 5px 10px 5px;
+}
+
+@media screen and (max-width: 960px) {
+    .article-max-container {
+        width: 100%;
+    }
+    .article-scroll-container {
+        width: 100%;
+    }
+    .pagination-page-container {
+        margin: 0;
+    }
 }

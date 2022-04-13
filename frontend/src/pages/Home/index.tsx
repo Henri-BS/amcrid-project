@@ -10,25 +10,23 @@ export default function Home() {
     <>
       <div className="container">
 
-        <div className="row">
-          <div className="col-1 p-0">
-            <PaginationLeft />
+        <div className="article-max-container">
+
+          <div className="d-flex">
+            <div className="pagination-page-container">
+              <PaginationLeft />
+            </div>
+            <div className="article-scroll-container">
+              <div className="article-item"><ArticleNav /></div>
+              <div className="article-item"><ArticleNav /></div>
+              <div className="article-item"><ArticleNav /></div>
+              <div className="article-item"><ArticleNav /></div>
+            </div>
+            <div className="pagination-page-container">
+              <PaginationRight />
+            </div>
           </div>
 
-          <div className="col-10 article-scroll-container ">
-            <div className="article-item"><ArticleNav /></div>
-            <div className="article-item"><ArticleNav /></div>
-            <div className="article-item"><ArticleNav /></div>
-            <div className="article-item"><ArticleNav /></div>
-            <div className="article-item"><ArticleNav /></div>
-            <div className="article-item"><ArticleNav /></div>
-            <div className="article-item"><ArticleNav /></div>
-
-          </div>
-
-          <div className="col-1 p-0">
-            <PaginationRight />
-          </div>
         </div>
 
         <div className="quest-nav-container">

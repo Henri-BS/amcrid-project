@@ -1,10 +1,12 @@
 .footer-max-container {
-    height: 20in;
+    position: static;
+    min-height: 600px;
     width: 100%;
     background-color: var(--prim);
 }
 
 .footer-container {
+    position: absolute;
     margin: 320;
     width: 100%;
     background-color: var(--prim);
@@ -22,10 +24,18 @@
     text-decoration: none;
 }
 
+.footer-container hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: var(--sena);
+    border: 0;
+    opacity: 1;
+}
+
 .footer-base-container {
     height: 90px;
     width: 100%;
-    padding-top: 80px;
+    padding-top: 40px;
 }
 
 .footer-base-text-container {
@@ -56,4 +66,14 @@
     height: 80px;
     width: 80px;
     padding-top: 30px;
+}
+
+@media screen and (max-width: 960px) {
+    .footer-max-container {
+        position: static;
+        min-height: 12in;
+        width: 100%;
+        min-zoom: 100%;
+        background-color: var(--prim);
+    }
 }

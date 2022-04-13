@@ -40,7 +40,7 @@ public class Post {
 	@Column(name = "views")
 	private Integer views;
 
-	@Column(name = "body")
+	@Column(name = "body", columnDefinition = "TEXT")
 	private String body;
 
 	@Column(name = "post_image")
@@ -76,7 +76,6 @@ public class Post {
 	public Post(Long id, String title, @Size(min = 1, max = 50) String summary, Integer views, String body,
 			String image, String createdBy, LocalDateTime createdDate, String lastModifiedBy,
 			LocalDateTime lastModifiedDate, User user, List<Comment> comments) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.summary = summary;

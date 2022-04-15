@@ -23,7 +23,7 @@ public class Comment {
 	@Column(name = "comment_id")
 	private Long id;
 	
-	@Column(name = "body")
+	@Column(name = "body", columnDefinition = "TEXT")
 	private String body;
 	
 	@CreatedDate

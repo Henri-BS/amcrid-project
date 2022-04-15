@@ -1,5 +1,5 @@
 .navbar {
-    background: #1d0816;
+    background: var(--prim);
     height: 80px;
     display: flex;
     justify-content: space-between;

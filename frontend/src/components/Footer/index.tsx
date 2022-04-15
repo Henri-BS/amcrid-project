@@ -4,6 +4,7 @@ import IGithub from "assets/img/git.svg";
 import ILinkedin from "assets/img/linked.svg";
 import IGmail from "assets/img/gmail.svg";
 import IWLogo from "assets/img/w-logo.svg";
+import { Link } from "react-router-dom";
 
 function Footer() {
     return (
@@ -35,22 +36,22 @@ function Footer() {
                             <h3>Contato</h3>
                             <hr />
                             <div className="row mb-3 mt-48 mx-16 ">
-                                <a href="https://github.com/Henri-BS" color="inherit">
+                                <Link to="/">
                                     <img className='footer-img' src={IGithub} alt='logo' />
                                     /Github
-                                </a>
+                                </Link>
                             </div>
                             <div className="row mb-3 mt-48 mx-16 ">
-                                <a href="https://www.linkedin.com/in/h-b-santos-1758351a3/" color="inherit">
+                                <Link to="/">
                                     <img className='footer-img' src={ILinkedin} alt='logo' />
                                     /LinkedIn
-                                </a>
+                                </Link>
                             </div>
                             <div className="row mb-3 mt-20 mx-16 ">
-                                <a href="mailto:rickalmeida720@gmail.com" color="inherit">
+                                <Link to="/">
                                     <img className='footer-img' src={IGmail} alt='logo' />
                                     /Gmail
-                                </a>
+                                </Link>
                             </div>
                         </ul>
                     </div>
@@ -59,7 +60,7 @@ function Footer() {
                 <div className="footer-base-container">
                     <div className="row">
                         <div className="footer-logo col-2">
-                        <img src={IWLogo} alt='logo' />
+                            <img src={IWLogo} alt='logo' />
 
                         </div>
                         <div className="footer-base-text-container col-10">

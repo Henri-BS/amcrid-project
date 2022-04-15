@@ -7,9 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
 
-@Component
 @Entity
 @Table(name = "tb_questions")
 public class Question {
@@ -39,6 +37,7 @@ public class Question {
 	
 	private Integer ans;
 	private Integer chose;
+
 
 	public Question() {
 

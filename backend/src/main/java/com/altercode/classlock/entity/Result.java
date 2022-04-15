@@ -1,13 +1,12 @@
 package com.altercode.classlock.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -22,19 +21,20 @@ public class Result {
 	@Column(name = "result_id")
 	private Long id;
 	
+	@OneToOne
+@JoinColumn(name = "user_id")
 	private User userName;
+	
 	private Integer totalCorrect = 0;
-	private List<Badge> badges = new ArrayList<>();
 	
 	public Result() {
 		
 	}
 
-	public Result(Long id, User userName, Integer totalCorrect, List<Badge> badges) {
+	public Result(Long id, User userName, Integer totalCorrect) {
 		this.id = id;
 		this.userName = userName;
 		this.totalCorrect = totalCorrect;
-		this.badges = badges;
 	}
 
 	public Long getId() {
@@ -61,13 +61,5 @@ public class Result {
 		this.totalCorrect = totalCorrect;
 	}
 
-	public List<Badge> getBadges() {
-		return badges;
-	}
 
-	public void setBadges(List<Badge> badges) {
-		this.badges = badges;
-	}
 }
-
-

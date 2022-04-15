@@ -1,10 +1,7 @@
 package com.altercode.classlock.entity;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,10 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -29,12 +26,13 @@ public class Post {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "post_id")
 	private Long id;
-
+	
+@Length(min = 1)
 	@Column(name = "title")
 	private String title;
 
-	@Size(min = 1, max = 50)
-	@Column(name = "summary", length = 270)
+	@Size(min = 1)
+	@Column(name = "summary", columnDefinition = "TEXT")
 	private String summary;
 
 	@Column(name = "views")
@@ -47,35 +45,31 @@ public class Post {
 	private String image;
 
 	@CreatedBy
-	@Column(name = "created_by")
+	@Column(name = "created_by", length = 50, updatable = false)
 	private String createdBy;
 
 	@CreatedDate
 	@Column(name = "created_date")
-	private LocalDateTime createdDate;
+	private LocalDateTime createdDate = LocalDateTime.now();
 
 	@LastModifiedBy
-	@Column(name = "last_modified_by")
+	@Column(name = "last_modified_by", length = 50)
 	private String lastModifiedBy;
 
 	@LastModifiedDate
 	@Column(name = "last_modified_date")
-	private LocalDateTime lastModifiedDate;
+	private LocalDateTime lastModifiedDate = LocalDateTime.now();
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
-	private List<Comment> comments = new ArrayList<>();
-
 	public Post() {
 
 	}
 
-	public Post(Long id, String title, @Size(min = 1, max = 50) String summary, Integer views, String body,
-			String image, String createdBy, LocalDateTime createdDate, String lastModifiedBy,
-			LocalDateTime lastModifiedDate, User user, List<Comment> comments) {
+	public Post(Long id, String title, String summary, Integer views, String body, String image, String createdBy,
+			LocalDateTime createdDate, String lastModifiedBy, LocalDateTime lastModifiedDate, User user) {
 		this.id = id;
 		this.title = title;
 		this.summary = summary;
@@ -87,7 +81,6 @@ public class Post {
 		this.lastModifiedBy = lastModifiedBy;
 		this.lastModifiedDate = lastModifiedDate;
 		this.user = user;
-		this.comments = comments;
 	}
 
 	public Long getId() {
@@ -176,13 +169,5 @@ public class Post {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
 	}
 }

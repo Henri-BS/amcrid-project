@@ -1,4 +1,4 @@
-import Article from 'components/Article';
+import UserCard from 'components/UserCard';
 import React from 'react';
 import './styles.css';
 
@@ -6,7 +6,7 @@ export default function Post() {
   return (
     <>
 <div className="container">
-<Article />
+<UserCard />
 </div>
     </>
   );

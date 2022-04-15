@@ -10,7 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -26,10 +29,13 @@ public class User {
 	@Column(name = "user_id")
 	private Long id;
 	
-	@Column(name = "email")
+	@Email
+	@Size(min = 5, max = 40)
+	@Column(name = "email", length = 40, unique = true, nullable = false)
 	private String email;
 	
-	@Column(name = "user_name")
+	@Size(min = 1, max = 50)
+	@Column(name = "user_name", length = 50)
 		private String userName;
 		
 	@Column(name = "password")
@@ -39,35 +45,36 @@ public class User {
 	private String image;
 	
 	@CreatedBy
-	@Column(name = "created_by")
+	@Column(name = "created_by", length = 50, updatable = false)
 	private String createdBy;
 	
 	@CreatedDate
 	@Column(name = "created_date")
-	private LocalDateTime createdDate;
+	private LocalDateTime createdDate = LocalDateTime.now();
 	
 	@LastModifiedBy
-	@Column(name = "last_modified_by")
+	@Column(name = "last_modified_by", length = 50)
 	private String lastModifiedBy;
 	
 	@LastModifiedDate
 	@Column(name = "last_modified_date")
-	private LocalDateTime lastModifiedDate;
+	private LocalDateTime lastModifiedDate = LocalDateTime.now();
 	
 	@OneToMany(mappedBy = "user")
 	private List<Post> posts = new ArrayList<>();
 	
-	@OneToMany
-	private List <Badge> badges = new ArrayList<>(); 
+	@OneToMany(mappedBy = "user")
+	private List<Comment> comments = new ArrayList<>();
+	
+	@OneToOne(mappedBy = "userName")
+	private Result result;
 	
 	public User() {
 		
 	}
 
 	public User(Long id, String email, String userName, String password, String image, String createdBy,
-			LocalDateTime createdDate, String lastModifiedBy, LocalDateTime lastModifiedDate, List<Post> posts,
-			List<Badge> badges) {
-		super();
+			LocalDateTime createdDate, String lastModifiedBy, LocalDateTime lastModifiedDate, List<Post> posts) {
 		this.id = id;
 		this.email = email;
 		this.userName = userName;
@@ -78,7 +85,6 @@ public class User {
 		this.lastModifiedBy = lastModifiedBy;
 		this.lastModifiedDate = lastModifiedDate;
 		this.posts = posts;
-		this.badges = badges;
 	}
 
 	public Long getId() {
@@ -159,13 +165,5 @@ public class User {
 
 	public void setPosts(List<Post> posts) {
 		this.posts = posts;
-	}
-
-	public List<Badge> getBadges() {
-		return badges;
-	}
-
-	public void setBadges(List<Badge> badges) {
-		this.badges = badges;
 	}
 }

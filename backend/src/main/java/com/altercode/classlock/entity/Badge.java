@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,20 +25,14 @@ public class Badge {
 	@Column(name = "badge_image")
 	private String image;
  	
-	@Column(name = "bagde_xp")
+	@Column(name = "badge_xp")
 	private Integer xp;
-	
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
 
-	public Badge(Long id, String name, String description, Integer xp, User user) {
-		super();
+	public Badge(Long id, String name, String description, Integer xp) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.xp = xp;
-		this.user = user;
 	}
 
 	public Long getId() {
@@ -75,11 +67,4 @@ public class Badge {
 		this.xp = xp;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 }

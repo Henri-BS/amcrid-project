@@ -1,29 +1,64 @@
 import QuestScore from 'components/QuestScore';
 import { Link } from 'react-router-dom';
+import './styles.css'
+function UserCard() {
 
-function QuestCard() {
-
-const quest = {
+    const user = {
         id: 1,
-        image: "https://s3.wp.wsu.edu/uploads/sites/609/2019/10/ITSrollout-1188x792.jpg",
-        title: "Segurança da Informação",
-        answers: 20,
-        score: 4.5
-};
+        image: "https://ih1.redbubble.net/image.1426571880.2339/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
+        userName: "User05",
+        quests: 20,
+        posts: 30,
+        badge: "https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png"
+    };
 
-return (
-<div>
-    <img className="cl-user-card-image" src={quest.image} alt={quest.title} />
-    <div className="cl-user-card-bottom-container">  <h3>{quest.title}</h3>
- <QuestScore />
- <Link to="/quest/1">
-     <div className="btn btn-primary cl-form-btn">
-Acessar 
-</div>
-     </Link>
- </div>
-</div>
-);
+    return (
+        <div className="cl-max-container">
+            <div className="cl-user-cont">
+                <div className="row">      
+                <div className="cl-user-box-container col-6">           
+                <img className="cl-user-card-image" src={user.image} alt={user.userName} />
+                <div className="cl-user-card-container ">              
+                <h3>{user.userName}</h3>
+                <div className= "cl-user-badge-container">
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+                <div className="badge-item"><img className="badge-item" src={user.badge} alt={user.userName} /></div>
+
+                    </div> 
+                    <hr />
+                        <ul className="list-unstyled">
+                            <li className="mb-2"><b>Quests finalizadas:</b>{user.quests}</li>
+                            <li className="mb-2"><b>Artigos Lidos:</b>{user.posts}</li>
+                            <li className="mb-2"><b>Total de Conquistas:</b>23</li>
+                            <li className="mb-2"></li>
+                        </ul>
+                        </div>
+                        </div>
+
+                        <div className="cl-user-box-container col-6">           
+                        <h3>Informações</h3>
+                        <hr />
+                        <ul className="list-unstyled">
+                            <li className="mb-2"><b>Data Nascimento:</b> 11/02/2999</li>
+                            <li className="mb-2"><b>Ocupação:</b> Engenheiro e Uber</li>
+                            <li className="mb-2"><b>Localidade:</b> São Paulo</li>
+                            <li className="mb-2"><b>Data Nascimento:</b> 11/02/2999</li>
+                        </ul>
+                        </div>
+                       
+                        </div>
+                        </div>
+                        </div>   
+    );
 
 }
-export default QuestCard;
+export default UserCard;

@@ -5,8 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
-public class QuestForm {
-	
+
+public class QuestionForm {
+		
 	private List<Question> questions;
 	
 	public List<Question> getQuestions() {

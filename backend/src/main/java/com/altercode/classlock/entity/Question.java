@@ -9,15 +9,15 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "tb_questions")
+@Table(name = "tb_question")
 public class Question {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "quest_id")
+	@Column(name = "question_id")
 	private Long id;
 
-	@Column(name = "quest_title")
+	@Column(name = "question_title")
 	private String title;
 
 	@Column(name = "option_a")

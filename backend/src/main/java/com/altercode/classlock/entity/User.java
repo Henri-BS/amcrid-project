@@ -2,7 +2,9 @@ package com.altercode.classlock.entity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,53 +30,49 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Long id;
-	
+
 	@Email
 	@Size(min = 5, max = 40)
 	@Column(name = "email", length = 40, unique = true, nullable = false)
 	private String email;
-	
+
 	@Size(min = 1, max = 50)
 	@Column(name = "user_name", length = 50)
-		private String userName;
-		
+	private String userName;
+
 	@Column(name = "password")
 	private String password;
-	
+
 	@Column(name = "user_image")
 	private String image;
-	
+
 	@CreatedBy
 	@Column(name = "created_by", length = 50, updatable = false)
 	private String createdBy;
-	
+
 	@CreatedDate
 	@Column(name = "created_date")
 	private LocalDateTime createdDate = LocalDateTime.now();
-	
-	@LastModifiedBy
-	@Column(name = "last_modified_by", length = 50)
-	private String lastModifiedBy;
-	
-	@LastModifiedDate
-	@Column(name = "last_modified_date")
-	private LocalDateTime lastModifiedDate = LocalDateTime.now();
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<Post> posts = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments = new ArrayList<>();
 	
 	@OneToOne(mappedBy = "userName")
 	private Result result;
 	
+	@OneToMany(mappedBy = "id.question")
+	private Set<Question> questions = new HashSet<>();
+
 	public User() {
-		
+
 	}
 
 	public User(Long id, String email, String userName, String password, String image, String createdBy,
-			LocalDateTime createdDate, String lastModifiedBy, LocalDateTime lastModifiedDate, List<Post> posts) {
+			LocalDateTime createdDate, String lastModifiedBy, LocalDateTime lastModifiedDate, List<Post> posts,
+			List<Comment> comments, Result result) {
 		this.id = id;
 		this.email = email;
 		this.userName = userName;
@@ -82,9 +80,9 @@ public class User {
 		this.image = image;
 		this.createdBy = createdBy;
 		this.createdDate = createdDate;
-		this.lastModifiedBy = lastModifiedBy;
-		this.lastModifiedDate = lastModifiedDate;
 		this.posts = posts;
+		this.comments = comments;
+		this.result = result;
 	}
 
 	public Long getId() {
@@ -143,27 +141,27 @@ public class User {
 		this.createdDate = createdDate;
 	}
 
-	public String getLastModifiedBy() {
-		return lastModifiedBy;
-	}
-
-	public void setLastModifiedBy(String lastModifiedBy) {
-		this.lastModifiedBy = lastModifiedBy;
-	}
-
-	public LocalDateTime getLastModifiedDate() {
-		return lastModifiedDate;
-	}
-
-	public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
-		this.lastModifiedDate = lastModifiedDate;
-	}
-
 	public List<Post> getPosts() {
 		return posts;
 	}
 
 	public void setPosts(List<Post> posts) {
 		this.posts = posts;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Result getResult() {
+		return result;
+	}
+
+	public void setResult(Result result) {
+		this.result = result;
 	}
 }

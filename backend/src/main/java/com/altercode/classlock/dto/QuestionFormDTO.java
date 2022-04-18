@@ -1,15 +1,17 @@
-package com.altercode.classlock.entity;
+package com.altercode.classlock.dto;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import com.altercode.classlock.entity.Question;
 
-@Component
-
-public class QuestionForm {
+public class QuestionFormDTO {
 		
 	private List<Question> questions;
 	
+	public QuestionFormDTO(List<Question> questions) {
+		this.questions = questions;
+	}
+
 	public List<Question> getQuestions() {
 		return questions;
 	}

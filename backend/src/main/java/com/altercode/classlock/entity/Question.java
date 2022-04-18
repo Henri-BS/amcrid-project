@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -38,6 +40,9 @@ public class Question {
 	private Integer ans;
 	private Integer chose;
 
+@ManyToOne
+@JoinColumn(name = "chapter_id")
+private Chapter chapter;
 
 	public Question() {
 

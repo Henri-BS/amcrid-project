@@ -15,25 +15,25 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "tb_result")
 public class Result {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "result_id")
 	private Long id;
-	
+
 	@OneToOne
-@JoinColumn(name = "user_id")
-	private User userName;
-	
+	@JoinColumn(name = "user_id")
+	private User user;
+
 	private Integer totalCorrect = 0;
-	
+
 	public Result() {
-		
+
 	}
 
-	public Result(Long id, User userName, Integer totalCorrect) {
+	public Result(Long id, User user, Integer totalCorrect) {
 		this.id = id;
-		this.userName = userName;
+		this.user = user;
 		this.totalCorrect = totalCorrect;
 	}
 
@@ -45,12 +45,12 @@ public class Result {
 		this.id = id;
 	}
 
-	public User getUserName() {
-		return userName;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserName(User userName) {
-		this.userName = userName;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Integer getTotalCorrect() {
@@ -60,6 +60,5 @@ public class Result {
 	public void setTotalCorrect(Integer totalCorrect) {
 		this.totalCorrect = totalCorrect;
 	}
-
 
 }

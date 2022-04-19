@@ -2,9 +2,7 @@ package com.altercode.classlock.entity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,8 +17,6 @@ import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @Table(name = "tb_user")
@@ -60,11 +56,8 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments = new ArrayList<>();
 	
-	@OneToOne(mappedBy = "userName")
+	@OneToOne(mappedBy = "user")
 	private Result result;
-	
-	@OneToMany(mappedBy = "id.question")
-	private Set<Question> questions = new HashSet<>();
 
 	public User() {
 

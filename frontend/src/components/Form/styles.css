@@ -11,6 +11,7 @@
 
 .cl-form-group {
     margin-bottom: 20px;
+    line-height: 30px;
 }
 
 .cl-form-group label {
@@ -66,4 +67,26 @@
     font-weight: 700;
     min-height: 40px;
     color: #fff;
+}
+
+.cl-card-bottom-container h4 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    min-height: 40px;
+    color: #fff;
+}
+
+.cl-card-bottom-container hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: var(--tert);
+    border: 0;
+    opacity: 1;
+}
+
+.cl-card-info {
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    line-height: 20px;
 }

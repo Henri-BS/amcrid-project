@@ -1,18 +1,36 @@
 .article-container {
     background-color: #0b1218;
-    margin: 0;
+    margin-left: 5px;
     width: initial;
+    max-height: 600px;
     text-align: center;
     border-radius: 10px;
+    overflow-y: scroll;
+}
+
+.article-container::-webkit-scrollbar {
+    width: 0%;
 }
 
 .article-container h2 {
     text-align: center;
-    padding: 30px;
+    padding: 20px 10px 20px 10px;
 }
 
 .article-content {
     display: grid;
     padding: 30px;
     text-align: justify;
+    font-size: x-large;
+}
+
+@media screen and (max-width: 658px) {
+    .article-container {
+        background-color: #0b1218;
+        margin-left: 5px;
+        width: initial;
+        max-height: 600px;
+        text-align: center;
+        border-radius: 10px;
+    }
 }

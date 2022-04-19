@@ -8,10 +8,8 @@ public class ResultDTO implements Serializable{
 
 	private Long id;
 	private Integer totalCorrect = 0;
-	
 	private UserDTO user;
 
-	public String Email;
 
 
 	public ResultDTO() {

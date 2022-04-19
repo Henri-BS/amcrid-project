@@ -13,34 +13,39 @@ function Form() {
     return (
         <>
             <div className="cl-form-container">
-                <img className="cl-quest-card-image" src={quest.image} alt={quest.title} />
                 <div className="cl-card-bottom-container">
-                    <h3>Segurança da Informação</h3>               
-                    <p>Sobre segurança da Informação responda: qual seria...</p>
+                    <h3>Segurança da Informação</h3>
+                    <h4>Quais os princípios básicos da Segurança da Informação ?</h4>
+               
                     <form className="cl-form">
-                        Responder:
                         <div className="form-group cl-form-group">
-                            <label htmlFor="email">Informe seu email</label>
-                            <input type="email" className="form-control" id="email" />
+                               <hr />  
+                               <ul className="list-unstyled">
+                                <li>A - Confidencialidade, integridade, disponibilidade, autencidade</li>
+                                <li>B - Confidencialidade, não repúdio, disponibliidade, concistência</li>
+                                <li>C - Escalabilidade, integridade, autenticiadade, criptografia</li>
+                                <li>D - Durabilidade, integridade, tolerância, encapsulamento</li>
+                                <li>E - Confidencialidade, disponibilidade, autencidade</li>
+                                <hr />
+                            </ul>
                         </div>
                         <div className="form-group cl-form-group">
                             <label htmlFor="score">Selecione sua resposta</label>
                             <select className="form-control" id="score">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <option>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                                <option>D</option>
+                                <option>E</option>
                             </select>
                         </div>
                     </form >
                     <div className="cl-form-btn-container">
                         <button type="submit" className="btn cl-form-btn">Salvar</button>
                     </div>
-                    <button className="btn  cl-form-btn mt-3">Cancelar</button>
-                 </div>
+                </div>
             </div>
-            </>
+        </>
     );
 }
 

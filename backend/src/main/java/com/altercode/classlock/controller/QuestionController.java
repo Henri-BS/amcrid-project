@@ -14,25 +14,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.QuestionDTO;
 import com.altercode.classlock.dto.ResultDTO;
-import com.altercode.classlock.entity.Result;
 import com.altercode.classlock.service.QuestionService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/questions")
 public class QuestionController {
 
-	@Autowired
 	private ResultDTO resultDTO;
+	
 	@Autowired
 	private QuestionService service;
 	
-	@GetMapping("/questions")
+	@GetMapping
 	public ResponseEntity<Page<QuestionDTO>> findAll(Pageable pageable) {
 		Page<QuestionDTO> list = service.findAll(pageable);
 		return ResponseEntity.ok(list);
 	}
 
-	@GetMapping("/resultDTO")
+	@GetMapping("/result")
 	public ResultDTO getResult() {
 		return resultDTO;
 	}

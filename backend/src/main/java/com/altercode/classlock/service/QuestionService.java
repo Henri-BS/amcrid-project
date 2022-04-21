@@ -18,8 +18,6 @@ import com.altercode.classlock.entity.Result;
 import com.altercode.classlock.repository.QuestionRepository;
 import com.altercode.classlock.repository.ResultRepository;
 
-
-
 @Service
 public class QuestionService {
 	
@@ -33,7 +31,6 @@ public class QuestionService {
 	
 	public int getResult(QuestionFormDTO questionFormDTO) {
 		int correct = 0;
-		
 		for(Question q: questionFormDTO.getQuestions())
 				if(q.getAns() == q.getChose())
 					correct++;
@@ -52,10 +49,21 @@ public class QuestionService {
 		return scoreList.stream().map(x -> new ResultDTO()).collect(Collectors.toList());
 	}
 	
+	public List<QuestionDTO> findAll() {
+		List<Question> result = repository.findAll();
+		return result.stream().map(x -> new QuestionDTO(x)).collect(Collectors.toList());
+	}
+	
 	@Transactional(readOnly = true)
 	public Page<QuestionDTO>findAll(Pageable pageable) {
 		Page<Question> result = repository.findAll(pageable);
 		Page<QuestionDTO> page = result.map(x -> new QuestionDTO(x));
 		return page;
+	}
+	
+	public QuestionDTO findById(Long id) {
+		Question result = repository.findById(id).get();
+		QuestionDTO dto = new QuestionDTO(result);
+		return dto;
 	}
 }

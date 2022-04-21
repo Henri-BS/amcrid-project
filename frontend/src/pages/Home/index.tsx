@@ -1,5 +1,5 @@
 
-import { PaginationLeft, PaginationRight } from 'components/Pagination';
+import Pagination, { PaginationLeft, PaginationRight } from 'components/Pagination';
 import './styles.css'
 import ArticleNav from 'components/ArticleNav';
 import Article from 'components/Article';
@@ -31,18 +31,14 @@ export default function Home() {
 
         </div>
 
-        <div className="quest-max-container d-flex">
-      
-          <div className="pagination-page-container ">
-              <PaginationLeft />
-            </div>
-            <div className="quest-chapter-container  d-flex" >
+        <div className="quest-max-container">
+      <div className="d-flex">
+            <div className="quest-chapter-container" >
               <QuestCard />
-              <Article />
-              </div>
-            <div className="pagination-page-container ">
-              <PaginationRight />
+              
+              </div><Article /> 
             </div>
+            <Pagination/>
           </div>
       </div>
     </>

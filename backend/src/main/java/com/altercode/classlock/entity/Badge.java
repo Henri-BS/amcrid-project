@@ -33,6 +33,10 @@ public class Badge {
 	@ManyToOne
 	@JoinColumn(name = "chapter_id")
 	private Chapter chapter;
+	
+	@ManyToOne
+	@JoinColumn(name = "result_id")
+	private Result result;
 
 	public Badge() {
 		

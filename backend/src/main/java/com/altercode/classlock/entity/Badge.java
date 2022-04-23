@@ -41,8 +41,8 @@ public class Badge {
 	public Badge() {
 		
 	}
-	
-	public Badge(Long id, String name, String description, String image, Integer xp, Chapter chapter) {
+
+	public Badge(Long id, String name, String description, String image, Integer xp, Chapter chapter, Result result) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -50,6 +50,7 @@ public class Badge {
 		this.image = image;
 		this.xp = xp;
 		this.chapter = chapter;
+		this.result = result;
 	}
 
 	public Long getId() {
@@ -75,7 +76,6 @@ public class Badge {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
 
 	public String getImage() {
 		return image;
@@ -93,4 +93,19 @@ public class Badge {
 		this.xp = xp;
 	}
 
+	public Chapter getChapter() {
+		return chapter;
+	}
+
+	public void setChapter(Chapter chapter) {
+		this.chapter = chapter;
+	}
+
+	public Result getResult() {
+		return result;
+	}
+
+	public void setResult(Result result) {
+		this.result = result;
+	}
 }

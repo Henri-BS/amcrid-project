@@ -57,7 +57,7 @@ public class User {
 	private List<Comment> comments = new ArrayList<>();
 	
 	@OneToOne(mappedBy = "user")
-	private Result result;
+	private Conquest conquest;
 
 	public User() {
 
@@ -65,7 +65,7 @@ public class User {
 
 	public User(Long id, String email, String userName, String password, String image, String createdBy,
 			LocalDateTime createdDate, String lastModifiedBy, LocalDateTime lastModifiedDate, List<Post> posts,
-			List<Comment> comments, Result result) {
+			List<Comment> comments, Conquest conquest) {
 		this.id = id;
 		this.email = email;
 		this.userName = userName;
@@ -75,7 +75,7 @@ public class User {
 		this.createdDate = createdDate;
 		this.posts = posts;
 		this.comments = comments;
-		this.result = result;
+		this.conquest = conquest;
 	}
 
 	public Long getId() {
@@ -150,11 +150,11 @@ public class User {
 		this.comments = comments;
 	}
 
-	public Result getResult() {
-		return result;
+	public Conquest getConquest() {
+		return conquest;
 	}
 
-	public void setResult(Result result) {
-		this.result = result;
+	public void setConquest(Conquest conquest) {
+		this.conquest = conquest;
 	}
 }

@@ -17,6 +17,7 @@ import com.altercode.classlock.dto.QuestionDTO;
 import com.altercode.classlock.dto.ResultDTO;
 import com.altercode.classlock.service.QuestionService;
 
+
 @RestController
 @RequestMapping("/questions")
 public class QuestionController {
@@ -53,4 +54,6 @@ public class QuestionController {
 		List<ResultDTO> scoreList = service.getTopScore();
 		return new ResponseEntity<>(scoreList, HttpStatus.OK);
 	}
+	
+	
 }

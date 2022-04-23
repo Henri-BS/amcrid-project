@@ -15,6 +15,8 @@ import com.altercode.classlock.dto.QuestionFormDTO;
 import com.altercode.classlock.dto.ResultDTO;
 import com.altercode.classlock.entity.Question;
 import com.altercode.classlock.entity.Result;
+import com.altercode.classlock.entity.ResultPK;
+import com.altercode.classlock.entity.User;
 import com.altercode.classlock.repository.QuestionRepository;
 import com.altercode.classlock.repository.ResultRepository;
 
@@ -27,11 +29,11 @@ public class QuestionService {
 	@Autowired
 	private ResultRepository resultRepository;
 	
-	QuestionFormDTO questionFormDTO;
+	ResultPK resultPK;
 	
-	public int getResult(QuestionFormDTO questionFormDTO) {
+	public int getResult(ResultPK resultPK) {
 		int correct = 0;
-		for(Question q: questionFormDTO.getQuestions())
+		for(Question q: resultPK.getQuestions())
 				if(q.getAns() == q.getChose())
 					correct++;
 		return correct;
@@ -62,8 +64,8 @@ public class QuestionService {
 	}
 	
 	public QuestionDTO findById(Long id) {
-		Question result = repository.findById(id).get();
-		QuestionDTO dto = new QuestionDTO(result);
+		Question question = repository.findById(id).get();
+		QuestionDTO dto = new QuestionDTO(question);
 		return dto;
 	}
 }

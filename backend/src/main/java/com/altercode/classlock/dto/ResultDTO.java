@@ -2,6 +2,8 @@ package com.altercode.classlock.dto;
 
 import java.io.Serializable;
 
+import com.altercode.classlock.entity.Result;
+
 
 public class ResultDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -15,7 +17,7 @@ public class ResultDTO implements Serializable{
 	public ResultDTO() {
 	}
 
-	public ResultDTO(ResultDTO entity) {
+	public ResultDTO(Result entity) {
 		id = entity.getId();		
 		totalCorrect = entity.getTotalCorrect();
 	}

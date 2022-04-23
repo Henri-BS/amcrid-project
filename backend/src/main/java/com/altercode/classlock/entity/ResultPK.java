@@ -1,6 +1,7 @@
 package com.altercode.classlock.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
@@ -17,6 +18,8 @@ public class ResultPK  implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "result_id")
 	private User user;
+	
+private List<Question> questions;
 	
 	public ResultPK() {
 	}
@@ -37,5 +40,11 @@ public class ResultPK  implements Serializable{
 		this.user = user;
 	}
 
-	
+	public List<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
 }

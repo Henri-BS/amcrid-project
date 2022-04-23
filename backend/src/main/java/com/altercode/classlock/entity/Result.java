@@ -1,15 +1,14 @@
 package com.altercode.classlock.entity;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -22,24 +21,22 @@ public class Result {
 	@Column(name = "result_id")
 	private Long id;
 
+	@Column(name = "total_correct")
 	private Integer totalCorrect = 0;
 	
-	@OneToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+	private String user;
 	
 	@OneToMany(mappedBy = "result")
-	private Set<Badge> badges;
-	
+	private List<Badge> badges = new ArrayList<>();
+		
 	public Result() {
 
 	}
 
-	public Result(Long id, Integer totalCorrect, User user, Set<Badge> badges) {
-		super();
+	public Result(Long id, Integer totalCorrect, String user, List<Badge> badges) {
 		this.id = id;
 		this.totalCorrect = totalCorrect;
-		this.user = user;
+		this.user = user; 
 		this.badges = badges;
 	}
 
@@ -59,19 +56,19 @@ public class Result {
 		this.totalCorrect = totalCorrect;
 	}
 
-	public User getUser() {
+	public String getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(String user) {
 		this.user = user;
 	}
 
-	public Set<Badge> getBadges() {
+	public List<Badge> getBadges() {
 		return badges;
 	}
 
-	public void setBadges(Set<Badge> badges) {
+	public void setBadges(List<Badge> badges) {
 		this.badges = badges;
 	}
 }

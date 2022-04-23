@@ -29,3 +29,9 @@ INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, bad
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp) VALUES ( 7, 'Epic Reader', 'Leu 10 Artigos', 'https://cdn1.iconfinder.com/data/icons/education-309/64/book-education-knowledge-learning-512.png', 100);
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp) VALUES ( 8, 'Winged Quizzer', 'Concluiu 1 Quizz em menos de 10 segundos', 'https://cdn3.iconfinder.com/data/icons/rock-and-roll-2/64/celebration-star-wing-events-party-512.png', 70);
 
+INSERT INTO tb_result ( total_correct, user) VALUES( 3,'Jack' );
+INSERT INTO tb_result ( total_correct, user) VALUES( 2, 'Ryan' );
+INSERT INTO tb_result ( total_correct, user) VALUES( 0, 'jack' );
+
+INSERT INTO tb_conquest ( article_read, chapter_completed, quizz_completed, total_badges, total_xp, user_id ) VALUES(5, 2, 6, 4, 540, 1);
+   

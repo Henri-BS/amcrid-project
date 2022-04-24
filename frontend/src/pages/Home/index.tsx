@@ -26,21 +26,20 @@ export default function Home() {
             <div className="pagination-page-container">
               <PaginationRight />
             </div>
-
           </div>
-
         </div>
+        <h1>Trilha</h1>
+      <Pagination/>
+        <div className="row ">
 
-        <div className="quest-max-container">
-      <div className="d-flex">
-            <div className="quest-chapter-container" >
+            <div className=" col-sm-6 col-md-3 xl-3" >
               <QuestCard />
-              
-              </div><Article /> 
-            </div>
-            <Pagination/>
-          </div>
-      </div>
+              </div>  
+              <div className="col-sm-6 col-md-9 col-xl-9">
+              <Article /> 
+              </div>
+              </div>
+              </div>
     </>
   );
 }

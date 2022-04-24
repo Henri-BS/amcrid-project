@@ -3,6 +3,7 @@ import { Button } from 'components/Button';
 import { Link } from 'react-router-dom';
 import Dropdown from 'components/Dropdown';
 import IWLogo from 'assets/img/w-logo.svg';
+import IProf from "assets/img/prof.jpg";
 import './styles.css'
 
 function Navbar() {
@@ -37,12 +38,20 @@ function Navbar() {
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
+
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li>
+              <Link to='/profile/1' className='nav-links-mobile' onClick={closeMobileMenu}>
+              <img src={IProf} alt='profile' />
+              </Link>
+            </li>
+
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                 Home
               </Link>
             </li>
+
             <li
               className='nav-item'
               onMouseEnter={onMouseEnter}
@@ -59,23 +68,14 @@ function Navbar() {
             </li>
             
             <li className='nav-item'>
-              <Link
-                to='/suporte'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
+              <Link to='/suporte' className='nav-links' onClick={closeMobileMenu} >
                 Suporte
               </Link>
             </li>
 
-            
-          
             <li>
               <Link
-                to='/sign-up'
-                className='nav-links-mobile'
-                onClick={closeMobileMenu}
-              >
+                to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu} >
                 Sign Up
               </Link>
             </li>

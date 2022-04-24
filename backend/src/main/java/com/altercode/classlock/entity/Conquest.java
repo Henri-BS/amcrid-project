@@ -38,8 +38,6 @@ public class Conquest {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	
-
 	public Conquest() {
 	}
 

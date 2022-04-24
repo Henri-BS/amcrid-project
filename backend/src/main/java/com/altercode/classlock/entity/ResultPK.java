@@ -19,7 +19,7 @@ public class ResultPK  implements Serializable{
 	@JoinColumn(name = "result_id")
 	private User user;
 	
-private List<Question> questions;
+	private List<Question> questions;
 	
 	public ResultPK() {
 	}

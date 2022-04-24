@@ -1,4 +1,3 @@
-import Article from 'components/Article';
 import Form from 'components/Form/index ';
 import React from 'react';
 import './styles.css';

@@ -109,6 +109,19 @@
         color: #fff;
         font-size: 2rem;
     }
+    .profile-nav {
+        background-color: #fff;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-self: center;
+        justify-content: center;
+        padding: 10px 10px 20px;
+    }
+    .nav-links-profile {
+        background-color: var(--nona);
+        object-fit: cover;
+    }
     .nav-links {
         display: block;
         background: var(--tert);

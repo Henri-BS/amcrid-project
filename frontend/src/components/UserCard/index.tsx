@@ -1,5 +1,4 @@
-import QuestScore from 'components/QuestScore';
-import { Link } from 'react-router-dom';
+
 import './styles.css'
 function UserCard() {
 

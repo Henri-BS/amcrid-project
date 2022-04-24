@@ -1,10 +1,3 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Libre Franklin', sans-serif;
-}
-
 .container {
     background-color: var(--sept);
     color: #fff;
@@ -48,35 +41,10 @@
     background-color: var(--sept);
 }
 
-.quest-max-container {
-    background-color: var(--sept);
-    padding: 10px 5px 10px 5px;
-}
-
 .quest-chapter-container {
     display: flex;
     max-height: 600px;
     width: 100%;
     padding: 20px 10px 20px 10px;
     border-radius: 10px;
-}
-
-@media screen and (max-width: 960px) {
-    .container {
-        min-height: 1000px;
-        min-width: none;
-    }
-    .article-max-container {
-        width: 100%;
-    }
-    .article-scroll-container {
-        width: 100%;
-    }
-    .pagination-page-container {
-        margin: 0;
-    }
-    .quest-chapter-container {
-        padding: 20px 10px 20px 10px;
-        border-radius: 10px;
-    }
 }

@@ -35,22 +35,21 @@ public class Badge {
 	private Chapter chapter;
 	
 	@ManyToOne
-	@JoinColumn(name = "result_id")
-	private Result result;
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	public Badge() {
 		
 	}
 
-	public Badge(Long id, String name, String description, String image, Integer xp, Chapter chapter, Result result) {
-		super();
+	public Badge(Long id, String name, String description, String image, Integer xp, Chapter chapter, User user) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.image = image;
 		this.xp = xp;
 		this.chapter = chapter;
-		this.result = result;
+		this.user = user;
 	}
 
 	public Long getId() {
@@ -101,11 +100,11 @@ public class Badge {
 		this.chapter = chapter;
 	}
 
-	public Result getResult() {
-		return result;
+	public User getUser() {
+		return user;
 	}
 
-	public void setResult(Result result) {
-		this.result = result;
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

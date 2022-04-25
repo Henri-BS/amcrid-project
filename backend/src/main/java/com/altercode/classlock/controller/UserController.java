@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.UserDTO;
+import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.service.UserService;
 
 
@@ -36,5 +37,11 @@ public class UserController {
 	@GetMapping(value = "/{id}")
 	public UserDTO findById(@PathVariable Long id){
 	return service.findById(id);	
+	}
+	
+	@GetMapping(value = "/total-xp")
+	public ResponseEntity<List<XpDTO>> totalUserXp() {
+		List<XpDTO> list = service.totalUserXp();
+		return ResponseEntity.ok(list);
 	}
 }

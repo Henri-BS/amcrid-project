@@ -56,6 +56,9 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "user")
+	private List<Badge> badges = new ArrayList<>();
+	
 	@OneToOne(mappedBy = "user")
 	private Conquest conquest;
 
@@ -63,9 +66,12 @@ public class User {
 
 	}
 
-	public User(Long id, String email, String userName, String password, String image, String createdBy,
-			LocalDateTime createdDate, String lastModifiedBy, LocalDateTime lastModifiedDate, List<Post> posts,
-			List<Comment> comments, Conquest conquest) {
+	
+
+	public User(Long id, @Email @Size(min = 5, max = 40) String email, @Size(min = 1, max = 50) String userName,
+			String password, String image, String createdBy, LocalDateTime createdDate, List<Post> posts,
+			List<Comment> comments, List<Badge> badges, Conquest conquest) {
+		super();
 		this.id = id;
 		this.email = email;
 		this.userName = userName;
@@ -75,6 +81,7 @@ public class User {
 		this.createdDate = createdDate;
 		this.posts = posts;
 		this.comments = comments;
+		this.badges = badges;
 		this.conquest = conquest;
 	}
 
@@ -148,6 +155,14 @@ public class User {
 
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+	
+	public List<Badge> getBadges() {
+		return badges;
+	}
+
+	public void setBadges(List<Badge> badges) {
+		this.badges = badges;
 	}
 
 	public Conquest getConquest() {

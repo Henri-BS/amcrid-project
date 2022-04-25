@@ -25,9 +25,6 @@ public class Result {
 	private Integer totalCorrect = 0;
 	
 	private String user;
-	
-	@OneToMany(mappedBy = "result")
-	private List<Badge> badges = new ArrayList<>();
 		
 	public Result() {
 
@@ -37,7 +34,6 @@ public class Result {
 		this.id = id;
 		this.totalCorrect = totalCorrect;
 		this.user = user; 
-		this.badges = badges;
 	}
 
 	public Long getId() {
@@ -62,13 +58,5 @@ public class Result {
 
 	public void setUser(String user) {
 		this.user = user;
-	}
-
-	public List<Badge> getBadges() {
-		return badges;
-	}
-
-	public void setBadges(List<Badge> badges) {
-		this.badges = badges;
 	}
 }

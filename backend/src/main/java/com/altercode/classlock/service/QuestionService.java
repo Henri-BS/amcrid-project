@@ -11,12 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.altercode.classlock.dto.QuestionDTO;
-import com.altercode.classlock.dto.QuestionFormDTO;
 import com.altercode.classlock.dto.ResultDTO;
 import com.altercode.classlock.entity.Question;
 import com.altercode.classlock.entity.Result;
 import com.altercode.classlock.entity.ResultPK;
-import com.altercode.classlock.entity.User;
 import com.altercode.classlock.repository.QuestionRepository;
 import com.altercode.classlock.repository.ResultRepository;
 

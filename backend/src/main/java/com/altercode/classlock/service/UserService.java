@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.altercode.classlock.dto.UserDTO;
+import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.entity.User;
+import com.altercode.classlock.repository.BadgeRepository;
 import com.altercode.classlock.repository.UserRepository;
 
 @Service
@@ -18,6 +20,9 @@ public class UserService {
 
 	@Autowired
 	private UserRepository repository;
+	
+	@Autowired
+	private BadgeRepository badgeRepository;
 	
 	public List<UserDTO> findAll() {
 		List<User> result = repository.findAll();
@@ -37,4 +42,5 @@ public class UserService {
 		UserDTO dto = new UserDTO(result);
 		return dto;
 	}
+	
 }

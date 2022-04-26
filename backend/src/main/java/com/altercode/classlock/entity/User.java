@@ -58,9 +58,6 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	private List<Badge> badges = new ArrayList<>();
-	
-	@OneToOne(mappedBy = "user")
-	private Conquest conquest;
 
 	public User() {
 
@@ -80,7 +77,6 @@ public class User {
 		this.posts = posts;
 		this.comments = comments;
 		this.badges = badges;
-		this.conquest = conquest;
 	}
 
 	public Long getId() {
@@ -161,13 +157,5 @@ public class User {
 
 	public void setBadges(List<Badge> badges) {
 		this.badges = badges;
-	}
-
-	public Conquest getConquest() {
-		return conquest;
-	}
-
-	public void setConquest(Conquest conquest) {
-		this.conquest = conquest;
 	}
 }

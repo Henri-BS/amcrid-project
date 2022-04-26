@@ -1,0 +1,15 @@
+package com.altercode.classlock.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.altercode.classlock.dto.ConquestDTO;
+import com.altercode.classlock.entity.Conquest;
+
+@Repository
+public interface ConquestRepository extends JpaRepository<Conquest, Long> {
+	ConquestDTO findConquestById(Long id);
+
+}

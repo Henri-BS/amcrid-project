@@ -1,55 +1,33 @@
-package com.altercode.classlock.entity;
+package com.altercode.classlock.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import java.io.Serializable;
 
+import com.altercode.classlock.entity.Conquest;
 
-@Entity
-@Table(name = "tb_conquest") 
-public class Conquest {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "conquest_id")
+public class ConquestDTO  implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	private Long id;
-	
-	@Column(name = "article_read")
 	private Integer articleRead;
-	
-	@Column(name = "quizz_completed")
 	private Integer quizzCompleted;
-	
-	@Column(name = "chapter_completed")
 	private Integer chapterCompleted;
-	
-	@Column(name = "total_xp")
 	private Integer totalXp;
-	
-	@Column(name = "total_badges")
 	private Integer totalBadges;
-	@Column(name = "user")
 	private String user;
 	
-	public Conquest() {
+	public ConquestDTO() {
 	}
 
-	public Conquest(Long id, Integer articleRead, Integer quizzCompleted, Integer chapterCompleted, Integer totalXp,
-			Integer totalBadges, String user) {
-		this.id = id;
-		this.articleRead = articleRead;
-		this.quizzCompleted = quizzCompleted;
-		this.chapterCompleted = chapterCompleted;
-		this.totalXp = totalXp;
-		this.totalBadges = totalBadges;
-		this.user = user;
+	public ConquestDTO(Conquest entity) {
+		id = entity.getId();
+		articleRead = entity.getArticleRead();
+		quizzCompleted = entity.getQuizzCompleted();
+		chapterCompleted = entity.getChapterCompleted();
+		totalXp = entity.getTotalXp();
+		totalBadges = entity.getTotalBadges();
+		user = entity.getUser();
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -105,6 +83,5 @@ public class Conquest {
 	public void setUser(String user) {
 		this.user = user;
 	}
-
-
 }
+

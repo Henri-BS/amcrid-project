@@ -1,6 +1,7 @@
 package com.altercode.classlock.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.altercode.classlock.dto.ConquestDTO;
 import com.altercode.classlock.dto.UserDTO;
 import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.entity.Conquest;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.repository.BadgeRepository;
+import com.altercode.classlock.repository.ConquestRepository;
 import com.altercode.classlock.repository.UserRepository;
 
 @Service
@@ -24,6 +27,9 @@ public class UserService {
 	
 	@Autowired
 	private BadgeRepository badgeRepository;
+	
+	@Autowired
+	private ConquestRepository conquestRepository;
 	
 	public List<UserDTO> findAll() {
 		List<User> result = repository.findAll();
@@ -55,7 +61,9 @@ public class UserService {
 	}
 	
 	@Transactional
-	public List<UserDTO> findByConquest(Conquest conquest) {
-		return repository.findByConquest(conquest);
+	public ConquestDTO findConquestById(Long id) {
+		return conquestRepository.findConquestById(id);
 	}
+
+
 }

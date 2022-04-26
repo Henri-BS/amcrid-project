@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.altercode.classlock.dto.UserDTO;
-import com.altercode.classlock.entity.Conquest;
 import com.altercode.classlock.entity.User;
 
 @Repository
@@ -16,5 +15,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	List<UserDTO> findByUserName(String userName);
 	
-	List<UserDTO> findByConquest(Conquest conquest);
 }

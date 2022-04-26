@@ -19,8 +19,8 @@ import com.altercode.classlock.service.QuestionService;
 
 
 @RestController
-@RequestMapping("/questions")
-public class QuestionController {
+@RequestMapping("/quizz")
+public class QuizzController {
 
 	private ResultDTO resultDTO;
 	
@@ -48,6 +48,12 @@ public class QuestionController {
 	public ResultDTO getResult() {
 		return resultDTO;
 	}
+	
+	@GetMapping("/result/{id}")
+    public ResponseEntity<ResultDTO> getEmployeeById(@PathVariable("id") Long id) {
+        ResultDTO result = service.findResultById(id);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 	
 	@GetMapping("/score")
 	public ResponseEntity<List<ResultDTO>> score(Model m) {

@@ -66,8 +66,6 @@ public class User {
 
 	}
 
-	
-
 	public User(Long id, @Email @Size(min = 5, max = 40) String email, @Size(min = 1, max = 50) String userName,
 			String password, String image, String createdBy, LocalDateTime createdDate, List<Post> posts,
 			List<Comment> comments, List<Badge> badges, Conquest conquest) {

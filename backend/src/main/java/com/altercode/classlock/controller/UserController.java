@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.UserDTO;
 import com.altercode.classlock.dto.XpDTO;
+import com.altercode.classlock.entity.Conquest;
 import com.altercode.classlock.service.UserService;
 
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -44,4 +45,16 @@ public class UserController {
 		List<XpDTO> list = service.totalUserXp();
 		return ResponseEntity.ok(list);
 	}
+	
+	@GetMapping(value = "/profile")
+	public ResponseEntity<List<UserDTO>> findByName(String userName) {
+		List<UserDTO> list = service.findByUserName(userName);
+		return ResponseEntity.ok(list);
+	}
+	
+	@GetMapping(value = "/profile/conquest")
+	public List<UserDTO> findByConquest(Conquest conquest){
+	return service.findByConquest(conquest);	
+	}
+	
 }

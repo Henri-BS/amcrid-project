@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.altercode.classlock.dto.UserDTO;
 import com.altercode.classlock.dto.XpDTO;
+import com.altercode.classlock.entity.Conquest;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.repository.BadgeRepository;
 import com.altercode.classlock.repository.UserRepository;
@@ -43,4 +44,18 @@ public class UserService {
 		return dto;
 	}
 	
+	@Transactional(readOnly = true)
+	public List<XpDTO> totalUserXp() {
+		return badgeRepository.totalUserXp();
+	}
+	
+	@Transactional
+	public List<UserDTO> findByUserName(String name) {
+		return repository.findByUserName(name);
+	}
+	
+	@Transactional
+	public List<UserDTO> findByConquest(Conquest conquest) {
+		return repository.findByConquest(conquest);
+	}
 }

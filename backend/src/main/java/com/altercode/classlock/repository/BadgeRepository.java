@@ -9,9 +9,10 @@ import org.springframework.stereotype.Repository;
 import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.entity.Badge;
 
+@Repository
 public interface BadgeRepository extends JpaRepository<Badge, Long>{
 	
-	@Query("SELECT new com.altercode.classlock.dto.XpDTO(obj.user, SUM(obj.xp))"
-			+ "FROM Badge AS obj GROUP BY obj.user")
+	@Query("SELECT SUM(b.xp)"
+			+ "FROM Badge b")
 	List<XpDTO> totalUserXp();
 }

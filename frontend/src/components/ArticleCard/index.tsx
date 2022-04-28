@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./styles.css"
-function ArticleNav() {
+
+function ArticleCard() {
     const article = {
         title: "Controle Parental",
         abstract: "Entenda a importância e os benefícios do controle parental nos meios digitais",
@@ -20,4 +21,4 @@ function ArticleNav() {
     );
 }
 
-export default ArticleNav;
+export default ArticleCard;

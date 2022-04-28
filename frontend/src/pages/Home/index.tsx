@@ -1,7 +1,7 @@
 
 import Pagination, { PaginationLeft, PaginationRight } from 'components/Pagination';
 import './styles.css'
-import ArticleNav from 'components/ArticleNav';
+import ArticleNav from 'components/ArticleCard';
 import Article from 'components/Article';
 import QuestCard from 'components/QuestCard';
 

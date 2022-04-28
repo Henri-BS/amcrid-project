@@ -35,10 +35,12 @@ function UserCard() {
                             </div>
                             <hr />
                             <ul className="list-unstyled">
-                                <li className="mb-2"><b>Quests finalizadas: </b>{user.quests}</li>
+                                <li className="mb-2"><b>Quizzes finalizados: </b>{user.quests}</li>
                                 <li className="mb-2"><b>Artigos Lidos: </b>{user.posts}</li>
-                                <li className="mb-2"><b>Total de Conquistas: </b>23</li>
-                                <li className="mb-2"></li>
+                                <li className="mb-2"><b>Capítulos Finalizados: </b>5</li>
+                                <li className="mb-2"><b>Total de Badges: </b>23</li>
+                                <li className="mb-2"><b>Total de Xp: </b>258</li>
+
                             </ul>
                         </div>
                     </div>

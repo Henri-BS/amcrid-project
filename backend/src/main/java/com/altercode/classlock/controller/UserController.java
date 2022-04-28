@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.ConquestDTO;
 import com.altercode.classlock.dto.UserDTO;
-import com.altercode.classlock.dto.XpDTO;
-import com.altercode.classlock.entity.Conquest;
 import com.altercode.classlock.service.UserService;
 
 
@@ -42,13 +40,7 @@ public class UserController {
 	return service.findById(id);	
 	}
 	
-	@GetMapping(value = "/total-xp")
-	public ResponseEntity<List<XpDTO>> totalUserXp() {
-		List<XpDTO> list = service.totalUserXp();
-		return ResponseEntity.ok(list);
-	}
-	
-	@GetMapping(value = "/profile")
+	@GetMapping("/profile")
 	public ResponseEntity<List<UserDTO>> findByName(String userName) {
 		List<UserDTO> list = service.findByUserName(userName);
 		return ResponseEntity.ok(list);
@@ -59,5 +51,9 @@ public class UserController {
         ConquestDTO result = service.findConquestById(id);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-	
+	/*
+	 * @GetMapping("/search") public List<User> getdByName(@RequestParam String
+	 * prefix){ return service.getByName(prefix); 
+	 * }
+	 */
 }

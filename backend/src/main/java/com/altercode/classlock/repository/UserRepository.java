@@ -14,5 +14,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	User findByEmail(String email);
 
 	List<UserDTO> findByUserName(String userName);
-	
+
+	/*
+	 * @Query("SELECT obj FROM User obj WHERE obj.userName like: ?1% ORDER BY obj.id ASC"
+	 * ) List<User> getByName(String prefix);
+	 */	
 }

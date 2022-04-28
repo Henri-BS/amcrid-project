@@ -54,6 +54,10 @@
     color: #fff;
 }
 
+.cl-max-container hr {
+    background-color: var(--sena);
+}
+
 .cl-user-box-container {
     background-color: var(--deca);
     justify-content: center;
@@ -111,17 +115,16 @@
     .cl-user-card-image {
         max-width: 200px;
         max-height: 250px;
-        border-radius: 30px 30px 0px 0px;
+        border-radius: 30px;
     }
     .cl-user-card-container {
         max-width: 188px;
         align-items: center;
-        background-color: var(--deca);
-        border-radius: 0px 0px 30px 30px;
         text-decoration-color: transparent;
         padding: 10px;
-        display: grid;
         border: none;
+        border-bottom: 1px solid var(--sena);
+        border-radius: 15px;
     }
     .cl-user-card-container h3 {
         text-align: center;

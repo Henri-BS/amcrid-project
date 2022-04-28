@@ -1,5 +1,7 @@
 package com.altercode.classlock.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.altercode.classlock.dto.BadgeDTO;
+import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.entity.Badge;
 import com.altercode.classlock.repository.BadgeRepository;
 
@@ -29,5 +32,10 @@ public class BadgeService {
 		BadgeDTO dto = new BadgeDTO(result);
 		return dto;
 	}
-	
+
+/*	@Transactional(readOnly = true)
+	public List<XpDTO> totalUserXp() {
+		return repository.totalUserXp();
+	}	
+*/
 }

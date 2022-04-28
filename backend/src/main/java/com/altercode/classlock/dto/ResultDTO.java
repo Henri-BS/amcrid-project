@@ -10,7 +10,7 @@ public class ResultDTO implements Serializable{
 
 	private Long id;
 	private Integer totalCorrect = 0;
-	private UserDTO user;
+	private String user;
 
 
 
@@ -31,11 +31,11 @@ public class ResultDTO implements Serializable{
 		this.id = id;
 	}
 
-	public UserDTO getUser() {
+	public String getUser() {
 		return user;
 	}
 
-	public void setUser(UserDTO user) {
+	public void setUser(String user) {
 		this.user = user;
 	}
 

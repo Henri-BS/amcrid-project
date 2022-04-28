@@ -7,22 +7,22 @@ import com.altercode.classlock.entity.User;
 public class XpDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private String userName;
+	private String name;
 	private Double sum;
 	
 	public XpDTO() {}
 
 	public XpDTO(User user, Double sum) {
-		this.userName = user.getUserName();
+		this.name = user.getUserName();
 		this.sum = sum;
 	}
 
 	public String getUserName() {
-		return userName;
+		return name;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.name = userName;
 	}
 
 	public Double getSum() {

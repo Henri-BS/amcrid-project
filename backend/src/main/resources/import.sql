@@ -31,7 +31,7 @@ INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, bad
 
 INSERT INTO tb_result ( total_correct, user) VALUES( 3,'Jack' );
 INSERT INTO tb_result ( total_correct, user) VALUES( 2, 'Ryan' );
-INSERT INTO tb_result ( total_correct, user) VALUES( 0, 'jack' );
+INSERT INTO tb_result ( total_correct, user) VALUES( 0, 'Jack' );
 
 INSERT INTO tb_conquest (article_read, chapter_completed, quizz_completed, total_badges, total_xp, user) VALUES( 5, 2, 6, 4, 540, 'Jack');
    

@@ -10,8 +10,8 @@
 .navbar-logo {
     color: #ffffff;
     justify-self: start;
-    margin-left: 20px;
-    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-bottom: 40px;
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
@@ -102,7 +102,8 @@
         left: 0;
         transform: translate(20%, 20%);
         justify-self: start;
-        margin-left: 40px;
+        margin-left: 30px;
+        margin-bottom: 40px;
     }
     .menu-icon {
         display: block;
@@ -124,10 +125,6 @@
         justify-self: center;
         justify-content: center;
         padding: 10px 10px 20px;
-    }
-    .nav-links-profile {
-        background-color: var(--nona);
-        object-fit: cover;
     }
     .nav-links {
         display: block;

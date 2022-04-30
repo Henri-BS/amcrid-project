@@ -3,8 +3,8 @@ import "./styles.css"
 
 function ArticleCard() {
     const article = {
-        title: "Controle Parental",
-        abstract: "Entenda a importância e os benefícios do controle parental nos meios digitais",
+        title: 'Princípios Básicos da Segurança da Informação',
+        summary: 'Porque é importante criar um esforço para seguir e manter os quatro princípios da Segurança da Informação e como eles influenciam na segurança e na privacidade nos meios digitais e na vida real ?',
         viewed: 13,
     };
 
@@ -14,7 +14,7 @@ function ArticleCard() {
             <div className="article-card-container">
                 <h3>{article.title}</h3>
                 <hr /> 
-                <p>"{article.abstract}"</p>
+                <p>"{article.summary}"</p>
                 <div className="viewed-container" >{article.viewed} views</div>
             </div>
            </Link> 

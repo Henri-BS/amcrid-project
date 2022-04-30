@@ -2,7 +2,7 @@
 import Pagination, { PaginationLeft, PaginationRight } from 'components/Pagination';
 import './styles.css'
 import ArticleNav from 'components/ArticleCard';
-import Article from 'components/Article';
+import { ArticleChapter } from 'components/Article';
 import QuestCard from 'components/QuestCard';
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <h1>Trilha</h1>
+        <h1>Capítulos</h1>
       <Pagination/>
         <div className="row ">
 
@@ -36,7 +36,7 @@ export default function Home() {
               <QuestCard />
               </div>  
               <div className="col-sm-6 col-md-9 col-xl-9">
-              <Article /> 
+              <ArticleChapter /> 
               </div>
               </div>
               </div>

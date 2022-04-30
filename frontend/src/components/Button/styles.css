@@ -1,5 +1,5 @@
 .cl-btn {
-    padding: 10px 30px 10px 30px;
+    padding: 10px 20px 10px 20px;
     border-radius: 20px;
     font-size: 20px;
     border: none;
@@ -8,8 +8,8 @@
     background-color: transparent;
     border: 2px solid var(--seco);
     text-decoration-color: transparent;
-    margin-bottom: 30px;
-    margin-right: 20px;
+    margin-right: 30px;
+    margin-bottom: 40px;
 }
 
 .cl-btn:hover {

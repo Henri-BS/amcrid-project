@@ -14,7 +14,7 @@ function Form() {
         <>
             <div className="cl-form-container">
                 <div className="cl-card-bottom-container">
-                    <h3>Segurança da Informação</h3>
+                    <h3>{quest.title}</h3>
                     <h4>Quais os princípios básicos da Segurança da Informação ?</h4>
                
                     <form className="cl-form">

@@ -15,10 +15,10 @@ return (
     <div className="cl-card-bottom-container">  <h3>{quest.title}</h3>
 <div className="cl-card-info">
 <ul className="list-unstyled">
-   <p>Etapas:</p>
-    <li>1 - Quizz Princípios Básicos da Segurança da Informação</li>
-    <li>2 - Quizz Confiabilidade e Integridade</li>
-    <li>3 - Quizz Autenticidade e Disponibilidade</li>
+   <p className="mb-3">Etapas:</p>
+    <li className="mb-2"><b>1</b> - Quizz Princípios Básicos da Segurança da Informação</li>
+    <li className="mb-2"><b>2</b> - Quizz Confiabilidade e Integridade</li>
+    <li className="mb-2"><b>3</b> - Quizz Autenticidade e Disponibilidade</li>
 </ul>
 </div>
  <Link to="/quest/1">

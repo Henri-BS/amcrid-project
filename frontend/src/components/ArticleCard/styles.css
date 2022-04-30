@@ -1,14 +1,15 @@
 .article-card-container {
     min-width: 250px;
-    min-height: 200px;
+    max-height: 250px;
     background-color: #0b1218;
     color: #fff;
     text-decoration: underline;
     text-decoration-color: #0b1218;
-    text-align: start;
+    text-align: justify;
     padding: 20px 20px 20px 20px;
     border-radius: 10px;
     margin: 5px;
+    font-size: 12px;
 }
 
 .article-card-container h3 {

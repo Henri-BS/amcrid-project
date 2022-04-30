@@ -1,10 +1,10 @@
-import Article from "components/Article";
+import { ArticlePost } from "components/Article";
 
 export default function Post() {
     return (
       <>
   <div className="container">
-  <Article />
+  <ArticlePost />
   </div>
       </>
     );

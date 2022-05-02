@@ -2,12 +2,7 @@ package com.altercode.classlock.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -21,14 +16,16 @@ public class Result {
 
 	@Column(name = "total_correct")
 	private Integer totalCorrect = 0;
-	
-	private String user;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 		
 	public Result() {
 
 	}
 
-	public Result(Long id, Integer totalCorrect, String user, List<Badge> badges) {
+	public Result(Long id, Integer totalCorrect, User user) {
 		this.id = id;
 		this.totalCorrect = totalCorrect;
 		this.user = user; 
@@ -50,11 +47,11 @@ public class Result {
 		this.totalCorrect = totalCorrect;
 	}
 
-	public String getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(String user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 }

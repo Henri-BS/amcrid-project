@@ -29,11 +29,7 @@ public class Comment {
 	@CreatedDate
 	@Column(name = "created_date")
 	private LocalDateTime createdDate;
-	
-	@LastModifiedDate
-	@Column(name = "last_modified_date")
-	private LocalDateTime lastModifiedDate;
-	
+
 	@ManyToOne
     @JoinColumn(name = "post_id")
     private Post post;
@@ -46,14 +42,10 @@ public class Comment {
     	
     }
 
-	public Comment(Long id, String body, LocalDateTime createdDate, LocalDateTime lastModifiedDate, Post post,
-			User user) {
+	public Comment(Long id, String body, LocalDateTime createdDate, Post post, User user) {
 		this.id = id;
 		this.body = body;
 		this.createdDate = createdDate;
-		this.lastModifiedDate = lastModifiedDate;
-		this.post = post;
-		this.user = user;
 	}
 
 	public Long getId() {
@@ -78,14 +70,6 @@ public class Comment {
 
 	public void setCreatedDate(LocalDateTime createdDate) {
 		this.createdDate = createdDate;
-	}
-
-	public LocalDateTime getLastModifiedDate() {
-		return lastModifiedDate;
-	}
-
-	public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
-		this.lastModifiedDate = lastModifiedDate;
 	}
 
 	public Post getPost() {

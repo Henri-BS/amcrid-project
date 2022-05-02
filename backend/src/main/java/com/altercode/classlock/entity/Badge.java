@@ -48,8 +48,6 @@ public class Badge {
 		this.description = description;
 		this.image = image;
 		this.xp = xp;
-		this.chapter = chapter;
-		this.user = user;
 	}
 
 	public Long getId() {

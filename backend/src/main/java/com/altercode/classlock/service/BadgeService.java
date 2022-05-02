@@ -1,7 +1,10 @@
 package com.altercode.classlock.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.altercode.classlock.dto.UserDTO;
+import com.altercode.classlock.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,7 +28,12 @@ public class BadgeService {
 		Page<BadgeDTO> page = result.map(x -> new BadgeDTO(x));
 		return page;
 	}
-	
+
+	public List<BadgeDTO> findAll() {
+		List<Badge> result = repository.findAll();
+		return result.stream().map(x -> new BadgeDTO(x)).collect(Collectors.toList());
+	}
+
 	@Transactional(readOnly = true)
 	public BadgeDTO findById(Long id) {
 		Badge result = repository.findById(id).get();

@@ -1,7 +1,6 @@
 package com.altercode.classlock.dto;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 import com.altercode.classlock.entity.User;
 
@@ -13,34 +12,22 @@ public class UserDTO implements Serializable {
 	private String userName;
 	private String password;
 	private String image;
-	private String createdBy;
-	private LocalDateTime createdDate = LocalDateTime.now();
-	private ResultDTO result;
 
-	public UserDTO() {
+	public UserDTO(Long id) {
 
 	}
 
-	public UserDTO(Long id, String email, String userName, String password, String image, String createdBy,
-			LocalDateTime createdDate, ResultDTO result) {
+	public UserDTO(Long id, String email, String userName, String password, String image) {
 		this.id = id;
 		this.email = email;
 		this.userName = userName;
 		this.password = password;
 		this.image = image;
-		this.createdBy = createdBy;
-		this.createdDate = createdDate;
-		this.result = result;
 	}
 
 	public UserDTO(User entity) {
 		id = entity.getId();
-		email = entity.getEmail();
 		userName = entity.getUserName();
-		password = entity.getPassword();
-		image = entity.getImage();
-		createdBy = entity.getCreatedBy();
-		createdDate = entity.getCreatedDate();
 	}
 
 	public Long getId() {
@@ -83,27 +70,4 @@ public class UserDTO implements Serializable {
 		this.image = image;
 	}
 
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public LocalDateTime getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(LocalDateTime createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public ResultDTO getResult() {
-		return result;
-	}
-
-	public void setResult(ResultDTO result) {
-		this.result = result;
-	}
 }

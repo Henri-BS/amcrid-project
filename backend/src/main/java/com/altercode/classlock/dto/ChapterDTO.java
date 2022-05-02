@@ -12,8 +12,8 @@ public class ChapterDTO implements Serializable {
 	private String description;
 	private String image;
 	
-	public ChapterDTO() {
-		
+	public ChapterDTO(Long id) {
+		this.id = id;
 	}
 	
 	public ChapterDTO(Chapter entity) {

@@ -2,6 +2,7 @@ package com.altercode.classlock.controller;
 
 import java.util.List;
 
+import com.altercode.classlock.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +22,13 @@ public class BadgeController {
 	
 	@Autowired
 	private BadgeService service;
-	
+
+	@GetMapping("/all")
+	public ResponseEntity<List<BadgeDTO>> findAll() {
+		List<BadgeDTO> list = service.findAll();
+		return ResponseEntity.ok(list);
+	}
+
 	@GetMapping
 	public Page<BadgeDTO> findAll(Pageable pageable) {
 	return service.findAll(pageable);	

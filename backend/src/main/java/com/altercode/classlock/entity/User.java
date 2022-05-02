@@ -41,41 +41,28 @@ public class User {
 	@Column(name = "user_image")
 	private String image;
 
-	@CreatedBy
-	@Column(name = "created_by", length = 50, updatable = false)
-	private String createdBy;
-
-	@CreatedDate
-	@Column(name = "created_date")
-	private LocalDateTime createdDate = LocalDateTime.now();
-
 	@OneToMany(mappedBy = "user")
 	private List<Post> posts = new ArrayList<>();
 
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<Badge> badges = new ArrayList<>();
+
+	@OneToMany(mappedBy = "user")
+	private List<Result> results = new ArrayList<>();
 
 	public User() {
 
 	}
 
-	public User(Long id, @Email @Size(min = 5, max = 40) String email, @Size(min = 1, max = 50) String userName,
-			String password, String image, String createdBy, LocalDateTime createdDate, List<Post> posts,
-			List<Comment> comments, List<Badge> badges, Conquest conquest) {
-		super();
+	public User(Long id, String email, String userName, String password, String image) {
 		this.id = id;
 		this.email = email;
 		this.userName = userName;
 		this.password = password;
 		this.image = image;
-		this.createdBy = createdBy;
-		this.createdDate = createdDate;
-		this.posts = posts;
-		this.comments = comments;
-		this.badges = badges;
 	}
 
 	public Long getId() {
@@ -118,22 +105,6 @@ public class User {
 		this.image = image;
 	}
 
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public LocalDateTime getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(LocalDateTime createdDate) {
-		this.createdDate = createdDate;
-	}
-
 	public List<Post> getPosts() {
 		return posts;
 	}
@@ -149,12 +120,20 @@ public class User {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
-	
+
 	public List<Badge> getBadges() {
 		return badges;
 	}
 
 	public void setBadges(List<Badge> badges) {
 		this.badges = badges;
+	}
+
+	public List<Result> getResults() {
+		return results;
+	}
+
+	public void setResults(List<Result> results) {
+		this.results = results;
 	}
 }

@@ -11,7 +11,10 @@ import com.altercode.classlock.entity.User;
 
 @Repository
 public interface ResultRepository extends JpaRepository<Result, Long>{
-	
+
+
+	List<Result> findAll();
+
 	List<ResultDTO> findByUser(User user);
 
 	ResultDTO findResultById(Long id);

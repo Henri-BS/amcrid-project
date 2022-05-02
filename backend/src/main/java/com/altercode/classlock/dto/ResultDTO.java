@@ -10,33 +10,27 @@ public class ResultDTO implements Serializable{
 
 	private Long id;
 	private Integer totalCorrect = 0;
-	private String user;
 
-
-
-	public ResultDTO() {
-	}
+	private Long userId;
+	private String userName;
 
 	public ResultDTO(Result entity) {
 		id = entity.getId();		
 		totalCorrect = entity.getTotalCorrect();
+		userId = entity.getUser().getId();
+		userName = entity.getUser().getUserName();
 	}
 
-	
+	public ResultDTO() {
+
+	}
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
 	}
 
 	public Integer getTotalCorrect() {
@@ -47,5 +41,19 @@ public class ResultDTO implements Serializable{
 		this.totalCorrect = totalCorrect;
 	}
 
+	public Long getUserId() {
+		return userId;
+	}
 
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 }

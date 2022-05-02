@@ -13,19 +13,20 @@ public class BadgeDTO implements Serializable {
 	private String image;
 	private Integer xp;
 
+	private ChapterDTO chapter;
 	private UserDTO user;
 
 	public BadgeDTO() {
 
 	}
 
-	public BadgeDTO(Long id, String name, String description, String image, Integer xp, UserDTO user) {
-		super();
+	public BadgeDTO(Long id, String name, String description, String image, Integer xp, ChapterDTO chapter,  UserDTO user) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.image = image;
 		this.xp = xp;
+		this.chapter = chapter;
 		this.user = user;
 	}
 
@@ -35,7 +36,8 @@ public class BadgeDTO implements Serializable {
 		description = entity.getDescription();
 		image = entity.getImage();
 		xp = entity.getXp();
-		user = new UserDTO(entity.getUser());
+		chapter = new ChapterDTO(entity.getChapter().getId());
+		user = new UserDTO(entity.getUser().getId());
 	}
 
 	public Long getId() {
@@ -76,6 +78,14 @@ public class BadgeDTO implements Serializable {
 
 	public void setXp(Integer xp) {
 		this.xp = xp;
+	}
+
+	public ChapterDTO getChapter() {
+		return chapter;
+	}
+
+	public void setChapter(ChapterDTO chapter) {
+		this.chapter = chapter;
 	}
 
 	public UserDTO getUser() {

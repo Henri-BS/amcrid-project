@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.QuestionDTO;
 import com.altercode.classlock.dto.ResultDTO;
-import com.altercode.classlock.service.QuestionService;
+import com.altercode.classlock.service.QuizzService;
 
 
 @RestController
@@ -23,15 +23,15 @@ import com.altercode.classlock.service.QuestionService;
 public class QuizzController {
 	
 	@Autowired
-	private QuestionService service;
+	private QuizzService service;
 	
-	@GetMapping("/all")
+	@GetMapping("/all-questions")
 	public ResponseEntity<List<QuestionDTO>> findAll() {
 		List<QuestionDTO> list = service.findAll();
 		return ResponseEntity.ok(list);
 	}
 	
-	@GetMapping
+	@GetMapping("/questions")
 	public ResponseEntity<Page<QuestionDTO>> findAll(Pageable pageable) {
 		Page<QuestionDTO> list = service.findAll(pageable);
 		return ResponseEntity.ok(list);
@@ -52,5 +52,11 @@ public class QuizzController {
 	public ResponseEntity<List<ResultDTO>> score(Model m) {
 		List<ResultDTO> scoreList = service.getTopScore();
 		return new ResponseEntity<>(scoreList, HttpStatus.OK);
+	}
+
+	@GetMapping("/results")
+	public ResponseEntity<List<ResultDTO>> findAllResults() {
+		List<ResultDTO> list = service.findAllResults();
+		return ResponseEntity.ok(list);
 	}
 }

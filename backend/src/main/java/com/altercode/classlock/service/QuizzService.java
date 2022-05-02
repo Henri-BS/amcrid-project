@@ -20,7 +20,7 @@ import com.altercode.classlock.repository.ResultRepository;
 
 
 @Service
-public class QuestionService {
+public class QuizzService {
 	
 	@Autowired
 	private QuestionRepository repository; 
@@ -71,4 +71,9 @@ public class QuestionService {
 	public ResultDTO findResultById(Long id) {
         return resultRepository.findResultById(id);
     }
+
+	public List<ResultDTO> findAllResults() {
+		List<Result> result = resultRepository.findAll();
+		return result.stream().map(x -> new ResultDTO(x)).collect(Collectors.toList());
+	}
 }

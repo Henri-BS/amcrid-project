@@ -13,8 +13,10 @@ public class ConquestDTO  implements Serializable{
 	private Integer chapterCompleted;
 	private Integer totalXp;
 	private Integer totalBadges;
-	private String user;
-	
+
+	private Long userId;
+	private String userName;
+
 	public ConquestDTO() {
 	}
 
@@ -25,7 +27,8 @@ public class ConquestDTO  implements Serializable{
 		chapterCompleted = entity.getChapterCompleted();
 		totalXp = entity.getTotalXp();
 		totalBadges = entity.getTotalBadges();
-		user = entity.getUser();
+		userId = entity.getUser().getId();
+		userName = entity.getUser().getUserName();
 	}
 	
 	public Long getId() {
@@ -76,12 +79,20 @@ public class ConquestDTO  implements Serializable{
 		this.totalBadges = totalBadges;
 	}
 
-	public String getUser() {
-		return user;
+	public Long getUserId() {
+		return userId;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 }
 

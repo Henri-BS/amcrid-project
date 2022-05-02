@@ -1,11 +1,6 @@
 package com.altercode.classlock.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -14,9 +9,10 @@ public class Conquest {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "conquest_id")
+	@Column(name = "chapter_id")
 	private Long id;
-	
+
+
 	@Column(name = "article_read")
 	private Integer articleRead;
 	
@@ -31,21 +27,23 @@ public class Conquest {
 	
 	@Column(name = "total_badges")
 	private Integer totalBadges;
-	@Column(name = "user")
-	private String user;
+
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+
 	
 	public Conquest() {
 	}
 
-	public Conquest(Long id, Integer articleRead, Integer quizzCompleted, Integer chapterCompleted, Integer totalXp,
-			Integer totalBadges, String user) {
+	public Conquest(Long id, User user, Integer articleRead, Integer quizzCompleted, Integer chapterCompleted, Integer totalXp, Integer totalBadges) {
 		this.id = id;
+		this.user = user;
 		this.articleRead = articleRead;
 		this.quizzCompleted = quizzCompleted;
 		this.chapterCompleted = chapterCompleted;
 		this.totalXp = totalXp;
 		this.totalBadges = totalBadges;
-		this.user = user;
 	}
 
 	public Long getId() {
@@ -54,6 +52,14 @@ public class Conquest {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Integer getArticleRead() {
@@ -95,14 +101,4 @@ public class Conquest {
 	public void setTotalBadges(Integer totalBadges) {
 		this.totalBadges = totalBadges;
 	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-
 }

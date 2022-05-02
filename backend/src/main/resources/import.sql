@@ -37,6 +37,9 @@ INSERT INTO tb_result ( total_correct, user_id) VALUES( 3, 1 );
 INSERT INTO tb_result ( total_correct, user_id) VALUES( 2, 2 );
 INSERT INTO tb_result ( total_correct, user_id) VALUES( 0, 3 );
 
-INSERT INTO tb_conquest (article_read, chapter_completed, quizz_completed, total_badges, total_xp, user) VALUES( 5, 2, 6, 4, 540, 'Jack');
+INSERT INTO tb_conquest (article_read, chapter_completed, quizz_completed, total_badges, total_xp, user_id) VALUES( 5, 2, 6, 4, 540, 1);
+INSERT INTO tb_conquest ( article_read, chapter_completed, quizz_completed, total_badges, total_xp, user_id ) VALUES(3, 1, 4, 2, 220, 2);
+INSERT INTO tb_conquest ( article_read, chapter_completed, quizz_completed, total_badges, total_xp, user_id ) VALUES(5, 1, 5, 3, 370, 3);
+INSERT INTO tb_conquest ( article_read, chapter_completed, quizz_completed, total_badges, total_xp, user_id ) VALUES(4, 0, 4, 1, 150, 4);
 
 

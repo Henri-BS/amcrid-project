@@ -45,7 +45,13 @@ public class UserController {
 		List<UserDTO> list = service.findByUserName(userName);
 		return ResponseEntity.ok(list);
 	}
-	
+
+	@GetMapping("/conquests")
+	public ResponseEntity<List<ConquestDTO>> findAllConquests() {
+		List<ConquestDTO> list = service.findAllConquests();
+		return ResponseEntity.ok(list);
+	}
+
 	@GetMapping("/conquest/{id}")
     public ResponseEntity<ConquestDTO> getConquestById(@PathVariable("id") Long id) {
         ConquestDTO result = service.findConquestById(id);

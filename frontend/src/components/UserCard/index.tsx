@@ -13,8 +13,7 @@ function UserCard() {
 
     return (
         <div className="cl-max-container">
-            <div className="cl-user-cont">
-                <div className="row">
+                <div className="row cl-user-display-card">
                     <div className="cl-user-box-container col-6">
                         <img className="cl-user-card-image" src={user.image} alt={user.userName} />
                         <div className="cl-user-card-container ">
@@ -57,7 +56,6 @@ function UserCard() {
                     </div>
                 </div>
             </div>
-        </div>
     );
 
 }

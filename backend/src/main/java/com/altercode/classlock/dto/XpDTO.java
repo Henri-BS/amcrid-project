@@ -5,24 +5,24 @@ import java.io.Serializable;
 import com.altercode.classlock.entity.User;
 
 public class XpDTO implements Serializable{
-	private static final long serialVersionUID = 1L;
-	
+	public static final long serialVersionUID = 1L;
+
 	private String name;
 	private Double sum;
 	
-	public XpDTO() {}
 
-	public XpDTO(User user, Double sum) {
+
+	public XpDTO(Long id, User user, Double sum) {
 		this.name = user.getUserName();
 		this.sum = sum;
 	}
 
-	public String getUserName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setUserName(String userName) {
-		this.name = userName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Double getSum() {

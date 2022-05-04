@@ -5,13 +5,15 @@ import java.io.Serializable;
 import com.altercode.classlock.entity.User;
 
 public class UserDTO implements Serializable {
-	private static final long serialVersionUID = 1L;
+	public static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String email;
 	private String userName;
 	private String password;
 	private String image;
+
+	public UserDTO(){}
 
 	public UserDTO(Long id) {
 
@@ -28,6 +30,9 @@ public class UserDTO implements Serializable {
 	public UserDTO(User entity) {
 		id = entity.getId();
 		userName = entity.getUserName();
+		email = entity.getEmail();
+		password = entity.getPassword();
+		image = entity.getImage();
 	}
 
 	public Long getId() {

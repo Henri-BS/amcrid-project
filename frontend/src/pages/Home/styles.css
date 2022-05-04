@@ -4,7 +4,7 @@
     max-inline-size: 100%;
     max-zoom: 100%;
     margin: 0;
-    min-height: 1500px;
+    padding: 20px;
 }
 
 .pagination-page-container {
@@ -35,10 +35,8 @@
 }
 
 .article-item {
-    width: 300px;
-    height: px;
+    width: 330px;
     text-align: center;
-    background-color: var(--sept);
 }
 
 .quest-chapter-container {
@@ -47,4 +45,10 @@
     width: 100%;
     padding: 20px 10px 20px 10px;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 650px) {
+    .container {
+        min-width: 400px;
+    }
 }

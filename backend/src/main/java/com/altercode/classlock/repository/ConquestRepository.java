@@ -11,5 +11,6 @@ import java.util.List;
 @Repository
 public interface ConquestRepository extends JpaRepository<Conquest, Long> {
 
+
 	ConquestDTO findConquestById(Long id);
 }

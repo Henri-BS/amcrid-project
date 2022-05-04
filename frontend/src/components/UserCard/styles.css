@@ -16,7 +16,8 @@
     margin: 30px;
 }
 
-.cl-user-cont {
+.cl-user-display-card {
+    min-width: 290px;
     background-color: var(--deca);
     border-radius: 30px;
     padding: 20px;
@@ -87,38 +88,28 @@
     margin-right: 3px;
 }
 
-@media screen and (max-width: 500px) {
-    .UserItems {
-        position: relative;
-    }
+@media screen and (max-width: 650px) {
     .cl-max-container {
+        display: flex;
         padding: 40px;
+        min-width: 250px;
     }
-    .cl-user-card-container {
-        width: 250px;
-        align-items: center;
-        background-color: var(--deca);
-        border-radius: 0px 0px 30px 30px;
-        text-decoration-color: transparent;
-        padding: 10px;
-        display: grid;
-        border: 1px solid var(--sena);
-    }
-    .cl-user-cont {
+    .cl-user-display-card {
         width: 270px;
         background-color: var(--deca);
         border-radius: 30px;
-        padding: 20px;
+        padding: 5px;
         border: 1px solid var(--sena);
-        font-size: smaller;
+        font-size: x-small;
     }
     .cl-user-card-image {
-        max-width: 200px;
+        max-width: 250px;
         max-height: 250px;
         border-radius: 30px;
+        padding: 10px;
     }
     .cl-user-card-container {
-        max-width: 188px;
+        max-width: 200px;
         align-items: center;
         text-decoration-color: transparent;
         padding: 10px;
@@ -128,19 +119,23 @@
     }
     .cl-user-card-container h3 {
         text-align: center;
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 700;
         min-height: 40px;
         color: #fff;
     }
     .cl-user-card-container h2 {
         text-align: center;
-        font-size: 19px;
+        font-size: 17px;
         font-weight: 700;
         min-height: 40px;
         color: #fff;
     }
     .cl-max-container li {
         margin: 0px;
+    }
+    .cl-user-box-container {
+        min-width: 180px;
+        padding: 20px;
     }
 }

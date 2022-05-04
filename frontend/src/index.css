@@ -18,7 +18,8 @@
 }
 
 body {
-    background-color: var(--sept);
+    height: 1900px;
+    background-color: #1d0811;
     margin: 0;
     padding: 0;
     box-sizing: 0;

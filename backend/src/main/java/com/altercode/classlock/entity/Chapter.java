@@ -47,8 +47,7 @@ public class Chapter {
         this.title = title;
         this.description = description;
         this.image = image;
-        this.questions = questions;
-        this.badges = badges;
+
     }
 
     public Long getId() {

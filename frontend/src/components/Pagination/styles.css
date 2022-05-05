@@ -83,7 +83,7 @@
 .cl-pagination-one-button {
     width: 32px;
     height: 32px;
-    border-radius: 50px;
+    border-radius: 5px;
     background-color: var(--nona);
     display: flex;
     justify-content: center;

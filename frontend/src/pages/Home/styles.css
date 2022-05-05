@@ -1,10 +1,16 @@
 .container {
+    max-width: 1000px;
     background-color: var(--sept);
     color: #fff;
     max-inline-size: 100%;
-    max-zoom: 100%;
     margin: 0;
     padding: 20px;
+}
+
+.container h2 {
+    color: #fff;
+    text-decoration-line: underline;
+    text-decoration-color: var(--sept);
 }
 
 .pagination-page-container {
@@ -40,15 +46,26 @@
 }
 
 .quest-chapter-container {
+    background-color: var(--deca);
     display: flex;
-    max-height: 600px;
-    width: 100%;
-    padding: 20px 10px 20px 10px;
+    padding: 10px 5px 10px 5px;
     border-radius: 10px;
 }
 
 @media screen and (max-width: 650px) {
     .container {
-        min-width: 400px;
+        padding: 12px;
+    }
+    .pagination-page-container {
+        display: none;
+    }
+    .article-max-container {
+        max-height: 260px;
+    }
+    .article-scroll-container {
+        padding: 5px;
+    }
+    .quest-chapter-container {
+        background-color: transparent;
     }
 }

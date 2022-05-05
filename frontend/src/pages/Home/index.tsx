@@ -4,11 +4,13 @@ import './styles.css'
 import ArticleNav from 'components/ArticleCard';
 import { ArticleChapter } from 'components/Article';
 import QuestCard from 'components/QuestCard';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
     <>
       <div className="container">
+      <h2>Artigos</h2>
         <div className="article-max-container">
           <div className="d-flex">
 
@@ -28,10 +30,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <h1>Capítulos</h1>
+        <Link to='/quest/1'>
+        <h2>Capítulos</h2>
+        </Link>
       <Pagination/>
-        <div className="row ">
-
+        <div className="row quest-chapter-container">
             <div className=" col-sm-6 col-md-3 xl-3" >
               <QuestCard />
               </div>  

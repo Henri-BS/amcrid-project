@@ -1,7 +1,7 @@
 .article-container {
     margin: auto;
     justify-content: center;
-    background-color: #0b1218;
+    background-color: var(--deca);
     max-height: 600px;
     text-align: center;
     border-radius: 10px;
@@ -65,7 +65,6 @@
 
 @media screen and (max-width: 600px) {
     .article-container {
-        background-color: #0b1218;
         width: initial;
         text-align: center;
         border-radius: 10px;

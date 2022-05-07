@@ -134,7 +134,6 @@
         margin: auto;
         width: 100%;
         border-radius: 50px;
-        display: table;
         font-size: 1.5rem;
     }
     .nav-links:hover {
@@ -142,13 +141,13 @@
         transition: 250ms;
     }
     .nav-links-mobile {
-        display: block;
         text-align: center;
-        padding: 1em;
+        padding: 1.5rem;
         border-radius: 50px;
         text-decoration: none;
         color: #fff;
         font-size: 1.5rem;
+        display: table;
         width: 100%;
         background-color: var(--tert);
     }

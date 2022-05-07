@@ -42,7 +42,7 @@ function Navbar() {
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li>
 
-            <Link to='/profile/1' className='profile-nav'  onClick={closeMobileMenu}>
+            <Link to='/profile/1' className='profile-nav' onClick={closeMobileMenu}>
               <img className='nav-links-image' src={IProf} alt='profile' />
             </Link>
           </li>
@@ -67,6 +67,8 @@ function Navbar() {
             {dropdown && <Dropdown />}
           </li>
 
+
+
           <li className='nav-item'>
             <Link to='/suporte' className='nav-links' onClick={closeMobileMenu} >
               Suporte
@@ -75,10 +77,17 @@ function Navbar() {
 
           <li>
             <Link
+              to='/ranking' className='nav-links-mobile' onClick={closeMobileMenu} >
+              Ranking
+            </Link>
+          </li>
+          <li>
+            <Link
               to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu} >
               Sign Up
             </Link>
           </li>
+
         </ul>
         <Button />
       </nav>

@@ -1,0 +1,5 @@
+.datatable-container {
+    background-color: var(--deca);
+    padding: 10px;
+    border: 1px solid var(--sena);
+}

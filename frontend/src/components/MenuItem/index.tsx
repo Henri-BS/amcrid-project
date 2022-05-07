@@ -16,7 +16,7 @@ export const MenuItems = [
     },
     {
         title: 'Ranking',
-        path: '/',
+        path: '/ranking',
         cName: 'dropdown-link'
     },
     {

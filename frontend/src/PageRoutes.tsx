@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "components/NavBar";
 import Footer from "components/Footer";
 import Post from "pages/Post";
+import Ranking from "pages/Ranking";
 
 const PageRoutes = () => {
     return (
@@ -15,6 +16,7 @@ const PageRoutes = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/explorar" element={<Explore />} />
+                    <Route path="/ranking" element={<Ranking />} />
 
                     <Route path="/profile">
                         <Route path=":profileId" element={<Profile />} />

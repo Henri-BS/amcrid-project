@@ -35,10 +35,10 @@ export default function Home() {
         </Link>
       <Pagination/>
         <div className="row quest-chapter-container">
-            <div className=" col-sm-6 col-md-3 xl-3" >
+            <div className=" col-sm-6 col-md-6 xl-3" >
               <QuestCard />
               </div>  
-              <div className="col-sm-6 col-md-9 col-xl-9">
+              <div className="col-sm-6 col-md-6 col-xl-9">
               <ArticleChapter /> 
               </div>
               </div>

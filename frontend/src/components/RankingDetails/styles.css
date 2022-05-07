@@ -1,0 +1,21 @@
+.top-user-container {
+    display: flex;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-one-user-ranking-image {
+    object-fit: cover;
+    max-height: 80px;
+    max-width: 80px;
+    border-radius: 360px;
+}
+
+.top-user-ranking-image {
+    object-fit: cover;
+    max-height: 80px;
+    max-width: 80px;
+    margin: 10px;
+    border-radius: 300px;
+}

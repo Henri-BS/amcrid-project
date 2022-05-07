@@ -11,13 +11,13 @@ export default function Quest() {
         <div className="col-sm-6 col-md-4 col-lg-4">
           <Form />
         </div>
-        <div className="col-sm-6 col-md-8 col-lg-4">
+        <div className="col-sm-6 col-md-4 col-lg-4">
           <Form />
         </div>
-        <div className="col-sm-6 col-md-8 col-lg-4">
+        <div className="col-sm-6 col-md-4 col-lg-4">
           <Form />
         </div>
-      </div>
+      </div> 
       </div>
     </>
   );

@@ -79,12 +79,10 @@
 
 @media screen and (max-width: 660px) {
     .footer-max-container {
-        min-height: 14in;
-        min-zoom: 100%;
+        min-height: 12in;
         background-color: var(--prim);
     }
     .footer-container {
-        margin: 320;
         width: 90%;
     }
     .footer-logo {

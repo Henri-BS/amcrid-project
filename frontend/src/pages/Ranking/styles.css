@@ -1,5 +1,12 @@
 .datatable-container {
-    background-color: var(--deca);
-    padding: 10px;
-    border: 1px solid var(--sena);
+    color: var(--sena);
+    justify-content: center;
+    align-items: center;
+}
+
+.rank-details-container {
+    display: grid;
+    min-height: 400px;
+    align-items: center;
+    justify-content: center;
 }

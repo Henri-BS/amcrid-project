@@ -1,39 +1,82 @@
-.top-user-container {
-    padding: 100px;
-    display: grid;
-    min-height: 400px;
-    align-items: center;
+.rank-user-container {
     justify-content: center;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    min-height: 300px;
+    grid-gap: 5px;
 }
 
-.top-user-card {
+.rank-user-card {
+    margin: 2px;
     background-color: var(--deca);
-    display: flex;
+    display: grid;
     flex-direction: column;
     height: 250px;
     width: 150px;
     border-radius: .6rem;
 }
 
-.top-user-card-image {
+.rank-user-card li {
+    color: var(--sena);
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.rank-user-card-image {
     align-items: center;
     background-color: var(--deca);
     border-radius: 20px 20px 0px 0px;
     display: grid;
-    flex: 4;
+    flex: 5;
     justify-content: space-around;
     overflow: hidden;
     zoom: 30%;
 }
 
-.top-user-card-content {
+.rank-user-card-content {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 5;
     justify-content: space-around;
-    padding: 15px;
+    padding: 5px;
+}
+
+.rank-nav-options {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: scroll;
+}
+
+.rank-nav-options::-webkit-scrollbar {
+    width: max-content;
+}
+
+.options-btn {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2px;
+    background-color: var(--quar);
+    border: 2px solid var(--quar);
+    display: flex;
+    min-height: 50px;
+    min-width: 110px;
+    border-radius: .6rem;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    color: var(--sena);
+}
+
+.options-btn:hover {
+    background-color: transparent;
+    border: 2px solid var(--quar);
+    color: #fff;
+    transition: all 0.3s ease-out;
 }
 
 .u-text-placeholder {
@@ -42,12 +85,28 @@
     height: 9px;
 }
 
+.striped-rows {
+    background-color: var(--deca);
+}
+
+.table-box {
+    font-size: 14px;
+    border: 1px solid var(--sena);
+    padding: 10px;
+    text-align: center;
+}
+
 @media screen and (max-width: 660px) {
-    .top-user-container {
+    .rank-user-container {
         min-height: 300px;
+        overflow-x: scroll;
     }
-    .top-user-card {
-        height: 200px;
-        width: 100px;
+    .rank-user-card {
+        height: 195px;
+        width: 95px;
+        text-overflow: ellipsis;
+    }
+    .rank-nav-options {
+        justify-content: start;
     }
 }

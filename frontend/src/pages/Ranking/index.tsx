@@ -7,7 +7,9 @@ export default function Ranking() {
   return (
     <>
       <div className="container">
+        <div className="rank-details-container">
         <RankingDetails />
+        </div>
         <div className="datatable-container">
           <RankingTable />
         </div>

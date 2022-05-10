@@ -34,8 +34,8 @@ function UserCard() {
                             </div>
                             <hr />
                             <ul className="list-unstyled">
-                                <li className="mb-2"><b>Quizzes finalizados: </b>{user.quests}</li>
-                                <li className="mb-2"><b>Artigos Lidos: </b>{user.posts}</li>
+                                <li className="mb-2"><b>Quests Principais Finalizadas: </b>{user.quests}</li>
+                                <li className="mb-2"><b>Quests Secundárias Finalizadas: </b>{user.posts}</li>
                                 <li className="mb-2"><b>Capítulos Finalizados: </b>5</li>
                                 <li className="mb-2"><b>Total de Badges: </b>23</li>
                                 <li className="mb-2"><b>Total de Xp: </b>258</li>
@@ -51,7 +51,6 @@ function UserCard() {
                             <li className="mb-2"><b>Data Nascimento:</b> 11/02/2999</li>
                             <li className="mb-2"><b>Ocupação:</b> Engenheiro e Uber</li>
                             <li className="mb-2"><b>Localidade:</b> São Paulo</li>
-                            <li className="mb-2"><b>Data Nascimento:</b>11/02/2999</li>
                         </ul>
                     </div>
                 </div>

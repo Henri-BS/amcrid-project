@@ -1,9 +1,7 @@
 package com.altercode.classlock.controller;
 
 import java.util.List;
-import java.util.Optional;
 
-import com.altercode.classlock.entity.Badge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.BadgeDTO;
+import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.service.BadgeService;
 
 @RestController
@@ -40,8 +39,8 @@ public class BadgeController {
 	}
 
 	@GetMapping(value = "/total-xp")
-	public ResponseEntity<Optional<Badge>> totalUserXp(Integer xp) {
-		Optional<Badge> list = badgeService.totalUserXp(xp);
+	public ResponseEntity<List<XpDTO>> totalUserXp(Integer xp) {
+		List<XpDTO> list = badgeService.totalUserXp(xp);
 		return ResponseEntity.ok(list);
 	}
 }

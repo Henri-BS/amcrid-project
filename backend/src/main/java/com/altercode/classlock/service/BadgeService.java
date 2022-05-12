@@ -1,7 +1,6 @@
 package com.altercode.classlock.service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.altercode.classlock.dto.BadgeDTO;
+import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.entity.Badge;
 import com.altercode.classlock.repository.BadgeRepository;
 
@@ -40,7 +40,7 @@ public class BadgeService {
 	}
 
 	@Transactional(readOnly = true)
-	public Optional<Badge> totalUserXp(Integer xp) {
+	public List<XpDTO> totalUserXp(Integer xp) {
 		return badgeRepository.totalUserXp(xp);
 	}
 

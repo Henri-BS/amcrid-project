@@ -34,6 +34,9 @@ INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, bad
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id, user_id) VALUES ( 8, 'Winged Quizzer', 'Concluiu 1 Quizz em menos de 10 segundos', 'https://cdn3.iconfinder.com/data/icons/rock-and-roll-2/64/celebration-star-wing-events-party-512.png', 70, 1, 1);
 
 INSERT INTO tb_result ( total_correct, user_id) VALUES( 3, 1 );
+INSERT INTO tb_result ( total_correct, user_id) VALUES( 1, 1 );
+INSERT INTO tb_result ( total_correct, user_id) VALUES( 2, 1 );
+INSERT INTO tb_result ( total_correct, user_id) VALUES( 0, 1 );
 INSERT INTO tb_result ( total_correct, user_id) VALUES( 2, 2 );
 INSERT INTO tb_result ( total_correct, user_id) VALUES( 0, 3 );
 

@@ -8,11 +8,11 @@ public class XpDTO implements Serializable{
 	public static final long serialVersionUID = 1L;
 
 	private String name;
-	private Double sum;
+	private Long sum;
 	
 
 
-	public XpDTO(Long id, User user, Double sum) {
+	public XpDTO( User user, Long sum) {
 		this.name = user.getUserName();
 		this.sum = sum;
 	}
@@ -25,11 +25,11 @@ public class XpDTO implements Serializable{
 		this.name = name;
 	}
 
-	public Double getSum() {
+	public Long getSum() {
 		return sum;
 	}
 
-	public void setSum(Double sum) {
+	public void setSum(Long sum) {
 		this.sum = sum;
 	}
 }

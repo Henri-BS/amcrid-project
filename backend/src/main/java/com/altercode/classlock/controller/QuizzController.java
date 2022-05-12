@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.QuestionDTO;
 import com.altercode.classlock.dto.ResultDTO;
+import com.altercode.classlock.dto.TotalCorrectSumDTO;
 import com.altercode.classlock.service.QuizzService;
 
 
@@ -57,6 +58,12 @@ public class QuizzController {
 	@GetMapping("/results")
 	public ResponseEntity<List<ResultDTO>> findAllResults() {
 		List<ResultDTO> list = service.findAllResults();
+		return ResponseEntity.ok(list);
+	}
+	
+	@GetMapping("/total-questions-correct")
+	public ResponseEntity<List<TotalCorrectSumDTO>> totalQuestionCorrect(){
+		List<TotalCorrectSumDTO> list = service.TotalQuestionsCorrect();
 		return ResponseEntity.ok(list);
 	}
 }

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.altercode.classlock.dto.QuestionDTO;
 import com.altercode.classlock.dto.ResultDTO;
+import com.altercode.classlock.dto.TotalCorrectSumDTO;
 import com.altercode.classlock.entity.Question;
 import com.altercode.classlock.entity.Result;
 import com.altercode.classlock.entity.ResultPK;
@@ -75,5 +76,9 @@ public class QuizzService {
 	public List<ResultDTO> findAllResults() {
 		List<Result> result = resultRepository.findAll();
 		return result.stream().map(x -> new ResultDTO(x)).collect(Collectors.toList());
+	}
+	
+	public List<TotalCorrectSumDTO> TotalQuestionsCorrect(){
+		return resultRepository.TotalQuestionsCorrect();
 	}
 }

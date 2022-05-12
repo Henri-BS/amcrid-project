@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.altercode.classlock.dto.ConquestDTO;
 import com.altercode.classlock.dto.UserDTO;
+import com.altercode.classlock.dto.UserRankDTO;
+import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.entity.Badge;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.repository.BadgeRepository;
@@ -74,4 +76,9 @@ public class UserService {
 	 * public List<User> getByName(String prefix) { return
 	 * repository.getByName(prefix); }
 	 */	
+	
+	@Transactional(readOnly = true)
+	public List<UserRankDTO> userXpRank() {
+		return conquestRepository.userXpRank();
+	}
 }

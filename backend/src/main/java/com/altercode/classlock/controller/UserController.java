@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.ConquestDTO;
 import com.altercode.classlock.dto.UserDTO;
+import com.altercode.classlock.dto.UserRankDTO;
+import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.service.UserService;
 
 
@@ -51,7 +53,12 @@ public class UserController {
 		List<ConquestDTO> list = service.findAllConquests();
 		return ResponseEntity.ok(list);
 	}
-
+	
+	@GetMapping("/conquests/ranking")
+	public ResponseEntity<List<UserRankDTO>> userXpRank() {
+		List<UserRankDTO> list = service.userXpRank();
+		return ResponseEntity.ok(list);
+	}
 	@GetMapping("/conquest/{id}")
     public ResponseEntity<ConquestDTO> getConquestById(@PathVariable("id") Long id) {
         ConquestDTO result = service.findConquestById(id);
@@ -62,4 +69,6 @@ public class UserController {
 	 * prefix){ return service.getByName(prefix); 
 	 * }
 	 */
+	
+
 }

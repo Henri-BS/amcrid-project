@@ -6,7 +6,7 @@ function RankingTable() {
             <div className="table-responsive">
                 <table className=" container table-sm table-dark ">
                     <thead >
-                        <tr>
+                        <tr  className="striped-rows">
                             <th className="table-box">#</th>
                             <th className="table-box">Usuário</th>
                             <th className="table-box">Xp Total</th>
@@ -17,7 +17,7 @@ function RankingTable() {
                         </tr>
                     </thead>
 
-                    <tbody className="striped-rows">
+                    <tbody>
                         <td className="table-box">1</td>
                         <td className="table-box">VIII</td>
                         <td className="table-box">6790</td>
@@ -26,7 +26,7 @@ function RankingTable() {
                         <td className="table-box">30</td>
                         <td className="table-box">32</td>
                     </tbody>
-                    <tbody>
+                    <tbody className="striped-rows">
                         <td className="table-box">2</td>
                         <td className="table-box">Anny</td>
                         <td className="table-box">6345</td>
@@ -35,7 +35,7 @@ function RankingTable() {
                         <td className="table-box">31</td>
                         <td className="table-box">42</td>
                     </tbody>
-                    <tbody className="striped-rows">
+                    <tbody>
                         <td className="table-box">3</td>
                         <td className="table-box">Jack</td>
                         <td className="table-box">5950</td>

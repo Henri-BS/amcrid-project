@@ -40,9 +40,7 @@ function Form() {
                             </select>
                         </div>
                     </form >
-                    <div className="cl-form-btn-container">
-                        <button type="submit" className="btn cl-form-btn">Salvar</button>
-                    </div>
+                   
                 </div>
             </div>
         </>

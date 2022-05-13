@@ -16,3 +16,14 @@
     padding: 10px;
     min-width: 300px;
 }
+
+.menu-options-container {
+    display: flex;
+    padding: 20px;
+    align-items: flex-start;
+}
+
+.menu-options-item {
+    padding: 10px;
+    align-items: center;
+}

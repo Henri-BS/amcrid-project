@@ -1,9 +1,18 @@
-.quest-container {
-    background-color: #141f29;
+.quizz-container {
+    display: flex;
     color: #fff;
-    max-inline-size: 100%;
-    max-zoom: 100%;
+    width: 100%;
     margin: 0;
-    padding: 20px;
-    min-height: 800px;
+    min-height: 700px;
+    overflow-x: auto;
+}
+
+.quest-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.quest-container {
+    padding: 10px;
+    min-width: 300px;
 }

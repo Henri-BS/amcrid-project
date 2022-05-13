@@ -1,14 +1,9 @@
 package com.altercode.classlock.dto;
 
-import com.altercode.classlock.entity.Comment;
-import com.altercode.classlock.entity.Post;
-import com.altercode.classlock.entity.User;
-import org.springframework.data.annotation.CreatedDate;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
+
+import com.altercode.classlock.entity.Comment;
 
 public class CommentDTO implements Serializable{
 	public static final long serialVersionUID = 1L;

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.altercode.classlock.dto.ConquestDTO;
 import com.altercode.classlock.dto.UserDTO;
 import com.altercode.classlock.dto.UserRankDTO;
-import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.service.UserService;
 
 

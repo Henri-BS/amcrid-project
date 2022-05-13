@@ -13,7 +13,7 @@ function Form() {
     return (
         <>
             <div className="cl-form-container">
-                <div className="cl-card-bottom-container">
+                <div className="card-form-container">
                     <h3>{quest.title}</h3>
                     <h4>Quais os princípios básicos da Segurança da Informação ?</h4>
                

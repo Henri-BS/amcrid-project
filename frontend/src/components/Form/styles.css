@@ -49,27 +49,29 @@
     border-radius: 8px 8px 0 0;
 }
 
-.cl-card-bottom-container {
+.card-form-container {
     background-color: #0c171f;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px 10px 20px 10px;
-    border-radius: 0 0 8px 8px;
+    border-radius: 8px;
     cursor: pointer;
     text-decoration-color: transparent;
     margin-bottom: 5px;
 }
 
-.cl-card-bottom-container h3 {
+.card-form-container h3 {
+    padding: 7px;
+    border-radius: 8px;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
-    min-height: 40px;
+    height: 40px;
     color: #fff;
 }
 
-.cl-card-bottom-container h4 {
+.card-form-container h4 {
     text-align: center;
     font-size: 18px;
     font-weight: 700;
@@ -77,7 +79,7 @@
     color: #fff;
 }
 
-.cl-card-bottom-container hr {
+.card-form-container hr {
     margin: 1rem 0;
     color: inherit;
     background-color: var(--tert);
@@ -85,7 +87,7 @@
     opacity: 1;
 }
 
-.cl-card-info {
+.card-info {
     width: 100%;
     padding: 20px 20px 20px 20px;
     line-height: 20px;

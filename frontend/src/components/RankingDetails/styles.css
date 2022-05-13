@@ -13,9 +13,10 @@
     background-color: var(--deca);
     display: grid;
     flex-direction: column;
-    height: 250px;
+    height: 290px;
     width: 150px;
     border-radius: .6rem;
+    text-overflow: clip;
 }
 
 .rank-user-card li {
@@ -24,15 +25,23 @@
     text-decoration: none;
 }
 
+.rank-user-card-icon {
+    position: absolute;
+    position: relative;
+    justify-self: center;
+    border-radius: 360px;
+    height: 45px;
+    width: 45px;
+}
+
 .rank-user-card-image {
     align-items: center;
-    background-color: var(--deca);
     border-radius: 20px 20px 0px 0px;
     display: grid;
     flex: 5;
     justify-content: space-around;
     overflow: hidden;
-    zoom: 30%;
+    zoom: 40%;
 }
 
 .rank-user-card-content {
@@ -106,7 +115,15 @@
         width: 95px;
         text-overflow: ellipsis;
     }
+    .rank-user-card-image {
+        zoom: 19%;
+    }
     .rank-nav-options {
         justify-content: start;
+    }
+    .rank-user-card-icon {
+        height: 25px;
+        width: 25px;
+        padding: 1px;
     }
 }

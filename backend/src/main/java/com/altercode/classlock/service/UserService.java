@@ -3,7 +3,6 @@ package com.altercode.classlock.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.altercode.classlock.entity.Conquest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.altercode.classlock.dto.ConquestDTO;
 import com.altercode.classlock.dto.UserDTO;
 import com.altercode.classlock.dto.UserRankDTO;
-import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.entity.Badge;
+import com.altercode.classlock.entity.Conquest;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.repository.BadgeRepository;
 import com.altercode.classlock.repository.ConquestRepository;

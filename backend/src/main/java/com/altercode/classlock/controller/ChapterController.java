@@ -1,6 +1,7 @@
 package com.altercode.classlock.controller;
 
-import com.altercode.classlock.dto.PostDTO;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.ChapterDTO;
 import com.altercode.classlock.service.ChapterService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/chapter")

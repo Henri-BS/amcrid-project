@@ -6,18 +6,13 @@ import './styles.css';
 export default function Quest() {
   return (
     <>
-    <div className="quest-container">
-      <div className="row">
-        <div className="col-sm-6 col-md-4 col-lg-4">
-          <Form />
-        </div>
-        <div className="col-sm-6 col-md-4 col-lg-4">
-          <Form />
-        </div>
-        <div className="col-sm-6 col-md-4 col-lg-4">
-          <Form />
-        </div>
-      </div> 
+    <div className="container">
+      <h2>Quizz</h2>
+    <div className="quizz-container">
+    <div className="quest-container"><Form /></div>
+    <div className="quest-container"><Form /></div>
+    <div className="quest-container"><Form /></div>
+      </div>
       </div>
     </>
   );

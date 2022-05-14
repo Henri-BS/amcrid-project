@@ -61,7 +61,6 @@ function Footer() {
                     <div className="row">
                         <div className="footer-logo col-3">
                             <img src={IWLogo} alt='logo' />
-
                         </div>
                         <div className="footer-base-text-container col-9">
                             <h5>ClassLock.Inc</h5>

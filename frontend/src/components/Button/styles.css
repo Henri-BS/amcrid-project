@@ -20,3 +20,28 @@
     border: 2px solid var(--seco);
     text-decoration-color: transparent;
 }
+
+.cl-form-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.cl-form-btn {
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-size: 18px;
+    border: none;
+    background-color: var(--seco);
+    color: #fff;
+    cursor: pointer;
+    text-decoration-color: transparent;
+}
+
+.cl-form-btn:hover {
+    padding: 6px 20px;
+    transition: all 0.3s ease-out;
+    background-color: var(--quar);
+    color: #fff;
+    border-radius: 4px;
+    border: 2px solid var(--sept);
+}

@@ -18,12 +18,22 @@
 }
 
 .menu-options-container {
-    display: flex;
-    padding: 20px;
+    display: grid;
+    padding: 10px;
     align-items: flex-start;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
 .menu-options-item {
-    padding: 10px;
+    display: grid;
+    padding: 6px;
     align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.menu-options-container h2 {
+    font-size: 24px;
+    text-align: start;
 }

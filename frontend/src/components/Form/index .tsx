@@ -16,7 +16,6 @@ function Form() {
                 <div className="card-form-container">
                     <h3>{quest.title}</h3>
                     <h4>Quais os princípios básicos da Segurança da Informação ?</h4>
-               
                     <form className="cl-form">
                         <div className="form-group cl-form-group">
                                <hr />  
@@ -40,7 +39,6 @@ function Form() {
                             </select>
                         </div>
                     </form >
-                   
                 </div>
             </div>
         </>

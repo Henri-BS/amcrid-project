@@ -1,3 +1,4 @@
+import { ArticleChapter } from 'components/Article';
 import Form from 'components/Form/index ';
 import React from 'react';
 import './styles.css';
@@ -7,6 +8,7 @@ export default function Quest() {
   return (
     <>
       <div className="container">
+        <ArticleChapter />
         <div className="menu-options-container">
           <h2 className="menu-options-item ">Quizz</h2>
           <div className="menu-options-item  cl-form-btn-container">

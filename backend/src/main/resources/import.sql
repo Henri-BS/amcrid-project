@@ -24,25 +24,25 @@ INSERT INTO tb_question ( question_id,  question_title, option_a, option_b, opti
 INSERT INTO tb_chapter ( chapter_title, chapter_description, chapter_image) VALUES ( '"Princípios Básicos da Segurança da Informação"', '<p>Neste capítulo você será apresentado a missões que iram testar os seus conhecimentos a cerca dos princípios básicos da segurança da informação, para  executar este capítulo com êxito é nescessário compreender as características de cada um dos príncipios.</p>', 'https://makewebbetter.com/wp-content/uploads/2017/12/mainbanner1-1-1.jpg');
 INSERT INTO tb_chapter ( chapter_title, chapter_description, chapter_image) VALUES ( '"Os Tipos de Hackers"', '<p>Este capítulo será dedicado aos indivíduos que possuem uma facilidade e um conhecimento elevado em torno da manipulação código que permite o acesso a informações consideradas sigilosas, apesar que serem nomeados generalizadamente como Hackers há diferenças entre cada um deles que se dá por questões de índole ou nível de conhecimento e neste capítulos você deverá conhecer cada um deles.</p>', 'https://avante.biz/wp-content/uploads/Cool-Hacker-Wallpapers/Cool-Hacker-Wallpapers-014.jpg');
 
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id, user_id) VALUES ( 1, 'Comum Quizzer', 'Concluiu 3 Quizzes', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/MEDAL-question_mark-exam-reward-winner-question-512.png', 20, 1, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id, user_id) VALUES ( 2, 'Rare Quizzer', 'Concluiu 5 Quizzes', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/TARGET-question_mark-shoot-shooting-question-512.png', 50, 1, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id, user_id) VALUES ( 3, 'The Explorer 1', 'Concluiu o Capítulo 1', 'https://cdn2.iconfinder.com/data/icons/law-enforcement-soft-fill/60/Police_Badge-shield-police-policing-law-enforcement-512.png', 200, 1, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id, user_id) VALUES ( 4, 'The Explorer 2', 'Concluiu o Cpítulo 2', 'https://cdn1.iconfinder.com/data/icons/law-28/512/Badge-law-police-security-symbolic-512.png', 200, 2, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id, user_id) VALUES ( 5, 'Comum Reader', 'Leu 3 Artigos', 'https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png', 20, 1, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id, user_id) VALUES ( 6, 'Rare Reader', 'Leu 5 Artigos', 'https://cdn4.iconfinder.com/data/icons/artificial-intelligence-47/64/Book-education-knowledge-learning-ai-512.png', 50, 1, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id, user_id) VALUES ( 7, 'Epic Reader', 'Leu 10 Artigos', 'https://cdn1.iconfinder.com/data/icons/education-309/64/book-education-knowledge-learning-512.png', 100, 1, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id, user_id) VALUES ( 8, 'Winged Quizzer', 'Concluiu 1 Quizz em menos de 10 segundos', 'https://cdn3.iconfinder.com/data/icons/rock-and-roll-2/64/celebration-star-wing-events-party-512.png', 70, 1, 1);
+INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 1, 'Comum Quizzer', 'Concluiu 3 Quizzes', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/MEDAL-question_mark-exam-reward-winner-question-512.png', 20, 1);
+INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 2, 'Rare Quizzer', 'Concluiu 5 Quizzes', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/TARGET-question_mark-shoot-shooting-question-512.png', 50, 1);
+INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 3, 'The Explorer 1', 'Concluiu o Capítulo 1', 'https://cdn2.iconfinder.com/data/icons/law-enforcement-soft-fill/60/Police_Badge-shield-police-policing-law-enforcement-512.png', 200, 1);
+INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 4, 'The Explorer 2', 'Concluiu o Cpítulo 2', 'https://cdn1.iconfinder.com/data/icons/law-28/512/Badge-law-police-security-symbolic-512.png', 200, 2);
+INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 5, 'Comum Reader', 'Leu 3 Artigos', 'https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png', 20, 1);
+INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 6, 'Rare Reader', 'Leu 5 Artigos', 'https://cdn4.iconfinder.com/data/icons/artificial-intelligence-47/64/Book-education-knowledge-learning-ai-512.png', 50, 1);
+INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 7, 'Epic Reader', 'Leu 10 Artigos', 'https://cdn1.iconfinder.com/data/icons/education-309/64/book-education-knowledge-learning-512.png', 100, 1);
+INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 8, 'Winged Quizzer', 'Concluiu 1 Quizz em menos de 10 segundos', 'https://cdn3.iconfinder.com/data/icons/rock-and-roll-2/64/celebration-star-wing-events-party-512.png', 70, 1);
 
-INSERT INTO tb_result ( total_correct, user_id) VALUES( 3, 1 );
-INSERT INTO tb_result ( total_correct, user_id) VALUES( 1, 1 );
-INSERT INTO tb_result ( total_correct, user_id) VALUES( 2, 1 );
-INSERT INTO tb_result ( total_correct, user_id) VALUES( 0, 1 );
-INSERT INTO tb_result ( total_correct, user_id) VALUES( 2, 2 );
-INSERT INTO tb_result ( total_correct, user_id) VALUES( 0, 3 );
+INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 1, 3, 1 );
+INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 2, 1, 1 );
+INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 3, 2, 1 );
+INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 4, 0, 1 );
+INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 5, 2, 2 );
+INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 6, 0, 3 );
 
-INSERT INTO tb_conquest ( article_read, chapter_completed, quizz_completed, total_badges, total_xp, user_id) VALUES( 5, 2, 6, 4, 540, 1);
-INSERT INTO tb_conquest ( article_read, chapter_completed, quizz_completed, total_badges, total_xp, user_id ) VALUES(3, 1, 4, 2, 220, 2);
-INSERT INTO tb_conquest ( article_read, chapter_completed, quizz_completed, total_badges, total_xp, user_id ) VALUES(5, 1, 5, 3, 370, 3);
-INSERT INTO tb_conquest ( article_read, chapter_completed, quizz_completed, total_badges, total_xp, user_id ) VALUES(4, 0, 4, 1, 150, 4);
+INSERT INTO tb_conquest ( principal_quest, chapter_completed, secondary_quest, total_badges, total_xp, user_id) VALUES( 5, 2, 6, 4, 540, 1);
+INSERT INTO tb_conquest ( principal_quest, chapter_completed, secondary_quest, total_badges, total_xp, user_id ) VALUES(3, 1, 4, 2, 220, 2);
+INSERT INTO tb_conquest ( principal_quest, chapter_completed, secondary_quest, total_badges, total_xp, user_id ) VALUES(5, 1, 5, 3, 370, 3);
+INSERT INTO tb_conquest ( principal_quest, chapter_completed, secondary_quest, total_badges, total_xp, user_id ) VALUES(4, 0, 4, 1, 150, 4);
 
 

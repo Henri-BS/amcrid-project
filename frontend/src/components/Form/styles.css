@@ -3,6 +3,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 10px;
+    color: var(--sena)
 }
 
 .cl-form {
@@ -43,7 +44,7 @@
     font-size: 16px;
     font-weight: 700;
     height: 40px;
-    color: #fff;
+    color: var(--sena);
 }
 
 .card-form-container h4 {
@@ -51,7 +52,7 @@
     font-size: 18px;
     font-weight: 700;
     min-height: 40px;
-    color: #fff;
+    color: var(--sena);
 }
 
 .card-form-container hr {
@@ -66,4 +67,5 @@
     width: 100%;
     padding: 20px 20px 20px 20px;
     line-height: 20px;
+    color: var(--sena);
 }

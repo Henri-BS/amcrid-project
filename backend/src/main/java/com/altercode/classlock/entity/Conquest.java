@@ -9,14 +9,13 @@ public class Conquest {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "chapter_id")
+	@Column(name = "conquest_id")
 	private Long id;
 
-
-	@Column(name = "article_read")
+	@Column(name = "principal_quest")
 	private Integer articleRead;
 	
-	@Column(name = "quizz_completed")
+	@Column(name = "secondary_quest")
 	private Integer quizzCompleted;
 	
 	@Column(name = "chapter_completed")

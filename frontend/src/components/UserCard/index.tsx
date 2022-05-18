@@ -5,7 +5,7 @@ function UserCard() {
     const user = {
         id: 1,
         image: "https://ih1.redbubble.net/image.1426571880.2339/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
-        userName: "User05",
+        userName: "XIII",
         quests: 20,
         posts: 30,
         badge: "https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png"

@@ -18,6 +18,9 @@
 }
 
 .menu-options-container {
+    margin-top: 20px;
+    border-radius: 10px;
+    max-width: 500px;
     display: grid;
     padding: 10px;
     align-items: flex-start;

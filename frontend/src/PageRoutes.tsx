@@ -1,4 +1,3 @@
-import Explore from "pages/Explore";
 import Home from "pages/Home";
 import Quest from "pages/Chapter/index";
 import Profile from "pages/Profile";

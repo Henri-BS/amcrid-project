@@ -13,10 +13,10 @@ public class Conquest {
 	private Long id;
 
 	@Column(name = "principal_quest")
-	private Integer articleRead;
+	private Integer principalQuest;
 	
 	@Column(name = "secondary_quest")
-	private Integer quizzCompleted;
+	private Integer secondaryQuest;
 	
 	@Column(name = "chapter_completed")
 	private Integer chapterCompleted;
@@ -38,8 +38,8 @@ public class Conquest {
 	public Conquest(Long id, User user, Integer articleRead, Integer quizzCompleted, Integer chapterCompleted, Integer totalXp, Integer totalBadges) {
 		this.id = id;
 		this.user = user;
-		this.articleRead = articleRead;
-		this.quizzCompleted = quizzCompleted;
+		this.principalQuest = articleRead;
+		this.secondaryQuest = quizzCompleted;
 		this.chapterCompleted = chapterCompleted;
 		this.totalXp = totalXp;
 		this.totalBadges = totalBadges;
@@ -61,20 +61,21 @@ public class Conquest {
 		this.user = user;
 	}
 
-	public Integer getArticleRead() {
-		return articleRead;
+	
+	public Integer getPrincipalQuest() {
+		return principalQuest;
 	}
 
-	public void setArticleRead(Integer articleRead) {
-		this.articleRead = articleRead;
+	public void setPrincipalQuest(Integer principalQuest) {
+		this.principalQuest = principalQuest;
 	}
 
-	public Integer getQuizzCompleted() {
-		return quizzCompleted;
+	public Integer getSecondaryQuest() {
+		return secondaryQuest;
 	}
 
-	public void setQuizzCompleted(Integer quizzCompleted) {
-		this.quizzCompleted = quizzCompleted;
+	public void setSecondaryQuest(Integer secondaryQuest) {
+		this.secondaryQuest = secondaryQuest;
 	}
 
 	public Integer getChapterCompleted() {

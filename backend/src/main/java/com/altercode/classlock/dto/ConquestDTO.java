@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 import com.altercode.classlock.entity.Conquest;
 
-public class ConquestDTO  implements Serializable{
+public class ConquestDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
-	private Integer articleRead;
-	private Integer quizzCompleted;
+	private Integer principalQuest;
+	private Integer secondaryQuest;
 	private Integer chapterCompleted;
 	private Integer totalXp;
 	private Integer totalBadges;
@@ -22,15 +22,15 @@ public class ConquestDTO  implements Serializable{
 
 	public ConquestDTO(Conquest entity) {
 		id = entity.getId();
-		articleRead = entity.getArticleRead();
-		quizzCompleted = entity.getQuizzCompleted();
+		principalQuest = entity.getPrincipalQuest();
+		secondaryQuest = entity.getSecondaryQuest();
 		chapterCompleted = entity.getChapterCompleted();
 		totalXp = entity.getTotalXp();
 		totalBadges = entity.getTotalBadges();
 		userId = entity.getUser().getId();
 		userName = entity.getUser().getUserName();
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -39,20 +39,20 @@ public class ConquestDTO  implements Serializable{
 		this.id = id;
 	}
 
-	public Integer getArticleRead() {
-		return articleRead;
+	public Integer getPrincipalQuest() {
+		return principalQuest;
 	}
 
-	public void setArticleRead(Integer articleRead) {
-		this.articleRead = articleRead;
+	public void setPrincipalQuest(Integer principalQuest) {
+		this.principalQuest = principalQuest;
 	}
 
-	public Integer getQuizzCompleted() {
-		return quizzCompleted;
+	public Integer getSecondaryQuest() {
+		return secondaryQuest;
 	}
 
-	public void setQuizzCompleted(Integer quizzCompleted) {
-		this.quizzCompleted = quizzCompleted;
+	public void setSecondaryQuest(Integer secondaryQuest) {
+		this.secondaryQuest = secondaryQuest;
 	}
 
 	public Integer getChapterCompleted() {
@@ -95,4 +95,3 @@ public class ConquestDTO  implements Serializable{
 		this.userName = userName;
 	}
 }
-

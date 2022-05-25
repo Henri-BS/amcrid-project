@@ -26,6 +26,7 @@ public class QuizzController {
 	@Autowired
 	private QuizzService service;
 	
+	
 	@GetMapping("/all-questions")
 	public ResponseEntity<List<QuestionDTO>> findAll() {
 		List<QuestionDTO> list = service.findAll();

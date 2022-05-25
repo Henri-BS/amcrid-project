@@ -31,14 +31,6 @@ public class QuizzService {
 	
 	ResultPK resultPK;
 	
-	public int getResult(ResultPK resultPK) {
-		int correct = 0;
-		for(Question q: resultPK.getQuestions())
-				if(q.getAns() == q.getChose())
-					correct++;
-		return correct;
-	}
-	
 	public void saveScore(Result result) {
 		Result saveResult = new Result();
 		saveResult.setUser(result.getUser());

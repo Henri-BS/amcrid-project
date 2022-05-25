@@ -71,11 +71,6 @@ public class UserService {
 		return result;
 	}
 
-	/*
-	 * public List<User> getByName(String prefix) { return
-	 * repository.getByName(prefix); }
-	 */	
-	
 	@Transactional(readOnly = true)
 	public List<UserRankDTO> userXpRank() {
 		return conquestRepository.userXpRank();

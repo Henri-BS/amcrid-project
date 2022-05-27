@@ -19,10 +19,10 @@ import com.altercode.classlock.service.ChapterService;
 public class ChapterController {
 	@Autowired
 	private ChapterService service;
-	
+
 	@GetMapping
 	public Page<ChapterDTO> findAll(Pageable pageable) {
-	return service.findAll(pageable);	
+		return service.findAll(pageable);
 	}
 
 	@GetMapping("/all")
@@ -32,7 +32,7 @@ public class ChapterController {
 	}
 
 	@GetMapping(value = "/{id}")
-	public ChapterDTO findById(@PathVariable Long id){
-	return service.findById(id);	
+	public ChapterDTO findById(@PathVariable Long id) {
+		return service.findById(id);
 	}
 }

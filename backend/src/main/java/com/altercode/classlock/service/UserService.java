@@ -55,9 +55,10 @@ public class UserService {
 		return repository.findByUserName(name);
 	}
 
-	public List<ConquestDTO> findAllConquests() {
-		List<Conquest> result = conquestRepository.findAll();
-		return result.stream().map(x -> new ConquestDTO(x)).collect(Collectors.toList());
+	public Page<ConquestDTO> findAllConquests(Pageable pageable) {
+		Page<Conquest> result = conquestRepository.findAll(pageable);
+		Page<ConquestDTO> page = result.map(x -> new ConquestDTO(x));
+		return page;
 	}
 
 	@Transactional

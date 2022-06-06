@@ -48,9 +48,8 @@ public class UserController {
 	}
 
 	@GetMapping("/conquests")
-	public ResponseEntity<List<ConquestDTO>> findAllConquests() {
-		List<ConquestDTO> list = service.findAllConquests();
-		return ResponseEntity.ok(list);
+	public Page<ConquestDTO> findAllConquests(Pageable pageable) {
+		return service.findAllConquests(pageable);
 	}
 	
 	@GetMapping("/conquests/ranking")

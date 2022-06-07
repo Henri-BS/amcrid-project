@@ -20,8 +20,8 @@ export const MenuItems = [
         cName: 'dropdown-link'
     },
     {
-        title: 'Forúm',
-        path: '/',
+        title: 'Lista de Usuários',
+        path: '/user-list',
         cName: 'dropdown-link'
     }
 ]

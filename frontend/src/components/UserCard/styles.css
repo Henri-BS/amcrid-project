@@ -47,24 +47,11 @@
     color: #fff;
 }
 
-.cl-max-container h2 {
-    text-align: center;
-    font-size: 21px;
-    font-weight: 700;
-    min-height: 40px;
-    color: #fff;
-}
-
-.cl-max-container hr {
-    background-color: var(--sena);
-}
-
 .cl-user-box-container {
     background-color: var(--deca);
     justify-content: center;
     align-items: center;
-    margin: 0px 20px 60px 20px;
-    max-width: 350px;
+    max-width: 300px;
     border-radius: 30px;
 }
 
@@ -86,6 +73,47 @@
     width: 30px;
     height: 30px;
     margin-right: 3px;
+}
+
+.user-minicard-container {
+    height: 90px;
+    background-color: var(--deca);
+    border-radius: 10px;
+    align-items: flex-start;
+    justify-content: start;
+    display: flex;
+}
+
+.user-minicard-image {
+    max-height: 88px;
+    max-width: 88px;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+.user-minicard-text {
+    padding: 10px;
+}
+
+.user-minicard-text h6 {
+    font-size: 19px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.user-minicard-info {
+    align-items: center;
+    display: inline-flex;
+    padding: 20px 2px;
+    font-size: 14px;
+    font-weight: 300;
+    width: 100%;
+    color: var(--sena);
+}
+
+.user-minicard-info li {
+    list-style: none;
+    margin-right: 10px;
 }
 
 @media screen and (max-width: 650px) {

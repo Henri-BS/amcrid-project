@@ -40,7 +40,7 @@ function RankingTable() {
                     <tbody>
                         {page.content?.map(item => (
                               <tr key={item.id}>
-                                <td className="table-box">username</td>
+                                <td className="table-box">{item.user}</td>
                                 <td className="table-box">{item.totalXp}</td>
                                 <td className="table-box">{item.principalQuest}</td>
                                 <td className="table-box">{item.secondaryQuest}</td>

@@ -22,7 +22,7 @@ const PageRoutes = () => {
                     <Route path="/ranking" element={<Ranking />} />
 
                     <Route path="/profile">
-                        <Route path=":profileId" element={<Profile />} />
+                        <Route path=":userId" element={<Profile />} />
                     </Route>
 
                     <Route path="/post">

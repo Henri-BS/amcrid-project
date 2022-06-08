@@ -1,9 +1,12 @@
 
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { User } from 'types/user';
+import { BASE_URL } from 'utils/requests';
 import './styles.css'
 
 type Props = {
-    user: User;
+    userId: string;
 }
 
 const  usertest ={
@@ -15,27 +18,30 @@ const  usertest ={
     badge: "https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png"
 };
 
-function UserCard({user}: Props) {
+function UserCard({userId}: Props) {
+    const [user, setUser] = useState<User>();
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/user/${userId}`)
+        .then(response => {
+            setUser(response.data);
+        });
+    }, [userId]);
 
     return (
         <div className="cl-max-container">
             <div className="cl-user-box-container ">
-                <img className="cl-user-card-image" src={user.image} alt={user.userName} />
+                <img className="cl-user-card-image" src={user?.image} alt={user?.userName} />
                 <div className="cl-user-card-container ">
-                    <h3>{user.userName}</h3>
+                    <h3>{user?.userName}</h3>
                     <div className="cl-user-badge-container">
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user.userName} /></div>
-
+                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user?.userName} /></div>
+                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user?.userName} /></div>
+                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user?.userName} /></div>
+                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user?.userName} /></div>
+                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user?.userName} /></div>
+                        <div className="badge-item"><img className="badge-item" src={usertest.badge} alt={user?.userName} /></div>
+                       
                     </div>
                     <hr />
                     <ul className="list-unstyled">

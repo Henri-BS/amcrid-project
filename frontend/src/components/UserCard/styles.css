@@ -31,12 +31,10 @@
 .cl-user-card-container {
     width: 300px;
     align-items: center;
-    background-color: var(--deca);
     border-radius: 0px 0px 30px 30px;
     text-decoration-color: transparent;
-    padding: 10px;
+    padding: 8px;
     display: grid;
-    border: 1px solid var(--sena);
 }
 
 .cl-max-container h3 {
@@ -49,6 +47,7 @@
 
 .cl-user-box-container {
     background-color: var(--deca);
+    border: 1px solid var(--sena);
     justify-content: center;
     align-items: center;
     max-width: 300px;
@@ -116,7 +115,7 @@
     margin-right: 10px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 550px) {
     .cl-max-container {
         display: flex;
         padding: 40px;
@@ -132,7 +131,7 @@
     }
     .cl-user-card-image {
         max-width: 250px;
-        max-height: 250px;
+        max-height: 200px;
         border-radius: 30px;
         padding: 10px;
     }
@@ -163,7 +162,7 @@
         margin: 0px;
     }
     .cl-user-box-container {
-        min-width: 180px;
-        padding: 20px;
+        max-width: 300px;
+        padding: 10px;
     }
 }

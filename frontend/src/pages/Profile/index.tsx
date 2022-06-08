@@ -1,21 +1,21 @@
 import UserCard from 'components/UserCard';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import './styles.css';
 
 
 
-export default function Profile() {
+ function Profile() {
+  const params = useParams();
+
   return (
     <>
-<div className="container">
-< UserCard user={{
-          id: 0,
-          email: '',
-          userName: '',
-          password: '',
-          image: ''
-        }} />
-  </div>
+      <div className="container">
+        < UserCard userId={`${params.userId}`} />
+      </div>
     </>
   );
+
 }
+
+export default Profile;

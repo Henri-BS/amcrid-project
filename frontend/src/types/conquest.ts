@@ -25,4 +25,5 @@ export type ConquestPage = {
 export type UserRank = {
 userName: string;
 totalXp: number;
+
 };

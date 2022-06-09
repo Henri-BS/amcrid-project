@@ -4,12 +4,14 @@ import React from 'react';
 import './styles.css'
 
 export default function Ranking() {
+  
   return (
     <>
       <div className="container">
         <div className="rank-details-container">
-        <RankingDetails />
+        <RankingDetails  />
         </div>
+
         <div className="datatable-container">
           <RankingTable />
         </div>

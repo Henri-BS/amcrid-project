@@ -1,10 +1,16 @@
+import axios from "axios";
 import ArticleCard from "components/ArticleCard";
 import Pagination from "components/Pagination";
 import QuestCard from "components/QuestCard";
 import { MiniUserCard } from "components/UserCard";
+import { useEffect, useState } from "react";
+import { UserPage } from "types/user";
+import { BASE_URL } from "utils/requests";
 import "./styles.css"
 
 export function ArticleList() {
+
+
     return (
         <>
             <div className="container">
@@ -45,20 +51,38 @@ export function QuestList() {
 }
 
 export function UserList() {
+
+    const[page, setPage] = useState<UserPage>({
+        content: [],
+        first: true,
+        last: true,
+        totalPages: 0,
+        totalElements: 0,
+        size: 12,
+        number: 0,
+        numberOfElements: 0,
+        empty: true,
+    });
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/user?page=0&size=10&sort=userName`)
+        .then(response => {
+            const data = response.data as UserPage;
+            setPage(data);
+        });
+    }, []);
+
     
     return (
         <>
             <div className="container">
                 <div><Pagination /></div>
                 <div className="list-container row">
-                    <div className="col-sm-6 col-lg-4 col-xl-3 mb-3"><MiniUserCard /></div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3 mb-3"><MiniUserCard /></div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3 mb-3"><MiniUserCard /></div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3 mb-3"><MiniUserCard /></div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3 mb-3"><MiniUserCard /></div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3 mb-3"><MiniUserCard /></div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3 mb-3"><MiniUserCard /></div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3 mb-3"><MiniUserCard /></div>
+                    {page.content?.map(user => (
+                    <div key={user.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                        <MiniUserCard user={user}/>
+                    </div>
+                    ))}
                 </div>
             </div>
         </>

@@ -90,11 +90,14 @@
     border-radius: 20px;
 }
 
-.user-minicard-text {
+.user-minicard-username {
     padding: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.user-minicard-text h6 {
+.user-minicard-username h6 {
     font-size: 19px;
     font-weight: 500;
     color: #fff;

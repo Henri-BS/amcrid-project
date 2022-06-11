@@ -17,17 +17,19 @@ function QuestCard() {
                 <div className="cl-card-info">
                     <label htmlFor="touch" >
                         <span>Etapas</span>
-                    </label><nav>
+                    </label>
 
+                    <nav>
                         <input type="checkbox" id="touch" />
                         <ul className=" list-unstyled slide">
                             <li>  <b>1</b> - Quizz Princípios Básicos da Segurança da Informação</li>
                             <li>  <b>2</b> - Quizz Confiabilidade e Integridade</li>
                             <li>  <b>3</b> - Quizz Autenticidade e Disponibilidade</li>
                         </ul>
-                    </nav>
+                    </nav>  
+                    <hr/>
                 </div>
-            
+          
                 <Link to="/quest/1">
                     <div className="btn btn-primary cl-form-btn">
                         Acessar

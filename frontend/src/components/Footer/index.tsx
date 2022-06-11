@@ -35,24 +35,24 @@ function Footer() {
                         <ul className="list-unstyled">
                             <h3>Contato</h3>
                             <hr />
-                            <div className="row mb-3 mt-48 mx-16 ">
+                            <li className="row mb-3 mt-48 mx-16 ">
                                 <Link to="/">
                                     <img className='footer-img' src={IGithub} alt='logo' />
                                     /Github
                                 </Link>
-                            </div>
-                            <div className="row mb-3 mt-48 mx-16 ">
+                            </li>
+                            <li className="row mb-3 mt-48 mx-16 ">
                                 <Link to="/">
                                     <img className='footer-img' src={ILinkedin} alt='logo' />
                                     /LinkedIn
                                 </Link>
-                            </div>
-                            <div className="row mb-3 mt-20 mx-16 ">
+                            </li>
+                            <li className="row mb-3 mt-20 mx-16 ">
                                 <Link to="/">
                                     <img className='footer-img' src={IGmail} alt='logo' />
                                     /Gmail
                                 </Link>
-                            </div>
+                            </li>
                         </ul>
                     </div>
                     <hr />

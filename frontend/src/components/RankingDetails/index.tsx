@@ -1,82 +1,61 @@
 import { Link } from 'react-router-dom';
 import './styles.css'
-import Bronze from 'assets/img/bronze.svg'
-import Prata from 'assets/img/prata.svg'
-import Ouro from 'assets/img/ouro.svg'
+import TerceiroLugar from 'assets/img/terceiro.svg'
+import SegundoLugar from 'assets/img/segundo.svg'
+import PrimeiroLugar from 'assets/img/primeiro.svg'
+import { useEffect, useState } from 'react';
+import { ConquestPage } from 'types/conquest';
+import axios from 'axios';
+import { BASE_URL } from 'utils/requests';
 
 function RankingDetails() {
 
-    const top = {
-        id: 1,
-        user1: "https://ih1.redbubble.net/image.1426571880.2339/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
-        user2: "https://i.pinimg.com/originals/01/65/e8/0165e8cbbae722d2326abd74efd9df46.jpg",
-        user3: "https://i.pinimg.com/originals/fc/f2/9b/fcf29b175770dba5aa539c82fd3b064e.jpg",
+    const [page, setPage] = useState<ConquestPage>({
+        first: true,
+        last: true,
+        number: 0,
+        totalElements: 0,
+        totalPages: 0
+    });
 
-    };
+    useEffect(() => {
+        axios.get(`${BASE_URL}/user/conquests?page=0&size=3&sort=totalXp,desc`)
+            .then(response => {
+                setPage(response.data);
+
+            });
+    }, []);
 
     return (
         <>
             <div className="rank-nav-options">
-                <Link to="/ranking" className="options-btn">
-                    XP
-                </Link>
-                <Link to="/ranking" className="options-btn">
-                    Principais
-                </Link>
-                <Link to="/ranking" className="options-btn">
-                    Secundárias
-                </Link>
 
-                <Link to="/ranking" className="options-btn">
-                    Capítulos
-                </Link>
-
-                <Link to="/ranking" className="options-btn">
-                    Badges
-                </Link>
+                <div className="options-btn">
+                    <img className="options-btn-image" src={PrimeiroLugar} alt="ouro" />
+                </div>
+                <div className="options-btn">
+                    <img className="options-btn-image" src={SegundoLugar} alt="prata" />
+                </div>
+                <div className="options-btn">
+                    <img className="options-btn-image" src={TerceiroLugar} alt="bronze" />
+                </div>
 
 
             </div>
             <div className="rank-user-container">
-                <article className="rank-user-card">
-                    <div className="rank-user-card-image">
-                        <img src={top.user2} alt="user2" />
-                    </div>
-                    <img className="rank-user-card-icon" src={Prata} alt='prata' />      
-                    <div className="rank-user-card-content">
-                        <ul className="list-unstyled">
-                            <li>Usuário: Anny</li>
-                            <li>Xp Total: 6345</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article className="rank-user-card">
-                    <div className="rank-user-card-image">
-                        <img src={top.user1} alt="user1" />
-                    </div>
-                    <img className="rank-user-card-icon" src={Ouro} alt='ouro' />      
-                    <div className="rank-user-card-content">
-
-                        <ul className="list-unstyled">
-                            <li>Usuário: VIII</li>
-                            <li>Xp Total: 6790</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article className="rank-user-card">
-                    <div className="rank-user-card-image">
-                        <img src={top.user3} alt="user3" />
-                    </div>
-                    <img className="rank-user-card-icon" src={Bronze} alt='bronze' />      
-                    <div className="rank-user-card-content">
-                        <ul className="list-unstyled">
-                            <li>Usuário: Jack</li>
-                            <li>Xp Total: 5950</li>
-                        </ul>
-                    </div>
-                </article>
+                {page.content?.map(item => (
+                    <article key={item.id} className="rank-user-card">
+                        <div className="rank-user-card-image">
+                            <img src={item.user.image} alt={item.user.userName} />
+                        </div>
+                        <div className="rank-user-card-content">
+                            <ul className="list-unstyled">
+                                <li>Usuário: {item.user?.userName}</li>
+                                <li>Xp Total: {item.totalXp}</li>
+                            </ul>
+                        </div>
+                    </article>
+                ))}
             </div>
         </>
     );

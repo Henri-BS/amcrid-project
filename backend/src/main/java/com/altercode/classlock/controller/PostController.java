@@ -19,7 +19,7 @@ public class PostController {
     @Autowired
     private PostService service;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<Page<PostDTO>> findAll(Pageable pageable) {
         Page<PostDTO> list = service.findAll(pageable);
         return ResponseEntity.ok(list);

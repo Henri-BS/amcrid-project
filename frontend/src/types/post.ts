@@ -1,13 +1,15 @@
+import { User } from "./user";
+
 export type Post = {
   id: number;
   title: string;
   summary: string;
   views: number;
   body: string;
-  userId: number;
-  userName: string;
+  image: string;
   createdBy: string;
-  createdDate: string;
+  createdDate: string; 
+  user: User;
 };
 
 export type PostPage = {

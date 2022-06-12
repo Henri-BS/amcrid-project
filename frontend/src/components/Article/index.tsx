@@ -1,3 +1,4 @@
+import { Post } from 'types/post';
 import './styles.css';
 
 const post = {
@@ -8,6 +9,8 @@ const post = {
     createdBy: "Big Hunt",
     createdDate: "11/04/2020"
 };
+
+
 
 export function ArticlePost() {
     return (

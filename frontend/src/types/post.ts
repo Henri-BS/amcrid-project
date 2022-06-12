@@ -9,3 +9,15 @@ export type Post = {
   createdBy: string;
   createdDate: string;
 };
+
+export type PostPage = {
+  content?: Post[];
+  last: boolean;
+  first: boolean;
+  empty?: boolean;
+  totalPages: number;
+  totalElements: number;
+  numberOfElements?: number;
+  size?: number;
+  number: number;
+};

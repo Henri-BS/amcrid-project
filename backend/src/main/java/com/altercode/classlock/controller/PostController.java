@@ -1,8 +1,9 @@
 package com.altercode.classlock.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +20,8 @@ public class PostController {
     private PostService service;
 
     @GetMapping("/all")
-    public ResponseEntity<List<PostDTO>> findAll() {
-        List<PostDTO> list = service.findAll();
+    public ResponseEntity<Page<PostDTO>> findAll(Pageable pageable) {
+        Page<PostDTO> list = service.findAll(pageable);
         return ResponseEntity.ok(list);
     }
 }

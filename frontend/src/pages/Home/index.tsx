@@ -6,9 +6,10 @@ import QuestCard from 'components/QuestCard';
 import { Link } from 'react-router-dom';
 import ArticleCard from 'components/ArticleCard';
 
-export default function Home() {
+function Home() {
   return (
     <>
+      
       <div className="container">
         <Link to="/article-list">
       <h2>Artigos</h2>
@@ -47,3 +48,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

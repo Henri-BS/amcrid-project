@@ -58,7 +58,7 @@ export function UserList() {
         last: true,
         totalPages: 0,
         totalElements: 0,
-        size: 12,
+        size: 10,
         number: 0,
         numberOfElements: 0,
         empty: true,

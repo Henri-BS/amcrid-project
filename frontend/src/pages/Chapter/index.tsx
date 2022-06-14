@@ -1,14 +1,18 @@
 import { ArticleChapter } from 'components/Article';
 import Form from 'components/Form/index ';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import './styles.css';
 
 
-export default function Quest() {
+function Chapter() {
+
+  const params = useParams();
+
   return (
     <>
       <div className="container">
-        <ArticleChapter />
+        <ArticleChapter chapterId={`${params.chapterId}`}/>
         <div className="menu-options-container">
           <h2 className="menu-options-item ">Quizz</h2>
           <div className="menu-options-item  cl-form-btn-container">
@@ -27,3 +31,5 @@ export default function Quest() {
     </>
   );
 }
+
+export default Chapter;

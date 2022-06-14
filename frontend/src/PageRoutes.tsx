@@ -1,5 +1,5 @@
 import Home from "pages/Home";
-import Quest from "pages/Chapter/index";
+import Chapter from "pages/Chapter/index";
 import Profile from "pages/Profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "components/NavBar";
@@ -31,7 +31,7 @@ const PageRoutes = () => {
 
 
                     <Route path="/quest">
-                        <Route path=":questId" element={<Quest />} />
+                        <Route path=":questId" element={<Chapter />} />
                     </Route>
                 </Routes>
                 <Footer />

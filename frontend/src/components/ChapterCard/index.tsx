@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './styles.css'
 
-function QuestCard() {
+function ChapterCard() {
 
     const quest = {
         id: 1,
@@ -40,4 +40,4 @@ function QuestCard() {
     );
 
 }
-export default QuestCard;
+export default ChapterCard;

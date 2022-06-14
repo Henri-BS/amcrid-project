@@ -2,13 +2,14 @@
 import Pagination, { PaginationLeft, PaginationRight } from 'components/Pagination';
 import './styles.css'
 import { ArticleChapter } from 'components/Article';
-import QuestCard from 'components/QuestCard';
+import ChapterCard from 'components/ChapterCard';
 import { Link, useParams } from 'react-router-dom';
 import ArticleCard from 'components/ArticleCard';
 import { useEffect, useState } from 'react';
 import { PostPage } from 'types/post';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
+import { ChapterPage } from 'types/chapter';
 
 
 
@@ -35,6 +36,27 @@ const params = useParams();
         setPage(data);
       });
   }, []);
+
+const [chapterPage, setChapterPage] = useState<ChapterPage>({
+  content: [],
+  first: true,
+  last: true,
+  totalPages: 0,
+  totalElements: 0,
+  size: 1,
+  number: 0,
+  numberOfElements: 0,
+  empty: true
+});
+
+
+useEffect(() => {
+  axios.get(`${BASE_URL}/chapter?page=0&size=1&sort=id`)
+  .then(response =>{
+    const data = response.data as ChapterPage;
+    setChapterPage(data);
+  })
+}, []);
 
   return (
     <>
@@ -67,12 +89,16 @@ const params = useParams();
         </Link>
         <Pagination />
         <div className="row quest-chapter-container">
-          <div className=" col-sm-6 col-md-3 xl-3" >
-            <QuestCard />
-          </div>
-          <div className="col-sm-6 col-md-9 col-xl-9">
+          {chapterPage.content?.map(chapter => (
+          <div key={chapter.id} className=" col-sm-6 col-md-3 xl-3" >
+            <ChapterCard />
+          </div>          
+          ))}
+          {chapterPage.content?.map(chapter => (
+          <div key={chapter.id} className="col-sm-6 col-md-9 col-xl-9">
             <ArticleChapter chapterId={`${params.chapterId}`} />
           </div>
+          ))}
         </div>
       </div>
     </>

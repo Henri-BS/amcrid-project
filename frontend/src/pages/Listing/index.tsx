@@ -1,7 +1,7 @@
 import axios from "axios";
 import ArticleCard from "components/ArticleCard";
 import Pagination from "components/Pagination";
-import QuestCard from "components/QuestCard";
+import ChapterCard from "components/ChapterCard";
 import { MiniUserCard } from "components/UserCard";
 import { useEffect, useState } from "react";
 import { ChapterPage } from "types/chapter";
@@ -81,7 +81,7 @@ export function ChapterList() {
                 <div className="list-container row">
                     {chapterPage.content?.map(chapter => (
                         <div key={chapter.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                            <QuestCard />
+                            <ChapterCard />
                         </div>
                     ))}
                 </div>

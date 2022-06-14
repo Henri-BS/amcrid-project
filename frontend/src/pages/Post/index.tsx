@@ -3,10 +3,12 @@ import { useParams } from "react-router-dom";
 
 export default function Post() {
 
+const params = useParams();
+
     return (
       <>
   <div className="container">
-  <ArticlePost />
+  <ArticlePost postId={`${params.postId}`}/>
   </div>
       </>
     );

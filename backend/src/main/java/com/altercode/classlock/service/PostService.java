@@ -22,5 +22,11 @@ public class PostService {
     	return page;
     
 	}
+    
+    public PostDTO findById(Long id) {
+    	Post result = repository.findById(id).get();
+    	PostDTO dto = new PostDTO(result);
+    	return dto;
+    }
 
 }

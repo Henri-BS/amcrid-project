@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Chapter } from 'types/chapter';
 import { Post } from 'types/post';
 import { formatLocalDate } from 'utils/format';
 import { BASE_URL } from 'utils/requests';
@@ -48,14 +49,27 @@ export function ArticlePost({postId}: Props) {
         </>
     )
 }
+type Cons = {
+    chapterId: string;
+}
+    
+export function ArticleChapter({chapterId}: Cons) {
 
-export function ArticleChapter() {
+    const[chapter, setChapter] = useState<Chapter>();
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/chapter/${chapterId}`)
+        .then(response => {
+setChapter(response.data);
+        });
+    }, [chapterId])
+    
     return (
         <>
             <div className="article-container">
                 <div className="article-content">
-                    <h2>"Princípios Básicos da Segurança da Informação"</h2>
-                    <p>Neste capítulo você será apresentado a missões que iram testar os seus conhecimentos a cerca dos princípios básicos da segurança da informação, para  executar este capítulo com êxito é nescessário compreender as características de cada um dos príncipios.</p>
+                    <h2>"{chapter?.title}"</h2>
+                    <p>{chapter?.description}</p>
                 </div>
             </div>
         </>

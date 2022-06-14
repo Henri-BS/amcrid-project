@@ -6,7 +6,7 @@ import Navbar from "components/NavBar";
 import Footer from "components/Footer";
 import Post from "pages/Post";
 import Ranking from "pages/Ranking";
-import {ArticleList, QuestList, UserList} from "pages/Listing";
+import {ArticleList, ChapterList, UserList} from "pages/Listing";
 
 const PageRoutes = () => {
     return (
@@ -16,7 +16,7 @@ const PageRoutes = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/article-list" element={<ArticleList />} />
-                    <Route path="/quest-list" element={<QuestList />} />
+                    <Route path="/quest-list" element={<ChapterList />} />
                     <Route path="/user-list" element={<UserList />} />
 
                     <Route path="/ranking" element={<Ranking />} />

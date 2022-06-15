@@ -81,7 +81,7 @@ export function ChapterList() {
                 <div className="list-container row">
                     {chapterPage.content?.map(chapter => (
                         <div key={chapter.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                            <ChapterCard />
+                            <ChapterCard chapter={chapter}/>
                         </div>
                     ))}
                 </div>

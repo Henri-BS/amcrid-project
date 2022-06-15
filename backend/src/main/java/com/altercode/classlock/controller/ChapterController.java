@@ -16,6 +16,7 @@ import com.altercode.classlock.service.ChapterService;
 
 @RestController
 @RequestMapping("/chapter")
+
 public class ChapterController {
 	@Autowired
 	private ChapterService service;

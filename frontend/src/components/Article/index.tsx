@@ -50,26 +50,17 @@ export function ArticlePost({postId}: Props) {
     )
 }
 type Cons = {
-    chapterId: string;
+    chapter: Chapter;
 }
     
-export function ArticleChapter({chapterId}: Cons) {
+export function ArticleChapter({chapter}: Cons) {
 
-    const[chapter, setChapter] = useState<Chapter>();
-
-    useEffect(() => {
-        axios.get(`${BASE_URL}/chapter/${chapterId}`)
-        .then(response => {
-setChapter(response.data);
-        });
-    }, [chapterId])
-    
     return (
         <>
             <div className="article-container">
                 <div className="article-content">
-                    <h2>"{chapter?.title}"</h2>
-                    <p>{chapter?.description}</p>
+                    <h2>"{chapter.title}"</h2>
+                    <p>{chapter.description}</p>
                 </div>
             </div>
         </>

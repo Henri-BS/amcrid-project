@@ -1,7 +1,7 @@
 import { ArticlePost } from "components/Article";
 import { useParams } from "react-router-dom";
 
-export default function Post() {
+ function Post() {
 
 const params = useParams();
 
@@ -13,3 +13,5 @@ const params = useParams();
       </>
     );
   }
+  
+  export default Post;

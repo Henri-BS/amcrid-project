@@ -15,8 +15,6 @@ import { ChapterPage } from 'types/chapter';
 
 function Home() {
 
-const params = useParams();
-
   const [page, setPage] = useState<PostPage>({
     content: [],
     first: true,
@@ -91,12 +89,12 @@ useEffect(() => {
         <div className="row quest-chapter-container">
           {chapterPage.content?.map(chapter => (
           <div key={chapter.id} className=" col-sm-6 col-md-3 xl-3" >
-            <ChapterCard />
+            <ChapterCard chapter={chapter}/>
           </div>          
           ))}
           {chapterPage.content?.map(chapter => (
           <div key={chapter.id} className="col-sm-6 col-md-9 col-xl-9">
-            <ArticleChapter chapterId={`${params.chapterId}`} />
+            <ArticleChapter chapter={chapter} />
           </div>
           ))}
         </div>

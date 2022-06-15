@@ -7,12 +7,10 @@ import './styles.css';
 
 function Chapter() {
 
-  const params = useParams();
 
   return (
     <>
       <div className="container">
-        <ArticleChapter chapterId={`${params.chapterId}`}/>
         <div className="menu-options-container">
           <h2 className="menu-options-item ">Quizz</h2>
           <div className="menu-options-item  cl-form-btn-container">

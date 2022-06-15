@@ -1,24 +1,25 @@
 import { Link } from 'react-router-dom';
+import { Chapter } from 'types/chapter';
 import './styles.css'
 
-function ChapterCard() {
+type Props = {
+    chapter: Chapter;
+}
 
-    const quest = {
-        id: 1,
-        image: "https://wallpaperaccess.com/full/2655771.jpg",
-        title: "Os Princípios Básicos da Segurança da Informação",
-        answers: 20,
-    };
+function ChapterCard({chapter}: Props) {
 
     return (
         <div>
-            <img className="cl-quest-card-image" src={quest.image} alt={quest.title} />
-            <div className="cl-card-bottom-container">  <h3>{quest.title}</h3>
+            <img className="cl-quest-card-image" 
+            src={chapter.image} 
+            alt={chapter.title} />
+            <div className="cl-card-bottom-container">  
+            <h3>{chapter.title}</h3>
+
                 <div className="cl-card-info">
                     <label htmlFor="touch" >
                         <span>Etapas</span>
                     </label>
-
                     <nav>
                         <input type="checkbox" id="touch" />
                         <ul className=" list-unstyled slide">
@@ -30,7 +31,7 @@ function ChapterCard() {
                     <hr/>
                 </div>
           
-                <Link to="/quest/1">
+                <Link to={`/chapter/${chapter.id}`}>
                     <div className="btn btn-primary cl-form-btn">
                         Acessar
                     </div>

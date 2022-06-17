@@ -35,11 +35,11 @@ public class Conquest {
 	public Conquest() {
 	}
 
-	public Conquest(Long id, User user, Integer articleRead, Integer quizzCompleted, Integer chapterCompleted, Integer totalXp, Integer totalBadges) {
+	public Conquest(Long id, User user, Integer principalQuest, Integer secondaryQuest, Integer chapterCompleted, Integer totalXp, Integer totalBadges) {
 		this.id = id;
 		this.user = user;
-		this.principalQuest = articleRead;
-		this.secondaryQuest = quizzCompleted;
+		this.principalQuest = principalQuest;
+		this.secondaryQuest = secondaryQuest;
 		this.chapterCompleted = chapterCompleted;
 		this.totalXp = totalXp;
 		this.totalBadges = totalBadges;

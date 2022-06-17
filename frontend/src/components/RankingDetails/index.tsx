@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import './styles.css'
 import TerceiroLugar from 'assets/img/terceiro.svg'
 import SegundoLugar from 'assets/img/segundo.svg'

@@ -1,4 +1,4 @@
-import UserCard from 'components/UserCard';
+import UserCard  from 'components/UserCard';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './styles.css';
@@ -11,7 +11,7 @@ import './styles.css';
   return (
     <>
       <div className="container">
-        < UserCard userId={`${params.userId}`} />
+        < UserCard userId={`${params.userId}`}/>
       </div>
     </>
   );

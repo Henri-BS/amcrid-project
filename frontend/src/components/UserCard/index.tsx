@@ -43,15 +43,18 @@ function UserCard({ userId }: Props) {
 }
 export default UserCard;
 
+type MyConquests = {
+    conquestId: string;
+}
 
-export function UserCardConquests({userId}: Props) {
+export function UserCardConquests({conquestId}: MyConquests) {
     const [conquest, setConquest] = useState<Conquest>();
     useEffect(() => {
-        axios.get(`${BASE_URL}/conquest/user?user=${userId}`)
+        axios.get(`${BASE_URL}/conquest/${conquestId}`)
             .then(response => {
                 setConquest(response.data);
             });
-    }, [userId]);
+    }, [conquestId]);
 
     return (
         <div>

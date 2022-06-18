@@ -15,10 +15,7 @@ public class UserDTO implements Serializable {
 	
 
 	public UserDTO(){}
-
-	public UserDTO(Long id) {
-
-	}
+	
 
 	public UserDTO(Long id, String email, String userName, String password, String image) {
 		this.id = id;
@@ -75,5 +72,4 @@ public class UserDTO implements Serializable {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 }

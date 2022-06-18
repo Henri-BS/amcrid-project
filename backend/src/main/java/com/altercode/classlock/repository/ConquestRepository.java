@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.altercode.classlock.dto.ConquestDTO;
 import com.altercode.classlock.dto.UserRankDTO;
 import com.altercode.classlock.entity.Conquest;
+import com.altercode.classlock.entity.User;
 
 @Repository
 public interface ConquestRepository extends JpaRepository<Conquest, Long> {
@@ -18,4 +19,6 @@ public interface ConquestRepository extends JpaRepository<Conquest, Long> {
 	List<UserRankDTO> userXpRank();
 
 	ConquestDTO findConquestById(Long id);
+	
+	List<ConquestDTO> findByUser(User user);
 }

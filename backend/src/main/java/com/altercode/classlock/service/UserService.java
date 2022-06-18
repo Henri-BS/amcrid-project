@@ -54,6 +54,11 @@ public class UserService {
 	public List<UserDTO> findByUserName(String name) {
 		return repository.findByUserName(name);
 	}
+	
+	@Transactional
+	public List<ConquestDTO> findByUser(User user) {
+		return conquestRepository.findByUser(user);
+	}
 
 	public Page<ConquestDTO> findAllConquests(Pageable pageable) {
 		Page<Conquest> result = conquestRepository.findAll(pageable);

@@ -37,7 +37,6 @@ public class BadgeDTO implements Serializable {
 		image = entity.getImage();
 		xp = entity.getXp();
 		chapter = new ChapterDTO(entity.getChapter().getId());
-		user = new UserDTO(entity.getUser().getId());
 	}
 
 	public Long getId() {

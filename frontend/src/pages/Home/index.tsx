@@ -3,15 +3,13 @@ import Pagination, { PaginationLeft, PaginationRight } from 'components/Paginati
 import './styles.css'
 import { ArticleChapter } from 'components/Article';
 import ChapterCard from 'components/ChapterCard';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ArticleCard from 'components/ArticleCard';
 import { useEffect, useState } from 'react';
 import { PostPage } from 'types/post';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
 import { ChapterPage } from 'types/chapter';
-
-
 
 function Home() {
 

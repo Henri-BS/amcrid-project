@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Conquest } from 'types/conquest';
 import { User } from 'types/user';
 import { BASE_URL } from 'utils/requests';
 import './styles.css'
@@ -21,15 +22,14 @@ function UserCard({ userId }: Props) {
     }, [userId]);
 
     return (
-        <div className="cl-max-container">
-            <div className="cl-user-box-container ">
-                <img className="cl-user-card-image"
+           <div>
+                <img className="user-card-image"
                     src={user?.image}
                     alt={user?.userName} />
-                <div className="cl-user-card-container ">
+                <div className="user-card-container ">
                     <h3>{user?.userName}</h3>
 
-                    <div className="cl-user-badge-container">
+                    <div className="user-badge-container">
                         <div className="badge-item">
                             <img className="badge-item" src="https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png" alt={user?.userName} />
                         </div>
@@ -37,25 +37,32 @@ function UserCard({ userId }: Props) {
 
                     <hr />
                     
-                    <ul className="list-unstyled">
-                        <li className="mb-2"><b>Quests Principais Finalizadas: </b>4152</li>
-                        <li className="mb-2"><b>Quests Secundárias Finalizadas: </b>44123</li>
-                        <li className="mb-2"><b>Capítulos Finalizados: </b>5</li>
-                        <li className="mb-2"><b>Total de Badges: </b>23</li>
-                        <li className="mb-2"><b>Total de Xp: </b>6231</li>
-                    </ul>
                 </div>
             </div>
-        </div>
     );
 }
 export default UserCard;
 
-export function UserCardStatistics() {
+
+export function UserCardConquests({userId}: Props) {
+    const [conquest, setConquest] = useState<Conquest>();
+    useEffect(() => {
+        axios.get(`${BASE_URL}/conquest/user?user=${userId}`)
+            .then(response => {
+                setConquest(response.data);
+            });
+    }, [userId]);
 
     return (
-        <div>UserCardStatistics</div>
-
+        <div>
+            <ul className="list-unstyled">
+                        <li className="mb-2"><b>Quests Principais Finalizadas: </b>{conquest?.principalQuest}</li>
+                        <li className="mb-2"><b>Quests Secundárias Finalizadas: </b>{conquest?.secondaryQuest}</li>
+                        <li className="mb-2"><b>Capítulos Finalizados: </b>{conquest?.chapterCompleted}</li>
+                        <li className="mb-2"><b>Total de Badges: </b>{conquest?.totalBadges}</li>
+                        <li className="mb-2"><b>Total de Xp: </b>{conquest?.totalXp}</li>
+                    </ul>
+                    </div>
     );
 }
 

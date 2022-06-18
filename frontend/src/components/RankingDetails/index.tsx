@@ -18,7 +18,7 @@ function RankingDetails() {
     });
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/user/conquests?page=0&size=3&sort=totalXp,desc`)
+        axios.get(`${BASE_URL}/conquest?page=0&size=3&sort=totalXp,desc`)
             .then(response => {
                 setPage(response.data);
 

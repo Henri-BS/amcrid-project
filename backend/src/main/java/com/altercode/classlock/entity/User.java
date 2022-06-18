@@ -57,12 +57,13 @@ public class User {
 
 	}
 
-	public User(Long id, String email, String userName, String password, String image) {
+	public User(Long id, String email, String userName, String password, String image, Conquest conquest) {
 		this.id = id;
 		this.email = email;
 		this.userName = userName;
 		this.password = password;
 		this.image = image;
+		this.conquest = conquest;
 	}
 
 	public Long getId() {

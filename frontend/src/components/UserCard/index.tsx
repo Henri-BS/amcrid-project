@@ -22,23 +22,23 @@ function UserCard({ userId }: Props) {
     }, [userId]);
 
     return (
-           <div>
-                <img className="user-card-image"
-                    src={user?.image}
-                    alt={user?.userName} />
-                <div className="user-card-container ">
-                    <h3>{user?.userName}</h3>
+        <div>
+            <img className="user-card-image"
+                src={user?.image}
+                alt={user?.userName} />
+            <div className="user-card-container ">
+                <h3>{user?.userName}</h3>
 
-                    <div className="user-badge-container">
-                        <div className="badge-item">
-                            <img className="badge-item" src="https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png" alt={user?.userName} />
-                        </div>
+                <div className="user-badge-container">
+                    <div className="badge-item">
+                        <img className="badge-item" src="https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png" alt={user?.userName} />
                     </div>
-
-                    <hr />
-                    
                 </div>
+
+                <hr />
+
             </div>
+        </div>
     );
 }
 export default UserCard;
@@ -47,7 +47,7 @@ type MyConquests = {
     conquestId: string;
 }
 
-export function UserCardConquests({conquestId}: MyConquests) {
+export function UserCardConquests({ conquestId }: MyConquests) {
     const [conquest, setConquest] = useState<Conquest>();
     useEffect(() => {
         axios.get(`${BASE_URL}/conquest/${conquestId}`)
@@ -59,13 +59,13 @@ export function UserCardConquests({conquestId}: MyConquests) {
     return (
         <div>
             <ul className="list-unstyled">
-                        <li className="mb-2"><b>Quests Principais Finalizadas: </b>{conquest?.principalQuest}</li>
-                        <li className="mb-2"><b>Quests Secundárias Finalizadas: </b>{conquest?.secondaryQuest}</li>
-                        <li className="mb-2"><b>Capítulos Finalizados: </b>{conquest?.chapterCompleted}</li>
-                        <li className="mb-2"><b>Total de Badges: </b>{conquest?.totalBadges}</li>
-                        <li className="mb-2"><b>Total de Xp: </b>{conquest?.totalXp}</li>
-                    </ul>
-                    </div>
+                <li className="mb-2"><b>Quests Principais Finalizadas: </b>{conquest?.principalQuest}</li>
+                <li className="mb-2"><b>Quests Secundárias Finalizadas: </b>{conquest?.secondaryQuest}</li>
+                <li className="mb-2"><b>Capítulos Finalizados: </b>{conquest?.chapterCompleted}</li>
+                <li className="mb-2"><b>Total de Badges: </b>{conquest?.totalBadges}</li>
+                <li className="mb-2"><b>Total de Xp: </b>{conquest?.totalXp}</li>
+            </ul>
+        </div>
     );
 }
 

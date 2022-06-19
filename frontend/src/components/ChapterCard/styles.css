@@ -1,6 +1,9 @@
 .cl-quest-card-image {
+    height: 210px;
     width: 100%;
     border-radius: 8px 8px 0 0;
+    object-fit: cover;
+    border: 1px solid var(--sena);
 }
 
 .cl-card-bottom-container {
@@ -10,7 +13,6 @@
     align-items: center;
     padding: 10px 10px 20px 10px;
     border-radius: 0 0 8px 8px;
-    cursor: pointer;
     text-decoration-color: transparent;
     margin-bottom: 5px;
 }

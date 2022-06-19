@@ -6,15 +6,15 @@ type Props = {
     chapter: Chapter;
 }
 
-function ChapterCard({chapter}: Props) {
+function ChapterCard({ chapter }: Props) {
 
     return (
         <div>
-            <img className="cl-quest-card-image" 
-            src={chapter.image} 
-            alt={chapter.title} />
-            <div className="cl-card-bottom-container">  
-            <h3>{chapter.title}</h3>
+            <img className="cl-quest-card-image"
+                src={chapter.image}
+                alt={chapter.title} />
+            <div className="cl-card-bottom-container">
+                <h3>{chapter.title}</h3>
 
                 <div className="cl-card-info">
                     <label htmlFor="touch" >
@@ -27,14 +27,12 @@ function ChapterCard({chapter}: Props) {
                             <li>  <b>2</b> - Quizz Confiabilidade e Integridade</li>
                             <li>  <b>3</b> - Quizz Autenticidade e Disponibilidade</li>
                         </ul>
-                    </nav>  
-                    <hr/>
+                    </nav>
+                    <hr />
                 </div>
-          
-                <Link to={`/chapter/${chapter.id}`}>
-                    <div className="btn btn-primary cl-form-btn">
-                        Acessar
-                    </div>
+
+                <Link to={`/chapter/${chapter.id}`} className="btn btn-primary cl-form-btn">
+                    Acessar
                 </Link>
             </div>
         </div>

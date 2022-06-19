@@ -13,6 +13,11 @@
 .cl-form-group {
     margin-bottom: 20px;
     line-height: 30px;
+    list-style: none;
+}
+
+.cl-form-group ul {
+    list-style: none;
 }
 
 .cl-form-group label {

@@ -1,10 +1,10 @@
-import Form from 'components/Form/index ';
+import QuestForm from 'components/Form/index ';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import './styles.css';
 
-
 function Chapter() {
-
+const params = useParams();
 
   return (
     <>
@@ -19,9 +19,7 @@ function Chapter() {
           </div>
         </div>
         <div className="quizz-container">
-          <div className="quest-container"><Form /></div>
-          <div className="quest-container"><Form /></div>
-          <div className="quest-container"><Form /></div>
+          <div className="quest-container"><QuestForm questionId={`${params.questionId}`} /></div>
         </div>
       </div>
     </>

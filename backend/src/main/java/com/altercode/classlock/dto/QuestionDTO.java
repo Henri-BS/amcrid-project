@@ -16,8 +16,10 @@ public class QuestionDTO implements Serializable {
     private String optionE;
     private Integer ans;
     private Integer chose;
+    
+    private ChapterDTO chapter;
 
-    public QuestionDTO(Long id, String title, String optionA, String optionB, String optionC, String optionD, String optionE, Integer ans, Integer chose) {
+    public QuestionDTO(Long id, String title, String optionA, String optionB, String optionC, String optionD, String optionE, Integer ans, Integer chose, ChapterDTO chapter) {
         this.id = id;
         this.title = title;
         this.optionA = optionA;
@@ -27,6 +29,7 @@ public class QuestionDTO implements Serializable {
         this.optionE = optionE;
         this.ans = ans;
         this.chose = chose;
+        this.chapter = chapter;
     }
 
     public QuestionDTO(Question entity) {
@@ -39,6 +42,7 @@ public class QuestionDTO implements Serializable {
         optionE = entity.getOptionE();
         ans = entity.getAns();
         chose = entity.getChose();
+        chapter = new ChapterDTO(entity.getChapter());
     }
 
     public QuestionDTO() {
@@ -116,6 +120,13 @@ public class QuestionDTO implements Serializable {
         this.chose = chose;
     }
 
+	public ChapterDTO getChapter() {
+		return chapter;
+	}
+
+	public void setChapter(ChapterDTO chapter) {
+		this.chapter = chapter;
+	}
 }
 
 

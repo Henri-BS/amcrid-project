@@ -1,30 +1,38 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Question } from 'types/question';
+import { BASE_URL } from 'utils/requests';
 import './styles.css'
 
-function Form() {
+type Quizz = {
+    questionId: string; 
+}
 
-    const quest = {
-        id: 1,
-        image: "https://s3.wp.wsu.edu/uploads/sites/609/2019/10/ITSrollout-1188x792.jpg",
-        title: "Segurança da Informação",
-        answers: 20,
-        score: 4.5
-    };
+function QuestForm({questionId}: Quizz) {
+
+    const[question, setQuestion] = useState<Question>();
+
+useEffect(() => {
+    axios.get(`${BASE_URL}/quizz/${questionId}`)
+    .then(response => {
+        setQuestion(response.data);
+    })
+}, [questionId]);
 
     return (
         <>
             <div className="cl-form-container">
                 <div className="card-form-container">
-                    <h3>{quest.title}</h3>
-                    <h4>Quais os princípios básicos da Segurança da Informação ?</h4>
+                    <h3>{question?.title}</h3>
                     <form className="cl-form">
                         <div className="form-group cl-form-group">
                                <hr />  
-                               <ul className="list-unstyled">
-                                <li>A - Confidencialidade, integridade, disponibilidade, autencidade</li>
-                                <li>B - Confidencialidade, não repúdio, disponibliidade, concistência</li>
-                                <li>C - Escalabilidade, integridade, autenticiadade, criptografia</li>
-                                <li>D - Durabilidade, integridade, tolerância, encapsulamento</li>
-                                <li>E - Confidencialidade, disponibilidade, autencidade</li>
+                               <ul>
+                                <li>A - {question?.optionA}</li>
+                                <li>B - {question?.optionB}</li>
+                                <li>C - {question?.optionC}</li>
+                                <li>D - {question?.optionD}</li>
+                                <li>E - {question?.optionE}</li>
                                 <hr />
                             </ul>
                         </div>
@@ -45,4 +53,4 @@ function Form() {
     );
 }
 
-export default Form;
+export default QuestForm;

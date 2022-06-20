@@ -42,7 +42,7 @@ public class Chapter {
     public Chapter() {
     }
 
-    public Chapter(Long id, String title, String description, String image, List<Question> questions, List<Badge> badges) {
+    public Chapter(Long id, String title, String description, String image) {
         this.id = id;
         this.title = title;
         this.description = description;

@@ -1,3 +1,4 @@
+import { Chapter } from "./chapter";
 
 export type Question = {
     id: number;
@@ -9,6 +10,7 @@ export type Question = {
     optionE: string;
     ans: number;
     chose: number;
+    chapter: Chapter;
 }
 
 export type QuestionPage = {

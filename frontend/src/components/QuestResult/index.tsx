@@ -1,4 +1,3 @@
-import QuestStars from "components/QuestStars";
 import "./styles.css"
 function QuestScore() {
 
@@ -8,7 +7,6 @@ function QuestScore() {
     return (
         <div className="cl-info-container">
             <p className="cl-info-value">{score > 0 ? score.toFixed(1) : '-'} </p>
-            <QuestStars />
             <p className="cl-info-count">{totalCorrect} respostas corretas</p>
         </div>
     );

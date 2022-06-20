@@ -18,7 +18,10 @@ public class QuestionDTO implements Serializable {
     private Integer chose;
     
     private ChapterDTO chapter;
-
+    
+    public QuestionDTO() {
+    }
+    
     public QuestionDTO(Long id, String title, String optionA, String optionB, String optionC, String optionD, String optionE, Integer ans, Integer chose, ChapterDTO chapter) {
         this.id = id;
         this.title = title;
@@ -45,8 +48,7 @@ public class QuestionDTO implements Serializable {
         chapter = new ChapterDTO(entity.getChapter());
     }
 
-    public QuestionDTO() {
-    }
+
 
     public Long getId() {
         return id;

@@ -4,16 +4,16 @@ import { Question } from 'types/question';
 import { BASE_URL } from 'utils/requests';
 import './styles.css'
 
-type Quizz = {
-    questionId: string; 
+type Props = {
+    questionId: string 
 }
 
-function QuestForm({questionId}: Quizz) {
+function QuestForm({questionId}: Props) {
 
     const[question, setQuestion] = useState<Question>();
 
 useEffect(() => {
-    axios.get(`${BASE_URL}/quizz/${questionId}`)
+    axios.get(`${BASE_URL}/quizz/${questionId}?size=3`)
     .then(response => {
         setQuestion(response.data);
     })

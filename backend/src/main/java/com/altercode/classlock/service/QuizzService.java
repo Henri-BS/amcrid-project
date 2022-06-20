@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.altercode.classlock.dto.QuestionDTO;
 import com.altercode.classlock.dto.ResultDTO;
 import com.altercode.classlock.dto.TotalCorrectSumDTO;
+import com.altercode.classlock.entity.Chapter;
 import com.altercode.classlock.entity.Question;
 import com.altercode.classlock.entity.Result;
 import com.altercode.classlock.entity.ResultPK;
@@ -45,6 +46,11 @@ public class QuizzService {
 	
 	public List<QuestionDTO> findAll() {
 		List<Question> result = repository.findAll();
+		return result.stream().map(x -> new QuestionDTO(x)).collect(Collectors.toList());
+	}
+	
+	public List<QuestionDTO> findByChapter(Chapter chapter){
+		List<Question> result = repository.findByChapter(chapter);
 		return result.stream().map(x -> new QuestionDTO(x)).collect(Collectors.toList());
 	}
 	

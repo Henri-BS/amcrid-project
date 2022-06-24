@@ -13,7 +13,7 @@
 
 .quest-container {
     padding: 10px;
-    width: 400px;
+    min-width: 330px;
 }
 
 .menu-options-container {

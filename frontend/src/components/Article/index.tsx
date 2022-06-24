@@ -1,4 +1,5 @@
 import axios from 'axios';
+import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { Chapter } from 'types/chapter';
 import { Post } from 'types/post';
@@ -36,7 +37,7 @@ export function ArticlePost({postId}: Props) {
                 <div className="col-xl-5 article-card-info">
                     <h2 className="mb-3">{post?.title}</h2>
                     <ul className="list-unstyled">
-                        <li><b>Data de publicação: </b>{post?.createdDate}</li>
+                        <li><b>Data de publicação: </b>{moment(post?.createdDate).format("lll")}</li>
                         <li><b>Autor: </b>{post?.createdBy}</li>
                     </ul>
                 </div>

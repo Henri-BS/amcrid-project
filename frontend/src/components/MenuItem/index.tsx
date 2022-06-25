@@ -1,22 +1,12 @@
 export const MenuItems = [
     {
-        title: 'Tutorial',
-        path: '/',
+        title: 'Lista de Capítulos',
+        path: '/chapter-list',
         cName: 'dropdown-link'
     },
     {
-        title: 'Missões Principais',
-        path: '/',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Missões Secundárias',
-        path: '/',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Ranking',
-        path: '/ranking',
+        title: 'Lista de Artigos',
+        path: '/article-list',
         cName: 'dropdown-link'
     },
     {

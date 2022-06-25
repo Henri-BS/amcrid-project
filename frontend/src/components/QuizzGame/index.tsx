@@ -1,5 +1,5 @@
 
-import QuestForm from "components/Form/index ";
+import QuestForm from "components/QuestForm/index ";
 import { useParams } from "react-router-dom";
 import "./styles.css"
 

@@ -31,28 +31,33 @@ function Home() {
         const data = response.data as PostPage;
         setPage(data);
       });
-  }, []);
+  }, );
 
-const [chapterPage, setChapterPage] = useState<ChapterPage>({
-  content: [],
-  first: true,
-  last: true,
-  totalPages: 0,
-  totalElements: 0,
-  size: 1,
-  number: 0,
-  numberOfElements: 0,
-  empty: true
-});
+  const [pageNumber, setPageNumber] = useState(0);
+  const [chapterPage, setChapterPage] = useState<ChapterPage>({
+    content: [],
+    first: true,
+    last: true,
+    totalPages: 0,
+    totalElements: 0,
+    size: 0,
+    number: 0,
+    numberOfElements: 0,
+    empty: true
+  });
 
 
-useEffect(() => {
-  axios.get(`${BASE_URL}/chapter?page=0&size=1&sort=id`)
-  .then(response =>{
-    const data = response.data as ChapterPage;
-    setChapterPage(data);
-  })
-}, []);
+  useEffect(() => {
+    axios.get(`${BASE_URL}/chapter?page=${pageNumber}&size=1&sort=id`)
+      .then(response => {
+        const data = response.data as ChapterPage;
+        setChapterPage(data);
+      })
+  }, [pageNumber]);
+
+  const handlePageChange = (newPageNumber: number) => {
+    setPageNumber(newPageNumber);
+}
 
   return (
     <>
@@ -80,20 +85,26 @@ useEffect(() => {
             </div>
           </div>
         </div>
-        <Link to="/quest-list">
+
+        <Link to="/chapter-list">
           <h2>Capítulos</h2>
         </Link>
-        <Pagination />
+
+        <Pagination 
+                page={chapterPage}
+                onChange={handlePageChange}
+                />
+
         <div className="row quest-chapter-container">
           {chapterPage.content?.map(chapter => (
-          <div key={chapter.id} className=" col-sm-6 col-md-3 xl-3" >
-            <ChapterCard chapter={chapter}/>
-          </div>          
+            <div key={chapter.id} className=" col-sm-6 col-md-3 xl-3" >
+              <ChapterCard chapter={chapter} />
+            </div>
           ))}
           {chapterPage.content?.map(chapter => (
-          <div key={chapter.id} className="col-sm-6 col-md-9 col-xl-9">
-            <ArticleChapter chapter={chapter} />
-          </div>
+            <div key={chapter.id} className="col-sm-6 col-md-9 col-xl-9">
+              <ArticleChapter chapter={chapter} />
+            </div>
           ))}
         </div>
       </div>

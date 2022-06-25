@@ -16,7 +16,7 @@ const PageRoutes = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/article-list" element={<ArticleList />} />
-                    <Route path="/quest-list" element={<ChapterList />} />
+                    <Route path="/chapter-list" element={<ChapterList />} />
                     <Route path="/user-list" element={<UserList />} />
 
                     <Route path="/ranking" element={<Ranking />} />

@@ -18,6 +18,20 @@
 
 .cl-form-group ul {
     list-style: none;
+    padding: 0;
+}
+
+.cl-form-group li {
+    background-color: var(--sept);
+    padding: 8px;
+    margin-bottom: 3px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.cl-form-group li:hover {
+    background-color: transparent;
+    border: 2px solid var(--tert)
 }
 
 .cl-form-group label {
@@ -37,26 +51,17 @@
     align-items: center;
     padding: 10px 10px 20px 10px;
     border-radius: 8px;
-    cursor: pointer;
     text-decoration-color: transparent;
     margin-bottom: 5px;
 }
 
 .card-form-container h3 {
-    padding: 7px;
+    display: flex;
+    padding: 4px 8px 4px 8px;
     border-radius: 8px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 700;
-    height: 40px;
-    color: var(--sena);
-}
-
-.card-form-container h4 {
     text-align: center;
     font-size: 18px;
     font-weight: 700;
-    min-height: 40px;
     color: var(--sena);
 }
 

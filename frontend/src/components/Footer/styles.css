@@ -1,14 +1,13 @@
 .footer-max-container {
     min-height: 600px;
     width: 100%;
-    background-color: var(--prim);
+    background: linear-gradient(130deg, rgb(31, 23, 26) 18%, rgba(29, 17, 22, 0.982) 50%, rgba(29, 11, 17, 0.982) 90%);
 }
 
 .footer-container {
     position: absolute;
     margin: 320;
     width: 100%;
-    background-color: var(--prim);
     color: #fff;
     padding: 100px 20px 40px 20px;
 }

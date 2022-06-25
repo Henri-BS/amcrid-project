@@ -3,7 +3,7 @@ import { Button } from 'components/Button';
 import { Link } from 'react-router-dom';
 import Dropdown from 'components/Dropdown';
 import IWLogo from 'assets/img/w-logo.svg';
-import IProf from "assets/img/prof.jpg";
+import IProf from "assets/img/prof-img.png";
 import './styles.css'
 
 function Navbar() {
@@ -66,19 +66,32 @@ function Navbar() {
             </Link>
             {dropdown && <Dropdown />}
           </li>
-
-
-
           <li className='nav-item'>
-            <Link to='/suporte' className='nav-links' onClick={closeMobileMenu} >
+            <Link to='/ranking' className='nav-links' onClick={closeMobileMenu} >
+              Ranking
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link to='/' className='nav-links' onClick={closeMobileMenu} >
+              Tutorial
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link to='/' className='nav-links' onClick={closeMobileMenu} >
               Suporte
             </Link>
           </li>
 
           <li>
             <Link
-              to='/ranking' className='nav-links-mobile' onClick={closeMobileMenu} >
-              Ranking
+              to='/chapter-list' className='nav-links-mobile' onClick={closeMobileMenu} >
+              Lista de Capítulos
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/article-list' className='nav-links-mobile' onClick={closeMobileMenu} >
+              Lista de Artigos
             </Link>
           </li>
           <li>

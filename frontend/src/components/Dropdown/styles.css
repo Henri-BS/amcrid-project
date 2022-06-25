@@ -1,5 +1,5 @@
 .dropdonw-menu {
-    background: var(--prim);
+    background: linear-gradient(138deg, rgb(31, 23, 26) 18%, rgba(29, 17, 22, 0.982) 70%, rgba(32, 6, 16, 0.982)95%);
     max-width: 330px;
     position: absolute;
     top: 80px;
@@ -18,7 +18,7 @@
 .dropdonw-menu li:hover {
     height: 64px;
     border-radius: 50px;
-    background-color: var(--quar);
+    background-color: var(--tert);
 }
 
 .dropdown-menu.clicked {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Dropdown from 'components/Dropdown';
 import IWLogo from 'assets/img/w-logo.svg';
 import IProf from "assets/img/prof-img.png";
-import './styles.css'
+import './styles.css';
 
 function Navbar() {
   const [click, setClick] = useState(false);

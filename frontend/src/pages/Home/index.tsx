@@ -13,27 +13,28 @@ import { ChapterPage } from 'types/chapter';
 
 function Home() {
 
+const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState<PostPage>({
     content: [],
     first: true,
     last: true,
     totalPages: 0,
     totalElements: 0,
-    size: 6,
+    size: 0,
     number: 0,
     numberOfElements: 0,
     empty: true
   });
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/post?page=0&size=6&sort=createdDate`)
+    axios.get(`${BASE_URL}/post?${pageNumber}&size=10&sort=createdDate`)
       .then(response => {
         const data = response.data as PostPage;
         setPage(data);
       });
-  }, );
+  }, [pageNumber]);
 
-  const [pageNumber, setPageNumber] = useState(0);
+  
   const [chapterPage, setChapterPage] = useState<ChapterPage>({
     content: [],
     first: true,
@@ -61,16 +62,13 @@ function Home() {
 
   return (
     <>
-
       <div className="container">
         <Link to="/article-list">
           <h2>Artigos</h2>
         </Link>
         <div className="article-max-container">
           <div className="d-flex">
-            <div className="pagination-page-container">
-              <PaginationLeft />
-            </div>
+            
 
             <div className="article-scroll-container">
               {page.content?.map(article => (
@@ -78,10 +76,6 @@ function Home() {
                   <ArticleCard post={article} />
                 </div>
               ))}
-            </div>
-
-            <div className="pagination-page-container">
-              <PaginationRight />
             </div>
           </div>
         </div>

@@ -6,8 +6,6 @@ import { Post } from 'types/post';
 import { BASE_URL } from 'utils/requests';
 import './styles.css';
 
-
-
 type Props = {
     postId: string;
 }
@@ -66,4 +64,3 @@ export function ArticleChapter({chapter}: Cons) {
         </>
     );
 }
-

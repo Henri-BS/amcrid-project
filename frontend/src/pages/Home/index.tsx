@@ -13,7 +13,7 @@ import { ChapterPage } from 'types/chapter';
 
 function Home() {
 
-const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState<PostPage>({
     content: [],
     first: true,
@@ -34,7 +34,7 @@ const [pageNumber, setPageNumber] = useState(0);
       });
   }, [pageNumber]);
 
-  
+
   const [chapterPage, setChapterPage] = useState<ChapterPage>({
     content: [],
     first: true,
@@ -58,18 +58,17 @@ const [pageNumber, setPageNumber] = useState(0);
 
   const handlePageChange = (newPageNumber: number) => {
     setPageNumber(newPageNumber);
-}
+  }
 
   return (
     <>
       <div className="container">
+
         <Link to="/article-list">
           <h2>Artigos</h2>
         </Link>
         <div className="article-max-container">
           <div className="d-flex">
-            
-
             <div className="article-scroll-container">
               {page.content?.map(article => (
                 <div key={article.id} className="article-item">
@@ -80,15 +79,14 @@ const [pageNumber, setPageNumber] = useState(0);
           </div>
         </div>
 
+
         <Link to="/chapter-list">
           <h2>Capítulos</h2>
         </Link>
-
-        <Pagination 
-                page={chapterPage}
-                onChange={handlePageChange}
-                />
-
+        <Pagination
+          page={chapterPage}
+          onChange={handlePageChange}
+        />
         <div className="row quest-chapter-container">
           {chapterPage.content?.map(chapter => (
             <div key={chapter.id} className=" col-sm-6 col-md-3 xl-3" >

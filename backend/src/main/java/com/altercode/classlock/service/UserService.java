@@ -11,11 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.altercode.classlock.dto.ConquestDTO;
 import com.altercode.classlock.dto.UserDTO;
-import com.altercode.classlock.dto.UserRankDTO;
-import com.altercode.classlock.entity.Badge;
 import com.altercode.classlock.entity.Conquest;
 import com.altercode.classlock.entity.User;
-import com.altercode.classlock.repository.BadgeRepository;
 import com.altercode.classlock.repository.ConquestRepository;
 import com.altercode.classlock.repository.UserRepository;
 
@@ -24,9 +21,6 @@ public class UserService {
 
 	@Autowired
 	private UserRepository repository;
-
-	@Autowired
-	private BadgeRepository badgeRepository;
 
 	@Autowired
 	private ConquestRepository conquestRepository;
@@ -49,11 +43,6 @@ public class UserService {
 		UserDTO dto = new UserDTO(result);
 		return dto;
 	}
-
-	@Transactional
-	public List<UserDTO> findByUserName(String name) {
-		return repository.findByUserName(name);
-	}
 	
 	@Transactional
 	public List<ConquestDTO> findByUser(User user) {
@@ -70,15 +59,10 @@ public class UserService {
 	public ConquestDTO findConquestById(Long id) {
 		return conquestRepository.findConquestById(id);
 	}
-
+	
 	@Transactional
-	public List<Badge> findAllById(Iterable<Long> ids) {
-		List<Badge> result = badgeRepository.findAllById(ids);
-		return result;
-	}
-
-	@Transactional(readOnly = true)
-	public List<UserRankDTO> userXpRank() {
-		return conquestRepository.userXpRank();
+	public List<UserDTO> getByName(String prefix) {
+		List<User> result = repository.getByName(prefix);
+		return result.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
 	}
 }

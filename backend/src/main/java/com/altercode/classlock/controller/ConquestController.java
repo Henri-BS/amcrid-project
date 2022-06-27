@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.ConquestDTO;
-import com.altercode.classlock.dto.UserRankDTO;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.service.UserService;
 
@@ -29,11 +28,6 @@ public class ConquestController {
 		return service.findAllConquests(pageable);
 	}
 	
-	@GetMapping("/ranking")
-	public ResponseEntity<List<UserRankDTO>> userXpRank() {
-		List<UserRankDTO> list = service.userXpRank();
-		return ResponseEntity.ok(list);
-	}
 	@GetMapping("/{id}")
     public ResponseEntity<ConquestDTO> getConquestById(@PathVariable("id") Long id) {
         ConquestDTO result = service.findConquestById(id);

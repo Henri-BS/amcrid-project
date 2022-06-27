@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.altercode.classlock.dto.UserDTO;
@@ -37,20 +38,10 @@ public class UserController {
 	public UserDTO findById(@PathVariable Long id){
 	return service.findById(id);	
 	}
-	
-	@GetMapping("/profile")
-	public ResponseEntity<List<UserDTO>> findByName(String userName) {
-		List<UserDTO> list = service.findByUserName(userName);
-		return ResponseEntity.ok(list);
-	}
-	
-	
 
-	/*
-	 * @GetMapping("/search") public List<User> getdByName(@RequestParam String
-	 * prefix){ return service.getByName(prefix); 
-	 * }
-	 */
 	
-
+	 @GetMapping("/search") public ResponseEntity<List<UserDTO>> getdByName(@RequestParam String prefix){
+		 List<UserDTO> list = service.getByName(prefix);
+		 return ResponseEntity.ok(list); 
+		 }
 }

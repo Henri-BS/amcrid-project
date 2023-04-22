@@ -48,4 +48,9 @@ public class UserController {
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 
+    @PutMapping("/edit")
+    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO dto) {
+        UserDTO edit = service.updateUser(dto);
+        return new ResponseEntity<>(edit, HttpStatus.OK);
+    }
 }

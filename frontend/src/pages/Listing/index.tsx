@@ -8,7 +8,7 @@ import { ChapterPage } from "types/chapter";
 import { PostPage } from "types/post";
 import { UserPage } from "types/user";
 import { BASE_URL } from "utils/requests";
-import "./styles.css"
+import "./styles.css";
 
 export function ArticleList() {
 

@@ -78,4 +78,8 @@ public class UserService {
         edit.setImage(dto.getImage());
         return new UserDTO(userRepository.save(edit));
     }
+
+    public void deleteUser(Long id) {
+        this.userRepository.deleteById(id);
+    }
 }

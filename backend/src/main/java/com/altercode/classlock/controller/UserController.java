@@ -18,39 +18,45 @@ import com.altercode.classlock.service.UserService;
 public class UserController {
 
     @Autowired
-    private UserService service;
+    private UserService userService;
 
     @GetMapping
     public Page<UserDTO> findAll(Pageable pageable) {
-        return service.findAll(pageable);
+        return userService.findAll(pageable);
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<UserDTO>> findAll() {
-        List<UserDTO> list = service.findAll();
+        List<UserDTO> list = userService.findAll();
         return ResponseEntity.ok(list);
     }
 
     @GetMapping("/{id}")
     public UserDTO findById(@PathVariable Long id) {
-        return service.findById(id);
+        return userService.findById(id);
     }
 
     @GetMapping("/search")
     public ResponseEntity<List<UserDTO>> getdByName(@RequestParam String prefix) {
-        List<UserDTO> list = service.getByName(prefix);
+        List<UserDTO> list = userService.getByName(prefix);
         return ResponseEntity.ok(list);
     }
 
     @PostMapping("/add")
     public ResponseEntity<UserDTO> saveUser(@RequestBody UserDTO dto) {
-        UserDTO add = service.saveUser(dto);
+        UserDTO add = userService.saveUser(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 
     @PutMapping("/edit")
     public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO dto) {
-        UserDTO edit = service.updateUser(dto);
+        UserDTO edit = userService.updateUser(dto);
         return new ResponseEntity<>(edit, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUser(@PathVariable Long id) {
+        this.userService.deleteUser(id);
     }
 }

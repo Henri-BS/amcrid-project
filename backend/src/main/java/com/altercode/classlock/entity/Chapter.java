@@ -3,17 +3,10 @@ package com.altercode.classlock.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
 
-@Component
 @Entity
 @Table(name = "tb_chapter")
 public class Chapter {
@@ -32,10 +25,10 @@ public class Chapter {
     @Column(name = "chapter_image")
     private String image;
     
-    @OneToMany(mappedBy = "chapter")
+    @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
     private List<Question> questions = new ArrayList<>();
 
-    @OneToMany(mappedBy = "chapter")
+    @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
     private List<Badge> badges = new ArrayList<>();
 
     

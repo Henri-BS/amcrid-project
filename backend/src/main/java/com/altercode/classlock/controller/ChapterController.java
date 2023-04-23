@@ -5,11 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.altercode.classlock.dto.ChapterDTO;
 import com.altercode.classlock.service.ChapterService;
@@ -19,21 +17,27 @@ import com.altercode.classlock.service.ChapterService;
 
 public class ChapterController {
 	@Autowired
-	private ChapterService service;
+	private ChapterService chapterService;
 
 	@GetMapping
 	public Page<ChapterDTO> findAll(Pageable pageable) {
-		return service.findAll(pageable);
+		return chapterService.findAll(pageable);
 	}
 
 	@GetMapping("/all")
 	public ResponseEntity<List<ChapterDTO>> findAll() {
-		List<ChapterDTO> list = service.findAll();
+		List<ChapterDTO> list = chapterService.findAll();
 		return ResponseEntity.ok(list);
 	}
 
 	@GetMapping(value = "/{id}")
 	public ChapterDTO findById(@PathVariable Long id) {
-		return service.findById(id);
+		return chapterService.findById(id);
+	}
+
+	@PostMapping("/add")
+	public ResponseEntity<ChapterDTO> saveChapter(@RequestBody ChapterDTO dto) {
+		ChapterDTO add = chapterService.saveChapter(dto);
+		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
 }

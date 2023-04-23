@@ -1,27 +1,28 @@
 package com.altercode.classlock.dto;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.altercode.classlock.entity.Chapter;
 
 public class ChapterDTO implements Serializable {
+
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String title;
 	private String description;
 	private String image;
-	
-	public ChapterDTO(Long id) {
-		this.id = id;
+
+	public ChapterDTO() {
 	}
-	
+
 	public ChapterDTO(Chapter entity) {
 		id = entity.getId();
 		title = entity.getTitle();
 		description = entity.getDescription();
 		image = entity.getImage();
-		
 	}
 
 	public Long getId() {

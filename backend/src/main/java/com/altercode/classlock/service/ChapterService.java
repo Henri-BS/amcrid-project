@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.altercode.classlock.dto.ChapterDTO;
 import com.altercode.classlock.entity.Chapter;
@@ -16,27 +15,32 @@ import com.altercode.classlock.repository.ChapterRepository;
 
 @Service
 public class ChapterService {
-
 	
 	@Autowired
-	private ChapterRepository repository;
+	private ChapterRepository chapterRepository;
 	
-	@Transactional(readOnly = true)
 	public Page<ChapterDTO>findAll(Pageable pageable) {
-		Page<Chapter> result = repository.findAll(pageable);
+		Page<Chapter> result = chapterRepository.findAll(pageable);
 		Page<ChapterDTO> page = result.map(x -> new ChapterDTO(x));
 		return page;
 	}
 
 	public List<ChapterDTO> findAll() {
-		List<Chapter> result = repository.findAll();
+		List<Chapter> result = chapterRepository.findAll();
 		return result.stream().map(x -> new ChapterDTO(x)).collect(Collectors.toList());
 	}
 
-	@Transactional(readOnly = true)
 	public ChapterDTO findById(Long id) {
-		Chapter result = repository.findById(id).get();
+		Chapter result = chapterRepository.findById(id).get();
 		ChapterDTO dto = new ChapterDTO(result);
 		return dto;
+	}
+
+	public ChapterDTO saveChapter(ChapterDTO dto) {
+		Chapter add = new Chapter();
+		add.setTitle(dto.getTitle());
+		add.setDescription(dto.getDescription());
+		add.setImage(dto.getImage());
+		return new ChapterDTO(chapterRepository.saveAndFlush(add));
 	}
 }

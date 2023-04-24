@@ -40,4 +40,10 @@ public class ChapterController {
 		ChapterDTO add = chapterService.saveChapter(dto);
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
+
+	@PutMapping("/edit")
+	public ResponseEntity<ChapterDTO> updateChapter(@RequestBody ChapterDTO dto) {
+		ChapterDTO edit = chapterService.updateChapter(dto);
+		return new ResponseEntity<>(edit, HttpStatus.OK);
+	}
 }

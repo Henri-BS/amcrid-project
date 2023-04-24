@@ -43,4 +43,13 @@ public class ChapterService {
 		add.setImage(dto.getImage());
 		return new ChapterDTO(chapterRepository.saveAndFlush(add));
 	}
+
+	public ChapterDTO updateChapter(ChapterDTO dto) {
+		Chapter edit = chapterRepository.findById(dto.getId()).orElseThrow();
+		edit.setId(edit.getId());
+		edit.setTitle(dto.getTitle());
+		edit.setDescription(dto.getDescription());
+		edit.setImage(dto.getImage());
+		return new ChapterDTO(chapterRepository.saveAndFlush(edit));
+	}
 }

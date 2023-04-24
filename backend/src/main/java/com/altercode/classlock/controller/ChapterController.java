@@ -46,4 +46,10 @@ public class ChapterController {
 		ChapterDTO edit = chapterService.updateChapter(dto);
 		return new ResponseEntity<>(edit, HttpStatus.OK);
 	}
+
+	@DeleteMapping("/delete/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteChapter(@PathVariable Long id) {
+		this.chapterService.deleteChapter(id);
+	}
 }

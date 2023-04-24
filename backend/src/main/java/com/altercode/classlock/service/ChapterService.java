@@ -52,4 +52,8 @@ public class ChapterService {
 		edit.setImage(dto.getImage());
 		return new ChapterDTO(chapterRepository.saveAndFlush(edit));
 	}
+
+	public void deleteChapter(Long id) {
+		this.chapterRepository.deleteById(id);
+	}
 }

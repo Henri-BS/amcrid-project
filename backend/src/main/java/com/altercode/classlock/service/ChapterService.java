@@ -21,19 +21,17 @@ public class ChapterService {
 	
 	public Page<ChapterDTO>findAll(Pageable pageable) {
 		Page<Chapter> result = chapterRepository.findAll(pageable);
-		Page<ChapterDTO> page = result.map(x -> new ChapterDTO(x));
-		return page;
+		return result.map(ChapterDTO::new);
 	}
 
 	public List<ChapterDTO> findAll() {
 		List<Chapter> result = chapterRepository.findAll();
-		return result.stream().map(x -> new ChapterDTO(x)).collect(Collectors.toList());
+		return result.stream().map(ChapterDTO::new).collect(Collectors.toList());
 	}
 
 	public ChapterDTO findById(Long id) {
-		Chapter result = chapterRepository.findById(id).get();
-		ChapterDTO dto = new ChapterDTO(result);
-		return dto;
+		Chapter result = chapterRepository.findById(id).orElseThrow();
+		return new ChapterDTO(result);
 	}
 
 	public ChapterDTO saveChapter(ChapterDTO dto) {

@@ -26,19 +26,17 @@ public class UserService {
 
     public List<UserDTO> findAll() {
         List<User> result = userRepository.findAll();
-        return result.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
+        return result.stream().map(UserDTO::new).collect(Collectors.toList());
     }
 
     public Page<UserDTO> findAll(Pageable pageable) {
         Page<User> result = userRepository.findAll(pageable);
-        Page<UserDTO> page = result.map(x -> new UserDTO(x));
-        return page;
+        return result.map(UserDTO::new);
     }
 
     public UserDTO findById(Long id) {
-        User result = userRepository.findById(id).get();
-        UserDTO dto = new UserDTO(result);
-        return dto;
+        User result = userRepository.findById(id).orElseThrow();
+        return new UserDTO(result);
     }
 
     public List<ConquestDTO> findByUser(User user) {
@@ -47,8 +45,7 @@ public class UserService {
 
     public Page<ConquestDTO> findAllConquests(Pageable pageable) {
         Page<Conquest> result = conquestRepository.findAll(pageable);
-        Page<ConquestDTO> page = result.map(x -> new ConquestDTO(x));
-        return page;
+        return result.map(ConquestDTO::new);
     }
 
     public ConquestDTO findConquestById(Long id) {
@@ -57,7 +54,7 @@ public class UserService {
 
     public List<UserDTO> getByName(String prefix) {
         List<User> result = userRepository.getByName(prefix);
-        return result.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
+        return result.stream().map(UserDTO::new).collect(Collectors.toList());
     }
 
     public UserDTO saveUser(UserDTO dto) {

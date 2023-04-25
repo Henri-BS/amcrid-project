@@ -40,4 +40,17 @@ public class PostService {
 		add.setUser(user);
 		return new PostDTO(postRepository.saveAndFlush(add));
     }
+
+	public PostDTO updatePost(PostDTO dto) {
+		User user = userRepository.findById(dto.getUserId()).orElseThrow();
+		Post edit = postRepository.findById(dto.getId()).orElseThrow();
+
+		edit.setId(edit.getId());
+		edit.setTitle(dto.getTitle());
+		edit.setSummary(dto.getSummary());
+		edit.setBody(dto.getBody());
+		edit.setImage(dto.getImage());
+		edit.setUser(user);
+		return new PostDTO(postRepository.save(edit));
+	}
 }

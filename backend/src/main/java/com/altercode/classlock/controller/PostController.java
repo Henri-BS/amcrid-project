@@ -34,4 +34,10 @@ public class PostController {
         PostDTO add = postService.savePost(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
+
+    @PutMapping("/edit")
+    public ResponseEntity<PostDTO> updatePost(@RequestBody PostDTO dto) {
+        PostDTO edit = postService.updatePost(dto);
+        return new ResponseEntity<>(edit, HttpStatus.OK);
+    }
 }

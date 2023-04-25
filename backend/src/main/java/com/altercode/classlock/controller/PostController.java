@@ -25,8 +25,9 @@ public class PostController {
     }
 
     @GetMapping("/{id}")
-    public PostDTO findById(@PathVariable Long id) {
-    	return postService.findById(id);
+    public ResponseEntity<PostDTO> findById(@PathVariable Long id) {
+        PostDTO find = postService.findById(id);
+        return ResponseEntity.ok(find);
     }
 
     @PostMapping("/add")
@@ -39,5 +40,11 @@ public class PostController {
     public ResponseEntity<PostDTO> updatePost(@RequestBody PostDTO dto) {
         PostDTO edit = postService.updatePost(dto);
         return new ResponseEntity<>(edit, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletePost(@PathVariable Long id) {
+        this.postService.deletePost(id);
     }
 }

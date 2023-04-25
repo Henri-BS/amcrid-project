@@ -53,4 +53,8 @@ public class PostService {
 		edit.setUser(user);
 		return new PostDTO(postRepository.save(edit));
 	}
+
+	public void deletePost(Long id) {
+		this.postRepository.deleteById(id);
+	}
 }

@@ -4,11 +4,9 @@ package com.altercode.classlock.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.altercode.classlock.dto.PostDTO;
 import com.altercode.classlock.service.PostService;
@@ -18,16 +16,22 @@ import com.altercode.classlock.service.PostService;
 public class PostController {
 
     @Autowired
-    private PostService service;
+    private PostService postService;
 
     @GetMapping
     public ResponseEntity<Page<PostDTO>> findAll(Pageable pageable) {
-        Page<PostDTO> list = service.findAll(pageable);
+        Page<PostDTO> list = postService.findAll(pageable);
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping("/{id}")
     public PostDTO findById(@PathVariable Long id) {
-    	return service.findById(id);
+    	return postService.findById(id);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO dto) {
+        PostDTO add = postService.savePost(dto);
+        return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 }

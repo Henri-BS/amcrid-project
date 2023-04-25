@@ -1,10 +1,13 @@
 package com.altercode.classlock.dto;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.altercode.classlock.entity.Badge;
 
 public class BadgeDTO implements Serializable {
+
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private Long id;

@@ -17,8 +17,9 @@ public class PostDTO implements Serializable {
 	private String createdBy;
 	private LocalDateTime createdDate = LocalDateTime.now();
 
-	private UserDTO user;
-	
+	private Long userId;
+	private String userName;
+
 	public PostDTO() {
 	}
 
@@ -31,7 +32,8 @@ public class PostDTO implements Serializable {
 		image = entity.getImage();
 		createdBy = entity.getCreatedBy();
 		createdDate = entity.getCreatedDate();
-		user = new UserDTO(entity.getUser());
+		userId = entity.getUser().getId();
+		userName = entity.getUser().getUserName();
 	}
 
 	public Long getId() {
@@ -98,11 +100,19 @@ public class PostDTO implements Serializable {
 		this.createdDate = createdDate;
 	}
 
-	public UserDTO getUser() {
-		return user;
+	public Long getUserId() {
+		return userId;
 	}
 
-	public void setUser(UserDTO user) {
-		this.user = user;
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 }

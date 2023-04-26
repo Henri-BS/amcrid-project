@@ -42,11 +42,9 @@ public class BadgeService {
 
 	@Transactional(readOnly = true)
 	public BadgeDTO findById(Long id) {
-		Badge result = badgeRepository.findById(id).get();
+		Badge result = badgeRepository.findById(id).orElseThrow();
 		return new BadgeDTO(result);
 	}
-
-
 
     public BadgeDTO saveBadge(BadgeDTO dto) {
 		Chapter chapter = chapterRepository.findById(dto.getChapter()).orElseThrow();
@@ -72,5 +70,9 @@ public class BadgeService {
 		edit.setXp(dto.getXp());
 		edit.setChapter(chapter);
 		return new BadgeDTO(badgeRepository.save(edit));
+	}
+
+	public void deleteBadge(Long id) {
+		this.badgeRepository.deleteById(id);
 	}
 }

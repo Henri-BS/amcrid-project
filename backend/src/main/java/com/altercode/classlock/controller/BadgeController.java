@@ -49,4 +49,10 @@ public class BadgeController {
 		BadgeDTO edit = badgeService.updateBadge(dto);
 		return new ResponseEntity<>(edit, HttpStatus.OK);
 	}
+
+	@DeleteMapping("/delete/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteBadge(@PathVariable Long id) {
+		this.badgeService.deleteBadge(id);
+	}
 }

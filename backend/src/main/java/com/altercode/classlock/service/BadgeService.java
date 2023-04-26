@@ -3,6 +3,10 @@ package com.altercode.classlock.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.altercode.classlock.entity.Chapter;
+import com.altercode.classlock.entity.User;
+import com.altercode.classlock.repository.ChapterRepository;
+import com.altercode.classlock.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,29 +23,41 @@ public class BadgeService {
 
 	@Autowired
 	private BadgeRepository badgeRepository;
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
+	private ChapterRepository chapterRepository;
 	
-	@Transactional(readOnly = true)
 	public Page<BadgeDTO>findAll(Pageable pageable) {
 		Page<Badge> result = badgeRepository.findAll(pageable);
-		Page<BadgeDTO> page = result.map(x -> new BadgeDTO(x));
-		return page;
+		return result.map(BadgeDTO::new);
 	}
 
 	public List<BadgeDTO> findAll() {
 		List<Badge> result = badgeRepository.findAll();
-		return result.stream().map(x -> new BadgeDTO(x)).collect(Collectors.toList());
+		return result.stream().map(BadgeDTO::new).collect(Collectors.toList());
 	}
 
 	@Transactional(readOnly = true)
 	public BadgeDTO findById(Long id) {
 		Badge result = badgeRepository.findById(id).get();
-		BadgeDTO dto = new BadgeDTO(result);
-		return dto;
+		return new BadgeDTO(result);
 	}
 
-	@Transactional(readOnly = true)
-	public List<XpDTO> totalUserXp(Integer xp) {
-		return badgeRepository.totalUserXp(xp);
-	}
 
+
+    public BadgeDTO saveBadge(BadgeDTO dto) {
+		Chapter chapter = chapterRepository.findById(dto.getChapter()).orElseThrow();
+
+		Badge add = new Badge();
+		add.setName(dto.getName());
+		add.setDescription(dto.getDescription());
+		add.setImage(dto.getImage());
+		add.setXp(dto.getXp());
+		add.setChapter(chapter);
+
+		return new BadgeDTO(badgeRepository.saveAndFlush(add));
+    }
 }

@@ -17,7 +17,9 @@ public class BadgeDTO implements Serializable {
 	private Integer xp;
 
 	private Long chapter;
-	private UserDTO user;
+
+	public BadgeDTO() {
+	}
 
 	public BadgeDTO(Badge entity) {
 		id = entity.getId();
@@ -74,14 +76,6 @@ public class BadgeDTO implements Serializable {
 
 	public void setChapter(Long chapter) {
 		this.chapter = chapter;
-	}
-
-	public UserDTO getUser() {
-		return user;
-	}
-
-	public void setUser(UserDTO user) {
-		this.user = user;
 	}
 
 }

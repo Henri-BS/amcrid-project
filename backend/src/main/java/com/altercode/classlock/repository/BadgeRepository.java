@@ -12,8 +12,5 @@ import java.util.List;
 @Repository
 public interface BadgeRepository extends JpaRepository<Badge, Long>{
 
-	@Query(value = "SELECT new com.altercode.classlock.dto.XpDTO(obj.user, SUM(obj.xp)) "
-			+ "FROM Badge AS obj GROUP BY obj.user")
-	List<XpDTO> totalUserXp(Integer xp);
 
 }

@@ -5,11 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.altercode.classlock.dto.BadgeDTO;
 import com.altercode.classlock.dto.XpDTO;
@@ -29,18 +27,20 @@ public class BadgeController {
 	}
 
 	@GetMapping
-	public Page<BadgeDTO> findAll(Pageable pageable) {
-	return badgeService.findAll(pageable);
+	public ResponseEntity<Page<BadgeDTO>> findAll(Pageable pageable) {
+	Page<BadgeDTO> page = badgeService.findAll(pageable);
+	return ResponseEntity.ok(page);
 	}
 	
-	@GetMapping(value = "/{id}")
-	public BadgeDTO findById(@PathVariable Long id){
-	return badgeService.findById(id);
+	@GetMapping( "/{id}")
+	public ResponseEntity<BadgeDTO> findById(@PathVariable Long id){
+	BadgeDTO find = badgeService.findById(id);
+	return ResponseEntity.ok(find);
 	}
 
-	@GetMapping(value = "/total-xp")
-	public ResponseEntity<List<XpDTO>> totalUserXp(Integer xp) {
-		List<XpDTO> list = badgeService.totalUserXp(xp);
-		return ResponseEntity.ok(list);
+	@PostMapping("/add")
+	public ResponseEntity<BadgeDTO> saveBadge(@RequestBody BadgeDTO dto) {
+		BadgeDTO add = badgeService.saveBadge(dto);
+		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
 }

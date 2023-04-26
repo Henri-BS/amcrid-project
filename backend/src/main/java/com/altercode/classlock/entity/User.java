@@ -31,16 +31,13 @@ public class User {
 	@Column(name = "user_image")
 	private String image;
 
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Post> posts = new ArrayList<>();
 
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Comment> comments = new ArrayList<>();
 
-	@OneToMany(mappedBy = "user")
-	private List<Badge> badges = new ArrayList<>();
-
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Result> results = new ArrayList<>();
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
@@ -103,32 +100,12 @@ public class User {
 		return posts;
 	}
 
-	public void setPosts(List<Post> posts) {
-		this.posts = posts;
-	}
-
 	public List<Comment> getComments() {
 		return comments;
 	}
 
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-
-	public List<Badge> getBadges() {
-		return badges;
-	}
-
-	public void setBadges(List<Badge> badges) {
-		this.badges = badges;
-	}
-
 	public List<Result> getResults() {
 		return results;
-	}
-
-	public void setResults(List<Result> results) {
-		this.results = results;
 	}
 
 	public Conquest getConquest() {

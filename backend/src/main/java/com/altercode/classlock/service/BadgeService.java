@@ -60,4 +60,17 @@ public class BadgeService {
 
 		return new BadgeDTO(badgeRepository.saveAndFlush(add));
     }
+
+	public BadgeDTO updateBadge(BadgeDTO dto) {
+		Badge edit = badgeRepository.findById(dto.getId()).orElseThrow();
+		Chapter chapter = chapterRepository.findById(dto.getChapter()).orElseThrow();
+
+		edit.setId(edit.getId());
+		edit.setName(dto.getName());
+		edit.setDescription(dto.getDescription());
+		edit.setImage(dto.getImage());
+		edit.setXp(dto.getXp());
+		edit.setChapter(chapter);
+		return new BadgeDTO(badgeRepository.save(edit));
+	}
 }

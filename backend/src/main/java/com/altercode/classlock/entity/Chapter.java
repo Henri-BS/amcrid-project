@@ -24,13 +24,12 @@ public class Chapter {
 
     @Column(name = "chapter_image")
     private String image;
-    
-    @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
-    private List<Question> questions = new ArrayList<>();
 
     @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
     private List<Badge> badges = new ArrayList<>();
 
+    @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
+    private List<Quiz> quizzes = new ArrayList<>();
     
     public Chapter() {
     }
@@ -75,19 +74,11 @@ public class Chapter {
         this.image = image;
     }
 
-    public List<Question> getQuestions() {
-        return questions;
-    }
-
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }
-
 	public List<Badge> getBadges() {
 		return badges;
 	}
 
-	public void setBadges(List<Badge> badges) {
-		this.badges = badges;
-	}
+    public List<Quiz> getQuizzes() {
+        return quizzes;
+    }
 }

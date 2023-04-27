@@ -32,3 +32,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Backend ###
+application-dev.properties
+application-prod.properties

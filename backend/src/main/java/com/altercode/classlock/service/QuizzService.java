@@ -3,6 +3,7 @@ package com.altercode.classlock.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.altercode.classlock.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,10 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.altercode.classlock.dto.QuestionDTO;
 import com.altercode.classlock.dto.ResultDTO;
 import com.altercode.classlock.dto.TotalCorrectSumDTO;
-import com.altercode.classlock.entity.Chapter;
-import com.altercode.classlock.entity.Question;
-import com.altercode.classlock.entity.Result;
-import com.altercode.classlock.entity.ResultPK;
 import com.altercode.classlock.repository.QuestionRepository;
 import com.altercode.classlock.repository.ResultRepository;
 
@@ -46,25 +43,23 @@ public class QuizzService {
 	
 	public List<QuestionDTO> findAll() {
 		List<Question> result = repository.findAll();
-		return result.stream().map(x -> new QuestionDTO(x)).collect(Collectors.toList());
+		return result.stream().map(QuestionDTO::new).collect(Collectors.toList());
 	}
 	
-	public List<QuestionDTO> findByChapter(Chapter chapter){
-		List<Question> result = repository.findByChapter(chapter);
-		return result.stream().map(x -> new QuestionDTO(x)).collect(Collectors.toList());
+	public List<QuestionDTO> findByQuiz(Quiz quiz){
+		List<Question> result = repository.findByQuiz(quiz);
+		return result.stream().map(QuestionDTO::new).collect(Collectors.toList());
 	}
 	
 	@Transactional(readOnly = true)
 	public Page<QuestionDTO>findAll(Pageable pageable) {
 		Page<Question> result = repository.findAll(pageable);
-		Page<QuestionDTO> page = result.map(x -> new QuestionDTO(x));
-		return page;
+		return result.map(QuestionDTO::new);
 	}
 	
 	public QuestionDTO findById(Long id) {
 		Question question = repository.findById(id).get();
-		QuestionDTO dto = new QuestionDTO(question);
-		return dto;
+		return new QuestionDTO(question);
 	}
 	
 	public ResultDTO findResultById(Long id) {
@@ -73,7 +68,7 @@ public class QuizzService {
 
 	public List<ResultDTO> findAllResults() {
 		List<Result> result = resultRepository.findAll();
-		return result.stream().map(x -> new ResultDTO(x)).collect(Collectors.toList());
+		return result.stream().map(ResultDTO::new).collect(Collectors.toList());
 	}
 	
 	public List<TotalCorrectSumDTO> TotalQuestionsCorrect(){

@@ -41,14 +41,14 @@ public class Question {
     private Integer chose;
 
     @ManyToOne
-    @JoinColumn(name = "chapter_id")
-    private Chapter chapter;
+    @JoinColumn(name = "quiz_id")
+    private Quiz quiz;
 
     public Question() {
     }
 
     public Question(Long id, String title, String optionA, String optionB, String optionC, String optionD,
-                    String optionE, Integer ans, Integer chose, Chapter chapter) {
+                    String optionE, Integer ans, Integer chose, Quiz quiz) {
         this.id = id;
         this.title = title;
         this.optionA = optionA;
@@ -58,7 +58,7 @@ public class Question {
         this.optionE = optionE;
         this.ans = ans;
         this.chose = chose;
-        this.chapter = chapter;
+        this.quiz = quiz;
     }
 
     public Long getId() {
@@ -133,11 +133,11 @@ public class Question {
         this.chose = chose;
     }
 
-    public Chapter getChapter() {
-        return chapter;
+    public Quiz getQuiz() {
+        return quiz;
     }
 
-    public void setChapter(Chapter chapter) {
-        this.chapter = chapter;
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 }

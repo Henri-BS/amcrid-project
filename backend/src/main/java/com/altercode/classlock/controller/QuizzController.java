@@ -2,6 +2,7 @@ package com.altercode.classlock.controller;
 
 import java.util.List;
 
+import com.altercode.classlock.entity.Quiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -34,9 +35,9 @@ public class QuizzController {
 		return ResponseEntity.ok(list);
 	}
 	
-	@GetMapping("/game/{chapter}")
-	public ResponseEntity<List<QuestionDTO>> findByChapter(Chapter chapter) {
-		List<QuestionDTO> list = service.findByChapter(chapter);
+	@GetMapping("/game/{quiz}")
+	public ResponseEntity<List<QuestionDTO>> findByQuiz(Quiz quiz) {
+		List<QuestionDTO> list = service.findByQuiz(quiz);
 		return ResponseEntity.ok(list);
 	}
 	

@@ -1,10 +1,13 @@
 package com.altercode.classlock.dto;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.altercode.classlock.entity.Question;
 
 public class QuestionDTO implements Serializable {
+
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private Long id;
@@ -17,22 +20,9 @@ public class QuestionDTO implements Serializable {
     private Integer ans;
     private Integer chose;
     
-    private ChapterDTO chapter;
+    private Long quizId;
     
     public QuestionDTO() {
-    }
-    
-    public QuestionDTO(Long id, String title, String optionA, String optionB, String optionC, String optionD, String optionE, Integer ans, Integer chose, ChapterDTO chapter) {
-        this.id = id;
-        this.title = title;
-        this.optionA = optionA;
-        this.optionB = optionB;
-        this.optionC = optionC;
-        this.optionD = optionD;
-        this.optionE = optionE;
-        this.ans = ans;
-        this.chose = chose;
-        this.chapter = chapter;
     }
 
     public QuestionDTO(Question entity) {
@@ -45,10 +35,8 @@ public class QuestionDTO implements Serializable {
         optionE = entity.getOptionE();
         ans = entity.getAns();
         chose = entity.getChose();
-        chapter = new ChapterDTO(entity.getChapter());
+        quizId = entity.getQuiz().getId();
     }
-
-
 
     public Long getId() {
         return id;
@@ -122,13 +110,13 @@ public class QuestionDTO implements Serializable {
         this.chose = chose;
     }
 
-	public ChapterDTO getChapter() {
-		return chapter;
-	}
+    public Long getQuizId() {
+        return quizId;
+    }
 
-	public void setChapter(ChapterDTO chapter) {
-		this.chapter = chapter;
-	}
+    public void setQuizId(Long quizId) {
+        this.quizId = quizId;
+    }
 }
 
 

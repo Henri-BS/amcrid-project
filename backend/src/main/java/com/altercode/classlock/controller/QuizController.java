@@ -43,6 +43,12 @@ public class QuizController {
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
 
+	@PutMapping("/edit")
+	public ResponseEntity<QuizDTO> updateQuiz(@RequestBody QuizDTO dto) {
+		QuizDTO update = quizService.updateQuiz(dto);
+		return new ResponseEntity<>(update, HttpStatus.OK);
+	}
+
 	@GetMapping("/all-questions")
 	public ResponseEntity<List<QuestionDTO>> findAll() {
 		List<QuestionDTO> list = quizService.findAll();

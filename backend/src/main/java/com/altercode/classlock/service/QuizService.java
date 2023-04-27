@@ -66,6 +66,17 @@ public class QuizService {
 	}
 
 
+	public QuizDTO updateQuiz(QuizDTO dto) {
+		Chapter chapter = chapterRepository.findById(dto.getChapterId()).orElseThrow();
+		Quiz edit = quizRepository.findById(dto.getId()).orElseThrow();
+
+		edit.setId(edit.getId());
+		edit.setTitle(dto.getTitle());
+		edit.setDescription(dto.getDescription());
+		edit.setImage(dto.getImage());
+		edit.setChapter(chapter);
+		return new QuizDTO(quizRepository.save(edit));
+	}
 
 
 	public void saveScore(Result result) {
@@ -113,7 +124,5 @@ public class QuizService {
 	public List<TotalCorrectSumDTO> TotalQuestionsCorrect(){
 		return resultRepository.TotalQuestionsCorrect();
 	}
-
-
 
 }

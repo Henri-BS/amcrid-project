@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import com.altercode.classlock.dto.QuizDTO;
 import com.altercode.classlock.entity.*;
+import com.altercode.classlock.repository.ChapterRepository;
 import com.altercode.classlock.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,6 +29,9 @@ public class QuizService {
 
 	@Autowired
 	private QuestionRepository questionRepository;
+
+	@Autowired
+	private ChapterRepository chapterRepository;
 	
 	@Autowired
 	private ResultRepository resultRepository;
@@ -49,6 +53,20 @@ public class QuizService {
 		Quiz find = quizRepository.findById(id).orElseThrow();
 		return new QuizDTO(find);
 	}
+
+	public QuizDTO saveQuiz(QuizDTO dto) {
+		Chapter chapter = chapterRepository.findById(dto.getChapterId()).orElseThrow();
+
+		Quiz add = new Quiz();
+		add.setTitle(dto.getTitle());
+		add.setDescription(dto.getDescription());
+		add.setImage(dto.getImage());
+		add.setChapter(chapter);
+		return new QuizDTO(quizRepository.saveAndFlush(add));
+	}
+
+
+
 
 	public void saveScore(Result result) {
 		Result saveResult = new Result();
@@ -95,4 +113,7 @@ public class QuizService {
 	public List<TotalCorrectSumDTO> TotalQuestionsCorrect(){
 		return resultRepository.TotalQuestionsCorrect();
 	}
+
+
+
 }

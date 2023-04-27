@@ -10,10 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.altercode.classlock.dto.QuestionDTO;
 import com.altercode.classlock.dto.ResultDTO;
@@ -38,6 +35,12 @@ public class QuizController {
 	public ResponseEntity<QuizDTO> findQuizById(@PathVariable Long id){
 		QuizDTO find = quizService.findQuizById(id);
 		return ResponseEntity.ok(find);
+	}
+
+	@PostMapping("/add")
+	public ResponseEntity<QuizDTO> saveQuiz(@RequestBody QuizDTO dto) {
+		QuizDTO add = quizService.saveQuiz(dto);
+		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
 
 	@GetMapping("/all-questions")

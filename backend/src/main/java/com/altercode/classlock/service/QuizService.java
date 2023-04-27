@@ -45,6 +45,11 @@ public class QuizService {
 		return result.map(QuizDTO::new);
 	}
 
+	public QuizDTO findQuizById(Long id){
+		Quiz find = quizRepository.findById(id).orElseThrow();
+		return new QuizDTO(find);
+	}
+
 	public void saveScore(Result result) {
 		Result saveResult = new Result();
 		saveResult.setUser(result.getUser());

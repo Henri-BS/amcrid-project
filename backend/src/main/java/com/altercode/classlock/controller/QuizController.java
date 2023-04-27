@@ -26,58 +26,59 @@ import com.altercode.classlock.service.QuizService;
 public class QuizController {
 	
 	@Autowired
-	private QuizService service;
+	private QuizService quizService;
 
 	@GetMapping("/list")
 	public ResponseEntity<Page<QuizDTO>> findAllQuizzes(Pageable pageable){
-		Page<QuizDTO> page = service.findAllQuizzes(pageable);
+		Page<QuizDTO> page = quizService.findAllQuizzes(pageable);
 		return ResponseEntity.ok(page);
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<QuizDTO> findQuizById(@PathVariable Long id){
+		QuizDTO find = quizService.findQuizById(id);
+		return ResponseEntity.ok(find);
 	}
 
 	@GetMapping("/all-questions")
 	public ResponseEntity<List<QuestionDTO>> findAll() {
-		List<QuestionDTO> list = service.findAll();
+		List<QuestionDTO> list = quizService.findAll();
 		return ResponseEntity.ok(list);
 	}
 	
 	@GetMapping("/game/{quiz}")
 	public ResponseEntity<List<QuestionDTO>> findByQuiz(Quiz quiz) {
-		List<QuestionDTO> list = service.findByQuiz(quiz);
+		List<QuestionDTO> list = quizService.findByQuiz(quiz);
 		return ResponseEntity.ok(list);
 	}
 	
 	@GetMapping("/questions")
 	public ResponseEntity<Page<QuestionDTO>> findAll(Pageable pageable) {
-		Page<QuestionDTO> list = service.findAll(pageable);
+		Page<QuestionDTO> list = quizService.findAll(pageable);
 		return ResponseEntity.ok(list);
-	}
-	
-	@GetMapping(value = "/{id}")
-	public QuestionDTO findById(@PathVariable Long id) {
-		return service.findById(id);
 	}
 	
 	@GetMapping("/result/{id}")
     public ResponseEntity<ResultDTO> getResultById(@PathVariable("id") Long id) {
-        ResultDTO result = service.findResultById(id);
+        ResultDTO result = quizService.findResultById(id);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 	
 	@GetMapping("/score")
 	public ResponseEntity<List<ResultDTO>> score(Model m) {
-		List<ResultDTO> scoreList = service.getTopScore();
+		List<ResultDTO> scoreList = quizService.getTopScore();
 		return new ResponseEntity<>(scoreList, HttpStatus.OK);
 	}
 
 	@GetMapping("/results")
 	public ResponseEntity<List<ResultDTO>> findAllResults() {
-		List<ResultDTO> list = service.findAllResults();
+		List<ResultDTO> list = quizService.findAllResults();
 		return ResponseEntity.ok(list);
 	}
 	
 	@GetMapping("/total-questions-correct")
 	public ResponseEntity<List<TotalCorrectSumDTO>> totalQuestionCorrect(){
-		List<TotalCorrectSumDTO> list = service.TotalQuestionsCorrect();
+		List<TotalCorrectSumDTO> list = quizService.TotalQuestionsCorrect();
 		return ResponseEntity.ok(list);
 	}
 }

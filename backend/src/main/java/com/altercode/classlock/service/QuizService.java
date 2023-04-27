@@ -3,7 +3,9 @@ package com.altercode.classlock.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.altercode.classlock.dto.QuizDTO;
 import com.altercode.classlock.entity.*;
+import com.altercode.classlock.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,16 +21,30 @@ import com.altercode.classlock.repository.ResultRepository;
 
 
 @Service
-public class QuizzService {
-	
+public class QuizService {
+
 	@Autowired
-	private QuestionRepository repository; 
+	private QuizRepository quizRepository;
+
+	@Autowired
+	private QuestionRepository questionRepository;
 	
 	@Autowired
 	private ResultRepository resultRepository;
 	
 	ResultPK resultPK;
-	
+
+	public Page<QuizDTO> findAllQuizzes(Pageable pageable) {
+		Page<Quiz> result = quizRepository.findAll(pageable);
+
+		int questionQuantity;
+		for(Quiz q : result){
+			questionQuantity = q.getQuestions().size();
+			q.setQuestionQuantity(questionQuantity);
+		}
+		return result.map(QuizDTO::new);
+	}
+
 	public void saveScore(Result result) {
 		Result saveResult = new Result();
 		saveResult.setUser(result.getUser());
@@ -42,23 +58,23 @@ public class QuizzService {
 	}
 	
 	public List<QuestionDTO> findAll() {
-		List<Question> result = repository.findAll();
+		List<Question> result = questionRepository.findAll();
 		return result.stream().map(QuestionDTO::new).collect(Collectors.toList());
 	}
 	
 	public List<QuestionDTO> findByQuiz(Quiz quiz){
-		List<Question> result = repository.findByQuiz(quiz);
+		List<Question> result = questionRepository.findByQuiz(quiz);
 		return result.stream().map(QuestionDTO::new).collect(Collectors.toList());
 	}
 	
 	@Transactional(readOnly = true)
 	public Page<QuestionDTO>findAll(Pageable pageable) {
-		Page<Question> result = repository.findAll(pageable);
+		Page<Question> result = questionRepository.findAll(pageable);
 		return result.map(QuestionDTO::new);
 	}
 	
 	public QuestionDTO findById(Long id) {
-		Question question = repository.findById(id).get();
+		Question question = questionRepository.findById(id).get();
 		return new QuestionDTO(question);
 	}
 	

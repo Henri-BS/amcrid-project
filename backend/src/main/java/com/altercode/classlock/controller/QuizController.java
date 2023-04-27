@@ -2,6 +2,7 @@ package com.altercode.classlock.controller;
 
 import java.util.List;
 
+import com.altercode.classlock.dto.QuizDTO;
 import com.altercode.classlock.entity.Quiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,18 +18,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.altercode.classlock.dto.QuestionDTO;
 import com.altercode.classlock.dto.ResultDTO;
 import com.altercode.classlock.dto.TotalCorrectSumDTO;
-import com.altercode.classlock.entity.Chapter;
-import com.altercode.classlock.service.QuizzService;
+import com.altercode.classlock.service.QuizService;
 
 
 @RestController
-@RequestMapping("/quizz")
-public class QuizzController {
+@RequestMapping("/quiz")
+public class QuizController {
 	
 	@Autowired
-	private QuizzService service;
-	
-	
+	private QuizService service;
+
+	@GetMapping("/list")
+	public ResponseEntity<Page<QuizDTO>> findAllQuizzes(Pageable pageable){
+		Page<QuizDTO> page = service.findAllQuizzes(pageable);
+		return ResponseEntity.ok(page);
+	}
+
 	@GetMapping("/all-questions")
 	public ResponseEntity<List<QuestionDTO>> findAll() {
 		List<QuestionDTO> list = service.findAll();

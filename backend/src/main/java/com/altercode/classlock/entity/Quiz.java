@@ -24,7 +24,7 @@ public class Quiz {
     @JoinColumn(name = "chapter_id")
     private Chapter chapter;
 
-    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Question> questions = new HashSet<>();
 
     public Quiz() {

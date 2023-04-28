@@ -49,6 +49,11 @@ public class QuizController {
 		return new ResponseEntity<>(update, HttpStatus.OK);
 	}
 
+	@DeleteMapping("/delete/{id}")
+	public void deleteQuiz(@PathVariable Long id) {
+		this.quizService.deleteQuiz(id);
+	}
+
 	@GetMapping("/all-questions")
 	public ResponseEntity<List<QuestionDTO>> findAll() {
 		List<QuestionDTO> list = quizService.findAll();

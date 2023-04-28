@@ -78,6 +78,9 @@ public class QuizService {
 		return new QuizDTO(quizRepository.save(edit));
 	}
 
+	public void deleteQuiz(Long id) {
+		this.quizRepository.deleteById(id);
+	}
 
 	public void saveScore(Result result) {
 		Result saveResult = new Result();
@@ -108,7 +111,7 @@ public class QuizService {
 	}
 	
 	public QuestionDTO findById(Long id) {
-		Question question = questionRepository.findById(id).get();
+		Question question = questionRepository.findById(id).orElseThrow();
 		return new QuestionDTO(question);
 	}
 	
@@ -124,5 +127,6 @@ public class QuizService {
 	public List<TotalCorrectSumDTO> TotalQuestionsCorrect(){
 		return resultRepository.TotalQuestionsCorrect();
 	}
+
 
 }

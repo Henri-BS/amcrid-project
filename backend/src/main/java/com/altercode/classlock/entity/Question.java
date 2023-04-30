@@ -1,13 +1,9 @@
 package com.altercode.classlock.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -22,22 +18,10 @@ public class Question {
     @Column(name = "question_title")
     private String title;
 
-    @Column(name = "option_a")
-    private String optionA;
+    @Size(min = 3, max = 10)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    private List<Option> options = new ArrayList<>();
 
-    @Column(name = "option_b")
-    private String optionB;
-
-    @Column(name = "option_c")
-    private String optionC;
-
-    @Column(name = "option_d")
-    private String optionD;
-
-    @Column(name = "option_e")
-    private String optionE;
-
-    private Integer ans;
     private Integer chose;
 
     @ManyToOne
@@ -47,16 +31,9 @@ public class Question {
     public Question() {
     }
 
-    public Question(Long id, String title, String optionA, String optionB, String optionC, String optionD,
-                    String optionE, Integer ans, Integer chose, Quiz quiz) {
+    public Question(Long id, String title, Integer chose, Quiz quiz) {
         this.id = id;
         this.title = title;
-        this.optionA = optionA;
-        this.optionB = optionB;
-        this.optionC = optionC;
-        this.optionD = optionD;
-        this.optionE = optionE;
-        this.ans = ans;
         this.chose = chose;
         this.quiz = quiz;
     }
@@ -77,52 +54,8 @@ public class Question {
         this.title = title;
     }
 
-    public String getOptionA() {
-        return optionA;
-    }
-
-    public void setOptionA(String optionA) {
-        this.optionA = optionA;
-    }
-
-    public String getOptionB() {
-        return optionB;
-    }
-
-    public void setOptionB(String optionB) {
-        this.optionB = optionB;
-    }
-
-    public String getOptionC() {
-        return optionC;
-    }
-
-    public void setOptionC(String optionC) {
-        this.optionC = optionC;
-    }
-
-    public String getOptionD() {
-        return optionD;
-    }
-
-    public void setOptionD(String optionD) {
-        this.optionD = optionD;
-    }
-
-    public String getOptionE() {
-        return optionE;
-    }
-
-    public void setOptionE(String optionE) {
-        this.optionE = optionE;
-    }
-
-    public Integer getAns() {
-        return ans;
-    }
-
-    public void setAns(Integer ans) {
-        this.ans = ans;
+    public List<Option> getOptions() {
+        return options;
     }
 
     public Integer getChose() {

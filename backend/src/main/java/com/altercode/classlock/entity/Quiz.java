@@ -3,7 +3,9 @@ package com.altercode.classlock.entity;
 import org.hibernate.type.StringNVarcharType;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,7 +27,7 @@ public class Quiz {
     private Chapter chapter;
 
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Question> questions = new HashSet<>();
+    private List<Question> questions = new ArrayList<>();
 
     public Quiz() {
     }
@@ -87,7 +89,11 @@ public class Quiz {
         this.chapter = chapter;
     }
 
-    public Set<Question> getQuestions() {
+    public List<Question> getQuestions() {
         return questions;
+    }
+
+    public Question getQuestion(int index) {
+        return questions.get(index);
     }
 }

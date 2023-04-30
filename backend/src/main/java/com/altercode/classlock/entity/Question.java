@@ -22,7 +22,8 @@ public class Question {
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private List<Option> options = new ArrayList<>();
 
-    private Integer chose;
+    @Column(name = "correct_choice")
+    private Integer correctChoice;
 
     @ManyToOne
     @JoinColumn(name = "quiz_id")
@@ -31,10 +32,10 @@ public class Question {
     public Question() {
     }
 
-    public Question(Long id, String title, Integer chose, Quiz quiz) {
+    public Question(Long id, String title, Integer correctChoice, Quiz quiz) {
         this.id = id;
         this.title = title;
-        this.chose = chose;
+        this.correctChoice = correctChoice;
         this.quiz = quiz;
     }
 
@@ -58,12 +59,12 @@ public class Question {
         return options;
     }
 
-    public Integer getChose() {
-        return chose;
+    public Integer getCorrectChoice() {
+        return correctChoice;
     }
 
-    public void setChose(Integer chose) {
-        this.chose = chose;
+    public void setCorrectChoice(Integer correctChoice) {
+        this.correctChoice = correctChoice;
     }
 
     public Quiz getQuiz() {

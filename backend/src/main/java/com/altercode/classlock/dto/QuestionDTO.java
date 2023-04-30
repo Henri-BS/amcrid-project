@@ -22,7 +22,7 @@ public class QuestionDTO implements Serializable {
     public QuestionDTO(Question entity) {
         id = entity.getId();
         title = entity.getTitle();
-        chose = entity.getChose();
+        chose = entity.getCorrectChoice();
         quizId = entity.getQuiz().getId();
     }
 

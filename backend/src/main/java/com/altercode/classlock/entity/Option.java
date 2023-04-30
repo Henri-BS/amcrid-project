@@ -1,17 +1,15 @@
 package com.altercode.classlock.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "tb_option")
 public class Option {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String choice;
-    private Boolean correct;
 
     @ManyToOne
     @JoinColumn(name = "question_id")
@@ -20,10 +18,9 @@ public class Option {
     public Option() {
     }
 
-    public Option(Long id, String choice, Boolean correct, Question question) {
+    public Option(Long id, String choice, Question question) {
         this.id = id;
         this.choice = choice;
-        this.correct = correct;
         this.question = question;
     }
 
@@ -41,14 +38,6 @@ public class Option {
 
     public void setChoice(String choice) {
         this.choice = choice;
-    }
-
-    public Boolean getCorrect() {
-        return correct;
-    }
-
-    public void setCorrect(Boolean correct) {
-        this.correct = correct;
     }
 
     public Question getQuestion() {

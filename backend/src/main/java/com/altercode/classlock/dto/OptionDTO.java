@@ -6,7 +6,6 @@ import com.altercode.classlock.entity.Option;
 public class OptionDTO {
     private Long id;
     private String choice;
-    private Boolean correct;
     private Long questionId;
     private String questionTitle;
 
@@ -16,7 +15,6 @@ public class OptionDTO {
     public OptionDTO(Option entity) {
         id = entity.getId();
         choice = entity.getChoice();
-        correct = entity.getCorrect();
         questionId = entity.getQuestion().getId();
         questionTitle = entity.getQuestion().getTitle();
     }
@@ -37,13 +35,6 @@ public class OptionDTO {
         this.choice = choice;
     }
 
-    public Boolean getCorrect() {
-        return correct;
-    }
-
-    public void setCorrect(Boolean correct) {
-        this.correct = correct;
-    }
 
     public Long getQuestionId() {
         return questionId;

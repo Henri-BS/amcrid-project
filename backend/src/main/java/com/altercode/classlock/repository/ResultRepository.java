@@ -17,12 +17,9 @@ public interface ResultRepository extends JpaRepository<Result, Long>{
 
 	List<Result> findAll();
 
-	List<ResultDTO> findByUser(User user);
 
 	ResultDTO findResultById(Long id);
 	
-	@Query(value = "SELECT new com.altercode.classlock.dto.TotalCorrectSumDTO(obj.user, SUM(obj.totalCorrect)) "
-			+ "FROM Result AS obj GROUP BY obj.user")
-	List<TotalCorrectSumDTO> TotalQuestionsCorrect(); 
+
 
 }

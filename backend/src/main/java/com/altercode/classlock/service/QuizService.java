@@ -76,34 +76,36 @@ public class QuizService {
         this.quizRepository.deleteById(id);
     }
 
-    public ResultDTO getResult(QuestionDTO dto) {
-        Quiz quiz = quizRepository.findById(dto.getQuizId()).orElseThrow();
-    Question question = questionRepository.findById(dto.getId()).orElseThrow();
+    public ResultDTO getResult(UserAnswerDTO dto) {
+        Question question = questionRepository.findById(dto.getQuestionId().getId()).orElseThrow();
+        UserAnswerDTO userAnswerDTO = new UserAnswerDTO();
+        userAnswerDTO.setQuestionId(question);
+        userAnswerDTO.setAnswer(dto.getAnswer());
 
-    int totalCorrect = 0;
-    for (int i = 0; i < quiz.getQuestions().size(); i++) {
-Question q = quiz.getQuestion(i);
-        for (int j = 0; j < question.getOptions().size(); j++) {
-            System.out.println((j + 1) + ": " + question.getOptions().get(j));
-        }
-    }
+        Quiz quiz = quizRepository.findById(dto.getQuestionId().getQuiz().getId()).orElseThrow();
+        int totalCorrect = 0;
+        for (int i = 0; i < quiz.getQuestions().size(); i++) {
+            Question q = quiz.getQuestion(i);
+            for (int j = 0; j < question.getOptions().size(); j++) {
+                System.out.println((j + 1) + ": " + question.getOptions().get(j));
+            }
 
-    for(Option op: question.getOptions()) {
-        if(op.getCorrect()) {
-            System.out.println("Alternativa correta!");
-            totalCorrect++;
-        } else {
-            System.out.println("Alternativa Incorreta!");
+            int userAnswer = Integer.parseInt(dto.getAnswer());
+            if (userAnswer == question.getCorrectChoice()) {
+                System.out.println("Alternativa correta!");
+                totalCorrect++;
+            } else {
+                System.out.println("Alternativa Incorreta!");
+            }
         }
-    }
-    Result result = new Result();
+
+        Result result = new Result();
         result.setTotalCorrect(totalCorrect);
         return new ResultDTO(resultRepository.saveAndFlush(result));
     }
 
     public void saveScore(Result result) {
         Result saveResult = new Result();
-        saveResult.setUser(result.getUser());
         saveResult.setTotalCorrect(result.getTotalCorrect());
         resultRepository.save(saveResult);
     }
@@ -142,9 +144,6 @@ Question q = quiz.getQuestion(i);
         return result.stream().map(ResultDTO::new).collect(Collectors.toList());
     }
 
-    public List<TotalCorrectSumDTO> TotalQuestionsCorrect() {
-        return resultRepository.TotalQuestionsCorrect();
-    }
 
 
 }

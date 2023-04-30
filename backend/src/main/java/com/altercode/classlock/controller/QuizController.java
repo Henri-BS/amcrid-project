@@ -2,7 +2,7 @@ package com.altercode.classlock.controller;
 
 import java.util.List;
 
-import com.altercode.classlock.dto.QuizDTO;
+import com.altercode.classlock.dto.*;
 import com.altercode.classlock.entity.Quiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,9 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.altercode.classlock.dto.QuestionDTO;
-import com.altercode.classlock.dto.ResultDTO;
-import com.altercode.classlock.dto.TotalCorrectSumDTO;
 import com.altercode.classlock.service.QuizService;
 
 
@@ -43,6 +40,12 @@ public class QuizController {
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
 
+	@PostMapping("/play")
+	public ResponseEntity<ResultDTO> playQuiz(@RequestBody UserAnswerDTO dto) {
+		ResultDTO play = quizService.getResult(dto);
+		return new ResponseEntity<>(play, HttpStatus.CREATED);
+	}
+
 	@PutMapping("/edit")
 	public ResponseEntity<QuizDTO> updateQuiz(@RequestBody QuizDTO dto) {
 		QuizDTO update = quizService.updateQuiz(dto);
@@ -53,6 +56,8 @@ public class QuizController {
 	public void deleteQuiz(@PathVariable Long id) {
 		this.quizService.deleteQuiz(id);
 	}
+
+
 
 	@GetMapping("/all-questions")
 	public ResponseEntity<List<QuestionDTO>> findAll() {
@@ -90,9 +95,5 @@ public class QuizController {
 		return ResponseEntity.ok(list);
 	}
 	
-	@GetMapping("/total-questions-correct")
-	public ResponseEntity<List<TotalCorrectSumDTO>> totalQuestionCorrect(){
-		List<TotalCorrectSumDTO> list = quizService.TotalQuestionsCorrect();
-		return ResponseEntity.ok(list);
-	}
+
 }

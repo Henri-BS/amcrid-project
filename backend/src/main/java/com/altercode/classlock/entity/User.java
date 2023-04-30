@@ -22,7 +22,7 @@ public class User {
 	private String email;
 
 	@Size(min = 1, max = 50)
-	@Column(name = "user_name", length = 50)
+	@Column(name = "user_name", unique = true , length = 50)
 	private String userName;
 
 	@Column(name = "password")
@@ -36,9 +36,6 @@ public class User {
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Comment> comments = new ArrayList<>();
-
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<Result> results = new ArrayList<>();
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private Conquest conquest;
@@ -102,10 +99,6 @@ public class User {
 
 	public List<Comment> getComments() {
 		return comments;
-	}
-
-	public List<Result> getResults() {
-		return results;
 	}
 
 	public Conquest getConquest() {

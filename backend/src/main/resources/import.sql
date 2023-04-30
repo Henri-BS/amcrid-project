@@ -36,21 +36,32 @@ INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'Fase de P
 INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'Fase de Teste no Desenvolvimento de Jogos', 'Quiz sobre a fase de testes no desenvolvimento de jogos', 1)
 INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'Fase de Implantação no Desenvolvimento de Jogos', 'Quiz sobre a fase de implantação no desenvolvimento de jogos', 1)
 
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 1, 1, 'Quais os princípios básicos da Segurança da Informação ?', 'Confidencialidade, integridade, disponibilidade, autencidade', 'Confidencialidade, não repúdio, disponibliidade, concistência', 'Escalabilidade, integridade, autenticiadade, criptografia', 'Durabilidade, integridade, tolerância, encapsulamento', 'Confidencialidade, disponibilidade, autencidade', 1, -1);
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 2, 1, 'Qual atributo corresponde ao nível de sigilo de uma informação ?', 'Criptografia', 'Confidencialidade', 'Privacidade', 'Isolamento', 'Todas as alternativas estão corretas', 2, -1);
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 3, 1, 'Dados importantes em que a condição de inalteravél deve durar o máximo possível, este princípio trata-se de:', 'Autenticidade', 'Durabilidade', 'Disponibilidade', 'Particionamento', 'Integridade', 3, -1);
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 4, 2, 'Qual indivíduo é responsável por um ataque autorizado com intenções justas ?', 'Cracker', 'Hackvista', 'Grey Hat', 'Hacker ético', 'Insider', 4, -1);
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 5, 2, 'Invadir sistemas sem autorização, manipular códigos e coletar dados sigilosos em prol de causas sociais, éticas ou morais. Essas características referem-se ao:', 'Hackvista', 'Newbie', 'Hacker ético', 'Grey Hat', 'Phreakers', 1, -1);
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 6, 2, 'Quem tem acesso a informações privilegiadas de uma determinada empresa é chamado de: ', 'Black Hat', 'Hackvista', 'Elite', 'Blue Hat', 'Insider', 5, -1);
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 7, 3, 'Qual o principal propósito do controle parental ?', 'Monitorar, restringir e bloquear conteúdo impróprio ou ameaçador', 'Fornecer estatísticas de uso', 'Privar o acesso a rede', 'Concientizar sobre a segurança na internet para crianças', 'Rastrear usuários com atividades suspeitas', 1, -1 );
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 8, 3, 'Qual destas é uma motivação errada para a coleta de informações  sigilosas de menores ?', 'Garantia de proteção no tráfego', 'Busca pelo contato dos pais ou responsáveis', 'Uso de informações para investigação criminal', 'Uso de dados para marketing e propaganda', 'Nenhuma das alternativas anteriores', 4, -1 );
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 9, 3, 'Qual o método de controle parental é considerado o mais eficaz ?', 'A instalação de apliativos de restrinção de conteúdo', 'A inteferência do estado na privacidade da internet', 'O diálogo entre os responsáveis e as crianças ', 'O bloqueio massivo de usuários ou conteúdo', 'Intervir nas políticas e termos de uso da empresa responsável pelo conteúso acessado por crianças', 3, -1 );
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 10, 4, 'É um dos tipos mais antigos de malwares e difere-se de outros tipos pelo fato de ser capaz de se propagar pelas redes sem a necessidade de uma ação do usuário. Esse malware se trata do:', 'Vírus', 'Worm', 'Trojan', 'Ransomware', 'Backdoor', 2, -1 );
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 11, 4, 'Sendo considerado um dos mais recentes e perigosos tipos de malwares, qual software malicioso é capaz de evitar diversos antivírus e se infiltrar entre os arquivos do sistema ?', 'Cavalo de Troia', 'Spyware', 'Ransomware', 'Bot', 'Fileless', 5, -1 );
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 12, 4, 'Permite que seja retornado um invasor a um computador comprometido, através da inclusão de serviços criados para essa finalidade, esse tipo de malware é o: ', 'Bot', 'Vírus', 'Backdoor', 'Cavalo de Troia', 'Worm', 3, -1 );
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 13, 5, 'Qual o objetivo da Lei Geral de Proteção de Dados Pessoais ?', 'Proteger os direitos fundamentais de liberdade e de privacidade e a livre formação da personalidade de cada indivíduo.', 'Proteger os dados pessoais apenas nos meios digitais', 'Monitorar o comportamento de usuários na rede sem restrições na privacidade', 'Impor limitações em todos os dados pessoais que são divulgados', 'Todas as alternativas estão corretas', 1, -1 );
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 14, 5, 'O tratamento de dados pessoais pode ser feito por dois agentes de tratamento, quais são eles ?', 'Moderador e Inspetor', 'Operador e Controlador', 'Provedor e Controlador', 'Operador e Inspetor', 'Mediador e Corretor', 2, -1 );
-INSERT INTO tb_question ( question_id, quiz_id, question_title, option_a, option_b, option_c, option_d, option_e, ans, chose ) VALUES ( 15, 5, 'A LGPD estabelece 3 bases para o tratamento de dados direcionadas a comunicação. Quais são elas ?', 'Consentimento, Legítimo interesse, e Contratos', 'Contratos, Obrigação legal e Valor', 'Legítimo interesse, Veracidade e Cumprimento de obrigação legal', 'Privacidade, Consentimento e Contrato', 'Políticas públicas, Proteção da vida e Proteção do crédito', 1, -1 );
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 1, 1, 'Quais os princípios básicos da Segurança da Informação ?', 1);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 2, 1, 'Qual atributo corresponde ao nível de sigilo de uma informação ?', 2);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 3, 1, 'Dados importantes em que a condição de inalteravél deve durar o máximo possível, este princípio trata-se de:', 3);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 4, 2, 'Qual indivíduo é responsável por um ataque autorizado com intenções justas ?', 4);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 5, 2, 'Invadir sistemas sem autorização, manipular códigos e coletar dados sigilosos em prol de causas sociais, éticas ou morais. Essas características referem-se ao:', 1);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 6, 2, 'Quem tem acesso a informações privilegiadas de uma determinada empresa é chamado de: ', 5);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 7, 3, 'Qual o principal propósito do controle parental ?', 1 );
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 8, 3, 'Qual destas é uma motivação errada para a coleta de informações  sigilosas de menores ?', 4);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 9, 3, 'Qual o método de controle parental é considerado o mais eficaz ?', 'A instalação de apliativos de restrinção de conteúdo', 3);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 10, 4, 'É um dos tipos mais antigos de malwares e difere-se de outros tipos pelo fato de ser capaz de se propagar pelas redes sem a necessidade de uma ação do usuário. Esse malware se trata do:', 2);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 11, 4, 'Sendo considerado um dos mais recentes e perigosos tipos de malwares, qual software malicioso é capaz de evitar diversos antivírus e se infiltrar entre os arquivos do sistema ?', 5);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 12, 4, 'Permite que seja retornado um invasor a um computador comprometido, através da inclusão de serviços criados para essa finalidade, esse tipo de malware é o:', 3 );
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 13, 5, 'Qual o objetivo da Lei Geral de Proteção de Dados Pessoais ?', 'Proteger os direitos fundamentais de liberdade e de privacidade e a livre formação da personalidade de cada indivíduo.', 1);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 14, 5, 'O tratamento de dados pessoais pode ser feito por dois agentes de tratamento, quais são eles ?', 2);
+INSERT INTO tb_question ( question_id, quiz_id, question_title,correct_choice ) VALUES ( 15, 5, 'A LGPD estabelece 3 bases para o tratamento de dados direcionadas a comunicação. Quais são elas ?', 1);
+
+INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção A')
+INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção B')
+INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção C')
+INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção D')
+INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção E')
+INSERT INTO tb_option(question_id, choice) VALUES(2, 'Opção A')
+INSERT INTO tb_option(question_id, choice) VALUES(3, 'Opção B')
+INSERT INTO tb_option(question_id, choice) VALUES(4, 'Opção C')
+INSERT INTO tb_option(question_id, choice) VALUES(5, 'Opção D')
+INSERT INTO tb_option(question_id, choice) VALUES(6, 'Opção E')
 
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 1, 'Comum Quizzer', 'Concluiu 3 Quizzes', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/MEDAL-question_mark-exam-reward-winner-question-512.png', 20, 1);
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 2, 'Rare Quizzer', 'Concluiu 5 Quizzes', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/TARGET-question_mark-shoot-shooting-question-512.png', 50, 1);
@@ -61,12 +72,12 @@ INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, bad
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 7, 'Epic Reader', 'Leu 10 Artigos', 'https://cdn1.iconfinder.com/data/icons/education-309/64/book-education-knowledge-learning-512.png', 100, 1);
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 8, 'Winged Quizzer', 'Concluiu 1 Quizz em menos de 10 segundos', 'https://cdn3.iconfinder.com/data/icons/rock-and-roll-2/64/celebration-star-wing-events-party-512.png', 70, 1);
 
-INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 1, 3, 1 );
-INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 2, 1, 1 );
-INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 3, 2, 1 );
-INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 4, 0, 1 );
-INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 5, 2, 2 );
-INSERT INTO tb_result ( result_id, total_correct, user_id) VALUES( 6, 0, 3 );
+INSERT INTO tb_result ( result_id, total_correct) VALUES( 1, 3);
+INSERT INTO tb_result ( result_id, total_correct) VALUES( 2, 1);
+INSERT INTO tb_result ( result_id, total_correct) VALUES( 3, 2);
+INSERT INTO tb_result ( result_id, total_correct) VALUES( 4, 0);
+INSERT INTO tb_result ( result_id, total_correct) VALUES( 5, 2);
+INSERT INTO tb_result ( result_id, total_correct) VALUES( 6, 0);
 
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(44, 46, 27, 40, 5950, 1);
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(53, 48, 24, 42, 6345, 2);

@@ -5,10 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "tb_result")
@@ -21,19 +18,14 @@ public class Result {
 
 	@Column(name = "total_correct")
 	private Integer totalCorrect = 0;
-
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
 		
 	public Result() {
 
 	}
 
-	public Result(Long id, Integer totalCorrect, User user) {
+	public Result(Long id, Integer totalCorrect) {
 		this.id = id;
 		this.totalCorrect = totalCorrect;
-		this.user = user; 
 	}
 
 	public Long getId() {
@@ -52,11 +44,4 @@ public class Result {
 		this.totalCorrect = totalCorrect;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 }

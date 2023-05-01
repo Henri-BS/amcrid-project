@@ -23,6 +23,12 @@ public class QuizService {
     private QuestionRepository questionRepository;
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserAnswerRepository answerRepository;
+
+    @Autowired
     private OptionRepository optionRepository;
 
     @Autowired
@@ -77,21 +83,26 @@ public class QuizService {
     }
 
     public ResultDTO getResult(UserAnswerDTO dto) {
-        Question question = questionRepository.findById(dto.getQuestionId().getId()).orElseThrow();
-        UserAnswerDTO userAnswerDTO = new UserAnswerDTO();
-        userAnswerDTO.setQuestionId(question);
-        userAnswerDTO.setAnswer(dto.getAnswer());
+        Question question = questionRepository.findById(dto.getQuestionId()).orElseThrow();
+        User user = userRepository.findByUserName(dto.getUserName());
 
-        Quiz quiz = quizRepository.findById(dto.getQuestionId().getQuiz().getId()).orElseThrow();
+        UserAnswer userAnswer = new UserAnswer();
+        userAnswer.setQuestion(question);
+        userAnswer.setUser(user);
+        userAnswer.setAnswer(dto.getAnswer());
+        answerRepository.save(userAnswer);
+
+
+        Quiz quiz = quizRepository.findById(userAnswer.getQuestion().getQuiz().getId()).orElseThrow();
         int totalCorrect = 0;
         for (int i = 0; i < quiz.getQuestions().size(); i++) {
             Question q = quiz.getQuestion(i);
-            for (int j = 0; j < question.getOptions().size(); j++) {
+            for (int j = 0; j < q.getOptions().size(); j++) {
                 System.out.println((j + 1) + ": " + question.getOptions().get(j));
             }
 
-            int userAnswer = Integer.parseInt(dto.getAnswer());
-            if (userAnswer == question.getCorrectChoice()) {
+            int answer = Integer.parseInt(dto.getAnswer());
+            if (answer == question.getCorrectChoice()) {
                 System.out.println("Alternativa correta!");
                 totalCorrect++;
             } else {
@@ -101,7 +112,7 @@ public class QuizService {
 
         Result result = new Result();
         result.setTotalCorrect(totalCorrect);
-        return new ResultDTO(resultRepository.saveAndFlush(result));
+        return new ResultDTO(resultRepository.save(result));
     }
 
     public void saveScore(Result result) {

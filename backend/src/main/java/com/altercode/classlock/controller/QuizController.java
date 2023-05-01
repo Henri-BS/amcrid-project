@@ -40,10 +40,10 @@ public class QuizController {
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
 
-	@PostMapping("/play")
+	@PutMapping("/play")
 	public ResponseEntity<ResultDTO> playQuiz(@RequestBody UserAnswerDTO dto) {
 		ResultDTO play = quizService.getResult(dto);
-		return new ResponseEntity<>(play, HttpStatus.CREATED);
+		return new ResponseEntity<>(play, HttpStatus.OK);
 	}
 
 	@PutMapping("/edit")
@@ -56,8 +56,6 @@ public class QuizController {
 	public void deleteQuiz(@PathVariable Long id) {
 		this.quizService.deleteQuiz(id);
 	}
-
-
 
 	@GetMapping("/all-questions")
 	public ResponseEntity<List<QuestionDTO>> findAll() {

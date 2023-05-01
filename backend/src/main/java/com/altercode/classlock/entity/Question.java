@@ -1,5 +1,9 @@
 package com.altercode.classlock.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -18,10 +22,6 @@ public class Question {
     @Column(name = "question_title")
     private String title;
 
-    @Size(min = 3, max = 10)
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-    private List<Option> options = new ArrayList<>();
-
     @Column(name = "correct_choice")
     private Integer correctChoice;
 
@@ -29,6 +29,13 @@ public class Question {
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;
 
+    @Size(min = 3, max = 10)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Option> options = new ArrayList<>();
+
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    private List<UserAnswer> userAnswers = new ArrayList<>();
     public Question() {
     }
 
@@ -55,9 +62,6 @@ public class Question {
         this.title = title;
     }
 
-    public List<Option> getOptions() {
-        return options;
-    }
 
     public Integer getCorrectChoice() {
         return correctChoice;
@@ -73,5 +77,13 @@ public class Question {
 
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
+    }
+
+    public List<Option> getOptions() {
+        return options;
+    }
+
+    public List<UserAnswer> getUserAnswers() {
+        return userAnswers;
     }
 }

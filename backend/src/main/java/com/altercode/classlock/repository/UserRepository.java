@@ -13,6 +13,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	User findByEmail(String email);
 
+	User findByUserName(String userName);
+
 	@Query("SELECT obj FROM User obj WHERE obj.userName like ?1% ORDER BY obj.userName ASC")
 	List<User> getByName(String prefix);
 }

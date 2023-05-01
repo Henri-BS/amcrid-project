@@ -37,6 +37,9 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Comment> comments = new ArrayList<>();
 
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<UserAnswer> userAnswers = new ArrayList<>();
+
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private Conquest conquest;
 
@@ -92,6 +95,13 @@ public class User {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	public Conquest getConquest() {
+		return conquest;
+	}
+
+	public void setConquest(Conquest conquest) {
+		this.conquest = conquest;
+	}
 
 	public List<Post> getPosts() {
 		return posts;
@@ -101,11 +111,9 @@ public class User {
 		return comments;
 	}
 
-	public Conquest getConquest() {
-		return conquest;
+	public List<UserAnswer> getUserAnswers() {
+		return userAnswers;
 	}
 
-	public void setConquest(Conquest conquest) {
-		this.conquest = conquest;
-	}
+
 }

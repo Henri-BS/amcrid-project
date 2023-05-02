@@ -12,11 +12,15 @@ public class ResultDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private Integer totalCorrect = 0;
+	private Integer totalCorrect;
+	private Long quizId;
+	private String userName;
 
 	public ResultDTO(Result entity) {
 		id = entity.getId();		
 		totalCorrect = entity.getTotalCorrect();
+		quizId = entity.getQuiz().getId();
+		userName = entity.getUser().getUserName();
 	}
 
 	public ResultDTO() {
@@ -39,5 +43,19 @@ public class ResultDTO implements Serializable{
 		this.totalCorrect = totalCorrect;
 	}
 
+	public Long getQuizId() {
+		return quizId;
+	}
 
+	public void setQuizId(Long quizId) {
+		this.quizId = quizId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 }

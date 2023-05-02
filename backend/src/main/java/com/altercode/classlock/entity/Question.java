@@ -36,6 +36,7 @@ public class Question {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private List<UserAnswer> userAnswers = new ArrayList<>();
+
     public Question() {
     }
 
@@ -86,4 +87,5 @@ public class Question {
     public List<UserAnswer> getUserAnswers() {
         return userAnswers;
     }
+
 }

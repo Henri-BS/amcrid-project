@@ -58,10 +58,10 @@ INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção C')
 INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção D')
 INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção E')
 INSERT INTO tb_option(question_id, choice) VALUES(2, 'Opção A')
-INSERT INTO tb_option(question_id, choice) VALUES(3, 'Opção B')
-INSERT INTO tb_option(question_id, choice) VALUES(4, 'Opção C')
-INSERT INTO tb_option(question_id, choice) VALUES(5, 'Opção D')
-INSERT INTO tb_option(question_id, choice) VALUES(6, 'Opção E')
+INSERT INTO tb_option(question_id, choice) VALUES(2, 'Opção B')
+INSERT INTO tb_option(question_id, choice) VALUES(2, 'Opção C')
+INSERT INTO tb_option(question_id, choice) VALUES(2, 'Opção D')
+INSERT INTO tb_option(question_id, choice) VALUES(2, 'Opção E')
 
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 1, 'Comum Quizzer', 'Concluiu 3 Quizzes', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/MEDAL-question_mark-exam-reward-winner-question-512.png', 20, 1);
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 2, 'Rare Quizzer', 'Concluiu 5 Quizzes', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/TARGET-question_mark-shoot-shooting-question-512.png', 50, 1);
@@ -72,12 +72,12 @@ INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, bad
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 7, 'Epic Reader', 'Leu 10 Artigos', 'https://cdn1.iconfinder.com/data/icons/education-309/64/book-education-knowledge-learning-512.png', 100, 1);
 INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 8, 'Winged Quizzer', 'Concluiu 1 Quizz em menos de 10 segundos', 'https://cdn3.iconfinder.com/data/icons/rock-and-roll-2/64/celebration-star-wing-events-party-512.png', 70, 1);
 
-INSERT INTO tb_result ( result_id, total_correct) VALUES( 1, 3);
-INSERT INTO tb_result ( result_id, total_correct) VALUES( 2, 1);
-INSERT INTO tb_result ( result_id, total_correct) VALUES( 3, 2);
-INSERT INTO tb_result ( result_id, total_correct) VALUES( 4, 0);
-INSERT INTO tb_result ( result_id, total_correct) VALUES( 5, 2);
-INSERT INTO tb_result ( result_id, total_correct) VALUES( 6, 0);
+INSERT INTO tb_result ( user_id, total_correct) VALUES( 1, 3);
+INSERT INTO tb_result ( user_id, total_correct) VALUES( 2, 1);
+INSERT INTO tb_result ( user_id, total_correct) VALUES( 3, 2);
+INSERT INTO tb_result ( user_id, total_correct) VALUES( 4, 0);
+INSERT INTO tb_result ( user_id, total_correct) VALUES( 5, 2);
+INSERT INTO tb_result ( user_id, total_correct) VALUES( 6, 0);
 
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(44, 46, 27, 40, 5950, 1);
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(53, 48, 24, 42, 6345, 2);

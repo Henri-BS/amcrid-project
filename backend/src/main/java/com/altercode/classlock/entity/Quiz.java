@@ -1,5 +1,7 @@
 package com.altercode.classlock.entity;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.type.StringNVarcharType;
 
 import javax.persistence.*;
@@ -26,8 +28,13 @@ public class Quiz {
     @JoinColumn(name = "chapter_id")
     private Chapter chapter;
 
-    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Question> questions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Result> results = new ArrayList<>();
 
     public Quiz() {
     }

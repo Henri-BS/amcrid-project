@@ -37,7 +37,6 @@ public class QuizService {
     @Autowired
     private ResultRepository resultRepository;
 
-    ResultPK resultPK;
 
     public Page<QuizDTO> findAllQuizzes(Pageable pageable) {
         Page<Quiz> result = quizRepository.findAll(pageable);
@@ -82,6 +81,9 @@ public class QuizService {
         this.quizRepository.deleteById(id);
     }
 
+
+
+
     public ResultDTO getResult(UserAnswerDTO dto) {
         Question question = questionRepository.findById(dto.getQuestionId()).orElseThrow();
         User user = userRepository.findByUserName(dto.getUserName());
@@ -92,26 +94,28 @@ public class QuizService {
         userAnswer.setAnswer(dto.getAnswer());
         answerRepository.save(userAnswer);
 
-
         Quiz quiz = quizRepository.findById(userAnswer.getQuestion().getQuiz().getId()).orElseThrow();
-        int totalCorrect = 0;
-        for (int i = 0; i < quiz.getQuestions().size(); i++) {
-            Question q = quiz.getQuestion(i);
-            for (int j = 0; j < q.getOptions().size(); j++) {
-                System.out.println((j + 1) + ": " + question.getOptions().get(j));
-            }
 
-            int answer = Integer.parseInt(dto.getAnswer());
-            if (answer == question.getCorrectChoice()) {
-                System.out.println("Alternativa correta!");
+        int totalCorrect = 0;
+        int answer = Integer.parseInt(dto.getAnswer());
+        for(Question q : userAnswer.getQuestion().getQuiz().getQuestions()) {
+            if(answer == q.getCorrectChoice()){
                 totalCorrect++;
-            } else {
-                System.out.println("Alternativa Incorreta!");
             }
         }
 
-        Result result = new Result();
+        Result result = resultRepository.findResultByUser(user);
+
+        if(result == null){
+            result = new Result();
+            result.setUser(user);
+            result.setQuiz(quiz);
+            resultRepository.saveAndFlush(result);
+        }
+
         result.setTotalCorrect(totalCorrect);
+        result.setQuiz(quiz);
+        result.setUser(user);
         return new ResultDTO(resultRepository.save(result));
     }
 

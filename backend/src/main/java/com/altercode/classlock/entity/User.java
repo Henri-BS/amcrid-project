@@ -1,5 +1,8 @@
 package com.altercode.classlock.entity;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +40,13 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Comment> comments = new ArrayList<>();
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<UserAnswer> userAnswers = new ArrayList<>();
+
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private Result result;
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private Conquest conquest;
@@ -103,6 +111,14 @@ public class User {
 		this.conquest = conquest;
 	}
 
+	public Result getResult() {
+		return result;
+	}
+
+	public void setResult(Result result) {
+		this.result = result;
+	}
+
 	public List<Post> getPosts() {
 		return posts;
 	}
@@ -114,6 +130,7 @@ public class User {
 	public List<UserAnswer> getUserAnswers() {
 		return userAnswers;
 	}
+
 
 
 }

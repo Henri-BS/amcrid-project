@@ -1,11 +1,7 @@
 package com.altercode.classlock.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "tb_result")
@@ -18,14 +14,23 @@ public class Result {
 
 	@Column(name = "total_correct")
 	private Integer totalCorrect = 0;
+
+	@ManyToOne
+	@JoinColumn(name = "quiz_id")
+	private Quiz quiz;
+
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 		
 	public Result() {
 
 	}
 
-	public Result(Long id, Integer totalCorrect) {
+	public Result(Long id, Integer totalCorrect, User user) {
 		this.id = id;
 		this.totalCorrect = totalCorrect;
+		this.user = user;
 	}
 
 	public Long getId() {
@@ -44,4 +49,19 @@ public class Result {
 		this.totalCorrect = totalCorrect;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Quiz getQuiz() {
+		return quiz;
+	}
+
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+	}
 }

@@ -95,16 +95,20 @@ public class QuizService {
         answerRepository.save(userAnswer);
 
         Quiz quiz = quizRepository.findById(userAnswer.getQuestion().getQuiz().getId()).orElseThrow();
+        Result result = resultRepository.findResultByUser(user);
 
         int totalCorrect = 0;
         int answer = Integer.parseInt(dto.getAnswer());
         for(Question q : userAnswer.getQuestion().getQuiz().getQuestions()) {
+            String correctAnswerMessage = "Resposta Correta!";
+            String incorrectAnswerMessage = "Resposta Incorreta, a resposta corrreta é: " + q.getCorrectChoice();
             if(answer == q.getCorrectChoice()){
                 totalCorrect++;
+                result.setMessage(correctAnswerMessage);
+            }else {
+                result.setMessage(incorrectAnswerMessage);
             }
         }
-
-        Result result = resultRepository.findResultByUser(user);
 
         if(result == null){
             result = new Result();

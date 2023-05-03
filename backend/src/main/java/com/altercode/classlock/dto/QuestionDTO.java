@@ -12,7 +12,7 @@ public class QuestionDTO implements Serializable {
 
     private Long id;
     private String title;
-    private Integer chose;
+    private Integer correctChoice;
     
     private Long quizId;
     
@@ -22,7 +22,7 @@ public class QuestionDTO implements Serializable {
     public QuestionDTO(Question entity) {
         id = entity.getId();
         title = entity.getTitle();
-        chose = entity.getCorrectChoice();
+        correctChoice = entity.getCorrectChoice();
         quizId = entity.getQuiz().getId();
     }
 
@@ -42,12 +42,12 @@ public class QuestionDTO implements Serializable {
         this.title = title;
     }
 
-    public Integer getChose() {
-        return chose;
+    public Integer getCorrectChoice() {
+        return correctChoice;
     }
 
-    public void setChose(Integer chose) {
-        this.chose = chose;
+    public void setCorrectChoice(Integer correctChoice) {
+        this.correctChoice = correctChoice;
     }
 
     public Long getQuizId() {

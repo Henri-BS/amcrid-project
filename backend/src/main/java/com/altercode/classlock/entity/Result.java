@@ -12,6 +12,8 @@ public class Result {
 	@Column(name = "result_id")
 	private Long id;
 
+	private String message;
+
 	@Column(name = "total_correct")
 	private Integer totalCorrect = 0;
 
@@ -27,8 +29,9 @@ public class Result {
 
 	}
 
-	public Result(Long id, Integer totalCorrect, User user) {
+	public Result(Long id, String message, Integer totalCorrect, User user) {
 		this.id = id;
+		this.message = message;
 		this.totalCorrect = totalCorrect;
 		this.user = user;
 	}
@@ -39,6 +42,14 @@ public class Result {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public Integer getTotalCorrect() {

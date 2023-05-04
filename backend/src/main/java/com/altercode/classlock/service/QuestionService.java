@@ -6,9 +6,7 @@ import com.altercode.classlock.entity.Quiz;
 import com.altercode.classlock.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +15,11 @@ public class QuestionService {
 
     @Autowired
     private QuestionRepository questionRepository;
+
+    public QuestionDTO findQuestionById(Long id){
+         Question find = questionRepository.findById(id).orElseThrow();
+         return new QuestionDTO(find);
+    }
 
     public List<QuestionDTO> findQuestionsByQuiz(Quiz quiz) {
         List<Question> list = questionRepository.findByQuiz(quiz);

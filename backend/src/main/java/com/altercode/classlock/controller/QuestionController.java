@@ -19,6 +19,13 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
+    @GetMapping("/{id}")
+    public ResponseEntity<QuestionDTO> findQuestionById(@PathVariable Long id) {
+        QuestionDTO find = questionService.findQuestionById(id);
+        return ResponseEntity.ok(find);
+
+    }
+
     @GetMapping("/quiz/{quiz}")
     public ResponseEntity<List<QuestionDTO>> findQuestionsByQuiz(@PathVariable Quiz quiz) {
         List<QuestionDTO> list = questionService.findQuestionsByQuiz(quiz);

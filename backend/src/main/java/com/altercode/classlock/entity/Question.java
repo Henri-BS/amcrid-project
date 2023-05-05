@@ -29,7 +29,6 @@ public class Question {
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;
 
-    @Size(min = 3, max = 10)
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Option> options = new ArrayList<>();

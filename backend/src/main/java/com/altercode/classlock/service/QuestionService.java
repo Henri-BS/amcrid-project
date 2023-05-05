@@ -40,4 +40,13 @@ public class QuestionService {
 
         return new QuestionDTO(questionRepository.saveAndFlush(add));
     }
+
+    public QuestionDTO updateQuestion(QuestionDTO dto) {
+        Question edit = questionRepository.findById(dto.getId()).orElseThrow();
+
+        edit.setId(edit.getId());
+        edit.setTitle(dto.getTitle());
+        edit.setCorrectChoice(dto.getCorrectChoice());
+        return new QuestionDTO(questionRepository.save(edit));
+    }
 }

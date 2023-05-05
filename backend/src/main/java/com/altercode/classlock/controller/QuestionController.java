@@ -35,4 +35,10 @@ public class QuestionController {
         QuestionDTO add = questionService.saveQuestion(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
+
+    @PutMapping("/edit")
+    public ResponseEntity<QuestionDTO> updateQuestion(@RequestBody QuestionDTO dto) {
+        QuestionDTO edit = questionService.updateQuestion(dto);
+        return new ResponseEntity<>(edit, HttpStatus.OK);
+    }
 }

@@ -49,4 +49,8 @@ public class QuestionService {
         edit.setCorrectChoice(dto.getCorrectChoice());
         return new QuestionDTO(questionRepository.save(edit));
     }
+
+    public void deleteQuestion(Long id) {
+        this.questionRepository.deleteById(id);
+    }
 }

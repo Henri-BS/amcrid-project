@@ -41,4 +41,10 @@ public class QuestionController {
         QuestionDTO edit = questionService.updateQuestion(dto);
         return new ResponseEntity<>(edit, HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Questão Deletada")
+    public void deleteQuestion(@PathVariable Long id) {
+        this.questionService.deleteQuestion(id);
+    }
 }

@@ -4,11 +4,9 @@ import com.altercode.classlock.dto.OptionDTO;
 import com.altercode.classlock.entity.Question;
 import com.altercode.classlock.service.OptionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,11 @@ public class OptionController {
     public ResponseEntity<OptionDTO> findOptionById(@PathVariable Long id) {
         OptionDTO find = optionService.findOptionById(id);
         return ResponseEntity.ok(find);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<OptionDTO> saveOption(@RequestBody OptionDTO dto) {
+        OptionDTO add = optionService.saveOption(dto);
+        return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 }

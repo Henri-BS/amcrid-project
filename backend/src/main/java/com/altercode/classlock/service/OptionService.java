@@ -4,6 +4,7 @@ import com.altercode.classlock.dto.OptionDTO;
 import com.altercode.classlock.entity.Option;
 import com.altercode.classlock.entity.Question;
 import com.altercode.classlock.repository.OptionRepository;
+import com.altercode.classlock.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,8 @@ public class OptionService {
     @Autowired
     private OptionRepository optionRepository;
 
+    @Autowired
+    private QuestionRepository questionRepository;
 
     public List<OptionDTO> findOptionByQuestion(Question question) {
         List<Option> list = optionRepository.findOptionByQuestion(question);
@@ -25,5 +28,15 @@ public class OptionService {
     public OptionDTO findOptionById(Long id) {
         Option find = optionRepository.findById(id).orElseThrow();
         return new OptionDTO(find);
+    }
+
+    public OptionDTO saveOption(OptionDTO dto) {
+        Question question = questionRepository.findById(dto.getQuestionId()).orElseThrow();
+
+        Option add = new Option();
+        add.setChoice(dto.getChoice());
+        add.setQuestion(question);
+
+        return new OptionDTO(optionRepository.saveAndFlush(add));
     }
 }

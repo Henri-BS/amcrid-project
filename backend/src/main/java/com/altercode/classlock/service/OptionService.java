@@ -21,4 +21,9 @@ public class OptionService {
         List<Option> list = optionRepository.findOptionByQuestion(question);
         return list.stream().map(OptionDTO::new).collect(Collectors.toList());
     }
+
+    public OptionDTO findOptionById(Long id) {
+        Option find = optionRepository.findById(id).orElseThrow();
+        return new OptionDTO(find);
+    }
 }

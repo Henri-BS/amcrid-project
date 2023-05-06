@@ -24,4 +24,10 @@ public class OptionController {
         List<OptionDTO> list = optionService.findOptionByQuestion(question);
         return ResponseEntity.ok(list);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<OptionDTO> findOptionById(@PathVariable Long id) {
+        OptionDTO find = optionService.findOptionById(id);
+        return ResponseEntity.ok(find);
+    }
 }

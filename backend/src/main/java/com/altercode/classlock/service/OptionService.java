@@ -39,4 +39,12 @@ public class OptionService {
 
         return new OptionDTO(optionRepository.saveAndFlush(add));
     }
+
+    public OptionDTO updateOption(OptionDTO dto) {
+        Option edit = optionRepository.findById(dto.getId()).orElseThrow();
+
+        edit.setId(edit.getId());
+        edit.setChoice(dto.getChoice());
+        return new OptionDTO(optionRepository.save(edit));
+    }
 }

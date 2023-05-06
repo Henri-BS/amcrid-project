@@ -34,4 +34,10 @@ public class OptionController {
         OptionDTO add = optionService.saveOption(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
+
+    @PutMapping("/edit")
+    public ResponseEntity<OptionDTO> updateOption(@RequestBody OptionDTO dto) {
+        OptionDTO update = optionService.updateOption(dto);
+        return new ResponseEntity<>(update, HttpStatus.OK);
+    }
 }

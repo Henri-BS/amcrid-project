@@ -40,4 +40,10 @@ public class OptionController {
         OptionDTO update = optionService.updateOption(dto);
         return new ResponseEntity<>(update, HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "A alternativa foi deletada")
+    public void deleteOption(@PathVariable Long id) {
+        this.optionService.deleteOption(id);
+    }
 }

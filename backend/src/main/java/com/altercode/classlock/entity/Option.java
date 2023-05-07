@@ -9,8 +9,8 @@ public class Option {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    //Add choiceNumber and choiceDescription attributes
     private String choice;
-
     @ManyToOne
     @JoinColumn(name = "question_id")
     private Question question;

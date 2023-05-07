@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class OptionService {
@@ -22,7 +23,9 @@ public class OptionService {
 
     public List<OptionDTO> findOptionByQuestion(Question question) {
         List<Option> list = optionRepository.findOptionByQuestion(question);
-        return list.stream().map(OptionDTO::new).collect(Collectors.toList());
+        return list.stream().map(OptionDTO::new)
+                .limit(10L)
+                .collect(Collectors.toList());
     }
 
     public OptionDTO findOptionById(Long id) {
@@ -46,5 +49,9 @@ public class OptionService {
         edit.setId(edit.getId());
         edit.setChoice(dto.getChoice());
         return new OptionDTO(optionRepository.save(edit));
+    }
+
+    public void deleteOption(Long id) {
+        this.optionRepository.deleteById(id);
     }
 }

@@ -12,5 +12,7 @@ import java.util.List;
 @Repository
 public interface BadgeRepository extends JpaRepository<Badge, Long>{
 
+    @Query("SELECT obj FROM Badge obj WHERE obj.name LIKE %?1%")
+    Badge findBadgeByName(String name);
 
 }

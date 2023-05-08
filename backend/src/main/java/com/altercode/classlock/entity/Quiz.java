@@ -36,6 +36,10 @@ public class Quiz {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Result> results = new ArrayList<>();
 
+    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<QuizBadge> quizBadges = new ArrayList<>();
+
     public Quiz() {
     }
 
@@ -98,6 +102,14 @@ public class Quiz {
 
     public List<Question> getQuestions() {
         return questions;
+    }
+
+    public List<Result> getResults() {
+        return results;
+    }
+
+    public List<QuizBadge> getQuizBadges() {
+        return quizBadges;
     }
 
     public Question getQuestion(int index) {

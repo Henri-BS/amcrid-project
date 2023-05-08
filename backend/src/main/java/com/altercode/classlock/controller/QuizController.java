@@ -40,7 +40,13 @@ public class QuizController {
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
 
-	@PutMapping("/play")
+	@PostMapping("/add-badge")
+	public ResponseEntity<QuizBadgeDTO> saveQuizBadge(@RequestBody QuizBadgeDTO dto) {
+		QuizBadgeDTO add = quizService.saveQuizBadge(dto);
+		return new ResponseEntity<>(add, HttpStatus.CREATED);
+	}
+
+		@PutMapping("/play")
 	public ResponseEntity<ResultDTO> playQuiz(@RequestBody UserAnswerDTO dto) {
 		ResultDTO play = quizService.getResult(dto);
 		return new ResponseEntity<>(play, HttpStatus.OK);
@@ -57,41 +63,11 @@ public class QuizController {
 		this.quizService.deleteQuiz(id);
 	}
 
-	@GetMapping("/all-questions")
-	public ResponseEntity<List<QuestionDTO>> findAll() {
-		List<QuestionDTO> list = quizService.findAll();
-		return ResponseEntity.ok(list);
-	}
-	
-	@GetMapping("/game/{quiz}")
-	public ResponseEntity<List<QuestionDTO>> findByQuiz(Quiz quiz) {
-		List<QuestionDTO> list = quizService.findByQuiz(quiz);
-		return ResponseEntity.ok(list);
-	}
-	
-	@GetMapping("/questions")
-	public ResponseEntity<Page<QuestionDTO>> findAll(Pageable pageable) {
-		Page<QuestionDTO> list = quizService.findAll(pageable);
-		return ResponseEntity.ok(list);
-	}
-	
-	@GetMapping("/result/{id}")
-    public ResponseEntity<ResultDTO> getResultById(@PathVariable("id") Long id) {
-        ResultDTO result = quizService.findResultById(id);
-        return new ResponseEntity<>(result, HttpStatus.OK);
-    }
-	
+
 	@GetMapping("/score")
 	public ResponseEntity<List<ResultDTO>> score(Model m) {
 		List<ResultDTO> scoreList = quizService.getTopScore();
 		return new ResponseEntity<>(scoreList, HttpStatus.OK);
 	}
-
-	@GetMapping("/results")
-	public ResponseEntity<List<ResultDTO>> findAllResults() {
-		List<ResultDTO> list = quizService.findAllResults();
-		return ResponseEntity.ok(list);
-	}
-	
 
 }

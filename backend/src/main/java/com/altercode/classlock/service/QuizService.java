@@ -23,13 +23,16 @@ public class QuizService {
     private QuestionRepository questionRepository;
 
     @Autowired
+    private BadgeRepository badgeRepository;
+
+    @Autowired
+    private QuizBadgeRepository quizBadgeRepository;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private UserAnswerRepository answerRepository;
-
-    @Autowired
-    private OptionRepository optionRepository;
 
     @Autowired
     private ChapterRepository chapterRepository;
@@ -57,14 +60,29 @@ public class QuizService {
     public QuizDTO saveQuiz(QuizDTO dto) {
         Chapter chapter = chapterRepository.findById(dto.getChapterId()).orElseThrow();
 
+        Badge badge = new Badge();
+
+
+
         Quiz add = new Quiz();
         add.setTitle(dto.getTitle());
         add.setDescription(dto.getDescription());
         add.setImage(dto.getImage());
         add.setChapter(chapter);
+
         return new QuizDTO(quizRepository.saveAndFlush(add));
     }
 
+    public QuizBadgeDTO saveQuizBadge(QuizBadgeDTO dto) {
+        Quiz quiz = quizRepository.findById(dto.getQuizId()).orElseThrow();
+        Badge badge = badgeRepository.findBadgeByName(dto.getBadgeName());
+
+        QuizBadge quizbadge = new QuizBadge();
+        quizbadge.setQuiz(quiz);
+        quizbadge.setBadge(badge);
+
+        return new QuizBadgeDTO(quizBadgeRepository.saveAndFlush(quizbadge));
+    }
     public QuizDTO updateQuiz(QuizDTO dto) {
         Chapter chapter = chapterRepository.findById(dto.getChapterId()).orElseThrow();
         Quiz edit = quizRepository.findById(dto.getId()).orElseThrow();
@@ -82,8 +100,6 @@ public class QuizService {
     }
 
 
-
-
     public ResultDTO getResult(UserAnswerDTO dto) {
         Question question = questionRepository.findById(dto.getQuestionId()).orElseThrow();
         User user = userRepository.findByUserName(dto.getUserName());
@@ -97,19 +113,6 @@ public class QuizService {
         Quiz quiz = quizRepository.findById(userAnswer.getQuestion().getQuiz().getId()).orElseThrow();
         Result result = resultRepository.findResultByUser(user);
 
-        int totalCorrect = 0;
-        int answer = Integer.parseInt(dto.getAnswer());
-        for(Question q : userAnswer.getQuestion().getQuiz().getQuestions()) {
-            String correctAnswerMessage = "Resposta Correta!";
-            String incorrectAnswerMessage = "Resposta Incorreta, a resposta corrreta é: " + q.getCorrectChoice();
-            if(answer == q.getCorrectChoice()){
-                totalCorrect++;
-                result.setMessage(correctAnswerMessage);
-            }else {
-                result.setMessage(incorrectAnswerMessage);
-            }
-        }
-
         if(result == null){
             result = new Result();
             result.setUser(user);
@@ -117,9 +120,24 @@ public class QuizService {
             resultRepository.saveAndFlush(result);
         }
 
-        result.setTotalCorrect(totalCorrect);
+        int totalCorrect = 0;
+        int answer = Integer.parseInt(dto.getAnswer());
+        for(Question q : userAnswer.getQuestion().getQuiz().getQuestions()) {
+            String correctAnswerMessage = "Resposta Correta!";
+            String incorrectAnswerMessage = "Resposta Incorreta, a resposta corrreta é: " + q.getCorrectChoice();
+            if(answer == q.getCorrectChoice()){
+                totalCorrect++;
+
+                result.setMessage(correctAnswerMessage);
+            }else {
+                result.setMessage(incorrectAnswerMessage);
+            }
+        }
+
         result.setQuiz(quiz);
         result.setUser(user);
+        result.setTotalCorrect(totalCorrect);
+
         return new ResultDTO(resultRepository.save(result));
     }
 
@@ -133,36 +151,5 @@ public class QuizService {
         List<Result> scoreList = resultRepository.findAll(Sort.by(Sort.Direction.DESC, "totalCorrect"));
         return scoreList.stream().map(x -> new ResultDTO()).collect(Collectors.toList());
     }
-
-    public List<QuestionDTO> findAll() {
-        List<Question> result = questionRepository.findAll();
-        return result.stream().map(QuestionDTO::new).collect(Collectors.toList());
-    }
-
-    public List<QuestionDTO> findByQuiz(Quiz quiz) {
-        List<Question> result = questionRepository.findByQuiz(quiz);
-        return result.stream().map(QuestionDTO::new).collect(Collectors.toList());
-    }
-
-    public Page<QuestionDTO> findAll(Pageable pageable) {
-        Page<Question> result = questionRepository.findAll(pageable);
-        return result.map(QuestionDTO::new);
-    }
-
-    public QuestionDTO findById(Long id) {
-        Question question = questionRepository.findById(id).orElseThrow();
-        return new QuestionDTO(question);
-    }
-
-    public ResultDTO findResultById(Long id) {
-        return resultRepository.findResultById(id);
-    }
-
-    public List<ResultDTO> findAllResults() {
-        List<Result> result = resultRepository.findAll();
-        return result.stream().map(ResultDTO::new).collect(Collectors.toList());
-    }
-
-
 
 }

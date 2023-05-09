@@ -1,5 +1,6 @@
 package com.altercode.classlock.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,12 +58,13 @@ public class QuizService {
         return new QuizDTO(find);
     }
 
+    public List<QuizBadgeDTO> findAllBadgesByQuiz(Quiz quiz) {
+        List<QuizBadge> list = quizBadgeRepository.findAllBadgesByQuiz(quiz);
+        return list.stream().map(QuizBadgeDTO::new).collect(Collectors.toList());
+    }
+
     public QuizDTO saveQuiz(QuizDTO dto) {
         Chapter chapter = chapterRepository.findById(dto.getChapterId()).orElseThrow();
-
-        Badge badge = new Badge();
-
-
 
         Quiz add = new Quiz();
         add.setTitle(dto.getTitle());
@@ -110,34 +112,27 @@ public class QuizService {
         userAnswer.setAnswer(dto.getAnswer());
         answerRepository.save(userAnswer);
 
-        Quiz quiz = quizRepository.findById(userAnswer.getQuestion().getQuiz().getId()).orElseThrow();
         Result result = resultRepository.findResultByUser(user);
+        userAnswer = answerRepository.findById(userAnswer.getId()).orElseThrow();
 
+        int totalCorrect = 0;
+        int answer = Integer.parseInt(userAnswer.getAnswer());
+        for(Question q : userAnswer.getQuestion().getQuiz().getQuestions()) {
         if(result == null){
             result = new Result();
-            result.setUser(user);
-            result.setQuiz(quiz);
+            result.setUser(userAnswer.getUser());
+            result.setQuiz(userAnswer.getQuestion().getQuiz());
             resultRepository.saveAndFlush(result);
         }
 
-        int totalCorrect = 0;
-        int answer = Integer.parseInt(dto.getAnswer());
-        for(Question q : userAnswer.getQuestion().getQuiz().getQuestions()) {
-            String correctAnswerMessage = "Resposta Correta!";
-            String incorrectAnswerMessage = "Resposta Incorreta, a resposta corrreta é: " + q.getCorrectChoice();
             if(answer == q.getCorrectChoice()){
+                result.setMessage("Resposta Correta!");
                 totalCorrect++;
-
-                result.setMessage(correctAnswerMessage);
+                result.setTotalCorrect(totalCorrect);
             }else {
-                result.setMessage(incorrectAnswerMessage);
+                result.setMessage("Resposta Incorreta, a resposta corrreta é: " + q.getCorrectChoice());
             }
         }
-
-        result.setQuiz(quiz);
-        result.setUser(user);
-        result.setTotalCorrect(totalCorrect);
-
         return new ResultDTO(resultRepository.save(result));
     }
 

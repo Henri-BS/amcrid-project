@@ -36,13 +36,6 @@ INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'Fase de P
 INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'Fase de Teste no Desenvolvimento de Jogos', 'Quiz sobre a fase de testes no desenvolvimento de jogos', 'https://www.dekoder.org/sites/default/files/hacker_1.png', 1);
 INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'Fase de Implantação no Desenvolvimento de Jogos', 'Quiz sobre a fase de implantação no desenvolvimento de jogos', 'https://img.wonderhowto.com/img/20/66/63724953674051/0/expand-your-coding-skill-set-by-learning-build-games-unity.w1456.jpg', 1);
 
-INSERT INTO tb_result ( user_id, total_correct) VALUES( 1, 3);
-INSERT INTO tb_result ( user_id, total_correct) VALUES( 2, 1);
-INSERT INTO tb_result ( user_id, total_correct) VALUES( 3, 2);
-INSERT INTO tb_result ( user_id, total_correct) VALUES( 4, 0);
-INSERT INTO tb_result ( user_id, total_correct) VALUES( 5, 2);
-INSERT INTO tb_result ( user_id, total_correct) VALUES( 6, 0);
-
 INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 1, 'Quais os princípios básicos da Segurança da Informação ?', 1);
 INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 1, 'Qual atributo corresponde ao nível de sigilo de uma informação ?', 2);
 INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 1, 'Dados importantes em que a condição de inalteravél deve durar o máximo possível, este princípio trata-se de:', 3);

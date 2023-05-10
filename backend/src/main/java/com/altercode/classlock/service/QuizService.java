@@ -58,10 +58,7 @@ public class QuizService {
         return new QuizDTO(find);
     }
 
-    public List<QuizBadgeDTO> findAllBadgesByQuiz(Quiz quiz) {
-        List<QuizBadge> list = quizBadgeRepository.findAllBadgesByQuiz(quiz);
-        return list.stream().map(QuizBadgeDTO::new).collect(Collectors.toList());
-    }
+
 
     public QuizDTO saveQuiz(QuizDTO dto) {
         Chapter chapter = chapterRepository.findById(dto.getChapterId()).orElseThrow();
@@ -75,16 +72,7 @@ public class QuizService {
         return new QuizDTO(quizRepository.saveAndFlush(add));
     }
 
-    public QuizBadgeDTO saveQuizBadge(QuizBadgeDTO dto) {
-        Quiz quiz = quizRepository.findById(dto.getQuizId()).orElseThrow();
-        Badge badge = badgeRepository.findBadgeByName(dto.getBadgeName());
 
-        QuizBadge quizbadge = new QuizBadge();
-        quizbadge.setQuiz(quiz);
-        quizbadge.setBadge(badge);
-
-        return new QuizBadgeDTO(quizBadgeRepository.saveAndFlush(quizbadge));
-    }
     public QuizDTO updateQuiz(QuizDTO dto) {
         Chapter chapter = chapterRepository.findById(dto.getChapterId()).orElseThrow();
         Quiz edit = quizRepository.findById(dto.getId()).orElseThrow();

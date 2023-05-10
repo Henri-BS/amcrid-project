@@ -1,13 +1,11 @@
 package com.altercode.classlock.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_badge")
@@ -33,6 +31,12 @@ public class Badge {
 	@ManyToOne
 	@JoinColumn(name = "chapter_id")
 	private Chapter chapter;
+
+	@OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+	private List<QuizBadge> quizBadges = new ArrayList<>();
+
+	@OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+	private List<UserBadge> userBadges = new ArrayList<>();
 
 	public Badge() {
 		
@@ -95,4 +99,11 @@ public class Badge {
 		this.chapter = chapter;
 	}
 
+	public List<QuizBadge> getQuizBadges() {
+		return quizBadges;
+	}
+
+	public List<UserBadge> getUserBadges() {
+		return userBadges;
+	}
 }

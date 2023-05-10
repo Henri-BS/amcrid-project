@@ -13,7 +13,7 @@ public class QuestionDTO implements Serializable {
     private Long id;
     private String title;
     private Integer correctChoice;
-    
+
     private Long quizId;
     
     public QuestionDTO() {

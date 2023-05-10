@@ -44,6 +44,9 @@ public class User {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<UserAnswer> userAnswers = new ArrayList<>();
 
+	@OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+	private List<UserBadge> userBadges = new ArrayList<>();
+
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private Result result;

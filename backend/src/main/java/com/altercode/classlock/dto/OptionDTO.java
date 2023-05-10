@@ -35,7 +35,6 @@ public class OptionDTO {
         this.choice = choice;
     }
 
-
     public Long getQuestionId() {
         return questionId;
     }

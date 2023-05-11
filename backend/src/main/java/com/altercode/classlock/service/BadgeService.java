@@ -57,6 +57,11 @@ public class BadgeService {
 		return list.stream().map(QuizBadgeDTO::new).collect(Collectors.toList());
 	}
 
+	public List<UserBadgeDTO> findAllBadgesByUser(User user) {
+		List<UserBadge> list = userBadgeRepository.findAllBadgesByUser(user);
+		return list.stream().map(UserBadgeDTO::new).collect(Collectors.toList());
+	}
+
 
     public BadgeDTO saveBadge(BadgeDTO dto) {
 		Chapter chapter = chapterRepository.findById(dto.getChapter()).orElseThrow();

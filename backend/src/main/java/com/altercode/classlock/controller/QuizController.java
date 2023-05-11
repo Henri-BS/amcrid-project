@@ -36,15 +36,11 @@ public class QuizController {
 		return ResponseEntity.ok(find);
 	}
 
-
-
 	@PostMapping("/add")
 	public ResponseEntity<QuizDTO> saveQuiz(@RequestBody QuizDTO dto) {
 		QuizDTO add = quizService.saveQuiz(dto);
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
-
-
 
 	@PutMapping("/edit")
 	public ResponseEntity<QuizDTO> updateQuiz(@RequestBody QuizDTO dto) {

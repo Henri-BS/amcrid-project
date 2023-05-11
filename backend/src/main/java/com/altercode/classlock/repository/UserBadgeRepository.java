@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface UserBadgeRepository extends JpaRepository<UserBadge, Long> {
-    List<UserBadge> findAllBadgesByQuiz(User user);
 
+    List<UserBadge> findAllBadgesByUser(User user);
 }

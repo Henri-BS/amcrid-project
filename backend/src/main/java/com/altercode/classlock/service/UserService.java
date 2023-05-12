@@ -39,19 +39,6 @@ public class UserService {
         return new UserDTO(result);
     }
 
-    public List<ConquestDTO> findByUser(User user) {
-        return conquestRepository.findByUser(user);
-    }
-
-    public Page<ConquestDTO> findAllConquests(Pageable pageable) {
-        Page<Conquest> result = conquestRepository.findAll(pageable);
-        return result.map(ConquestDTO::new);
-    }
-
-    public ConquestDTO findConquestById(Long id) {
-        return conquestRepository.findConquestById(id);
-    }
-
     public List<UserDTO> getByName(String prefix) {
         List<User> result = userRepository.getByName(prefix);
         return result.stream().map(UserDTO::new).collect(Collectors.toList());

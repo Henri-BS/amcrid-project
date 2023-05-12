@@ -1,5 +1,9 @@
 package com.altercode.classlock.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.type.StringNVarcharType;
@@ -12,6 +16,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tb_quiz")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Quiz {
 
     @Id
@@ -40,79 +48,5 @@ public class Quiz {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<QuizBadge> quizBadges = new ArrayList<>();
 
-    public Quiz() {
-    }
 
-    public Quiz(Long id, String title, String description, String image, Integer questionQuantity, Chapter chapter) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.image = image;
-        this.questionQuantity = questionQuantity;
-        this.chapter = chapter;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Integer getQuestionQuantity() {
-        return questionQuantity;
-    }
-
-    public void setQuestionQuantity(Integer questionQuantity) {
-        this.questionQuantity = questionQuantity;
-    }
-
-    public Chapter getChapter() {
-        return chapter;
-    }
-
-    public void setChapter(Chapter chapter) {
-        this.chapter = chapter;
-    }
-
-    public List<Question> getQuestions() {
-        return questions;
-    }
-
-    public List<Result> getResults() {
-        return results;
-    }
-
-    public List<QuizBadge> getQuizBadges() {
-        return quizBadges;
-    }
-
-    public Question getQuestion(int index) {
-        return questions.get(index);
-    }
 }

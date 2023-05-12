@@ -5,10 +5,18 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "tb_chapter")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Chapter {
 
     @Id
@@ -30,55 +38,4 @@ public class Chapter {
 
     @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
     private List<Quiz> quizzes = new ArrayList<>();
-    
-    public Chapter() {
-    }
-
-    public Chapter(Long id, String title, String description, String image) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.image = image;
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-	public List<Badge> getBadges() {
-		return badges;
-	}
-
-    public List<Quiz> getQuizzes() {
-        return quizzes;
-    }
 }

@@ -1,87 +1,101 @@
 package com.altercode.classlock.dto;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.altercode.classlock.entity.Conquest;
+import com.altercode.classlock.entity.User;
 
 public class ConquestDTO implements Serializable {
-	private static final long serialVersionUID = 1L;
 
-	private Long id;
-	private Integer principalQuest;
-	private Integer secondaryQuest;
-	private Integer chapterCompleted;
-	private Integer totalXp;
-	private Integer totalBadges;
-	
-	private UserDTO user;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
-	public ConquestDTO() {
-	}
+    private Long id;
+    private Integer principalQuest;
+    private Integer secondaryQuest;
+    private Integer chapterCompleted;
+    private Integer totalXp;
+    private Integer totalBadges;
 
-	public ConquestDTO(Conquest entity) {
-		id = entity.getId();
-		principalQuest = entity.getPrincipalQuest();
-		secondaryQuest = entity.getSecondaryQuest();
-		chapterCompleted = entity.getChapterCompleted();
-		totalXp = entity.getTotalXp();
-		totalBadges = entity.getTotalBadges();
-		user = new UserDTO(entity.getUser());
-	}
+    private Long userId;
+    private String userName;
 
-	public Long getId() {
-		return id;
-	}
+    public ConquestDTO() {
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public ConquestDTO(Conquest entity) {
+        id = entity.getId();
+        principalQuest = entity.getPrincipalQuest();
+        secondaryQuest = entity.getSecondaryQuest();
+        chapterCompleted = entity.getChapterCompleted();
+        totalXp = entity.getTotalXp();
+        totalBadges = entity.getTotalBadges();
+        userId = entity.getUser().getId();
+        userName = entity.getUser().getUserName();
+    }
 
-	public Integer getPrincipalQuest() {
-		return principalQuest;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setPrincipalQuest(Integer principalQuest) {
-		this.principalQuest = principalQuest;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Integer getSecondaryQuest() {
-		return secondaryQuest;
-	}
+    public Integer getPrincipalQuest() {
+        return principalQuest;
+    }
 
-	public void setSecondaryQuest(Integer secondaryQuest) {
-		this.secondaryQuest = secondaryQuest;
-	}
+    public void setPrincipalQuest(Integer principalQuest) {
+        this.principalQuest = principalQuest;
+    }
 
-	public Integer getChapterCompleted() {
-		return chapterCompleted;
-	}
+    public Integer getSecondaryQuest() {
+        return secondaryQuest;
+    }
 
-	public void setChapterCompleted(Integer chapterCompleted) {
-		this.chapterCompleted = chapterCompleted;
-	}
+    public void setSecondaryQuest(Integer secondaryQuest) {
+        this.secondaryQuest = secondaryQuest;
+    }
 
-	public Integer getTotalXp() {
-		return totalXp;
-	}
+    public Integer getChapterCompleted() {
+        return chapterCompleted;
+    }
 
-	public void setTotalXp(Integer totalXp) {
-		this.totalXp = totalXp;
-	}
+    public void setChapterCompleted(Integer chapterCompleted) {
+        this.chapterCompleted = chapterCompleted;
+    }
 
-	public Integer getTotalBadges() {
-		return totalBadges;
-	}
+    public Integer getTotalXp() {
+        return totalXp;
+    }
 
-	public void setTotalBadges(Integer totalBadges) {
-		this.totalBadges = totalBadges;
-	}
+    public void setTotalXp(Integer totalXp) {
+        this.totalXp = totalXp;
+    }
 
-	public UserDTO getUser() {
-		return user;
-	}
+    public Integer getTotalBadges() {
+        return totalBadges;
+    }
 
-	public void setUser(UserDTO user) {
-		this.user = user;
-	}
+    public void setTotalBadges(Integer totalBadges) {
+        this.totalBadges = totalBadges;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }

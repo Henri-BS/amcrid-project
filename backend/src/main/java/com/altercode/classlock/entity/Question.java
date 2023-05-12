@@ -1,5 +1,9 @@
 package com.altercode.classlock.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -10,6 +14,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_question")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Question {
 
     @Id
@@ -33,56 +41,4 @@ public class Question {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private List<UserAnswer> userAnswers = new ArrayList<>();
-
-    public Question() {
-    }
-
-    public Question(Long id, String title, Integer correctChoice, Quiz quiz) {
-        this.id = id;
-        this.title = title;
-        this.correctChoice = correctChoice;
-        this.quiz = quiz;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-
-    public Integer getCorrectChoice() {
-        return correctChoice;
-    }
-
-    public void setCorrectChoice(Integer correctChoice) {
-        this.correctChoice = correctChoice;
-    }
-
-    public Quiz getQuiz() {
-        return quiz;
-    }
-
-    public void setQuiz(Quiz quiz) {
-        this.quiz = quiz;
-    }
-
-    public List<Option> getOptions() {
-        return options;
-    }
-
-    public List<UserAnswer> getUserAnswers() {
-        return userAnswers;
-    }
-
 }

@@ -20,5 +20,5 @@ public interface ConquestRepository extends JpaRepository<Conquest, Long> {
 
 	ConquestDTO findConquestById(Long id);
 	
-	List<ConquestDTO> findByUser(User user);
+	Conquest findByUser(User user);
 }

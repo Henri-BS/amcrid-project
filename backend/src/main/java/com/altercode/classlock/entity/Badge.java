@@ -1,5 +1,8 @@
 package com.altercode.classlock.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -9,6 +12,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_badge")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
 public class Badge {
 	
 	@Id
@@ -35,75 +41,31 @@ public class Badge {
 	@OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
 	private List<QuizBadge> quizBadges = new ArrayList<>();
 
-	@OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "badge", cascade = CascadeType.ALL)
 	private List<UserBadge> userBadges = new ArrayList<>();
 
-	public Badge() {
-		
-	}
-
-	public Badge(Long id, String name, String description, String image, Integer xp, Chapter chapter) {
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.image = image;
-		this.xp = xp;
-		this.chapter = chapter;
-	}
-
-	public Long getId() {
-		return id;
-	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getImage() {
-		return image;
 	}
 
 	public void setImage(String image) {
 		this.image = image;
 	}
 
-	public Integer getXp() {
-		return xp;
-	}
-
 	public void setXp(Integer xp) {
 		this.xp = xp;
 	}
 
-	public Chapter getChapter() {
-		return chapter;
-	}
-
 	public void setChapter(Chapter chapter) {
 		this.chapter = chapter;
-	}
-
-	public List<QuizBadge> getQuizBadges() {
-		return quizBadges;
-	}
-
-	public List<UserBadge> getUserBadges() {
-		return userBadges;
 	}
 }

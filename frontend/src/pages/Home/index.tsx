@@ -1,5 +1,5 @@
 
-import Pagination, { PaginationLeft, PaginationRight } from 'components/Pagination';
+import Pagination, { PaginationLeft, PaginationRight } from 'components/shared/Pagination';
 import './styles.css'
 import { ArticleChapter } from 'components/Article';
 import ChapterCard from 'components/ChapterCard';

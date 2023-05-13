@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Button } from 'components/Button';
+import { Button } from 'components/shared/Button';
 import { Link } from 'react-router-dom';
-import Dropdown from 'components/Dropdown';
+import Dropdown from 'components/shared/Dropdown';
 import IWLogo from 'assets/img/w-logo.svg';
 import IProf from "assets/img/prof-img.png";
 import './styles.css';

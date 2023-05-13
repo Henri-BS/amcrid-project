@@ -1,5 +1,5 @@
 
-import PageRoutes from 'PageRoutes';
+import PageRoutes from 'routes/PageRoutes';
 import React from 'react';
 
 function App() {

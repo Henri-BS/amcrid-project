@@ -1,5 +1,5 @@
 
-import QuestForm from "components/QuestForm/index ";
+import OptionSelector from "components/QuestForm/index ";
 import { useParams } from "react-router-dom";
 import "./styles.css"
 
@@ -20,13 +20,13 @@ function QuizzGame() {
       </div>
       <div className="quizz-container">
         <div className="quest-container">
-          <QuestForm questionId={`${params.questionId}`} />
+          <OptionSelector questionId={`${params.questionId}`} />
         </div>
         <div className="quest-container">
-          <QuestForm questionId={`${params.questionId}`} />
+          <OptionSelector questionId={`${params.questionId}`} />
         </div>
         <div className="quest-container">
-          <QuestForm questionId={`${params.questionId}`} />
+          <OptionSelector questionId={`${params.questionId}`} />
         </div>
       </div>
     </>

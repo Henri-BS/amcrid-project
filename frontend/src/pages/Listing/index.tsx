@@ -1,6 +1,6 @@
 import axios from "axios";
 import ArticleCard from "components/ArticleCard";
-import Pagination from "components/Pagination";
+import Pagination from "components/shared/Pagination";
 import ChapterCard from "components/ChapterCard";
 import { MiniUserCard } from "components/UserCard";
 import { useEffect, useState } from "react";

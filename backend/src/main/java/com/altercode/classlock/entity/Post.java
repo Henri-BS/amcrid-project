@@ -7,7 +7,6 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,7 +17,6 @@ import org.springframework.data.annotation.CreatedDate;
 @Entity
 @Table(name = "tb_post")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class Post {

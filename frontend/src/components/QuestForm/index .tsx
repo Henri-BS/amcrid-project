@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Question } from 'types/question';
+import { Option } from 'types/quiz';
 import { BASE_URL } from 'utils/requests';
 import './styles.css'
 
@@ -8,39 +8,41 @@ type Props = {
     questionId: string
 }
 
-function QuestForm({ questionId }: Props) {
+function OptionSelector({ questionId }: Props) {
 
-    const [question, setQuestion] = useState<Question>();
+    const [option, setOption] = useState<Option[]>();
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/quizz/${questionId}?size=3`)
+        axios.get(`${BASE_URL}/quiz/${questionId}?size=3`)
             .then(response => {
-                setQuestion(response.data);
+                setOption(response.data);
             })
+    }, [questionId]);
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/option/question/${questionId}`)
+            .then((response) => {
+                setOption(response.data);
+            });
     }, [questionId]);
 
     return (
         <>
-            <div className="cl-form-container">
+            <form className="cl-form-container">
                 <div className="card-form-container">
-                    <h3>{question?.title}</h3>
-                    <form className="cl-form">
-                        <div className="form-group cl-form-group">
+                    <div className="form-group cl-form-group">
+                        <hr />
+                        <ul>
+                            {option?.map(x => (
+                                <li key={x.id}> <b>A</b> - {x.choice}</li>
+                            ))}
                             <hr />
-                            <ul>
-                                <li> <b>A</b> - {question?.optionA}</li>
-                                <li> <b>B</b> - {question?.optionB}</li>
-                                <li> <b>C</b> - {question?.optionC}</li>
-                                <li> <b>D</b> - {question?.optionD}</li>
-                                <li> <b>E</b> - {question?.optionE}</li>
-                                <hr />
-                            </ul>
-                        </div>
-                    </form >
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </form > 
         </>
     );
 }
 
-export default QuestForm;
+export default OptionSelector;

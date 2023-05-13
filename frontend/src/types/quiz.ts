@@ -1,16 +1,19 @@
 import { Chapter } from "./chapter";
 
+export type Quiz = {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+    questionQuantity: number;
+    chapterId: number;
+}
+
 export type Question = {
     id: number;
     title: string;
-    optionA: string;
-    optionB: string;
-    optionC: string;
-    optionD: string;
-    optionE: string;
-    ans: number;
-    chose: number;
-    chapter: Chapter;
+    correctChoice: number;
+    quizId: number;
 }
 
 export type QuestionPage = {
@@ -23,4 +26,11 @@ export type QuestionPage = {
     numberOfElements: number;
     size: number;
     number: number;
+}
+
+export type Option = {
+    id: number;
+choice: string;
+questionId: number;
+questionTitle: string;    
 }

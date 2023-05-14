@@ -34,7 +34,7 @@ function OptionSelector({ questionId }: Props) {
                         <hr />
                         <ul>
                             {option?.map(x => (
-                                <li key={x.id}> <b>A</b> - {x.choice}</li>
+                                <input type='checkbox' key={x.id}> <b>A</b> - {x.choice}/</input>
                             ))}
                             <hr />
                         </ul>

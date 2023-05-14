@@ -1,13 +1,16 @@
-import QuizzGame from 'components/QuizzGame';
+import QuizGame from 'components/QuizzGame';
 import React from 'react';
 import './styles.css';
+import { useParams } from 'react-router-dom';
 
 function Chapter() {
+
+const params = useParams();
 
   return (
     <>
       <div className="container">
-       <QuizzGame />
+       <QuizGame id={`${params.quizId}`} />
       </div>
     </>
   );

@@ -2,10 +2,22 @@
 import OptionSelector from "components/QuestForm/index ";
 import { useParams } from "react-router-dom";
 import "./styles.css"
+import { useState, useEffect } from "react";
+import { Props, Question } from "types/quiz";
+import { BASE_URL } from "utils/requests";
+import axios from "axios";
 
-function QuizzGame() {
+function QuizGame({ id: quizId }: Props) {
 
   const params = useParams();
+
+  const [question, setQuestion] = useState<Question[]>();
+  useEffect(() => {
+    axios.get(`${BASE_URL}/question/${quizId}`)
+      .then((response) => {
+        setQuestion(response.data);
+      });
+  }, [quizId]);
 
   return (
     <>
@@ -19,18 +31,14 @@ function QuizzGame() {
         </div>
       </div>
       <div className="quizz-container">
-        <div className="quest-container">
+        {question?.map(x => (
+        <div className="quest-container" key={x.quizId}>
           <OptionSelector questionId={`${params.questionId}`} />
         </div>
-        <div className="quest-container">
-          <OptionSelector questionId={`${params.questionId}`} />
-        </div>
-        <div className="quest-container">
-          <OptionSelector questionId={`${params.questionId}`} />
-        </div>
+        ))}
       </div>
     </>
   );
 }
 
-export default QuizzGame;
+export default QuizGame;

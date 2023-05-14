@@ -28,8 +28,7 @@ const PageRoutes = () => {
                     <Route path="/post">
                         <Route path=":postId" element={<Post />} />
                     </Route>
-
-
+                    
                     <Route path="/chapter">
                         <Route path=":questionId" element={<Chapter />} />
                     </Route>

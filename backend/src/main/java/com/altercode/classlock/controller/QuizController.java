@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.altercode.classlock.dto.*;
+import com.altercode.classlock.entity.Chapter;
 import com.altercode.classlock.entity.Quiz;
 import com.altercode.classlock.entity.QuizBadge;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,12 @@ public class QuizController {
 	public ResponseEntity<QuizDTO> findQuizById(@PathVariable Long id){
 		QuizDTO find = quizService.findQuizById(id);
 		return ResponseEntity.ok(find);
+	}
+
+	@GetMapping("/chapter/{chapter}")
+	public ResponseEntity<List<QuizDTO>> findQuizzesByChapter(@PathVariable Chapter chapter) {
+		List<QuizDTO> list = quizService.findQuizzesByChapter(chapter);
+		return ResponseEntity.ok(list);
 	}
 
 	@PostMapping("/add")

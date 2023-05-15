@@ -33,7 +33,7 @@ function QuizGame({ id: quizId }: Props) {
       <div className="quizz-container">
         {question?.map(x => (
         <div className="quest-container" key={x.quizId}>
-          <OptionSelector questionId={`${params.questionId}`} />
+          <OptionSelector id={`${params.questionId}`} />
         </div>
         ))}
       </div>

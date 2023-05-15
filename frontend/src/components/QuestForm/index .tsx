@@ -1,23 +1,13 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { Option } from 'types/quiz';
+import {  useEffect, useState } from 'react';
+import { Option, Props } from 'types/quiz';
 import { BASE_URL } from 'utils/requests';
 import './styles.css'
 
-type Props = {
-    questionId: string
-}
-
-function OptionSelector({ questionId }: Props) {
+function OptionSelector({ id: questionId }: Props) {
 
     const [option, setOption] = useState<Option[]>();
 
-    useEffect(() => {
-        axios.get(`${BASE_URL}/quiz/${questionId}?size=3`)
-            .then(response => {
-                setOption(response.data);
-            })
-    }, [questionId]);
 
     useEffect(() => {
         axios.get(`${BASE_URL}/option/question/${questionId}`)

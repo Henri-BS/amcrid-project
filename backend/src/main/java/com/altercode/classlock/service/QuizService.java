@@ -58,6 +58,10 @@ public class QuizService {
         return new QuizDTO(find);
     }
 
+    public List<QuizDTO> findQuizzesByChapter(Chapter chapter) {
+        List<Quiz> list = quizRepository.findQuizzesByChapter(chapter);
+        return list.stream().map(QuizDTO::new).collect(Collectors.toList());
+    }
 
 
     public QuizDTO saveQuiz(QuizDTO dto) {
@@ -134,5 +138,6 @@ public class QuizService {
         List<Result> scoreList = resultRepository.findAll(Sort.by(Sort.Direction.DESC, "totalCorrect"));
         return scoreList.stream().map(x -> new ResultDTO()).collect(Collectors.toList());
     }
+
 
 }

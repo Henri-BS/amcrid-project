@@ -1,5 +1,5 @@
 import Home from "pages/Home";
-import Chapter from "pages/Chapter/index";
+import { Chapter } from "pages/Chapter/index";
 import Profile from "pages/Profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "components/shared/NavBar";
@@ -28,9 +28,9 @@ const PageRoutes = () => {
                     <Route path="/post">
                         <Route path=":postId" element={<Post />} />
                     </Route>
-                    
+
                     <Route path="/chapter">
-                        <Route path=":questionId" element={<Chapter />} />
+                        <Route path=":chapterId" element={<Chapter />} />
                     </Route>
                 </Routes>
                 <Footer />

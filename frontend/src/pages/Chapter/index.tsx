@@ -1,4 +1,4 @@
-import QuizGame from 'components/QuizzGame';
+import {QuizCard, QuizGame} from 'components/QuizzGame';
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { useParams } from 'react-router-dom';
@@ -22,17 +22,17 @@ export function ListQuizzesByChapter({ id: chapterId }: Props) {
 
   const [quizList, setQuizList] = useState<Quiz[]>();
   useEffect(() => {
-    axios.get(`${BASE_URL}/quiz/${chapterId}`)
+    axios.get(`${BASE_URL}/quiz/chapter/${chapterId}`)
       .then((response) => {
         setQuizList(response.data);
       });
   }, [chapterId]);
 
   return (
-    <div className='row'>
+    <div className="row">
       {quizList?.map(x => (
-        <div key={x.chapterId} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-          <QuizGame id={`${params.quizId}`} />
+        <div key={x.chapterId} className="col-sm-6 col-lg-4 col-xl-12 mb-3">
+          <QuizCard quiz={x}/>
         </div>
       ))}
     </div>

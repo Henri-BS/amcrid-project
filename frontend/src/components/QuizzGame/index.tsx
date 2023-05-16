@@ -1,19 +1,19 @@
 
 import OptionSelector from "components/QuestForm/index ";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./styles.css"
 import { useState, useEffect } from "react";
-import { Props, Question } from "types/quiz";
+import { Props, Question, Quiz } from "types/quiz";
 import { BASE_URL } from "utils/requests";
 import axios from "axios";
 
-function QuizGame({ id: quizId }: Props) {
+export function QuizGame({ id: quizId }: Props) {
 
   const params = useParams();
 
   const [question, setQuestion] = useState<Question[]>();
   useEffect(() => {
-    axios.get(`${BASE_URL}/question/${quizId}`)
+    axios.get(`${BASE_URL}/question/quiz/${quizId}`)
       .then((response) => {
         setQuestion(response.data);
       });
@@ -32,13 +32,36 @@ function QuizGame({ id: quizId }: Props) {
       </div>
       <div className="quizz-container">
         {question?.map(x => (
-        <div className="quest-container" key={x.quizId}>
-          <OptionSelector id={`${params.questionId}`} />
-        </div>
+          <div className="quest-container" key={x.quizId}>
+
+          </div>
         ))}
       </div>
     </>
   );
 }
 
-export default QuizGame;
+type QuizProps = {
+  quiz: Quiz;
+}
+
+export function QuizCard({ quiz }: QuizProps) {
+
+  return (
+    <>
+      <Link to={`/quiz/${quiz.id}`} >
+        <div className="card-md-container">
+        <div className="card-md-title">{quiz.title}</div>
+          <div className="card-md-list">
+            <li className="card-md-item ">Descrição:
+              <p className="card-md-content">{quiz.description}</p>
+            </li>
+            <li className="card-md-item ">Quantidade de Questões:
+              <p className="card-md-content">{quiz.questionQuantity}</p>
+            </li>
+          </div>
+        </div>
+      </Link>
+    </>
+  );
+}

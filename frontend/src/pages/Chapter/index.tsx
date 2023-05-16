@@ -18,8 +18,6 @@ return(
 
 export function ListQuizzesByChapter({ id: chapterId }: Props) {
 
-  const params = useParams();
-
   const [quizList, setQuizList] = useState<Quiz[]>();
   useEffect(() => {
     axios.get(`${BASE_URL}/quiz/chapter/${chapterId}`)
@@ -31,7 +29,7 @@ export function ListQuizzesByChapter({ id: chapterId }: Props) {
   return (
     <div className="row">
       {quizList?.map(x => (
-        <div key={x.chapterId} className="col-sm-6 col-lg-4 col-xl-12 mb-3">
+        <div key={x.chapterId} className="col-sm-6 col-lg-4 col-xl-4 mb-3">
           <QuizCard quiz={x}/>
         </div>
       ))}

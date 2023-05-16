@@ -7,6 +7,7 @@ import Footer from "components/shared/Footer";
 import Post from "pages/Post";
 import Ranking from "pages/Ranking";
 import {ArticleList, ChapterList, UserList} from "pages/Listing";
+import { QuizProfile } from "components/QuizzGame";
 
 const PageRoutes = () => {
     return (
@@ -32,6 +33,12 @@ const PageRoutes = () => {
                     <Route path="/chapter">
                         <Route path=":chapterId" element={<Chapter />} />
                     </Route>
+
+                    <Route path="/quiz">
+                        <Route path=":quizId" element={<QuizProfile />} />
+                    </Route>
+
+
                 </Routes>
                 <Footer />
             </BrowserRouter>

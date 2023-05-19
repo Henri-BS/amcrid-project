@@ -1,5 +1,5 @@
-import {QuizCard, QuizGame} from 'components/QuizzGame';
-import React, { useState, useEffect } from 'react';
+import {QuizCard} from 'components/QuizzGame';
+import { useState, useEffect } from 'react';
 import './styles.css';
 import { useParams } from 'react-router-dom';
 import { Props, Quiz } from 'types/quiz';

@@ -17,17 +17,18 @@ export type Question = {
     title: string;
     correctChoice: number;
     quizId: number;
+    quizTitle: string;
 }
 
 export type QuestionPage = {
     content: Question[];
-    last: boolean;
-    first: boolean;
-    empty: boolean;
-    totalPages: number;
-    totalElements: number;
-    numberOfElements: number;
-    size: number;
+    last?: boolean;
+    first?: boolean;
+    empty?: boolean;
+    totalPages?: number;
+    totalElements?: number;
+    numberOfElements?: number;
+    size?: number;
     number: number;
 }
 

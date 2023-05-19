@@ -2,10 +2,9 @@
 import { Link, useParams } from "react-router-dom";
 import "./styles.css"
 import { useState, useEffect } from "react";
-import { Option, Props, Question, Quiz } from "types/quiz";
+import { Option, Props, Question, QuestionPage, Quiz } from "types/quiz";
 import { BASE_URL } from "utils/requests";
 import axios from "axios";
-
 
 export function QuizCard({ quiz }: QuizProps) {
 
@@ -31,24 +30,35 @@ export function QuizCard({ quiz }: QuizProps) {
 
 export function QuizGame({ id: quizId }: Props) {
 
-  const params = useParams();
-
-  const [question, setQuestion] = useState<Question[]>();
+  const [question, setQuestion] = useState<QuestionPage>({
+    content: [],
+    number: 0
+  });
   useEffect(() => {
-    axios.get(`${BASE_URL}/question/quiz/${quizId}`)
+    axios.get(`${BASE_URL}/question/quiz/${quizId}?size=1`)
       .then((response) => {
         setQuestion(response.data);
       });
   }, [quizId]);
 
+
+  const [quiz, setQuiz] = useState<Quiz>();
+  useEffect(() => {
+    axios.get(`${BASE_URL}/quiz/${quizId}`)
+      .then((response) => {
+        setQuiz(response.data);
+      })
+  }, [quizId])
+
   return (
     <>
+    <h2>Quiz {quiz?.title}</h2>
       <div className="menu-options-container">
-        <h2 className="menu-options-item ">Quizz</h2>
-          <button type="submit" className="menu-options-item  cl-form-btn-container btn cl-form-btn">Iniciar</button>
-          <button type="submit" className="menu-options-item cl-form-btn-container btn cl-form-btn">Concluir</button>
+        
+        <button type="submit" className="menu-options-item  cl-form-btn-container btn cl-form-btn">Iniciar</button>
+        <button type="submit" className="menu-options-item cl-form-btn-container btn cl-form-btn">Concluir</button>
       </div>
-      {question?.map(x => (
+      {question?.content.map(x => (
         <QuestionCard question={x} />
       ))}
     </>
@@ -77,37 +87,44 @@ type QuestionProps = {
 }
 
 export function QuestionCard({ question }: QuestionProps) {
-  const params = useParams();
-  const [optionList, setOptionList] = useState<Option[]>();
 
+  const [optionList, setOptionList] = useState<Option[]>();
   useEffect(() => {
-      axios.get(`${BASE_URL}/option/question/${question.id}`)
-          .then((response) => {
-              setOptionList(response.data);
-          });
+    axios.get(`${BASE_URL}/option/question/${question.id}`)
+      .then((response) => {
+        setOptionList(response.data);
+      });
   }, [question.id]);
 
+  const [questionProf, setQuestionProf] = useState<Question>();
+  useEffect(() => {
+    axios.get(`${BASE_URL}/question/${question.id}`)
+      .then((response) => {
+        setQuestionProf(response.data)
+      })
+  }, [question.id]);
 
   return (
-    <>
-        <div className="quest-container" >
-          {question.title}
-          <form className="cl-form-container">
-                <div className="card-form-container">
-                    <div className="form-group cl-form-group">
-                        <hr />
-                        <ul>
-                            {optionList?.map(x => (
-                                <li key={x.id}>
-                                    <OptionCard option={x} />
-                                </li>
-                            ))}
-                        </ul>
-                        <hr />
-                    </div>
-                </div>
-            </form >        
+    <>        <form className="form ">      
+
+    <div className="row">
+      <div className="quest-container col-6" >        
+      {questionProf?.title}      
+      </div>
+          <div className="card-form-container col-6">
+            <div className="form-group">
+              <ul>
+              <h3>{optionList?.length} Alternativas</h3>
+                {optionList?.map(x => (
+                  <li key={x.id} >
+                    <OptionCard option={x} />
+                  </li>
+                ))}
+              </ul>
             </div>
+          </div>
+      </div>        
+</form >
     </>
   );
 }
@@ -121,9 +138,9 @@ export function OptionCard({ option }: OptionProps) {
 
   return (
     <>
-          <div>
-              {option.choice}
-        </div>
+      <div>
+        {option.choice}
+      </div>
     </>
   );
 }

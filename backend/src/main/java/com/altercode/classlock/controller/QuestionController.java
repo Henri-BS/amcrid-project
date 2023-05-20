@@ -4,6 +4,8 @@ import com.altercode.classlock.dto.QuestionDTO;
 import com.altercode.classlock.entity.Quiz;
 import com.altercode.classlock.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,9 +27,9 @@ public class QuestionController {
     }
 
     @GetMapping("/quiz/{quiz}")
-    public ResponseEntity<List<QuestionDTO>> findQuestionsByQuiz(@PathVariable Quiz quiz) {
-        List<QuestionDTO> list = questionService.findQuestionsByQuiz(quiz);
-        return ResponseEntity.ok(list);
+    public ResponseEntity<Page<QuestionDTO>> findQuestionsByQuiz(Pageable pageable, @PathVariable Quiz quiz) {
+        Page<QuestionDTO> page = questionService.findQuestionsByQuiz(pageable, quiz);
+        return ResponseEntity.ok(page);
     }
 
     @PostMapping("/add")

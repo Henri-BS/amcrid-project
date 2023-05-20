@@ -6,6 +6,8 @@ import com.altercode.classlock.entity.Quiz;
 import com.altercode.classlock.repository.QuestionRepository;
 import com.altercode.classlock.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,9 +27,9 @@ public class QuestionService {
          return new QuestionDTO(find);
     }
 
-    public List<QuestionDTO> findQuestionsByQuiz(Quiz quiz) {
-        List<Question> list = questionRepository.findByQuiz(quiz);
-        return list.stream().map(QuestionDTO::new).collect(Collectors.toList());
+    public Page<QuestionDTO> findQuestionsByQuiz(Pageable pageable, Quiz quiz) {
+        Page<Question> list = questionRepository.findByQuiz(pageable, quiz);
+        return list.map(QuestionDTO::new);
     }
 
     public QuestionDTO saveQuestion(QuestionDTO dto) {

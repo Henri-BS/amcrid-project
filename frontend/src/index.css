@@ -21,6 +21,18 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+    text-decoration: none;
+}
+
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: var(--tert);
+    border: 0;
+    opacity: 1;
+}
+
 ::-webkit-scrollbar {
     width: 0;
     height: 0;

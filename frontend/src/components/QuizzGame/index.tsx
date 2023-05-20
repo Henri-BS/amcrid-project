@@ -27,7 +27,6 @@ export function QuizCard({ quiz }: QuizProps) {
   );
 }
 
-
 export function QuizGame({ id: quizId }: Props) {
 
   const [question, setQuestion] = useState<QuestionPage>({
@@ -69,7 +68,6 @@ type QuizProps = {
   quiz: Quiz;
 }
 
-
 export function QuizProfile() {
   const params = useParams();
 
@@ -79,8 +77,6 @@ export function QuizProfile() {
     </div>
   );
 }
-
-
 
 type QuestionProps = {
   question: Question;
@@ -128,7 +124,6 @@ export function QuestionCard({ question }: QuestionProps) {
     </>
   );
 }
-
 
 type OptionProps = {
   option: Option;

@@ -1,8 +1,8 @@
 
-import Pagination, { PaginationLeft, PaginationRight } from 'components/shared/Pagination';
+import Pagination from 'components/shared/Pagination';
 import './styles.css'
 import { ArticleChapter } from 'components/Article';
-import ChapterCard from 'components/ChapterCard';
+import {ChapterCard} from 'components/ChapterLayout';
 import { Link } from 'react-router-dom';
 import ArticleCard from 'components/ArticleCard';
 import { useEffect, useState } from 'react';

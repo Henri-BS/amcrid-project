@@ -1,3 +1,28 @@
+.title-container {
+    padding: 12px;
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.dashboard-container {
+    padding: 20px;
+    background-color: #0c171f;
+    border: solid var(--tert);
+    border-style: double;
+    border-radius: 12px 0px 12px 0px;
+}
+
+.bg-img-container {
+    padding: 3px;
+    width: 400px;
+    border: 1px solid;
+    border-radius: 12px 0px 0px 0px;
+}
+
+.description-container {
+    padding: 20px;
+}
+
 .cl-quest-card-image {
     height: 210px;
     width: 100%;
@@ -33,12 +58,16 @@
     color: #fff;
 }
 
-.cl-card-bottom-container hr {
-    margin: 1rem 0;
-    color: inherit;
-    background-color: var(--tert);
-    border: 0;
-    opacity: 1;
+.nav-list-container {
+    height: 400px;
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+}
+
+.nav-list-item {
+    padding: 12px;
+    width: 430px;
 }
 
 .cl-card-info {

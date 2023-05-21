@@ -59,15 +59,14 @@
 }
 
 .nav-list-container {
-    height: 400px;
     width: 100%;
     overflow-x: scroll;
     display: flex;
 }
 
 .nav-list-item {
-    padding: 12px;
-    width: 430px;
+    padding: 6px;
+    width: max-content;
 }
 
 .cl-card-info {

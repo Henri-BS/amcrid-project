@@ -8,10 +8,9 @@ import { Link } from "react-router-dom";
 
 function Footer() {
     return (
-        <div className="footer-max-container ">
-            <div className="footer-container">
+            <footer className="footer-container">
                 <div className="row">
-                    <div className="footer-grid-container col-sm-12 col-md-4 mt-48 mx-16">
+                    <div className="footer-grid-container col-sm-12  col-xl-4 ">
                         <ul className="list-unstyled mx-10">
                             <h3>Site</h3>
                             <hr />
@@ -21,7 +20,7 @@ function Footer() {
                             <li className="mb-2">Novidades</li>
                         </ul>
                     </div>
-                    <div className="footer-grid-container col-sm-12 col-md-4 mt-20 mx-16 ">
+                    <div className="footer-grid-container col-sm-12  col-xl-4 ">
                         <ul className="list-unstyled">
                             <h3>Conta</h3>
                             <hr />
@@ -31,23 +30,23 @@ function Footer() {
                             <li className="mb-2">Privacidade e Segurança</li>
                         </ul>
                     </div>
-                    <div className="footer-grid-container col-sm-12 col-md-4 mt-48  mx-16">
+                    <div className="footer-grid-container col-sm-12  col-xl-4 ">
                         <ul className="list-unstyled">
                             <h3>Contato</h3>
                             <hr />
-                            <li className="row mb-3 mt-48 mx-16 ">
+                            <li className="row mb-3 mx-16 ">
                                 <Link to="/">
                                     <img className='footer-img' src={IGithub} alt='logo' />
                                     /Github
                                 </Link>
                             </li>
-                            <li className="row mb-3 mt-48 mx-16 ">
+                            <li className="row mb-3 mx-16 ">
                                 <Link to="/">
                                     <img className='footer-img' src={ILinkedin} alt='logo' />
                                     /LinkedIn
                                 </Link>
                             </li>
-                            <li className="row mb-3 mt-20 mx-16 ">
+                            <li className="row mb-3 mx-16 ">
                                 <Link to="/">
                                     <img className='footer-img' src={IGmail} alt='logo' />
                                     /Gmail
@@ -68,10 +67,7 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-
+            </footer>
     );
 }
 export default Footer;

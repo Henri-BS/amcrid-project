@@ -69,9 +69,9 @@ function Home() {
         </Link>
         <div className="article-max-container">
           <div className="d-flex">
-            <div className="article-scroll-container">
+            <div className="nav-list-container">
               {page.content?.map(article => (
-                <div key={article.id} className="article-item">
+                <div key={article.id} className="nav-list-item">
                   <ArticleCard post={article} />
                 </div>
               ))}

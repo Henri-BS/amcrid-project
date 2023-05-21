@@ -82,7 +82,6 @@ export function ListQuizzesByChapter({ id: chapterId }: Props) {
         <>
         <div className="title-container">Quizzes</div>
       <div className=" nav-list-container">
-        
         {quizList?.map(x => (
           <div key={x.chapterId} className="nav-list-item">
             <QuizCard quiz={x} />

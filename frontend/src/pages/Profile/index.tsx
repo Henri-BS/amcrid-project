@@ -13,7 +13,7 @@ function Profile() {
       <div className="container">
         <div className="max-container">
           <div className="user-box-container ">
-            < UserCard userId={`${params.userId}`} />
+            < UserCard id={`${params.userId}`} />
             < UserCardConquests conquestId={`${params.userId}`}/>
           </div>
         </div>

@@ -1,17 +1,16 @@
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Conquest } from 'types/conquest';
 import { User } from 'types/user';
 import { BASE_URL } from 'utils/requests';
 import './styles.css'
+import { Props } from 'types/quiz';
+import { UserBadge } from 'types/badge';
 
-type Props = {
-    userId: string;
-}
-
-function UserCard({ userId }: Props) {
+function UserCard({id: userId }: Props) {
+    const params = useParams();
 
     const [user, setUser] = useState<User>();
     useEffect(() => {
@@ -28,20 +27,35 @@ function UserCard({ userId }: Props) {
                 alt={user?.userName} />
             <div className="user-card-container ">
                 <h3>{user?.userName}</h3>
-
-                <div className="user-badge-container">
-                    <div className="badge-item">
-                        <img className="badge-item" src="https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png" alt={user?.userName} />
-                    </div>
-                </div>
-
+<BadgeListByUser id={`${params.userId}`}/>
                 <hr />
-
             </div>
         </div>
     );
 }
 export default UserCard;
+
+export function BadgeListByUser({id: userId}: Props){
+const[badgeList, setBadgeList] = useState<UserBadge[]>();
+useEffect(() => {
+axios.get(`${BASE_URL}/badge/by-user/${userId}`)
+.then((response) => {
+    setBadgeList(response.data);
+})
+}, [userId]);
+
+return (
+    <>
+  <div className="user-badge-container">
+    {badgeList?.map(x => (
+                    <div className="badge-item" key={x.id}>
+                            <img  className="badge-item"src={x.badgeImage} alt={x.badgeName}/>
+                    </div>
+                    ))}
+                </div>
+    </>
+);
+}
 
 type MyConquests = {
     conquestId: string;

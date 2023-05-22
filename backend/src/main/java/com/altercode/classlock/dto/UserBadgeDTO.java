@@ -17,6 +17,7 @@ public class UserBadgeDTO implements Serializable {
     private LocalDateTime conquestDate;
     private Long userId;
     private String badgeName;
+    private String badgeImage;
 
     public UserBadgeDTO() {
     }
@@ -27,6 +28,7 @@ public class UserBadgeDTO implements Serializable {
         conquestDate = entity.getConquestDate();
         userId = entity.getUser().getId();
         badgeName = entity.getBadge().getName();
+        badgeImage = entity.getBadge().getImage();
     }
 
     public Long getId() {
@@ -67,5 +69,13 @@ public class UserBadgeDTO implements Serializable {
 
     public void setBadgeName(String badgeName) {
         this.badgeName = badgeName;
+    }
+
+    public String getBadgeImage() {
+        return badgeImage;
+    }
+
+    public void setBadgeImage(String badgeImage) {
+        this.badgeImage = badgeImage;
     }
 }

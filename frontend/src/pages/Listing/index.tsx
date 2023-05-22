@@ -1,5 +1,4 @@
 import axios from "axios";
-import ArticleCard from "components/ArticleCard";
 import Pagination from "components/shared/Pagination";
 import {ChapterCard} from "components/ChapterLayout";
 import { MiniUserCard } from "components/UserCard";
@@ -9,6 +8,7 @@ import { PostPage } from "types/post";
 import { UserPage } from "types/user";
 import { BASE_URL } from "utils/requests";
 import "./styles.css";
+import { ArticleCard } from "components/ArticleLayout";
 
 export function ArticleList() {
 

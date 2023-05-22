@@ -18,3 +18,12 @@ export type BadgePage = {
     size: number;
     number: number;
   };
+
+  export type UserBadge = {
+id: number;
+  userId: number;
+  count: number;
+  conquestDate: string;
+  badgeName: string;
+badgeImage: string;
+}

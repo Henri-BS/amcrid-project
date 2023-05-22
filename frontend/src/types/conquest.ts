@@ -1,4 +1,3 @@
-import { User } from "./user";
 
 export type Conquest = {
   id: number;
@@ -7,7 +6,9 @@ export type Conquest = {
   chapterCompleted: number;
   totalBadges: number;
   totalXp: number;
-  user: User;
+  userId: number;
+  userName: string;
+  userImage: string;
 };
 
 export type ConquestPage = {

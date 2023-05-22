@@ -1,10 +1,9 @@
 
 import Pagination from 'components/shared/Pagination';
 import './styles.css'
-import { ArticleChapter } from 'components/Article';
-import {ChapterCard} from 'components/ChapterLayout';
+import {ArticleChapter, ChapterCard} from 'components/ChapterLayout';
 import { Link } from 'react-router-dom';
-import ArticleCard from 'components/ArticleCard';
+import {ArticleCard} from 'components/ArticleLayout';
 import { useEffect, useState } from 'react';
 import { PostPage } from 'types/post';
 import axios from 'axios';

@@ -5,9 +5,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "components/shared/NavBar";
 import Footer from "components/shared/Footer";
 import Post from "pages/Post";
-import Ranking from "pages/Ranking";
 import {ArticleList, ChapterList, UserList} from "pages/Listing";
 import { QuizProfile } from "components/QuizzGame";
+import { Ranking } from "pages/Ranking";
 
 const PageRoutes = () => {
     return (

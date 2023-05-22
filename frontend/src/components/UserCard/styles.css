@@ -20,7 +20,7 @@
 }
 
 .user-badge-container {
-    max-height: 50px;
+    height: 60px;
     display: flex;
     overflow-x: auto;
     background-color: var(--sept);
@@ -28,15 +28,10 @@
     padding: 0px;
 }
 
-.user-badge-container::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
 .badge-item {
-    width: 30px;
-    height: 30px;
-    margin-right: 3px;
+    padding: 4px;
+    width: 50px;
+    height: 50px;
 }
 
 .user-minicard-container {

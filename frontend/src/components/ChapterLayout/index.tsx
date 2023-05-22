@@ -44,6 +44,19 @@ export function ChapterCard({ chapter }: ChapterProps) {
 }
 
 
+export function ArticleChapter({chapter}: ChapterProps) {
+
+    return (
+        <>
+            <div className="article-container">
+                <div className="article-content">
+                    <h2>"{chapter.title}"</h2>
+                    <p>{chapter.description}</p>
+                </div>
+            </div>
+        </>
+    );
+}
 
 export function ChapterDashboard({ id: chapterId }: Props) {
 

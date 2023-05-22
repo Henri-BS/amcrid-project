@@ -44,13 +44,13 @@ public class BadgeController {
 	return ResponseEntity.ok(find);
 	}
 
-	@GetMapping("/badges/{quiz}")
+	@GetMapping("/by-quiz/{quiz}")
 	public ResponseEntity<List<QuizBadgeDTO>> findAllBadgesByQuiz(@PathVariable Quiz quiz) {
 		List<QuizBadgeDTO> list = badgeService.findAllBadgesByQuiz(quiz);
 		return ResponseEntity.ok(list);
 	}
 
-	@GetMapping("/badges/{user}")
+	@GetMapping("/by-user/{user}")
 	public ResponseEntity<List<UserBadgeDTO>> findAllBadgesByUser(@PathVariable User user) {
 		List<UserBadgeDTO> list = badgeService.findAllBadgesByUser(user);
 		return ResponseEntity.ok(list);
@@ -73,6 +73,7 @@ public class BadgeController {
 		UserBadgeDTO add = badgeService.saveUserBadge(dto);
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
+
 
 	@PutMapping("/edit")
 	public ResponseEntity<BadgeDTO> updateBadge(@RequestBody BadgeDTO dto) {

@@ -1,16 +1,14 @@
 import axios from 'axios';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
-import { Chapter } from 'types/chapter';
 import { Post } from 'types/post';
 import { BASE_URL } from 'utils/requests';
 import './styles.css';
+import { Link } from 'react-router-dom';
+import { Props } from 'types/quiz';
 
-type Props = {
-    postId: string;
-}
 
-export function ArticlePost({postId}: Props) {
+export function ArticlePost({id: postId}: Props) {
 
     const [post, setPost] = useState<Post>();
 
@@ -47,20 +45,23 @@ export function ArticlePost({postId}: Props) {
         </>
     )
 }
-type Cons = {
-    chapter: Chapter;
+
+type PostProps = {
+    post: Post;
 }
-    
-export function ArticleChapter({chapter}: Cons) {
+
+export function ArticleCard({ post }: PostProps) {
+
 
     return (
-        <>
-            <div className="article-container">
-                <div className="article-content">
-                    <h2>"{chapter.title}"</h2>
-                    <p>{chapter.description}</p>
-                </div>
+
+        <Link to={`/post/${post.id}`} >
+            <div className="article-card-container">
+                <h3>{post.title}</h3>                 
+                <div className="viewed-container" >{post.views} views</div>
+                <hr />               
+                <p>"{post.summary}"</p>
             </div>
-        </>
+        </Link>
     );
 }

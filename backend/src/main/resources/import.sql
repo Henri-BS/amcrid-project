@@ -102,3 +102,4 @@ INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, to
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(20, 24, 8, 14, 5250, 12);
 
 
+INSERT INTO tb_user_badge ( badge_id, user_id) VALUES (1, 1);

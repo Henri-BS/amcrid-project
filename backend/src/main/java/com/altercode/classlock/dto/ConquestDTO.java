@@ -20,6 +20,7 @@ public class ConquestDTO implements Serializable {
 
     private Long userId;
     private String userName;
+    private String userImage;
 
     public ConquestDTO() {
     }
@@ -33,6 +34,7 @@ public class ConquestDTO implements Serializable {
         totalBadges = entity.getTotalBadges();
         userId = entity.getUser().getId();
         userName = entity.getUser().getUserName();
+        userImage = entity.getUser().getImage();
     }
 
     public Long getId() {
@@ -97,5 +99,13 @@ public class ConquestDTO implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
     }
 }

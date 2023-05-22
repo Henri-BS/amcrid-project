@@ -1,9 +1,8 @@
-import RankingDetails from 'components/RankingDetails';
-import RankingTable from 'components/RankingTable';
+import {RankingDetails, RankingTable} from 'components/RankingLayout';
 import React from 'react';
 import './styles.css'
 
-export default function Ranking() {
+export function Ranking() {
   
   return (
     <>

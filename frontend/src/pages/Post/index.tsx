@@ -1,4 +1,4 @@
-import { ArticlePost } from "components/Article";
+import { ArticlePost } from "components/ArticleLayout";
 import { useParams } from "react-router-dom";
 
 function Post() {
@@ -8,7 +8,7 @@ function Post() {
   return (
     <>
       <div className="container">
-        <ArticlePost postId={`${params.postId}`} />
+        <ArticlePost id={`${params.postId}`} />
       </div>
     </>
   );

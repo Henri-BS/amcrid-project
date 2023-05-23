@@ -1,6 +1,6 @@
 import './styles.css';
 import { useParams } from 'react-router-dom';
-import { ChapterDashboard, ListQuizzesByChapter } from 'components/ChapterLayout';
+import { ChapterDashboard, ListQuizzesByChapter } from 'components/layout/ChapterLayout';
 
 export function Chapter() {
   const params = useParams();

@@ -44,7 +44,6 @@ public class Badge {
 	@OneToMany(mappedBy = "badge", cascade = CascadeType.ALL)
 	private List<UserBadge> userBadges = new ArrayList<>();
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}

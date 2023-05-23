@@ -1,14 +1,14 @@
 import axios from "axios";
 import Pagination from "components/shared/Pagination";
-import {ChapterCard} from "components/ChapterLayout";
-import { MiniUserCard } from "components/UserCard";
+import {ChapterCard} from "components/layout/ChapterLayout";
+import { MiniUserCard } from "components/layout/UserLayout";
 import { useEffect, useState } from "react";
 import { ChapterPage } from "types/chapter";
 import { PostPage } from "types/post";
 import { UserPage } from "types/user";
 import { BASE_URL } from "utils/requests";
 import "./styles.css";
-import { ArticleCard } from "components/ArticleLayout";
+import { ArticleCard } from "components/layout/ArticleLayout";
 
 export function ArticleList() {
 

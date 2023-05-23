@@ -53,7 +53,6 @@ export function QuizGame({ id: quizId }: Props) {
     <>
     <h2>Quiz {quiz?.title}</h2>
       <div className="menu-options-container">
-        
         <button type="submit" className="menu-options-item  cl-form-btn-container btn cl-form-btn">Iniciar</button>
         <button type="submit" className="menu-options-item cl-form-btn-container btn cl-form-btn">Concluir</button>
       </div>

@@ -1,4 +1,4 @@
-import { ArticlePost } from "components/ArticleLayout";
+import { ArticlePost } from "components/layout/ArticleLayout";
 import { useParams } from "react-router-dom";
 
 function Post() {

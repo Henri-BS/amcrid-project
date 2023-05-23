@@ -1,4 +1,4 @@
-import {RankingDetails, RankingTable} from 'components/RankingLayout';
+import {RankingDetails, RankingTable} from 'components/layout/RankingLayout';
 import React from 'react';
 import './styles.css'
 

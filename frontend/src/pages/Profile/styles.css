@@ -26,11 +26,11 @@
 
 .user-box-container {
     background-color: var(--deca);
-    border: 1px solid var(--sena);
+    border: 5px solid var(--tert);
+    border-style: double;
     justify-content: center;
     align-items: center;
-    max-width: 300px;
-    border-radius: 30px;
+    border-radius: 30px 0px;
 }
 
 @media screen and (max-width: 550px) {

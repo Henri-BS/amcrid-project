@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
 import { Props, Quiz } from 'types/quiz';
-import { QuizCard } from 'components/QuizzGame';
+import { QuizCard } from 'components/game/QuizzGame';
 
 type ChapterProps = {
     chapter: Chapter;

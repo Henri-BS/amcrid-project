@@ -6,7 +6,7 @@ import Navbar from "components/shared/NavBar";
 import Footer from "components/shared/Footer";
 import Post from "pages/Post";
 import {ArticleList, ChapterList, UserList} from "pages/Listing";
-import { QuizProfile } from "components/QuizzGame";
+import { QuizProfile } from "components/game/QuizzGame";
 import { Ranking } from "pages/Ranking";
 
 const PageRoutes = () => {

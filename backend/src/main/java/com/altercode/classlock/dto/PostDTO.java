@@ -15,7 +15,7 @@ public class PostDTO implements Serializable {
 	private String body;
 	private String image;
 	private String createdBy;
-	private LocalDateTime createdDate = LocalDateTime.now();
+	private LocalDateTime createdDate;
 
 	private Long userId;
 	private String userName;

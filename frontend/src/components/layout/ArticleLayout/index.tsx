@@ -23,16 +23,16 @@ export function ArticlePost({id: postId}: Props) {
     return (
         <>
             <div className="row ">
-                <div className="col-xl-7 article-header">
+                <div className="col-xl-6 article-header">
                     <img className="article-image" src={post?.image} alt={post?.title} />
                     <div className="article-summary">
                         <i>"{post?.summary}"</i>
                     </div>
                 </div>
-                <div className="col-xl-5 article-card-info">
+                <div className="col-xl-6 article-card-info">
                     <h2 className="mb-3">{post?.title}</h2>
                     <ul className="list-unstyled">
-                        <li><b>Data de publicação: </b>{moment(post?.createdDate).format("lll")}</li>
+                        <li><b>Data de publicação: </b>{moment(post?.createdDate).format("DD/MM/YYYY - hh:mm")}</li>
                         <li><b>Autor: </b>{post?.createdBy}</li>
                     </ul>
                 </div>
@@ -49,7 +49,7 @@ type PostProps = {
     post: Post;
 }
 
-export function ArticleCard({ post }: PostProps) {
+export function PostCard({ post }: PostProps) {
 
 
     return (

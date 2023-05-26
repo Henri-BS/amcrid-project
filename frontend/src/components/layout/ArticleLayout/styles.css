@@ -26,17 +26,15 @@
     max-height: 400px;
     border: 6px solid var(--tert);
     border-style: double;
-    border-radius: 50px 0px 50px 0px;
+    border-radius: 20px 0px 20px 0px;
 }
 
 .article-summary {
-    max-width: 600px;
     text-align: center;
 }
 
 .article-header {
     padding: 10px;
-    display: grid;
     text-align: center;
     overflow-x: scroll;
 }
@@ -54,9 +52,7 @@
     }
     .article-image {
         max-height: 300px;
-    }
-    .article-summary {
-        max-width: 400px;
+        width: max-content
     }
     .article-card-info {
         background-color: var(--nona);

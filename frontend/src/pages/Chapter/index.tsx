@@ -6,10 +6,11 @@ export function Chapter() {
   const params = useParams();
 
   return (
+    <>
     <div className="container">
-      <ChapterDashboard id={`${params.chapterId}`} />
-      
+      <ChapterDashboard id={`${params.chapterId}`} />      
       <ListQuizzesByChapter id={`${params.chapterId}`} />
     </div>
+  </>
   );
 }

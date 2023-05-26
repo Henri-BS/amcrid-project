@@ -38,4 +38,6 @@ public class Chapter {
 
     @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
     private List<Quiz> quizzes = new ArrayList<>();
+
+    //private List<String> stages = new ArrayList<>();
 }

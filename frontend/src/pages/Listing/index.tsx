@@ -8,7 +8,7 @@ import { PostPage } from "types/post";
 import { UserPage } from "types/user";
 import { BASE_URL } from "utils/requests";
 import "./styles.css";
-import { ArticleCard } from "components/layout/ArticleLayout";
+import { PostCard } from "components/layout/ArticleLayout";
 
 export function ArticleList() {
 
@@ -48,7 +48,7 @@ export function ArticleList() {
                 <div className="list-container row">
                     {postPage.content?.map(post => (
                         <div key={post.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                            <ArticleCard post={post} />
+                            <PostCard post={post} />
                         </div>
                     ))}
                 </div>

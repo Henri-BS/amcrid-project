@@ -3,7 +3,7 @@ import Pagination from 'components/shared/Pagination';
 import './styles.css'
 import {ArticleChapter, ChapterCard} from 'components/layout/ChapterLayout';
 import { Link } from 'react-router-dom';
-import {ArticleCard} from 'components/layout/ArticleLayout';
+import {PostCard} from 'components/layout/ArticleLayout';
 import { useEffect, useState } from 'react';
 import { PostPage } from 'types/post';
 import axios from 'axios';
@@ -71,7 +71,7 @@ function Home() {
             <div className="nav-list-container">
               {page.content?.map(article => (
                 <div key={article.id} className="nav-list-item">
-                  <ArticleCard post={article} />
+                  <PostCard post={article} />
                 </div>
               ))}
             </div>

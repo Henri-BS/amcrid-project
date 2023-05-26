@@ -9,15 +9,6 @@
     padding: 20px;
 }
 
-.article-container::-webkit-scrollbar {
-    width: 0%;
-}
-
-.article-container h2 {
-    text-align: center;
-    padding: 20px 10px 20px 10px;
-}
-
 .article-content {
     display: grid;
     padding: 30px;
@@ -30,23 +21,15 @@
     padding: 20px;
 }
 
-.article-card-info h2 {
-    font-size: 30px;
-}
-
-.article-card-info li {
-    font-size: 10px;
-    margin-bottom: 3px;
-}
-
 .article-image {
-    padding: 20px;
     max-width: 600px;
     max-height: 400px;
+    border: 6px solid var(--tert);
+    border-style: double;
+    border-radius: 50px 0px 50px 0px;
 }
 
 .article-summary {
-    border-bottom: 1px solid var(--sena);
     max-width: 600px;
     text-align: center;
 }
@@ -56,11 +39,6 @@
     display: grid;
     text-align: center;
     overflow-x: scroll;
-}
-
-.article-header::-webkit-scrollbar {
-    width: 0;
-    height: 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -73,45 +51,30 @@
         display: grid;
         padding: 0;
         text-align: justify;
-        font-size: small;
     }
     .article-image {
-        padding: 10px;
-        max-width: 300px;
         max-height: 300px;
     }
     .article-summary {
-        max-width: 300px;
-        font-size: small;
+        max-width: 400px;
     }
     .article-card-info {
         background-color: var(--nona);
         padding: 10px;
         font-size: xx-small;
     }
-    .article-card-info h2 {
-        font-size: 15px;
-    }
 }
 
 .article-card-container {
-    min-width: 250px;
+    min-width: 300px;
     height: 250px;
     background-color: #0b1218;
     color: #fff;
-    text-decoration: underline;
-    text-decoration-color: #0b1218;
     text-align: justify;
-    padding: 20px 20px 20px 20px;
+    padding: 14px;
     border-radius: 10px;
     margin: 5px;
-    font-size: 12px;
     overflow-y: scroll;
-}
-
-.article-card-container::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
 }
 
 .article-card-container h3 {
@@ -121,14 +84,6 @@
     min-height: 40px;
     color: #fff;
     text-decoration: transparent;
-}
-
-.article-card-container hr {
-    margin: 1rem 0;
-    color: inherit;
-    background-color: var(--tert);
-    border: 0;
-    opacity: 1;
 }
 
 .viewed-container {

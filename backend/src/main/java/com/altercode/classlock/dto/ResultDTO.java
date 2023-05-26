@@ -4,8 +4,13 @@ import java.io.Serial;
 import java.io.Serializable;
 
 import com.altercode.classlock.entity.Result;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
+@NoArgsConstructor
+@Getter
+@Setter
 public class ResultDTO implements Serializable{
 
 	@Serial
@@ -23,49 +28,5 @@ public class ResultDTO implements Serializable{
 		totalCorrect = entity.getTotalCorrect();
 		quizId = entity.getQuiz().getId();
 		userName = entity.getUser().getUserName();
-	}
-
-	public ResultDTO() {
-
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public Integer getTotalCorrect() {
-		return totalCorrect;
-	}
-
-	public void setTotalCorrect(Integer totalCorrect) {
-		this.totalCorrect = totalCorrect;
-	}
-
-	public Long getQuizId() {
-		return quizId;
-	}
-
-	public void setQuizId(Long quizId) {
-		this.quizId = quizId;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 }

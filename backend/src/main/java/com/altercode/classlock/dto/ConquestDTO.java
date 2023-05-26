@@ -5,7 +5,13 @@ import java.io.Serializable;
 
 import com.altercode.classlock.entity.Conquest;
 import com.altercode.classlock.entity.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@NoArgsConstructor
+@Getter
+@Setter
 public class ConquestDTO implements Serializable {
 
     @Serial
@@ -22,9 +28,6 @@ public class ConquestDTO implements Serializable {
     private String userName;
     private String userImage;
 
-    public ConquestDTO() {
-    }
-
     public ConquestDTO(Conquest entity) {
         id = entity.getId();
         principalQuest = entity.getPrincipalQuest();
@@ -35,77 +38,5 @@ public class ConquestDTO implements Serializable {
         userId = entity.getUser().getId();
         userName = entity.getUser().getUserName();
         userImage = entity.getUser().getImage();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getPrincipalQuest() {
-        return principalQuest;
-    }
-
-    public void setPrincipalQuest(Integer principalQuest) {
-        this.principalQuest = principalQuest;
-    }
-
-    public Integer getSecondaryQuest() {
-        return secondaryQuest;
-    }
-
-    public void setSecondaryQuest(Integer secondaryQuest) {
-        this.secondaryQuest = secondaryQuest;
-    }
-
-    public Integer getChapterCompleted() {
-        return chapterCompleted;
-    }
-
-    public void setChapterCompleted(Integer chapterCompleted) {
-        this.chapterCompleted = chapterCompleted;
-    }
-
-    public Integer getTotalXp() {
-        return totalXp;
-    }
-
-    public void setTotalXp(Integer totalXp) {
-        this.totalXp = totalXp;
-    }
-
-    public Integer getTotalBadges() {
-        return totalBadges;
-    }
-
-    public void setTotalBadges(Integer totalBadges) {
-        this.totalBadges = totalBadges;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserImage() {
-        return userImage;
-    }
-
-    public void setUserImage(String userImage) {
-        this.userImage = userImage;
     }
 }

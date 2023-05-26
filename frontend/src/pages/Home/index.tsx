@@ -63,7 +63,7 @@ function Home() {
     <>
       <div className="container">
 
-        <Link to="/article-list">
+        <Link to="/post-list">
           <h2>Artigos</h2>
         </Link>
         <div className="article-max-container">

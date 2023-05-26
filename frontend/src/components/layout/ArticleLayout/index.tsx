@@ -19,15 +19,14 @@ export function ArticlePost({id: postId}: Props) {
         });
     }, [postId]);
 
+    
     return (
         <>
             <div className="row ">
                 <div className="col-xl-7 article-header">
-                    <img className="article-image" 
-                    src={post?.image} 
-                    alt={post?.title} />
+                    <img className="article-image" src={post?.image} alt={post?.title} />
                     <div className="article-summary">
-                        <i>{post?.summary}</i>
+                        <i>"{post?.summary}"</i>
                     </div>
                 </div>
                 <div className="col-xl-5 article-card-info">

@@ -6,7 +6,7 @@ export const MenuItems = [
     },
     {
         title: 'Lista de Artigos',
-        path: '/article-list',
+        path: '/post-list',
         cName: 'dropdown-link'
     },
     {

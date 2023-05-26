@@ -14,10 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.altercode.classlock.dto.BadgeDTO;
-import com.altercode.classlock.dto.XpDTO;
 import com.altercode.classlock.service.BadgeService;
-
-import javax.xml.stream.events.Comment;
 
 @RestController
 @RequestMapping("/badge")

@@ -10,7 +10,6 @@ public class UserRankDTO implements Serializable{
 	private String name;
 	private Integer totalXp;	
 
-
 	public UserRankDTO( User user, Integer totalXp) {
 		this.name = user.getUserName();
 		this.totalXp = totalXp;

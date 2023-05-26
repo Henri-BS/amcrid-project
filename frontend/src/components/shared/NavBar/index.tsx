@@ -90,7 +90,7 @@ function Navbar() {
           </li>
           <li>
             <Link
-              to='/article-list' className='nav-links-mobile' onClick={closeMobileMenu} >
+              to='/post-list' className='nav-links-mobile' onClick={closeMobileMenu} >
               Lista de Artigos
             </Link>
           </li>

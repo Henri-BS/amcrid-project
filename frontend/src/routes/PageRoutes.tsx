@@ -1,10 +1,10 @@
 import Home from "pages/Home";
-import { Chapter } from "pages/Chapter/index";
-import Profile from "pages/Profile";
+import { Chapter } from "pages/ChapterProfile/index";
+import Profile from "pages/UserProfile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "components/shared/NavBar";
 import Footer from "components/shared/Footer";
-import Post from "pages/Post";
+import Post from "pages/PostProfile";
 import {ArticleList, ChapterList, UserList} from "pages/Listing";
 import { QuizProfile } from "components/game/QuizzGame";
 import { Ranking } from "pages/Ranking";

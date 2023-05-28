@@ -1,5 +1,5 @@
 import Home from "pages/Home";
-import { Chapter } from "pages/ChapterProfile/index";
+import { Chapter } from "pages/ChapterPage/index";
 import Profile from "pages/UserProfile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "components/shared/NavBar";

@@ -105,3 +105,8 @@ code {
     border-radius: 4px;
     border: 2px solid var(--sept);
 }
+
+.fa-times {
+    color: #fff;
+    font-size: 2rem;
+}

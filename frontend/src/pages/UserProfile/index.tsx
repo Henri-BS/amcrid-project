@@ -6,8 +6,6 @@ import { PostAddForm } from 'components/form/PostForm';
 import { ChapterAddForm } from 'components/form/ChapterForm';
 import { UserEditForm } from 'components/form/UserForm';
 
-
-
 function Profile() {
   const params = useParams();
 

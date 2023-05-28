@@ -32,53 +32,20 @@ function Navbar() {
   return (
     <>
       <nav className='navbar'>
-        <Link to='/' onClick={closeMobileMenu}>
-          <img className='navbar-logo' src={IWLogo} alt='logo' />
-        </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
 
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li>
 
+        <ul className={click ? 'nav-menu-m active' : 'nav-menu-m'}>
+          <li>
             <Link to='/profile/1' className='profile-nav' onClick={closeMobileMenu}>
               <img className='nav-links-image' src={IProf} alt='profile' />
             </Link>
           </li>
-          <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+          <li>
+            <Link to='/' className='nav-links-mobile' onClick={closeMobileMenu}>
               Home
-            </Link>
-          </li>
-
-          <li
-            className='nav-item'
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-          >
-            <Link
-              to='/'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Explorar <i className='fas fa-caret-down' />
-            </Link>
-            {dropdown && <Dropdown />}
-          </li>
-          <li className='nav-item'>
-            <Link to='/ranking' className='nav-links' onClick={closeMobileMenu} >
-              Ranking
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu} >
-              Tutorial
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu} >
-              Suporte
             </Link>
           </li>
 
@@ -106,11 +73,29 @@ function Navbar() {
               Sign Up
             </Link>
           </li>
+        </ul>
+        <ul className={'nav-menu'}>
+          <li className='nav-item'>
+            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+              Home
+            </Link>
+          </li>
+
+          <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+              Explorar <i className='fas fa-caret-down' />
+            </Link>
+            {dropdown && <Dropdown />}
+          </li>
+
+          <li className='nav-item'>
+            <button className='cl-btn nav-links' data-bs-target="#addUserModal" data-bs-toggle="modal">
+              Sing Up
+            </button>
+          </li>
 
         </ul>
-        <button className='cl-btn' data-bs-target="#addUserModal" data-bs-toggle="modal">
-          Sing Up
-          </button>
+   
       </nav>
 
       <div className="modal fade" role="dialog" id="addUserModal">

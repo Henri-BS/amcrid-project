@@ -41,3 +41,67 @@ hr {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.cl-btn {
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+    font-size: 20px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid var(--seco);
+    text-decoration-color: transparent;
+    margin-right: 30px;
+    margin-bottom: 40px;
+}
+
+.cl-btn:hover {
+    background-color: var(--tert);
+    transition: all 0.3s ease-out;
+    color: #fff;
+    border-radius: 50px;
+    border: 2px solid var(--seco);
+    text-decoration-color: transparent;
+}
+
+.menu-options-container {
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px;
+    align-items: flex-start;
+}
+
+.menu-options-item {
+    width: max-content;
+    margin: 3px;
+    padding: 6px;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.cl-form-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.cl-form-btn {
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-size: 18px;
+    border: none;
+    background-color: var(--seco);
+    color: #fff;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.cl-form-btn:hover {
+    transition: all 0.3s ease-out;
+    background-color: var(--quar);
+    color: #fff;
+    border-radius: 4px;
+    border: 2px solid var(--sept);
+}

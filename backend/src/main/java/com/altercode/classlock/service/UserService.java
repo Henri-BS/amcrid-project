@@ -55,10 +55,12 @@ public class UserService {
 
     public UserDTO updateUser(UserDTO dto) {
         User edit = userRepository.findById(dto.getId()).orElseThrow();
+
+
         edit.setId(edit.getId());
         edit.setUserName(dto.getUserName());
-        edit.setEmail(dto.getEmail());
-        edit.setPassword(dto.getPassword());
+        edit.setEmail(edit.getEmail());
+        edit.setPassword(edit.getPassword());
         edit.setImage(dto.getImage());
         return new UserDTO(userRepository.save(edit));
     }

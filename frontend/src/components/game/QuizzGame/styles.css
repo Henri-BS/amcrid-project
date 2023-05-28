@@ -61,25 +61,6 @@
     border-right: 1px solid var(--tert);
 }
 
-.menu-options-container {
-    margin-top: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    display: grid;
-    padding: 10px;
-    align-items: flex-start;
-    grid-gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-}
-
-.menu-options-item {
-    display: grid;
-    padding: 6px;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-}
-
 .form {
     background-color: #0c171f;
     margin-top: 5px;

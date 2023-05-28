@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Button } from 'components/shared/Button';
 import { Link } from 'react-router-dom';
 import Dropdown from 'components/shared/Dropdown';
 import IWLogo from 'assets/img/w-logo.svg';
 import IProf from "assets/img/prof-img.png";
 import './styles.css';
+import { UserAddForm } from 'components/form/UserForm';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -108,8 +108,18 @@ function Navbar() {
           </li>
 
         </ul>
-        <Button />
+        <button className='cl-btn' data-bs-target="#addUserModal" data-bs-toggle="modal">
+          Sing Up
+          </button>
       </nav>
+
+      <div className="modal fade" role="dialog" id="addUserModal">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <UserAddForm />
+          </div>
+        </div>
+      </div>
     </>
   );
 }

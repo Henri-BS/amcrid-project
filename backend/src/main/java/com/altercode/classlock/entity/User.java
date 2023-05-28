@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -34,6 +35,7 @@ public class User {
 	@Size(min = 1, max = 50)
 	@Column(name = "user_name", unique = true , length = 50)
 	private String userName;
+
 
 	@Column(name = "password")
 	private String password;

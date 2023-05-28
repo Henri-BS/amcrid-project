@@ -61,6 +61,9 @@ function Home() {
 
   return (
     <>
+    <div className="side-menu">
+  s
+</div>
       <div className="container">
 
         <Link to="/post-list">

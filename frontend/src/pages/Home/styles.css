@@ -8,8 +8,6 @@
 
 .container h2 {
     color: #fff;
-    text-decoration-line: underline;
-    text-decoration-color: var(--sept);
 }
 
 .pagination-page-container {

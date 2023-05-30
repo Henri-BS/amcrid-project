@@ -1,3 +1,5 @@
+INSERT INTO tb_campaign ( campaign_name, description) VALUES ('Campanha 1', 'Descrição da Campanha 1')
+
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (1, 'jack@gmail.com', 'Jack', 'jack123', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-02/64/bandit-asian-male-cowboy-512.png');
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (2, 'ryan@gmail.com', 'Ryan', 'ryan123', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-05/64/rastafarian-male-formal-512.png');
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (3, 'francis@gmail.com', 'Francis', 'francis123', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-05/64/emo-asian-female-512.png');
@@ -24,11 +26,11 @@ INSERT INTO tb_comment ( body, created_date, post_id, user_id ) VALUES ( 'Eu inv
 INSERT INTO tb_comment ( body, created_date, post_id, user_id ) VALUES ( 'Como eu imprimo um vídeo ?', now (), 3, 4 );
 
 
-INSERT INTO tb_chapter ( chapter_title, chapter_description, chapter_image) VALUES ( 'Desenvolvimento de Jogos Digitais', 'Neste capítulo você será apresentado a missões que iram testar os seus conhecimentos a cerca dos princípios básicos da segurança da informação, para  executar este capítulo com êxito é nescessário compreender as características de cada um dos príncipios.', 'https://makewebbetter.com/wp-content/uploads/2017/12/mainbanner1-1-1.jpg');
-INSERT INTO tb_chapter ( chapter_title, chapter_description, chapter_image) VALUES ( 'Os Tipos de Hackers', 'Este capítulo será dedicado aos indivíduos que possuem uma facilidade e um conhecimento elevado em torno da manipulação código que permite o acesso a informações consideradas sigilosas, apesar que serem nomeados generalizadamente como Hackers há diferenças entre cada um deles que se dá por questões de índole ou nível de conhecimento e neste capítulos você deverá conhecer cada um deles.', 'https://avante.biz/wp-content/uploads/Cool-Hacker-Wallpapers/Cool-Hacker-Wallpapers-014.jpg');
-INSERT INTO tb_chapter ( chapter_title, chapter_description, chapter_image) VALUES ( 'Controle Parental', 'A presença dos pais na internet tem se tornado mais importante a medida em que os seus filhos descobrem o mundo virtual, este capítulo irá testar seus conhecimentos sobre o controle parental na internet, qual o seu significado, suas abordagens e quais os limites desta forma de controle na internet.', 'https://yuruhuwa-hituji-life.com/wp/wp-content/uploads/2019/09/47-1-e1568971356802.png');
-INSERT INTO tb_chapter ( chapter_title, chapter_description, chapter_image) VALUES ( 'Malware', 'Softwares maliciosos estão presentes nos meios digitais desde os primordios, ainda assim muito usuários demonstram dificuldades em lidar com esse tipo de problema, este capítulo irá auxiliá-lo a compreender as formas corretas de lidar com os Malwares e saber quais os tipos de softwares maliciosos são os que você está mais vulnerável.', 'https://cyberskillslesson.com/wp-content/uploads/2020/09/firewall-1-768x507.png');
-INSERT INTO tb_chapter ( chapter_title, chapter_description, chapter_image) VALUES ( 'Lei Geral de Proteção de Dados Pessoais', 'Assim como no mundo real, a navegação na internet também está regida por leis, este capítulo trata de como as leis de proteção de dados são aplicadas na internet e quais os possíveis benefícios ou controvésias que este tipo de legislação pode acarrestar.', 'https://nextadmin.net/wp-content/uploads/2019/12/What-is-Data-Loss-Prevention-DLP-A-Definition-of-Data-Loss-Prevention-780x470.jpg');
+INSERT INTO tb_chapter ( campaign_id, chapter_title, chapter_description, chapter_image) VALUES ( 1, 'Desenvolvimento de Jogos Digitais', 'Neste capítulo você será apresentado a missões que iram testar os seus conhecimentos a cerca dos princípios básicos da segurança da informação, para  executar este capítulo com êxito é nescessário compreender as características de cada um dos príncipios.', 'https://makewebbetter.com/wp-content/uploads/2017/12/mainbanner1-1-1.jpg');
+INSERT INTO tb_chapter ( campaign_id, chapter_title, chapter_description, chapter_image) VALUES ( 1, 'Os Tipos de Hackers', 'Este capítulo será dedicado aos indivíduos que possuem uma facilidade e um conhecimento elevado em torno da manipulação código que permite o acesso a informações consideradas sigilosas, apesar que serem nomeados generalizadamente como Hackers há diferenças entre cada um deles que se dá por questões de índole ou nível de conhecimento e neste capítulos você deverá conhecer cada um deles.', 'https://avante.biz/wp-content/uploads/Cool-Hacker-Wallpapers/Cool-Hacker-Wallpapers-014.jpg');
+INSERT INTO tb_chapter ( campaign_id, chapter_title, chapter_description, chapter_image) VALUES ( 1, 'Controle Parental', 'A presença dos pais na internet tem se tornado mais importante a medida em que os seus filhos descobrem o mundo virtual, este capítulo irá testar seus conhecimentos sobre o controle parental na internet, qual o seu significado, suas abordagens e quais os limites desta forma de controle na internet.', 'https://yuruhuwa-hituji-life.com/wp/wp-content/uploads/2019/09/47-1-e1568971356802.png');
+INSERT INTO tb_chapter ( campaign_id, chapter_title, chapter_description, chapter_image) VALUES ( 1, 'Malware', 'Softwares maliciosos estão presentes nos meios digitais desde os primordios, ainda assim muito usuários demonstram dificuldades em lidar com esse tipo de problema, este capítulo irá auxiliá-lo a compreender as formas corretas de lidar com os Malwares e saber quais os tipos de softwares maliciosos são os que você está mais vulnerável.', 'https://cyberskillslesson.com/wp-content/uploads/2020/09/firewall-1-768x507.png');
+INSERT INTO tb_chapter ( campaign_id, chapter_title, chapter_description, chapter_image) VALUES ( 1, 'Lei Geral de Proteção de Dados Pessoais', 'Assim como no mundo real, a navegação na internet também está regida por leis, este capítulo trata de como as leis de proteção de dados são aplicadas na internet e quais os possíveis benefícios ou controvésias que este tipo de legislação pode acarrestar.', 'https://nextadmin.net/wp-content/uploads/2019/12/What-is-Data-Loss-Prevention-DLP-A-Definition-of-Data-Loss-Prevention-780x470.jpg');
 
 INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'O Conceito no Desenvolvimento de Jogos', 'A fase de conceito no desenvolvimento de jogos é o ponto inicial das atividades. Teste os seus conhecimentos sobre esta etapa neste quizz!', 'https://1.bp.blogspot.com/-xGw8Rcwupvw/XoXsp5j7pMI/AAAAAAAAAds/NckNhfigjFIeFB_BgezgUcJd_-K3FNsCgCLcBGAsYHQ/s1600/best-game-development-interview-questions.png', 1);
 INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'O Planejamento no Desenvolvimento de Jogos', 'Quiz sobre a fase de planenejamento no desenvolvimento de jogos', 'https://www.dekoder.org/sites/default/files/hacker_1.png', 1);
@@ -52,41 +54,39 @@ INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 5, 
 INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 5, 'O tratamento de dados pessoais pode ser feito por dois agentes de tratamento, quais são eles ?', 2);
 INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 5, 'A LGPD estabelece 3 bases para o tratamento de dados direcionadas a comunicação. Quais são elas ?', 1);
 
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção A')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção B')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção C')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção A')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção B')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção C')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção A')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção B')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção C')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção A')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção B')
-INSERT INTO tb_option(question_id, choice) VALUES(1, 'Opção C')
-INSERT INTO tb_option(question_id, choice) VALUES(2, 'Opção A')
-INSERT INTO tb_option(question_id, choice) VALUES(2, 'Opção B')
-INSERT INTO tb_option(question_id, choice) VALUES(2, 'Opção C')
-INSERT INTO tb_option(question_id, choice) VALUES(3, 'Opção A')
-INSERT INTO tb_option(question_id, choice) VALUES(3, 'Opção B')
-INSERT INTO tb_option(question_id, choice) VALUES(3, 'Opção C')
-INSERT INTO tb_option(question_id, choice) VALUES(4, 'Opção A')
-INSERT INTO tb_option(question_id, choice) VALUES(4, 'Opção B')
-INSERT INTO tb_option(question_id, choice) VALUES(4, 'Opção C')
-INSERT INTO tb_option(question_id, choice) VALUES(5, 'Opção A')
-INSERT INTO tb_option(question_id, choice) VALUES(5, 'Opção B')
-INSERT INTO tb_option(question_id, choice) VALUES(5, 'Opção C')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção A')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção B')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção C')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção A')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção B')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção C')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção A')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção B')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção C')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção A')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção B')
+INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção C')
+INSERT INTO tb_option (question_id, choice) VALUES(2, 'Opção A')
+INSERT INTO tb_option (question_id, choice) VALUES(2, 'Opção B')
+INSERT INTO tb_option (question_id, choice) VALUES(2, 'Opção C')
+INSERT INTO tb_option (question_id, choice) VALUES(3, 'Opção A')
+INSERT INTO tb_option (question_id, choice) VALUES(3, 'Opção B')
+INSERT INTO tb_option (question_id, choice) VALUES(3, 'Opção C')
+INSERT INTO tb_option (question_id, choice) VALUES(4, 'Opção A')
+INSERT INTO tb_option (question_id, choice) VALUES(4, 'Opção B')
+INSERT INTO tb_option (question_id, choice) VALUES(4, 'Opção C')
+INSERT INTO tb_option (question_id, choice) VALUES(5, 'Opção A')
+INSERT INTO tb_option (question_id, choice) VALUES(5, 'Opção B')
+INSERT INTO tb_option (question_id, choice) VALUES(5, 'Opção C')
 
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 1, 'Comum Quizzer', 'Concluiu 3 Quizzes', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/MEDAL-question_mark-exam-reward-winner-question-512.png', 20, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 2, 'Rare Quizzer', 'Concluiu 5 Quizzes', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/TARGET-question_mark-shoot-shooting-question-512.png', 50, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 3, 'The Explorer 1', 'Concluiu o Capítulo 1', 'https://cdn2.iconfinder.com/data/icons/law-enforcement-soft-fill/60/Police_Badge-shield-police-policing-law-enforcement-512.png', 200, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 4, 'The Explorer 2', 'Concluiu o Cpítulo 2', 'https://cdn1.iconfinder.com/data/icons/law-28/512/Badge-law-police-security-symbolic-512.png', 200, 2);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 5, 'Comum Reader', 'Leu 3 Artigos', 'https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png', 20, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 6, 'Rare Reader', 'Leu 5 Artigos', 'https://cdn4.iconfinder.com/data/icons/artificial-intelligence-47/64/Book-education-knowledge-learning-ai-512.png', 50, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 7, 'Epic Reader', 'Leu 10 Artigos', 'https://cdn1.iconfinder.com/data/icons/education-309/64/book-education-knowledge-learning-512.png', 100, 1);
-INSERT INTO tb_badge ( badge_id, badge_name, badge_description, badge_image, badge_xp, chapter_id) VALUES ( 8, 'Winged Quizzer', 'Concluiu 1 Quizz em menos de 10 segundos', 'https://cdn3.iconfinder.com/data/icons/rock-and-roll-2/64/celebration-star-wing-events-party-512.png', 70, 1);
-
-
+INSERT INTO tb_badge (badge_name, badge_description, badge_image, badge_xp) VALUES ( 'Comum Quizzer', 'Concluiu 1 Quiz em uma Campanha', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/MEDAL-question_mark-exam-reward-winner-question-512.png', 20);
+INSERT INTO tb_badge (badge_name, badge_description, badge_image, badge_xp) VALUES ( 'Rare Quizzer', 'Concluiu Metade dos Quizzes de uma Campanha', 'https://cdn2.iconfinder.com/data/icons/quiz-filloutline/64/TARGET-question_mark-shoot-shooting-question-512.png', 50);
+INSERT INTO tb_badge (badge_name, badge_description, badge_image, badge_xp) VALUES ( 'The Explorer 1', 'Concluiu Metade dos Capítulos de uma Campanha', 'https://cdn2.iconfinder.com/data/icons/law-enforcement-soft-fill/60/Police_Badge-shield-police-policing-law-enforcement-512.png', 200);
+INSERT INTO tb_badge (badge_name, badge_description, badge_image, badge_xp) VALUES ( 'The Explorer 2', 'Concluiu Todos os Capítulos de uma Campanha', 'https://cdn1.iconfinder.com/data/icons/law-28/512/Badge-law-police-security-symbolic-512.png', 200);
+INSERT INTO tb_badge (badge_name, badge_description, badge_image, badge_xp) VALUES ( 'Comum Reader', 'Leu 1 Artigo de uma Campanha', 'https://cdn1.iconfinder.com/data/icons/detective-2/64/police_badge-badge-police-shield-256.png', 20);
+INSERT INTO tb_badge (badge_name, badge_description, badge_image, badge_xp) VALUES ( 'Rare Reader', 'Leu Metade dos Artigos de uma Campanha', 'https://cdn4.iconfinder.com/data/icons/artificial-intelligence-47/64/Book-education-knowledge-learning-ai-512.png', 50);
+INSERT INTO tb_badge (badge_name, badge_description, badge_image, badge_xp) VALUES ( 'Epic Reader', 'Leu Toods os Artigos de uma Campanha', 'https://cdn1.iconfinder.com/data/icons/education-309/64/book-education-knowledge-learning-512.png', 100);
+INSERT INTO tb_badge (badge_name, badge_description, badge_image, badge_xp) VALUES ( 'Winged Quizzer', 'Concluiu 1 Quizz em menos de 10 segundos', 'https://cdn3.iconfinder.com/data/icons/rock-and-roll-2/64/celebration-star-wing-events-party-512.png', 70);
 
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(44, 46, 27, 40, 5950, 1);
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(53, 48, 24, 42, 6345, 2);

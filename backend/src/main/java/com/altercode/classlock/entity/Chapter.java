@@ -33,11 +33,11 @@ public class Chapter {
     @Column(name = "chapter_image")
     private String image;
 
-    @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
-    private List<Badge> badges = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "campaign_id")
+    private Campaign campaign;
 
     @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
     private List<Quiz> quizzes = new ArrayList<>();
 
-    //private List<String> stages = new ArrayList<>();
 }

@@ -34,15 +34,14 @@ public class Badge {
 	@Column(name = "badge_xp")
 	private Integer xp;
 
-	@ManyToOne
-	@JoinColumn(name = "chapter_id")
-	private Chapter chapter;
-
-	@OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "badge", cascade = CascadeType.ALL)
 	private List<QuizBadge> quizBadges = new ArrayList<>();
 
 	@OneToMany(mappedBy = "badge", cascade = CascadeType.ALL)
 	private List<UserBadge> userBadges = new ArrayList<>();
+
+	@OneToMany(mappedBy = "badge", cascade = CascadeType.ALL)
+	private List<CampaignBadge> campaignBadges = new ArrayList<>();
 
 	public void setId(Long id) {
 		this.id = id;
@@ -64,7 +63,4 @@ public class Badge {
 		this.xp = xp;
 	}
 
-	public void setChapter(Chapter chapter) {
-		this.chapter = chapter;
-	}
 }

@@ -31,7 +31,7 @@ navigate(`/`);
           <button data-bs-target="#addPostModal" data-bs-toggle="modal" className="btn cl-form-btn menu-options-item col-3">
             Adcionar Post
           </button>
-          <button data-bs-target="#addChapterModal" data-bs-toggle="modal" className="btn cl-form-btn menu-options-item col-3">
+          <button data--bstarget="#addChapterModal" data-bs-toggle="modal" className="btn cl-form-btn menu-options-item col-3">
             Adicionar Capítulo
           </button>
           

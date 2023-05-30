@@ -108,6 +108,4 @@ public class BadgeService {
 	public void deleteBadge(Long id) {
 		this.badgeRepository.deleteById(id);
 	}
-
-
 }

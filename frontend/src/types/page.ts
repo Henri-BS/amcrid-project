@@ -1,14 +1,14 @@
-import { Chapter } from "./chapter";
+import { Campaign, Chapter } from "./chapter";
 import { Post } from "./post";
 import { User } from "./user";
 
 export type Page = {
-    content?: Post[] | Chapter[] | User[];
-    last: boolean;
-    first: boolean;
+    content?: Post[] | Chapter[] | User[] |Campaign[];
+    last?: boolean;
+    first?: boolean;
     empty?: boolean;
-    totalPages: number;
-    totalElements: number;
+    totalPages?: number;
+    totalElements?: number;
     numberOfElements?: number;
     size?: number;
     number: number;

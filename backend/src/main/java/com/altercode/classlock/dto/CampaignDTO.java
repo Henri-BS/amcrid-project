@@ -16,6 +16,7 @@ public class CampaignDTO implements Serializable {
     private Long id;
     private String name;
     private String description;
+    private String image;
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -24,5 +25,6 @@ public class CampaignDTO implements Serializable {
     id = entity.getId();
     name = entity.getName();
     description = entity.getDescription();
+    image = entity.getImage();
     }
 }

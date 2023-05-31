@@ -14,11 +14,11 @@ export type Post = {
 
 export type PostPage = {
   content?: Post[];
-  last: boolean;
-  first: boolean;
+  last?: boolean;
+  first?: boolean;
   empty?: boolean;
-  totalPages: number;
-  totalElements: number;
+  totalPages?: number;
+  totalElements?: number;
   numberOfElements?: number;
   size?: number;
   number: number;

@@ -26,6 +26,7 @@ public class Campaign {
     private String name;
 
     private String description;
+    private String image;
 
     @OneToMany(mappedBy = "campaign")
     private List<Chapter> chapter = new ArrayList<>();

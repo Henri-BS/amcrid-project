@@ -62,21 +62,13 @@ export function ChapterList() {
     const [pageNumber, setPageNumber] = useState(0);
     const [chapterPage, setChapterPage] = useState<ChapterPage>({
         content: [],
-        first: true,
-        last: true,
-        totalPages: 0,
-        totalElements: 0,
-        size: 10,
-        number: 0,
-        numberOfElements: 0,
-        empty: true
+        number: 0
     });
 
     useEffect(() => {
         axios.get(`${BASE_URL}/chapter?${pageNumber}&size=10`)
             .then(response => {
-                const data = response.data as ChapterPage;
-                setChapterPage(data);
+                setChapterPage(response.data);
             });
     }, [pageNumber]);
 
@@ -87,9 +79,8 @@ export function ChapterList() {
     return (
         <>
             <div className="container">
-                <div><Pagination 
-                page={chapterPage} 
-                onChange={handlePageChange} />
+                <div>
+                    <Pagination page={chapterPage} onChange={handlePageChange} />
                 </div>
                 <div className="list-container row">
                     {chapterPage.content?.map(chapter => (

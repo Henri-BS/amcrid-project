@@ -4,6 +4,7 @@ import com.altercode.classlock.dto.CampaignDTO;
 import com.altercode.classlock.dto.CampaignUserDTO;
 import com.altercode.classlock.entity.Campaign;
 import com.altercode.classlock.entity.CampaignUser;
+import com.altercode.classlock.entity.Chapter;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.repository.CampaignRepository;
 import com.altercode.classlock.repository.CampaignUserRepository;
@@ -13,6 +14,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CampaignService {
@@ -29,6 +33,14 @@ public class CampaignService {
     @Transactional(readOnly = true)
     public Page<CampaignDTO> findAllCampaign(Pageable pageable) {
         Page<Campaign> page = campaignRepository.findAll(pageable);
+
+        for(Campaign c: page){
+            if(c.getImage() == null){
+                c.setImage("https://www.manpingou.com/uploads/allimg/200226/25-20022613060M96.jpg");
+            }
+            campaignRepository.save(c);
+        }
+
         return page.map(CampaignDTO::new);
     }
 

@@ -1,28 +1,22 @@
 
 import Pagination from 'components/shared/Pagination';
 import './styles.css'
-import {ArticleChapter, ChapterCard} from 'components/layout/ChapterLayout';
+import { CampaignCard } from 'components/layout/ChapterLayout';
 import { Link } from 'react-router-dom';
-import {PostCard} from 'components/layout/ArticleLayout';
+import { PostCard } from 'components/layout/ArticleLayout';
 import { useEffect, useState } from 'react';
 import { PostPage } from 'types/post';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
-import { ChapterPage } from 'types/chapter';
+import {CampaignPage } from 'types/chapter';
 
 function Home() {
 
   const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState<PostPage>({
     content: [],
-    first: true,
-    last: true,
-    totalPages: 0,
-    totalElements: 0,
-    size: 0,
-    number: 0,
-    numberOfElements: 0,
-    empty: true
+    number: 0
+
   });
 
   useEffect(() => {
@@ -34,24 +28,15 @@ function Home() {
   }, [pageNumber]);
 
 
-  const [chapterPage, setChapterPage] = useState<ChapterPage>({
+  const [campaignPage, setCampaignPage] = useState<CampaignPage>({
     content: [],
-    first: true,
-    last: true,
-    totalPages: 0,
-    totalElements: 0,
-    size: 0,
-    number: 0,
-    numberOfElements: 0,
-    empty: true
+    number: 0
   });
 
-
   useEffect(() => {
-    axios.get(`${BASE_URL}/chapter?page=${pageNumber}&size=1&sort=id`)
-      .then(response => {
-        const data = response.data as ChapterPage;
-        setChapterPage(data);
+    axios.get(`${BASE_URL}/campaign/list?page=${pageNumber}&size=1&sort=id`)
+      .then((response) => {
+        setCampaignPage(response.data);
       })
   }, [pageNumber]);
 
@@ -61,11 +46,9 @@ function Home() {
 
   return (
     <>
-    <div className="side-menu">
-  s
-</div>
+      <div className="side-menu">
+      </div>
       <div className="container">
-
         <Link to="/post-list">
           <h2>Artigos</h2>
         </Link>
@@ -85,21 +68,15 @@ function Home() {
         <Link to="/chapter-list">
           <h2>Capítulos</h2>
         </Link>
-        <Pagination
-          page={chapterPage}
-          onChange={handlePageChange}
+        <Pagination page={campaignPage} onChange={handlePageChange}
         />
         <div className="row quest-chapter-container">
-          {chapterPage.content?.map(chapter => (
-            <div key={chapter.id} className=" col-sm-6 col-md-3 xl-3" >
-              <ChapterCard chapter={chapter} />
+          {campaignPage.content?.map(campaign => (
+            <div key={campaign.id}>
+              <CampaignCard campaign={campaign} />
             </div>
           ))}
-          {chapterPage.content?.map(chapter => (
-            <div key={chapter.id} className="col-sm-6 col-md-9 col-xl-9">
-              <ArticleChapter chapter={chapter} />
-            </div>
-          ))}
+      
         </div>
       </div>
     </>

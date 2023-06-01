@@ -8,6 +8,7 @@ import Post from "pages/PostProfile";
 import {ArticleList, ChapterList, UserList} from "pages/Listing";
 import { QuizProfile } from "components/game/QuizzGame";
 import { Ranking } from "pages/Ranking";
+import { CampaignProfile } from "pages/CampaingProfile";
 
 const PageRoutes = () => {
     return (
@@ -30,6 +31,10 @@ const PageRoutes = () => {
                         <Route path=":postId" element={<Post />} />
                     </Route>
 
+                    <Route path="/campaign">
+                        <Route path=":campaignId" element={<CampaignProfile />} />
+                    </Route>
+
                     <Route path="/chapter">
                         <Route path=":chapterId" element={<Chapter />} />
                     </Route>
@@ -37,8 +42,6 @@ const PageRoutes = () => {
                     <Route path="/quiz">
                         <Route path=":quizId" element={<QuizProfile />} />
                     </Route>
-
-
                 </Routes>
                 <Footer />
             </BrowserRouter>

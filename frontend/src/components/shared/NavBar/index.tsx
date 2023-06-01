@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Dropdown from 'components/shared/Dropdown';
-import IWLogo from 'assets/img/w-logo.svg';
 import IProf from "assets/img/prof-img.png";
 import './styles.css';
 import { UserAddForm } from 'components/form/UserForm';
+
+
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -35,8 +36,6 @@ function Navbar() {
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
-
-
         <ul className={click ? 'nav-menu-m active' : 'nav-menu-m'}>
           <li>
             <Link to='/profile/1' className='profile-nav' onClick={closeMobileMenu}>
@@ -93,9 +92,7 @@ function Navbar() {
               Sing Up
             </button>
           </li>
-
         </ul>
-   
       </nav>
 
       <div className="modal fade" role="dialog" id="addUserModal">
@@ -110,3 +107,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

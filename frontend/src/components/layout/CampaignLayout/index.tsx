@@ -50,32 +50,7 @@ export function CampaignCard({ campaign }: CampaignProps) {
             </div>
         </>
     );
-
-    
 }
-
-export function ListChaptersByCampaing({ id: campaignId }: Props) {
-        const [chapterList, setChapterList] = useState<Chapter[]>();
-        useEffect(() => {
-            axios.get(`${BASE_URL}/chapter/campaign/${campaignId}`)
-                .then((response) => {
-                    setChapterList(response.data);
-                });
-        }, [campaignId]);
-
-        return (
-            <>
-                <div className="title-container">Capítulos</div>
-                <div className=" nav-list-container">
-                    {chapterList?.map(chapter => (
-                        <div key={chapter.id} className="nav-list-item">
-                            <ChapterCard chapter={chapter} />
-                        </div>
-                    ))}
-                </div>
-            </>
-        );
-    }
 
 type ChapterProps = {
     chapter: Chapter;
@@ -128,8 +103,7 @@ export function ChapterDashboard({ id: chapterId }: Props) {
             <div className="dashboard-container">
                 <div className="row p-0">
                     <img className="bg-img-container col-4" src={chapter?.image} alt={chapter?.title} />
-                    <div className="description-container col-8">
-                        <div className="title-container">Capítulo: {chapter?.title}</div>
+                    <div className="description-container col-8">            <div className="title-container">Capítulo: {chapter?.title}</div>
                         {chapter?.description}</div>
                 </div>
             </div>

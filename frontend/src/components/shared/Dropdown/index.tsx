@@ -1,7 +1,24 @@
 import React, { useState } from 'react';
-import { MenuItems } from 'components/shared/MenuItem';
 import { Link } from 'react-router-dom'
 import './styles.css';
+
+const MenuItems = [
+  {
+      title: 'Lista de Capítulos',
+      path: '/chapter-list',
+      cName: 'dropdown-link'
+  },
+  {
+      title: 'Lista de Artigos',
+      path: '/post-list',
+      cName: 'dropdown-link'
+  },
+  {
+      title: 'Lista de Usuários',
+      path: '/user-list',
+      cName: 'dropdown-link'
+  }
+]
 
 function Dropdown() {
   const [click, setClick] = useState(false)
@@ -14,18 +31,18 @@ function Dropdown() {
         {MenuItems.map((item, index) => {
           return (
             <li key={index}>
-              <Link className={item.cName}
-                to={item.path} onClick={() =>
+              <Link className={item.cName} to={item.path} onClick={() =>
                   setClick(false)}>
                 {item.title}
               </Link>
             </li>
           )
         })}
-
       </ul>
     </>
   );
 }
 
 export default Dropdown;
+
+

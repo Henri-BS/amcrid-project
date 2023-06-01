@@ -76,7 +76,6 @@ function Home() {
               <CampaignCard campaign={campaign} />
             </div>
           ))}
-      
         </div>
       </div>
     </>

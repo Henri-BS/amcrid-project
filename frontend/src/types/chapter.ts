@@ -4,6 +4,7 @@ export type Campaign = {
   name: string;
   description: string;
   image: string;
+  campaignId: number;
 }
 
 export type CampaignPage = {

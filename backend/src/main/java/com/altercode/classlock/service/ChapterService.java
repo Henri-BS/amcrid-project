@@ -3,6 +3,7 @@ package com.altercode.classlock.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.altercode.classlock.entity.Campaign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -54,4 +55,9 @@ public class ChapterService {
 	public void deleteChapter(Long id) {
 		this.chapterRepository.deleteById(id);
 	}
+
+    public List<ChapterDTO> findAllChaptersByCampaign(Campaign campaign) {
+		List<Chapter> list = chapterRepository.findAllChaptersByCampaign(campaign);
+		return list.stream().map(ChapterDTO::new).collect(Collectors.toList());
+    }
 }

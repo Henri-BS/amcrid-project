@@ -7,10 +7,8 @@ export function CampaignProfile() {
   return (
     <>
     <div className="container">
-      <ListChaptersByCampaing id={`${params.chapterId}`} />
+      <ListChaptersByCampaing id={`${params.campaignId}`} />
     </div>
-
-   
   </>
   );
 }

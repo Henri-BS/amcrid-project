@@ -66,7 +66,8 @@
 
 .nav-list-item {
     padding: 6px;
-    width: max-content;
+    min-width: 400px;
+    margin-left: 4px;
 }
 
 .cl-card-info {

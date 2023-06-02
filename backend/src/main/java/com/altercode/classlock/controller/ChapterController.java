@@ -2,6 +2,7 @@ package com.altercode.classlock.controller;
 
 import java.util.List;
 
+import com.altercode.classlock.entity.Campaign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +28,12 @@ public class ChapterController {
 	@GetMapping("/all")
 	public ResponseEntity<List<ChapterDTO>> findAll() {
 		List<ChapterDTO> list = chapterService.findAll();
+		return ResponseEntity.ok(list);
+	}
+
+	@GetMapping("/campaign/{campaign}")
+	public ResponseEntity<List<ChapterDTO>> findAllChaptersByCampaign(@PathVariable Campaign campaign) {
+		List<ChapterDTO> list =  chapterService.findAllChaptersByCampaign(campaign);
 		return ResponseEntity.ok(list);
 	}
 

@@ -67,9 +67,9 @@ export function ListChaptersByCampaing({ id: campaignId }: Props) {
             <>
                 <div className="title-container">Capítulos</div>
                 <div className=" nav-list-container">
-                    {chapterList?.map(chapter => (
-                        <div key={chapter.id} className="nav-list-item">
-                            <ChapterCard chapter={chapter} />
+                    {chapterList?.map(x => (
+                        <div key={x.id} className="nav-list-item">
+                            <ChapterCard chapter={x} />
                         </div>
                     ))}
                 </div>

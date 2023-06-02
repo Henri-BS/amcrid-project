@@ -20,11 +20,13 @@ public class ChapterDTO implements Serializable {
 	private String title;
 	private String description;
 	private String image;
+	private Long campaignId;
 
 	public ChapterDTO(Chapter entity) {
 		id = entity.getId();
 		title = entity.getTitle();
 		description = entity.getDescription();
 		image = entity.getImage();
+		campaignId = entity.getCampaign().getId();
 	}
 }

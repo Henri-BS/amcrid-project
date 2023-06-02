@@ -4,7 +4,6 @@ import com.altercode.classlock.dto.CampaignDTO;
 import com.altercode.classlock.dto.CampaignUserDTO;
 import com.altercode.classlock.entity.Campaign;
 import com.altercode.classlock.entity.CampaignUser;
-import com.altercode.classlock.entity.Chapter;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.repository.CampaignRepository;
 import com.altercode.classlock.repository.CampaignUserRepository;
@@ -14,9 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class CampaignService {

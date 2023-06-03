@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+import com.altercode.classlock.dto.CampaignRelationDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,7 +36,7 @@ public class Post {
 	private String summary;
 
 	@Column(name = "views")
-	private Integer views;
+	private Integer views = 0;
 
 	@Column(name = "body", columnDefinition = "TEXT")
 	private String body;
@@ -50,12 +51,14 @@ public class Post {
 	@CreatedDate
 	@Column(name = "created_date")
 	private LocalDateTime createdDate = LocalDateTime.now();
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	@OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
 	private List<Comment> comments = new ArrayList<>();
 
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+	@OneToMany(mappedBy = "post")
+private List<CampaignPost> campaign =new ArrayList<>();
 
 }

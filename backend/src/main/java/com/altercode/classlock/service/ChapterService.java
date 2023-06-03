@@ -30,10 +30,17 @@ public class ChapterService {
 		return result.stream().map(ChapterDTO::new).collect(Collectors.toList());
 	}
 
+	public List<ChapterDTO> findAllChaptersByCampaign(Campaign campaign) {
+		List<Chapter> list = chapterRepository.findAllChaptersByCampaign(campaign);
+		return list.stream().map(ChapterDTO::new).collect(Collectors.toList());
+	}
+
 	public ChapterDTO findById(Long id) {
 		Chapter result = chapterRepository.findById(id).orElseThrow();
 		return new ChapterDTO(result);
 	}
+
+
 
 	public ChapterDTO saveChapter(ChapterDTO dto) {
 		Chapter add = new Chapter();
@@ -56,8 +63,5 @@ public class ChapterService {
 		this.chapterRepository.deleteById(id);
 	}
 
-    public List<ChapterDTO> findAllChaptersByCampaign(Campaign campaign) {
-		List<Chapter> list = chapterRepository.findAllChaptersByCampaign(campaign);
-		return list.stream().map(ChapterDTO::new).collect(Collectors.toList());
-    }
+
 }

@@ -1,7 +1,7 @@
 package com.altercode.classlock.controller;
 
 import com.altercode.classlock.dto.CampaignDTO;
-import com.altercode.classlock.dto.CampaignUserDTO;
+import com.altercode.classlock.dto.CampaignRelationDTO;
 import com.altercode.classlock.service.CampaignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,10 +29,22 @@ public class CampaignController {
         return ResponseEntity.ok(find);
     }
 
-    @PostMapping("/add-user")
-    public ResponseEntity<CampaignUserDTO> saveUserInCampaign(@RequestBody CampaignUserDTO dto) {
-        CampaignUserDTO add = campaignService.saveUserInCampaign(dto);
+    @PostMapping("/add")
+    public ResponseEntity<CampaignDTO> saveCampaign(@RequestBody CampaignDTO dto) {
+        CampaignDTO add = campaignService.saveCampaign(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
+    }
+
+        @PostMapping("/add-user")
+    public ResponseEntity<CampaignRelationDTO> saveUserInCampaign(@RequestBody CampaignRelationDTO dto) {
+        CampaignRelationDTO add = campaignService.addUserInCampaign(dto);
+        return new ResponseEntity<>(add, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/edit")
+    public ResponseEntity<CampaignDTO> updateCampaign(@RequestBody CampaignDTO dto) {
+        CampaignDTO edit = campaignService.updateCampaign(dto);
+        return new ResponseEntity<>(edit, HttpStatus.CREATED);
     }
 
 }

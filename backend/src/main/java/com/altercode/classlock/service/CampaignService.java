@@ -1,7 +1,7 @@
 package com.altercode.classlock.service;
 
 import com.altercode.classlock.dto.CampaignDTO;
-import com.altercode.classlock.dto.CampaignUserDTO;
+import com.altercode.classlock.dto.CampaignRelationDTO;
 import com.altercode.classlock.entity.Campaign;
 import com.altercode.classlock.entity.CampaignUser;
 import com.altercode.classlock.entity.User;
@@ -27,7 +27,7 @@ public class CampaignService {
     private CampaignUserRepository campaignUserRepository;
 
     @Transactional(readOnly = true)
-    public Page<CampaignDTO> findAllCampaign(Pageable pageable) {
+      public Page<CampaignDTO> findAllCampaign(Pageable pageable) {
         Page<Campaign> page = campaignRepository.findAll(pageable);
 
         for(Campaign c: page){
@@ -40,18 +40,36 @@ public class CampaignService {
         return page.map(CampaignDTO::new);
     }
 
+    @Transactional(readOnly = true)
     public CampaignDTO findCampaignById(Long id) {
         Campaign find = campaignRepository.findById(id).orElseThrow();
         return new CampaignDTO(find);
     }
 
-    public CampaignUserDTO saveUserInCampaign(CampaignUserDTO dto) {
+    public CampaignDTO saveCampaign(CampaignDTO dto) {
+        Campaign add = new Campaign();
+        add.setName(dto.getName());
+        add.setDescription(dto.getDescription());
+        add.setImage(dto.getImage());
+        return new CampaignDTO(campaignRepository.saveAndFlush(add));
+    }
+    public CampaignRelationDTO addUserInCampaign(CampaignRelationDTO dto) {
         Campaign campaign = campaignRepository.findById(dto.getCampaignId()).orElseThrow();
         User user = userRepository.findByUserName(dto.getUserName());
 
         CampaignUser add = new CampaignUser();
         add.setCampaign(campaign);
         add.setUser(user);
-        return new CampaignUserDTO(campaignUserRepository.saveAndFlush(add));
+        return new CampaignRelationDTO(campaignUserRepository.saveAndFlush(add));
     }
+    public CampaignDTO updateCampaign(CampaignDTO dto) {
+        Campaign edit = campaignRepository.findById(dto.getId()).orElseThrow();
+
+        edit.setId(edit.getId());
+        edit.setDescription(dto.getDescription());
+        edit.setImage(dto.getImage());
+        return new CampaignDTO(campaignRepository.save(edit));
+    }
+
+
 }

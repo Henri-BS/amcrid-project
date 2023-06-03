@@ -28,12 +28,15 @@ public class Campaign {
     private String description;
     private String image;
 
-    @OneToMany(mappedBy = "campaign")
+    @OneToMany(mappedBy = "campaign", cascade = CascadeType.ALL)
     private List<Chapter> chapter = new ArrayList<>();
 
-    @OneToMany(mappedBy = "campaign")
+    @OneToMany(mappedBy = "campaign", cascade = CascadeType.ALL)
     private List<CampaignUser> campaignUsers = new ArrayList<>();
 
-    @OneToMany(mappedBy = "campaign")
+    @OneToMany(mappedBy = "campaign", cascade = CascadeType.ALL)
     private List<CampaignBadge> campaignBadges = new ArrayList<>();
+
+    @OneToMany(mappedBy = "campaign", cascade = CascadeType.ALL)
+    private List<CampaignPost> campaignPosts = new ArrayList<>();
 }

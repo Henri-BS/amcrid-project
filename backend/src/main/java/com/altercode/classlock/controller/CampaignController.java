@@ -36,8 +36,14 @@ public class CampaignController {
     }
 
         @PostMapping("/add-user")
-    public ResponseEntity<CampaignRelationDTO> saveUserInCampaign(@RequestBody CampaignRelationDTO dto) {
+    public ResponseEntity<CampaignRelationDTO> addUserInCampaign(@RequestBody CampaignRelationDTO dto) {
         CampaignRelationDTO add = campaignService.addUserInCampaign(dto);
+        return new ResponseEntity<>(add, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/add-post")
+    public ResponseEntity<CampaignRelationDTO> addPostInCampaign(CampaignRelationDTO dto) {
+        CampaignRelationDTO add = campaignService.addPostInCampaign(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 
@@ -45,6 +51,12 @@ public class CampaignController {
     public ResponseEntity<CampaignDTO> updateCampaign(@RequestBody CampaignDTO dto) {
         CampaignDTO edit = campaignService.updateCampaign(dto);
         return new ResponseEntity<>(edit, HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteCampaign(@PathVariable Long id) {
+        this.campaignService.deleteCampaign(id);
     }
 
 }

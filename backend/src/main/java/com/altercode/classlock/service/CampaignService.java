@@ -23,10 +23,16 @@ public class CampaignService {
     private PostRepository postRepository;
 
     @Autowired
+    private BadgeRepository badgeRepository;
+
+    @Autowired
     private CampaignUserRepository campaignUserRepository;
 
     @Autowired
-    private CampaignUPostRepository campaignPostRepository;
+    private CampaignPostRepository campaignPostRepository;
+
+    @Autowired
+    private CampaignBadgeRepository campaignBadgeRepository;
 
     @Transactional(readOnly = true)
       public Page<CampaignDTO> findAllCampaign(Pageable pageable) {
@@ -55,6 +61,7 @@ public class CampaignService {
         add.setImage(dto.getImage());
         return new CampaignDTO(campaignRepository.saveAndFlush(add));
     }
+
     public CampaignRelationDTO addUserInCampaign(CampaignRelationDTO dto) {
         Campaign campaign = campaignRepository.findById(dto.getCampaignId()).orElseThrow();
         User user = userRepository.findByUserName(dto.getUserName());
@@ -75,6 +82,16 @@ public class CampaignService {
         return new CampaignRelationDTO(campaignPostRepository.saveAndFlush(add));
     }
 
+    public CampaignRelationDTO addBadgeInCampaign(CampaignRelationDTO dto) {
+        Campaign campaign = campaignRepository.findById(dto.getCampaignId()).orElseThrow();
+        Badge badge = badgeRepository.findById(dto.getBadgeId()).orElseThrow();
+
+        CampaignBadge add = new CampaignBadge();
+            add.setCampaign(campaign);
+            add.setBadge(badge);
+            return new CampaignRelationDTO(campaignBadgeRepository.saveAndFlush(add));
+    }
+
     public CampaignDTO updateCampaign(CampaignDTO dto) {
         Campaign edit = campaignRepository.findById(dto.getId()).orElseThrow();
 
@@ -87,6 +104,5 @@ public class CampaignService {
     public void deleteCampaign(Long id) {
         this.campaignRepository.deleteById(id);
     }
-
 
 }

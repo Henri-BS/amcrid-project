@@ -18,13 +18,13 @@ public class CampaignController {
     private CampaignService campaignService;
 
     @GetMapping("/list")
-    public ResponseEntity<Page<CampaignDTO>> findAllCampaigns(Pageable pageable){
+    public ResponseEntity<Page<CampaignDTO>> findAllCampaigns(Pageable pageable) {
         Page<CampaignDTO> list = campaignService.findAllCampaign(pageable);
         return ResponseEntity.ok(list);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CampaignDTO> findCampaignById(@PathVariable Long id){
+    public ResponseEntity<CampaignDTO> findCampaignById(@PathVariable Long id) {
         CampaignDTO find = campaignService.findCampaignById(id);
         return ResponseEntity.ok(find);
     }
@@ -35,7 +35,7 @@ public class CampaignController {
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 
-        @PostMapping("/add-user")
+    @PostMapping("/add-user")
     public ResponseEntity<CampaignRelationDTO> addUserInCampaign(@RequestBody CampaignRelationDTO dto) {
         CampaignRelationDTO add = campaignService.addUserInCampaign(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
@@ -44,6 +44,12 @@ public class CampaignController {
     @PostMapping("/add-post")
     public ResponseEntity<CampaignRelationDTO> addPostInCampaign(CampaignRelationDTO dto) {
         CampaignRelationDTO add = campaignService.addPostInCampaign(dto);
+        return new ResponseEntity<>(add, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/add-badge")
+    public ResponseEntity<CampaignRelationDTO> addBadgeInCampaign(CampaignRelationDTO dto) {
+        CampaignRelationDTO add = campaignService.addBadgeInCampaign(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 

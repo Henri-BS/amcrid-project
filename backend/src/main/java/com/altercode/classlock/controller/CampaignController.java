@@ -2,6 +2,9 @@ package com.altercode.classlock.controller;
 
 import com.altercode.classlock.dto.CampaignDTO;
 import com.altercode.classlock.dto.CampaignRelationDTO;
+import com.altercode.classlock.entity.Badge;
+import com.altercode.classlock.entity.Post;
+import com.altercode.classlock.entity.User;
 import com.altercode.classlock.service.CampaignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -65,4 +68,21 @@ public class CampaignController {
         this.campaignService.deleteCampaign(id);
     }
 
+    @DeleteMapping("delete-user/{user}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUserByCampaign(@PathVariable User user) {
+this.campaignService.deleteUserByCampaign(user);
+    }
+
+    @DeleteMapping("delete-post/{post}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletePostByCampaign(@PathVariable Post post) {
+        this.campaignService.deletePostByCampaign(post);
+    }
+
+    @DeleteMapping("delete-badge/{badge}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBadgeByCampaign(@PathVariable Badge badge) {
+        this.campaignService.deleteBadgeByCampaign(badge);
+    }
 }

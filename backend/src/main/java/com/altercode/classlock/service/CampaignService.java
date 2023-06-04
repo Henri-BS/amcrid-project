@@ -105,4 +105,15 @@ public class CampaignService {
         this.campaignRepository.deleteById(id);
     }
 
+    public void deleteUserByCampaign(User user) {
+        this.campaignUserRepository.deleteByUser(user);
+    }
+
+    public void deletePostByCampaign(Post post) {
+        this.campaignPostRepository.deleteByPost(post);
+    }
+
+    public void deleteBadgeByCampaign(Badge badge) {
+        this.campaignBadgeRepository.deleteBadgeByCampaign(badge);
+    }
 }

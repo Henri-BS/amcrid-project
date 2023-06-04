@@ -30,17 +30,21 @@
 .user-minicard-container {
     height: 90px;
     background-color: var(--deca);
-    border-radius: 10px;
+    color: #fff;
+    border-radius: 14px 0px;
     align-items: flex-start;
     justify-content: start;
     display: flex;
 }
 
 .user-minicard-image {
-    max-height: 88px;
+    height: 100%;
     max-width: 88px;
     padding: 8px;
-    border-radius: 20px;
+    background-color: var(--deca);
+    border: solid var(--tert);
+    border-radius: 14px 0px;
+    border-style: double;
 }
 
 .user-minicard-username {
@@ -48,12 +52,6 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-}
-
-.user-minicard-username h6 {
-    font-size: 19px;
-    font-weight: 500;
-    color: #fff;
 }
 
 .user-minicard-info {

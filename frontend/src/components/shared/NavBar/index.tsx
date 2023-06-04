@@ -37,6 +37,9 @@ function Navbar() {
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
         <ul className={click ? 'nav-menu-m active' : 'nav-menu-m'}>
+        <div className='menu-icon' onClick={handleClick}>
+          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        </div>
           <li>
             <Link to='/profile/1' className='profile-nav' onClick={closeMobileMenu}>
               <img className='nav-links-image' src={IProf} alt='profile' />
@@ -73,8 +76,10 @@ function Navbar() {
             </Link>
           </li>
         </ul>
+
         <ul className={'nav-menu'}>
           <li className='nav-item'>
+            
             <Link to='/' className='nav-links' onClick={closeMobileMenu}>
               Home
             </Link>

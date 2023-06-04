@@ -58,10 +58,6 @@
     color: #fff;
 }
 
-.profile-nav {
-    display: none;
-}
-
 .nav-menu-m {
     display: flex;
     flex-direction: column;
@@ -112,6 +108,15 @@
     height: 120px;
 }
 
+.profile-nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+    padding: 10px 10px 20px;
+}
+
 .menu-icon {
     position: fixed;
     top: 0;
@@ -136,14 +141,6 @@
         margin-left: 15px;
         margin-bottom: 30px;
         height: 50px;
-    }
-    .profile-nav {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-self: center;
-        justify-content: center;
-        padding: 10px 10px 20px;
     }
     .nav-links {
         display: none;

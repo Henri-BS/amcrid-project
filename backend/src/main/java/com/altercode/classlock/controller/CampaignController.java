@@ -3,6 +3,7 @@ package com.altercode.classlock.controller;
 import com.altercode.classlock.dto.CampaignDTO;
 import com.altercode.classlock.dto.CampaignRelationDTO;
 import com.altercode.classlock.entity.Badge;
+import com.altercode.classlock.entity.Campaign;
 import com.altercode.classlock.entity.Post;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.service.CampaignService;
@@ -30,6 +31,12 @@ public class CampaignController {
     public ResponseEntity<CampaignDTO> findCampaignById(@PathVariable Long id) {
         CampaignDTO find = campaignService.findCampaignById(id);
         return ResponseEntity.ok(find);
+    }
+
+    @GetMapping("/badges")
+    public ResponseEntity<Page<CampaignRelationDTO>> findAllBadgesInCampaign(Pageable pageable, @PathVariable Campaign campaign){
+        Page<CampaignRelationDTO> page = campaignService.findAllBadgesInCampaign(pageable, campaign);
+        return ResponseEntity.ok(page);
     }
 
     @PostMapping("/add")

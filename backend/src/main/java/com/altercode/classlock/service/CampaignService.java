@@ -116,4 +116,9 @@ public class CampaignService {
     public void deleteBadgeByCampaign(Badge badge) {
         this.campaignBadgeRepository.deleteBadgeByCampaign(badge);
     }
+
+    public Page<CampaignRelationDTO> findAllBadgesInCampaign(Pageable pageable, Campaign campaign) {
+        Page<CampaignBadge> page = campaignBadgeRepository.findAllBadgesInCampaign(pageable, campaign);
+        return page.map(CampaignRelationDTO::new);
+    }
 }

@@ -27,11 +27,9 @@ public class Post {
 	@Column(name = "post_id")
 	private Long id;
 	
-	@Length(min = 1)
 	@Column(name = "title")
 	private String title;
 
-	@Size(min = 1)
 	@Column(name = "summary", columnDefinition = "TEXT")
 	private String summary;
 
@@ -45,20 +43,22 @@ public class Post {
 	private String image;
 
 	@CreatedBy
-	@Column(name = "created_by", length = 50, updatable = false)
+	@Column(name = "created_by")
 	private String createdBy;
 
 	@CreatedDate
 	@Column(name = "created_date")
 	private LocalDateTime createdDate = LocalDateTime.now();
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 
 	@OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+	@OrderBy(value = "createdDate")
 	private List<Comment> comments = new ArrayList<>();
 
 	@OneToMany(mappedBy = "post")
-private List<CampaignPost> campaign =new ArrayList<>();
+	private List<CampaignPost> campaign = new ArrayList<>();
 
 }

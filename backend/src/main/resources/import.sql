@@ -1,4 +1,10 @@
-INSERT INTO tb_campaign ( campaign_name, description) VALUES ('Campanha 1', 'Descrição da Campanha 1')
+INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 1', 'Descrição da Campanha 1', 'https://img.freepik.com/free-vector/gradient-shapes-dark-background_52683-32826.jpg?size=626&ext=jpg')
+INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 2', 'Descrição da Campanha 2', 'https://st4.depositphotos.com/5221209/21719/v/600/depositphotos_217197586-stock-video-abstract-square-shapes-moving-animation.jpg')
+INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 3', 'Descrição da Campanha 3', 'https://image.freepik.com/free-vector/gradient-geometric-shapes-background_23-2148792644.jpg')
+INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 4', 'Descrição da Campanha 4', 'https://image.freepik.com/darmowe-wektory/gradientowe-modele-geometryczne-na-ciemnym-tle_23-2148431523.jpg')
+INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 5', 'Descrição da Campanha 5', 'https://img.freepik.com/vector-gratis/formas-geometricas-sobre-fondo-oscuro_23-2148427246.jpg?size=626&ext=jpg')
+INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 6', 'Descrição da Campanha 6', 'https://image.freepik.com/free-vector/gradient-geometric-purple-shapes-dark-background_23-2148423872.jpg')
+INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 7', 'Descrição da Campanha 7', 'https://torobche.com/wp-content/uploads/2021/07/Abstract.Background.25.EPS_.Thmb_.jpg')
 
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (1, 'jack@gmail.com', 'Jack', 'jack123', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-02/64/bandit-asian-male-cowboy-512.png');
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (2, 'ryan@gmail.com', 'Ryan', 'ryan123', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-05/64/rastafarian-male-formal-512.png');
@@ -13,11 +19,21 @@ INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (10
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (11, 'apollo@gmail.com', 'Apollo', 'apollo123', 'https://cdn2.iconfinder.com/data/icons/diversity-v2-0-volume-08/64/bowler-hat-avatar-mustache-inspector-512.png');
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (12, 'gestrudes@gmail.com', 'Gertrudes', 'gertrudes123', 'https://cdn2.iconfinder.com/data/icons/diversity-avatars-volume-09/64/avatar-trenchcoat-investigator-asian-512.png');
 
-INSERT INTO tb_post ( title, summary, body, user_id, post_image, created_by) VALUES ( 'Postagem 1', 'Resumo da Postagem 1', 'Descrição da Postagem 1.', 1, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg', 'Big Hunt');
-INSERT INTO tb_post ( title, summary, body, user_id, post_image, created_by) VALUES ( 'Postagem 2', 'Resumo da Postagem 2', 'Descrição da Postagem 2.', 2, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg', 'Big Hunt');
-INSERT INTO tb_post ( title, summary, body, user_id, post_image, created_by) VALUES ( 'Postagem 3', 'Resumo da Postagem 3', 'Descrição da Postagem 3.', 3, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg', 'Big Hunt');
-INSERT INTO tb_post ( title, summary, body, user_id, post_image, created_by) VALUES ( 'Postagem 4', 'Resumo da Postagem 4', 'Descrição da Postagem 4.', 4, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg', 'Filipa Cardoso');
-INSERT INTO tb_post ( title, summary, body, user_id, post_image, created_by) VALUES ( 'Postagem 5', 'Resumo da Postagem 5', 'Descrição da Postagem 5.', 4, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg', 'Filipa Cardoso');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 1', 'Um Breve Resumo Sobre a Postagem 1', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 1.', 1, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 2', 'Um Breve Resumo Sobre a Postagem 2', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 2.', 2, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 3', 'Um Breve Resumo Sobre a Postagem 3', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 3.', 3, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 4', 'Um Breve Resumo Sobre a Postagem 4', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 4.', 4, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 5', 'Um Breve Resumo Sobre a Postagem 5', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 5.', 4, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 6', 'Um Breve Resumo Sobre a Postagem 6', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 6.', 1, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 7', 'Um Breve Resumo Sobre a Postagem 7', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 7.', 2, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 8', 'Um Breve Resumo Sobre a Postagem 8', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 8', 3, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 9', 'Um Breve Resumo Sobre a Postagem 9', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 9.', 4, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 10', 'Um Breve Resumo Sobre a Postagem 10', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 10.', 5, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 11', 'Um Breve Resumo Sobre a Postagem 11', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 11.', 1, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 12', 'Um Breve Resumo Sobre a Postagem 12', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 12.', 7, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 13', 'Um Breve Resumo Sobre a Postagem 13', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 13.', 3, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 14', 'Um Breve Resumo Sobre a Postagem 14', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 14.', 6, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
+INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 15', 'Um Breve Resumo Sobre a Postagem 15', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 15.', 4, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
 
 INSERT INTO tb_comment ( body, created_date, post_id, user_id ) VALUES ( 'Concordo, todavia discordo.', now (), 1, 2 );
 INSERT INTO tb_comment ( body, created_date, post_id, user_id ) VALUES ( 'Como eu faço pra acessar a câmera frontal do dispositivo de outra pessoa ?', now (), 2, 1 );
@@ -36,28 +52,22 @@ INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'A Produç
 INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'O Teste no Desenvolvimento de Jogos', 'Quiz sobre a fase de testes no desenvolvimento de jogos', 'https://www.dekoder.org/sites/default/files/hacker_1.png', 1);
 INSERT INTO tb_quiz ( title, description, image, chapter_id) VALUES ( 'A Implantação no Desenvolvimento de Jogos', 'Quiz sobre a fase de implantação no desenvolvimento de jogos', 'https://img.wonderhowto.com/img/20/66/63724953674051/0/expand-your-coding-skill-set-by-learning-build-games-unity.w1456.jpg', 1);
 
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 1, 'Quais os princípios básicos da Segurança da Informação ?', 1);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 1, 'Qual atributo corresponde ao nível de sigilo de uma informação ?', 2);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 1, 'Dados importantes em que a condição de inalteravél deve durar o máximo possível, este princípio trata-se de:', 3);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 2, 'Qual indivíduo é responsável por um ataque autorizado com intenções justas ?', 4);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 2, 'Invadir sistemas sem autorização, manipular códigos e coletar dados sigilosos em prol de causas sociais, éticas ou morais. Essas características referem-se ao:', 1);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 2, 'Quem tem acesso a informações privilegiadas de uma determinada empresa é chamado de: ', 5);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 3, 'Qual o principal propósito do controle parental ?', 1 );
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 3, 'Qual destas é uma motivação errada para a coleta de informações  sigilosas de menores ?', 4);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 3, 'Qual o método de controle parental é considerado o mais eficaz ?', 3);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 4, 'É um dos tipos mais antigos de malwares e difere-se de outros tipos pelo fato de ser capaz de se propagar pelas redes sem a necessidade de uma ação do usuário. Esse malware se trata do:', 2);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 4, 'Sendo considerado um dos mais recentes e perigosos tipos de malwares, qual software malicioso é capaz de evitar diversos antivírus e se infiltrar entre os arquivos do sistema ?', 5);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 4, 'Permite que seja retornado um invasor a um computador comprometido, através da inclusão de serviços criados para essa finalidade, esse tipo de malware é o:', 3 );
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 5, 'Qual o objetivo da Lei Geral de Proteção de Dados Pessoais ?', 1);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 5, 'O tratamento de dados pessoais pode ser feito por dois agentes de tratamento, quais são eles ?', 2);
-INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES ( 5, 'A LGPD estabelece 3 bases para o tratamento de dados direcionadas a comunicação. Quais são elas ?', 1);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (1, 'Quais os princípios básicos da Segurança da Informação ?', 1);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (1, 'Qual atributo corresponde ao nível de sigilo de uma informação ?', 2);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (1, 'Dados importantes em que a condição de inalteravél deve durar o máximo possível, este princípio trata-se de:', 3);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (2, 'Qual indivíduo é responsável por um ataque autorizado com intenções justas ?', 4);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (2, 'Invadir sistemas sem autorização, manipular códigos e coletar dados sigilosos em prol de causas sociais, éticas ou morais. Essas características referem-se ao:', 1);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (2, 'Quem tem acesso a informações privilegiadas de uma determinada empresa é chamado de: ', 5);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (3, 'Qual o principal propósito do controle parental ?', 1 );
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (3, 'Qual destas é uma motivação errada para a coleta de informações  sigilosas de menores ?', 4);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (3, 'Qual o método de controle parental é considerado o mais eficaz ?', 3);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (4, 'É um dos tipos mais antigos de malwares e difere-se de outros tipos pelo fato de ser capaz de se propagar pelas redes sem a necessidade de uma ação do usuário. Esse malware se trata do:', 2);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (4, 'Sendo considerado um dos mais recentes e perigosos tipos de malwares, qual software malicioso é capaz de evitar diversos antivírus e se infiltrar entre os arquivos do sistema ?', 5);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (4, 'Permite que seja retornado um invasor a um computador comprometido, através da inclusão de serviços criados para essa finalidade, esse tipo de malware é o:', 3 );
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (5, 'Qual o objetivo da Lei Geral de Proteção de Dados Pessoais ?', 1);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (5, 'O tratamento de dados pessoais pode ser feito por dois agentes de tratamento, quais são eles ?', 2);
+INSERT INTO tb_question ( quiz_id, question_title, correct_choice ) VALUES (5, 'A LGPD estabelece 3 bases para o tratamento de dados direcionadas a comunicação. Quais são elas ?', 1);
 
-INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção A')
-INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção B')
-INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção C')
-INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção A')
-INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção B')
-INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção C')
 INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção A')
 INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção B')
 INSERT INTO tb_option (question_id, choice) VALUES(1, 'Opção C')
@@ -100,4 +110,18 @@ INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, to
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(20, 24, 8, 14, 5250, 12);
 
 
-INSERT INTO tb_user_badge ( badge_id, user_id) VALUES (1, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (1, 1);
+
+INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (1, 1);
+INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (2, 1);
+INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (3, 1);
+INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (4, 1);
+INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (5, 1);
+
+INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (1, 1);
+INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (4, 1);
+INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (6, 1);
+INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (7, 1);
+
+INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (3, 1);
+INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (4, 1);

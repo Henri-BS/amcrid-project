@@ -26,6 +26,9 @@ public class PostService {
     
     public PostDTO findById(Long id) {
     	Post result = postRepository.findById(id).orElseThrow();
+		if(result.getCreatedBy() == null) {
+			result.setCreatedBy(result.getUser().getUserName());
+		}
 		return new PostDTO(result);
     }
 

@@ -1,9 +1,10 @@
+import { Badge } from "./badge";
 import { Campaign, Chapter } from "./chapter";
 import { Post } from "./post";
 import { User } from "./user";
 
 export type Page = {
-    content?: Post[] | Chapter[] | User[] |Campaign[];
+    content?: Post[] | Chapter[] | User[] |Campaign[] | Badge[];
     last?: boolean;
     first?: boolean;
     empty?: boolean;

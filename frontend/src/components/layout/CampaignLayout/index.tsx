@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Campaign, Chapter } from 'types/chapter';
-import './styles.css'
+import { Campaign, CampaignBadge } from 'types/chapter';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
-import { Props, Quiz } from 'types/quiz';
-import { QuizCard } from 'components/game/QuizzGame';
+import { Props } from 'types/quiz';
+import { CampaignBadgePage } from 'types/badge';
 
 
 type CampaignProps = {
@@ -52,85 +51,44 @@ export function CampaignCard({ campaign }: CampaignProps) {
     );
 }
 
-type ChapterProps = {
-    chapter: Chapter;
-}
-
-
-export function ChapterCard({ chapter }: ChapterProps) {
-
-    return (
-        <>
-            <img className="cl-quest-card-image" src={chapter.image} alt={chapter.title} />
-            <div className="cl-card-bottom-container">
-                <h3>{chapter.title}</h3>
-
-                <Link to={`/chapter/${chapter.id}`} className="btn btn-primary cl-form-btn">
-                    Acessar
-                </Link>
-            </div>
-        </>
-    );
-
-}
-
-export function ArticleChapter({ chapter }: ChapterProps) {
-
-    return (
-        <>
-            <div className="article-container">
-                <div className="article-content">
-                    <h2>"{chapter.title}"</h2>
-                    <p>{chapter.description}</p>
-                </div>
-            </div>
-        </>
-    );
-}
-
-export function ChapterDashboard({ id: chapterId }: Props) {
-
-    const [chapter, setChapter] = useState<Chapter>();
+export function ListBadgesByCampaign({ id: campaignId }: Props) {
+    const [badgePage, setBadgePage] = useState<CampaignBadgePage>({content:[], number:0});
     useEffect(() => {
-        axios.get(`${BASE_URL}/chapter/${chapterId}`)
+        axios.get(`${BASE_URL}/campaign/badges/${campaignId}`)
             .then((response) => {
-                setChapter(response.data);
+                setBadgePage(response.data);
             })
-    }, [chapterId]);
+    }, [campaignId]);
 
     return (
         <>
-            <div className="dashboard-container">
-                <div className="row p-0">
-                    <img className="bg-img-container col-4" src={chapter?.image} alt={chapter?.title} />
-                    <div className="description-container col-8">            <div className="title-container">Capítulo: {chapter?.title}</div>
-                        {chapter?.description}</div>
-                </div>
-            </div>
-        </>
-    );
-}
-
-export function ListQuizzesByChapter({ id: chapterId }: Props) {
-
-    const [quizList, setQuizList] = useState<Quiz[]>();
-    useEffect(() => {
-        axios.get(`${BASE_URL}/quiz/chapter/${chapterId}`)
-            .then((response) => {
-                setQuizList(response.data);
-            });
-    }, [chapterId]);
-
-    return (
-        <>
-            <div className="title-container">Quizzes</div>
-            <div className=" nav-list-container">
-                {quizList?.map(x => (
-                    <div key={x.chapterId} className="nav-list-item">
-                        <QuizCard quiz={x} />
+        <div className="title-container">Conquistas</div>
+            <div className="nav-list-container">
+                {badgePage.content?.map(x => (
+                    <div key={x.campaignId} className="nav-list-item">
+                        <BadgeCard badge={x} />
                     </div>
                 ))}
             </div>
         </>
     );
 }
+
+type BadgeProps = {
+    badge: CampaignBadge;
+}
+
+export function BadgeCard({badge}: BadgeProps){
+return(
+    <>
+    <div className="sm-card-container">
+        <img src={badge.badge.image} alt={badge.badge.name} className="sm-card-image" />
+          <div className="sm-card-title"><h6>{badge.badge.name}</h6>
+          <ul className="sm-card-info ">
+          <li> Xp: {badge.badge.xp}</li>
+          </ul></div>
+        </div>
+    
+    </>
+);
+    }

@@ -33,7 +33,7 @@ public class CampaignController {
         return ResponseEntity.ok(find);
     }
 
-    @GetMapping("/badges")
+    @GetMapping("/badges/{campaign}")
     public ResponseEntity<Page<CampaignRelationDTO>> findAllBadgesInCampaign(Pageable pageable, @PathVariable Campaign campaign){
         Page<CampaignRelationDTO> page = campaignService.findAllBadgesInCampaign(pageable, campaign);
         return ResponseEntity.ok(page);

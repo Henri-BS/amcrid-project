@@ -59,6 +59,7 @@
 }
 
 .nav-list-container {
+    height: max-content;
     width: 100%;
     overflow-x: scroll;
     display: flex;

@@ -11,11 +11,11 @@ export type User = {
 
 export type UserPage = {
     content?: User[];
-    last: boolean;
-    first: boolean;
+    last?: boolean;
+    first?: boolean;
     empty?: boolean;
-    totalPages: number;
-    totalElements: number;
+    totalPages?: number;
+    totalElements?: number;
     numberOfElements?: number;
     size?: number;
     number: number;

@@ -13,5 +13,6 @@ public interface CampaignBadgeRepository extends JpaRepository<CampaignBadge, Lo
 
     void deleteBadgeByCampaign(Badge badge);
 
-    Page<CampaignBadge> findAllBadgesInCampaign(Pageable pageable, Campaign campaign);
+    Page<CampaignBadge> findAllBadgesByCampaign(Pageable pageable, Campaign campaign);
+
 }

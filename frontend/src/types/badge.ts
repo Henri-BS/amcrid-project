@@ -1,21 +1,34 @@
+import { CampaignBadge } from "./chapter";
+
 export type Badge = {
     id: number;
     name: string;
     description: string;
     image: string;
     xp: number;
-    chapterId: number;
 }
 
 export type BadgePage = {
-    content: Badge[];
-    last: boolean;
-    first: boolean;
-    empty: boolean;
-    totalPages: number;
-    totalElements: number;
-    numberOfElements: number;
-    size: number;
+  content?: Badge[];
+  last?: boolean;
+  first?: boolean;
+  empty?: boolean;
+  totalPages?: number;
+  totalElements?: number;
+  numberOfElements?: number;
+  size?: number;
+  number: number;
+};
+
+export type CampaignBadgePage = {
+    content?: CampaignBadge[];
+    last?: boolean;
+    first?: boolean;
+    empty?: boolean;
+    totalPages?: number;
+    totalElements?: number;
+    numberOfElements?: number;
+    size?: number;
     number: number;
   };
 

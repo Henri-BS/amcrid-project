@@ -1,14 +1,14 @@
 import Home from "pages/Home";
-import { Chapter } from "pages/ChapterPage/index";
-import Profile from "pages/UserProfile";
+import { Chapter } from "pages/profiles/ChapterProfile/index";
+import Profile from "pages/profiles/UserProfile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "components/shared/NavBar";
 import Footer from "components/shared/Footer";
-import Post from "pages/PostProfile";
+import Post from "pages/profiles/PostProfile";
 import {ArticleList, ChapterList, UserList} from "pages/Listing";
 import { QuizProfile } from "components/game/QuizzGame";
 import { Ranking } from "pages/Ranking";
-import { CampaignProfile } from "pages/CampaingProfile";
+import { CampaignProfile } from "pages/profiles/CampaingProfile";
 
 const PageRoutes = () => {
     return (

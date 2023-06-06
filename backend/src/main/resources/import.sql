@@ -125,3 +125,5 @@ INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (7, 1);
 
 INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (3, 1);
 INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (4, 1);
+INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (5, 1);
+INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (6, 1);

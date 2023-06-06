@@ -15,14 +15,7 @@ export function ArticleList() {
     const [pageNumber, setPageNumber] = useState(0);
     const [postPage, setPostPage] = useState<PostPage>({
         content: [],
-        first: true,
-        last: true,
-        totalPages: 0,
-        totalElements: 0,
-        size: 0,
-        number: 0,
-        numberOfElements: 0,
-        empty: true
+        number: 0
     });
 
     useEffect(() => {
@@ -97,23 +90,11 @@ export function ChapterList() {
 export function UserList() {
 
     const [pageNumber, setPageNumber] = useState(0);
-    const [page, setPage] = useState<UserPage>({
-        content: [],
-        first: true,
-        last: true,
-        totalPages: 0,
-        totalElements: 0,
-        size: 0,
-        number: 0,
-        numberOfElements: 0,
-        empty: true
-    });
-
+    const [page, setPage] = useState<UserPage>({ content: [], number: 0 });
     useEffect(() => {
         axios.get(`${BASE_URL}/user?page=${pageNumber}&size=8&sort=userName`)
             .then(response => {
-                const data = response.data as UserPage;
-                setPage(data);
+                setPage(response.data);
             });
     }, [pageNumber]);
 
@@ -124,10 +105,7 @@ export function UserList() {
     return (
         <>
             <div className="container">
-                <div><Pagination 
-                page={page}
-                onChange={handlePageChange}/>
-                </div>
+              <Pagination page={page} onChange={handlePageChange}/>
                 <div className="list-container row">
                     {page.content?.map(user => (
                         <div key={user.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">

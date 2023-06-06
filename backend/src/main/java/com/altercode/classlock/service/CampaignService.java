@@ -84,7 +84,7 @@ public class CampaignService {
 
     public CampaignRelationDTO addBadgeInCampaign(CampaignRelationDTO dto) {
         Campaign campaign = campaignRepository.findById(dto.getCampaignId()).orElseThrow();
-        Badge badge = badgeRepository.findById(dto.getBadgeId()).orElseThrow();
+        Badge badge = badgeRepository.findById(dto.getBadge().getId()).orElseThrow();
 
         CampaignBadge add = new CampaignBadge();
             add.setCampaign(campaign);
@@ -118,7 +118,7 @@ public class CampaignService {
     }
 
     public Page<CampaignRelationDTO> findAllBadgesInCampaign(Pageable pageable, Campaign campaign) {
-        Page<CampaignBadge> page = campaignBadgeRepository.findAllBadgesInCampaign(pageable, campaign);
+        Page<CampaignBadge> page = campaignBadgeRepository.findAllBadgesByCampaign(pageable, campaign);
         return page.map(CampaignRelationDTO::new);
     }
 }

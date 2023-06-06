@@ -9,7 +9,7 @@ import './styles.css'
 import { Props } from 'types/quiz';
 import { UserBadge } from 'types/badge';
 
-function UserCard({id: userId }: Props) {
+function UserCard({ id: userId }: Props) {
     const params = useParams();
 
     const [user, setUser] = useState<User>();
@@ -22,12 +22,10 @@ function UserCard({id: userId }: Props) {
 
     return (
         <div>
-            <img className="user-card-image"
-                src={user?.image}
-                alt={user?.userName} />
+            <img className="user-card-image" src={user?.image} alt={user?.userName} />
             <div className="user-card-container ">
                 <h3>{user?.userName}</h3>
-<BadgeListByUser id={`${params.userId}`}/>
+                <BadgeListByUser id={`${params.userId}`} />
                 <hr />
             </div>
         </div>
@@ -35,26 +33,26 @@ function UserCard({id: userId }: Props) {
 }
 export default UserCard;
 
-export function BadgeListByUser({id: userId}: Props){
-const[badgeList, setBadgeList] = useState<UserBadge[]>();
-useEffect(() => {
-axios.get(`${BASE_URL}/badge/by-user/${userId}`)
-.then((response) => {
-    setBadgeList(response.data);
-})
-}, [userId]);
+export function BadgeListByUser({ id: userId }: Props) {
+    const [badgeList, setBadgeList] = useState<UserBadge[]>();
+    useEffect(() => {
+        axios.get(`${BASE_URL}/badge/by-user/${userId}`)
+            .then((response) => {
+                setBadgeList(response.data);
+            })
+    }, [userId]);
 
-return (
-    <>
-  <div className="user-badge-container">
-    {badgeList?.map(x => (
+    return (
+        <>
+            <div className="user-badge-container">
+                {badgeList?.map(x => (
                     <div className="badge-item" key={x.id}>
-                            <img  className="badge-item"src={x.badgeImage} alt={x.badgeName}/>
+                        <img className="badge-item" src={x.badgeImage} alt={x.badgeName} />
                     </div>
-                    ))}
-                </div>
-    </>
-);
+                ))}
+            </div>
+        </>
+    );
 }
 
 type MyConquests = {
@@ -91,11 +89,11 @@ export function MiniUserCard({ user }: Cons) {
 
     return (
         <Link to={`/profile/${user?.id}`}>
-            <div className="user-minicard-container">
-                <img className="user-minicard-image" src={user?.image} alt={user?.userName} />
-                <div className="user-minicard-username">
+            <div className="sm-card-container">
+                <img className="sm-card-image" src={user?.image} alt={user?.userName} />
+                <div className="sm-card-title">
                     <h6>{user?.userName}</h6>
-                    <ul className="user-minicard-info" >
+                    <ul className="sm-card-info" >
                         <li>E-mail: {user?.email}</li>
                     </ul>
                 </div>

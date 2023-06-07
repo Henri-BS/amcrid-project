@@ -106,6 +106,7 @@ public class CampaignService {
     }
 
     public void deleteUserByCampaign(User user) {
+
         this.campaignUserRepository.deleteByUser(user);
     }
 
@@ -119,6 +120,16 @@ public class CampaignService {
 
     public Page<CampaignRelationDTO> findAllBadgesInCampaign(Pageable pageable, Campaign campaign) {
         Page<CampaignBadge> page = campaignBadgeRepository.findAllBadgesByCampaign(pageable, campaign);
+        return page.map(CampaignRelationDTO::new);
+    }
+
+    public Page<CampaignRelationDTO> findAllUsersInCampaign(Pageable pageable, Campaign campaign) {
+        Page<CampaignUser> page = campaignUserRepository.findAllUsersByCampaign(pageable, campaign);
+        return page.map(CampaignRelationDTO::new);
+    }
+
+    public Page<CampaignRelationDTO> findAllPostersInCampaign(Pageable pageable, Campaign campaign) {
+        Page<CampaignPost> page = campaignPostRepository.findAllPostersInCampaign(pageable, campaign);
         return page.map(CampaignRelationDTO::new);
     }
 }

@@ -39,6 +39,18 @@ public class CampaignController {
         return ResponseEntity.ok(page);
     }
 
+    @GetMapping("/users/{campaign")
+    public ResponseEntity<Page<CampaignRelationDTO>> findAllUsersInCampaign(Pageable pageable, @PathVariable Campaign campaign){
+        Page<CampaignRelationDTO> page = campaignService.findAllUsersInCampaign(pageable, campaign);
+        return ResponseEntity.ok(page);
+    }
+
+    @GetMapping("posts/{campaign}")
+    public ResponseEntity<Page<CampaignRelationDTO>> findAllPostersInCampaign(Pageable pageable, @PathVariable Campaign campaign) {
+        Page<CampaignRelationDTO> page = campaignService.findAllPostersInCampaign(pageable, campaign);
+        return ResponseEntity.ok(page);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<CampaignDTO> saveCampaign(@RequestBody CampaignDTO dto) {
         CampaignDTO add = campaignService.saveCampaign(dto);

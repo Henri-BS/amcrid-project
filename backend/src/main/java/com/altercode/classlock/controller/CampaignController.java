@@ -34,20 +34,20 @@ public class CampaignController {
     }
 
     @GetMapping("/badges/{campaign}")
-    public ResponseEntity<Page<CampaignRelationDTO>> findAllBadgesInCampaign(Pageable pageable, @PathVariable Campaign campaign){
-        Page<CampaignRelationDTO> page = campaignService.findAllBadgesInCampaign(pageable, campaign);
+    public ResponseEntity<Page<CampaignRelationDTO>> findAllBadgesByCampaign(Pageable pageable, @PathVariable Campaign campaign){
+        Page<CampaignRelationDTO> page = campaignService.findAllBadgesByCampaign(pageable, campaign);
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/users/{campaign")
-    public ResponseEntity<Page<CampaignRelationDTO>> findAllUsersInCampaign(Pageable pageable, @PathVariable Campaign campaign){
-        Page<CampaignRelationDTO> page = campaignService.findAllUsersInCampaign(pageable, campaign);
+    @GetMapping("/users/{campaign}")
+    public ResponseEntity<Page<CampaignRelationDTO>> findAllUsersByCampaign(Pageable pageable, @PathVariable Campaign campaign){
+        Page<CampaignRelationDTO> page = campaignService.findAllUsersByCampaign(pageable, campaign);
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("posts/{campaign}")
-    public ResponseEntity<Page<CampaignRelationDTO>> findAllPostersInCampaign(Pageable pageable, @PathVariable Campaign campaign) {
-        Page<CampaignRelationDTO> page = campaignService.findAllPostersInCampaign(pageable, campaign);
+    @GetMapping("/posts/{campaign}")
+    public ResponseEntity<Page<CampaignRelationDTO>> findAllPostersByCampaign(Pageable pageable, @PathVariable Campaign campaign) {
+        Page<CampaignRelationDTO> page = campaignService.findAllPostersByCampaign(pageable, campaign);
         return ResponseEntity.ok(page);
     }
 

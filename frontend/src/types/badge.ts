@@ -1,4 +1,4 @@
-import { CampaignBadge } from "./chapter";
+import { CampaignBadge, CampaignUser } from "./chapter";
 
 export type Badge = {
     id: number;
@@ -32,11 +32,23 @@ export type CampaignBadgePage = {
     number: number;
   };
 
+  export type CampaignUserPage = {
+    content?: CampaignUser[];
+    last?: boolean;
+    first?: boolean;
+    empty?: boolean;
+    totalPages?: number;
+    totalElements?: number;
+    numberOfElements?: number;
+    size?: number;
+    number: number;
+  };
+
   export type UserBadge = {
-id: number;
+  id: number;
   userId: number;
   count: number;
   conquestDate: string;
   badgeName: string;
-badgeImage: string;
+  badgeImage: string;
 }

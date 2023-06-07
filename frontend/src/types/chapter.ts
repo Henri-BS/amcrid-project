@@ -1,4 +1,5 @@
 import { Badge } from "./badge";
+import { User } from "./user";
 
 export type Campaign = {
   id: number;
@@ -23,6 +24,11 @@ export type CampaignPage = {
 export type CampaignBadge = {
   campaignId: number;
   badge: Badge
+}
+
+export type CampaignUser = {
+  campaignId: number;
+  user: User;
 }
 
 export type Chapter = {

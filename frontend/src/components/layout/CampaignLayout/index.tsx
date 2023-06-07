@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Campaign, CampaignBadge } from 'types/chapter';
+import { Campaign, CampaignBadge, CampaignUser } from 'types/chapter';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
 import { Props } from 'types/quiz';
-import { CampaignBadgePage } from 'types/badge';
+import { CampaignBadgePage, CampaignUserPage } from 'types/badge';
 
 
 type CampaignProps = {
@@ -74,6 +74,50 @@ export function ListBadgesByCampaign({ id: campaignId }: Props) {
     );
 }
 
+export function ListUsersByCampaign({id: campaignId}: Props) {
+    const[userPage, setUserPage] = useState<CampaignUserPage>({content: [], number: 0})
+    useEffect(() => {
+        axios.get(`${BASE_URL}/campaign/users/${campaignId}`)
+        .then((response) => {
+            setUserPage(response.data);
+        });
+    }, [campaignId]);
+
+    return(
+        <>
+        <div className="title-container">Membros</div>
+        <div className="nav-list-container">
+            {userPage.content?.map(x => (
+                <div key={x.campaignId} className="nav-list-item">
+                    <UserSmCard campaignUser={x}/>
+                </div>
+            ))}
+        </div>
+        </>
+    );
+}
+
+type CampaignUserProps = {
+    campaignUser: CampaignUser;
+}
+
+export function UserSmCard({ campaignUser }: CampaignUserProps) {
+
+    return (
+        <Link to={`/profile/${campaignUser.user?.id}`}>
+            <div className="sm-card-container">
+                <img className="sm-card-image" src={campaignUser.user?.image} alt={campaignUser.user?.userName} />
+                <div className="sm-card-title">
+                    <h6>{campaignUser.user?.userName}</h6>
+                    <ul className="sm-card-info" >
+                        <li>Total XP: {campaignUser.user?.conquest?.totalXp}</li>
+                    </ul>
+                </div>
+            </div>
+        </Link>
+    );
+}
+
 type BadgeProps = {
     badge: CampaignBadge;
 }
@@ -88,7 +132,6 @@ return(
           <li> Xp: {badge.badge.xp}</li>
           </ul></div>
         </div>
-    
     </>
 );
     }

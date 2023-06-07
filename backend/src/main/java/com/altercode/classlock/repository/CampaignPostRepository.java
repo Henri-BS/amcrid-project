@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 public interface CampaignPostRepository extends JpaRepository<CampaignPost, Long> {
     void deleteByPost(Post post);
 
-    Page<CampaignPost> findAllPostersInCampaign(Pageable pageable, Campaign campaign);
+    Page<CampaignPost> findAllPostersByCampaign(Pageable pageable, Campaign campaign);
 }

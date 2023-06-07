@@ -64,7 +64,7 @@ public class CampaignService {
 
     public CampaignRelationDTO addUserInCampaign(CampaignRelationDTO dto) {
         Campaign campaign = campaignRepository.findById(dto.getCampaignId()).orElseThrow();
-        User user = userRepository.findByUserName(dto.getUserName());
+        User user = userRepository.findByUserName(dto.getUser().getUserName());
 
         CampaignUser add = new CampaignUser();
         add.setCampaign(campaign);
@@ -118,18 +118,18 @@ public class CampaignService {
         this.campaignBadgeRepository.deleteBadgeByCampaign(badge);
     }
 
-    public Page<CampaignRelationDTO> findAllBadgesInCampaign(Pageable pageable, Campaign campaign) {
+    public Page<CampaignRelationDTO> findAllBadgesByCampaign(Pageable pageable, Campaign campaign) {
         Page<CampaignBadge> page = campaignBadgeRepository.findAllBadgesByCampaign(pageable, campaign);
         return page.map(CampaignRelationDTO::new);
     }
 
-    public Page<CampaignRelationDTO> findAllUsersInCampaign(Pageable pageable, Campaign campaign) {
+    public Page<CampaignRelationDTO> findAllUsersByCampaign(Pageable pageable, Campaign campaign) {
         Page<CampaignUser> page = campaignUserRepository.findAllUsersByCampaign(pageable, campaign);
         return page.map(CampaignRelationDTO::new);
     }
 
-    public Page<CampaignRelationDTO> findAllPostersInCampaign(Pageable pageable, Campaign campaign) {
-        Page<CampaignPost> page = campaignPostRepository.findAllPostersInCampaign(pageable, campaign);
+    public Page<CampaignRelationDTO> findAllPostersByCampaign(Pageable pageable, Campaign campaign) {
+        Page<CampaignPost> page = campaignPostRepository.findAllPostersByCampaign(pageable, campaign);
         return page.map(CampaignRelationDTO::new);
     }
 }

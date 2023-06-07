@@ -81,11 +81,11 @@ export function UserCardConquests({ conquestId }: MyConquests) {
     );
 }
 
-type Cons = {
-    user: User
+type UserProps = {
+    user: User;
 }
 
-export function MiniUserCard({ user }: Cons) {
+export function MiniUserCard({ user }: UserProps) {
 
     return (
         <Link to={`/profile/${user?.id}`}>

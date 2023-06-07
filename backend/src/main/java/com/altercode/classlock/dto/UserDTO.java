@@ -19,6 +19,7 @@ public class UserDTO implements Serializable {
 	private String userName;
 	private String password;
 	private String image;
+	private ConquestDTO conquest;
 
 	public UserDTO(User entity) {
 		id = entity.getId();
@@ -26,5 +27,6 @@ public class UserDTO implements Serializable {
 		email = entity.getEmail();
 		password = entity.getPassword();
 		image = entity.getImage();
+		conquest = new ConquestDTO(entity.getConquest());
 	}
 }

@@ -111,6 +111,11 @@ INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, to
 
 
 INSERT INTO tb_user_badge (badge_id, user_id) VALUES (1, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (2, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (3, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (4, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (5, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (6, 1);
 
 INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (1, 1);
 INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (2, 1);

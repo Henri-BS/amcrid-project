@@ -3,7 +3,7 @@ package com.altercode.classlock.controller;
 import java.util.List;
 
 import com.altercode.classlock.dto.QuizBadgeDTO;
-import com.altercode.classlock.dto.UserBadgeDTO;
+import com.altercode.classlock.dto.UserRelationDTO;
 import com.altercode.classlock.entity.Quiz;
 import com.altercode.classlock.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +48,8 @@ public class BadgeController {
 	}
 
 	@GetMapping("/by-user/{user}")
-	public ResponseEntity<List<UserBadgeDTO>> findAllBadgesByUser(@PathVariable User user) {
-		List<UserBadgeDTO> list = badgeService.findAllBadgesByUser(user);
+	public ResponseEntity<List<UserRelationDTO>> findAllBadgesByUser(@PathVariable User user) {
+		List<UserRelationDTO> list = badgeService.findAllBadgesByUser(user);
 		return ResponseEntity.ok(list);
 	}
 
@@ -66,8 +66,8 @@ public class BadgeController {
 	}
 
 	@PostMapping("/add-user")
-	public ResponseEntity<UserBadgeDTO> saveUserBadge(@RequestBody UserBadgeDTO dto) {
-		UserBadgeDTO add = badgeService.saveUserBadge(dto);
+	public ResponseEntity<UserRelationDTO> saveUserBadge(@RequestBody UserRelationDTO dto) {
+		UserRelationDTO add = badgeService.saveUserBadge(dto);
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
 

@@ -1,5 +1,5 @@
 import { Badge } from "./badge";
-import { Campaign, Chapter } from "./chapter";
+import { Campaign, Chapter } from "./campaign";
 import { Post } from "./post";
 import { User } from "./user";
 

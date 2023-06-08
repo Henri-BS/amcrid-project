@@ -3,7 +3,7 @@ import Pagination from "components/shared/Pagination";
 import {ChapterCard} from "components/layout/ChapterLayout";
 import { MiniUserCard } from "components/layout/UserLayout";
 import { useEffect, useState } from "react";
-import { ChapterPage } from "types/chapter";
+import { ChapterPage } from "types/campaign";
 import { PostPage } from "types/post";
 import { UserPage } from "types/user";
 import { BASE_URL } from "utils/requests";

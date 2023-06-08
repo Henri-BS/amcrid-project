@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Chapter } from "types/chapter";
+import { Chapter } from "types/campaign";
 import { Props } from "types/quiz";
 import { BASE_URL } from "utils/requests";
 

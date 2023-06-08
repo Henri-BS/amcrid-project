@@ -1,6 +1,7 @@
 package com.altercode.classlock.dto;
 
 import com.altercode.classlock.entity.UserBadge;
+import com.altercode.classlock.entity.UserPost;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserBadgeDTO implements Serializable {
+public class UserRelationDTO implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -22,15 +23,23 @@ public class UserBadgeDTO implements Serializable {
     private Integer count;
     private LocalDateTime conquestDate;
     private Long userId;
-    private String badgeName;
-    private String badgeImage;
+private BadgeDTO badge;
+private PostDTO post;
 
-    public UserBadgeDTO(UserBadge entity) {
+    public UserRelationDTO(UserBadge entity) {
         id = entity.getId();
         count = entity.getCount();
         conquestDate = entity.getConquestDate();
         userId = entity.getUser().getId();
-        badgeName = entity.getBadge().getName();
-        badgeImage = entity.getBadge().getImage();
+        badge = new BadgeDTO(entity.getBadge());
+    }
+
+    public UserRelationDTO(UserPost entity) {
+        id = entity.getId();
+        count = entity.getCount();
+        conquestDate = entity.getConquestDate();
+        userId = entity.getUser().getId();
+        post = new PostDTO(entity.getPost());
+
     }
 }

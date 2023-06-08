@@ -5,11 +5,11 @@
 
 .user-card-container {
     width: 300px;
+    justify-content: center;
     align-items: center;
-    border-radius: 0px 0px 30px 30px;
     text-decoration-color: transparent;
     padding: 8px;
-    display: grid;
+    display: flex;
 }
 
 .user-badge-container {

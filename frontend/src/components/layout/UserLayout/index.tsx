@@ -24,9 +24,8 @@ function UserCard({ id: userId }: Props) {
         <div>
             <img className="user-card-image" src={user?.image} alt={user?.userName} />
             <div className="user-card-container ">
-                <h3>{user?.userName}</h3>
-                <BadgeListByUser id={`${params.userId}`} />
-                <hr />
+                              <hr />
+  <h3>{user?.userName}</h3>
             </div>
         </div>
     );

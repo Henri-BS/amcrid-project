@@ -40,8 +40,8 @@ function Navbar() {
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
-          <li>
-            <Link to='/profile/1' className='profile-nav' onClick={closeMobileMenu}>
+          <li className='profile-nav' >
+            <Link to='/profile/1' onClick={closeMobileMenu}>
               <img className='nav-links-image' src={IProf} alt='profile' />
             </Link>
           </li>

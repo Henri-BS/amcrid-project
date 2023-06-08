@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { PostPage } from 'types/post';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
-import {CampaignPage } from 'types/chapter';
+import {CampaignPage } from 'types/campaign';
 
 function Home() {
 
@@ -66,7 +66,7 @@ function Home() {
 
 
         <Link to="/chapter-list">
-          <h2>Capítulos</h2>
+          <h2>Campanhas</h2>
         </Link>
         <Pagination page={campaignPage} onChange={handlePageChange}
         />

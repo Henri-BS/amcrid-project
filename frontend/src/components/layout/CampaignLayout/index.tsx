@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Campaign, CampaignBadge, CampaignUser } from 'types/chapter';
+import { Campaign, CampaignBadge, CampaignUser } from 'types/campaign';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';

@@ -2,6 +2,8 @@ package com.altercode.classlock.controller;
 
 import java.util.List;
 
+import com.altercode.classlock.dto.UserRelationDTO;
+import com.altercode.classlock.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,16 +33,24 @@ public class UserController {
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping("/{id}")
-    public UserDTO findById(@PathVariable Long id) {
-        return userService.findById(id);
-    }
-
     @GetMapping("/search")
     public ResponseEntity<List<UserDTO>> getdByName(@RequestParam String prefix) {
         List<UserDTO> list = userService.getByName(prefix);
         return ResponseEntity.ok(list);
     }
+
+    @GetMapping("/posters/{user}")
+    public ResponseEntity<List<UserRelationDTO>> findAllPostersByUser(User user){
+        List<UserRelationDTO> list = userService.findAllPostersByUser(user);
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/{id}")
+    public UserDTO findById(@PathVariable Long id) {
+        return userService.findById(id);
+    }
+
+
 
     @PostMapping("/add")
     public ResponseEntity<UserDTO> saveUser(@RequestBody UserDTO dto) {

@@ -1,4 +1,4 @@
-import UserCard, { UserCardConquests } from 'components/layout/UserLayout';
+import UserCard, { BadgeListByUser, UserCardConquests } from 'components/layout/UserLayout';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './styles.css';
@@ -38,9 +38,13 @@ function Profile() {
 
         </div>
         <div className="max-container">
-          <div className="user-box-container ">
+          <div className="user-box-container row">
+            <div className="col-4">
             < UserCard id={`${params.userId}`} />
-            < UserCardConquests conquestId={`${params.userId}`} />
+            </div>
+            <div className="col-8">
+            < BadgeListByUser id={`${params.userId}`}  />
+            </div>
           </div>
         </div>
       </div>

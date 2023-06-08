@@ -1,4 +1,4 @@
-import { CampaignBadge, CampaignUser } from "./chapter";
+import { CampaignBadge, CampaignUser } from "./campaign";
 
 export type Badge = {
     id: number;

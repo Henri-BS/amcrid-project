@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.altercode.classlock.dto.QuizBadgeDTO;
-import com.altercode.classlock.dto.UserBadgeDTO;
+import com.altercode.classlock.dto.UserRelationDTO;
 import com.altercode.classlock.entity.*;
 import com.altercode.classlock.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,9 +55,9 @@ public class BadgeService {
 		return list.stream().map(QuizBadgeDTO::new).collect(Collectors.toList());
 	}
 
-	public List<UserBadgeDTO> findAllBadgesByUser(User user) {
+	public List<UserRelationDTO> findAllBadgesByUser(User user) {
 		List<UserBadge> list = userBadgeRepository.findAllBadgesByUser(user);
-		return list.stream().map(UserBadgeDTO::new).collect(Collectors.toList());
+		return list.stream().map(UserRelationDTO::new).collect(Collectors.toList());
 	}
 
 
@@ -83,15 +83,15 @@ public class BadgeService {
 		return new QuizBadgeDTO(quizBadgeRepository.saveAndFlush(quizbadge));
 	}
 
-	public UserBadgeDTO saveUserBadge(UserBadgeDTO dto) {
+	public UserRelationDTO saveUserBadge(UserRelationDTO dto) {
 		User user = userRepository.findById(dto.getUserId()).orElseThrow();
-		Badge badge = badgeRepository.findBadgeByName(dto.getBadgeName());
+		Badge badge = badgeRepository.findBadgeByName(dto.getBadge().getName());
 
 		UserBadge userBadge = new UserBadge();
 		userBadge.setUser(user);
 		userBadge.setBadge(badge);
 
-		return new UserBadgeDTO(userBadgeRepository.saveAndFlush(userBadge));
+		return new UserRelationDTO(userBadgeRepository.saveAndFlush(userBadge));
 	}
 
 	public BadgeDTO updateBadge(BadgeDTO dto) {

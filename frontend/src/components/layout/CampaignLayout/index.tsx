@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Campaign, CampaignBadge, CampaignUser } from 'types/campaign';
+import { Campaign, CampaignBadge, CampaignPost, CampaignPostPage, CampaignUser } from 'types/campaign';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
 import { Props } from 'types/quiz';
 import { CampaignBadgePage, CampaignUserPage } from 'types/badge';
+import { PostCard } from '../ArticleLayout';
 
 
 type CampaignProps = {
@@ -97,6 +98,29 @@ export function ListUsersByCampaign({id: campaignId}: Props) {
     );
 }
 
+export function ListPostersByCampaign({id: campaignId}: Props) {
+    const[postPage, setPostPage] = useState<CampaignPostPage>({content: [], number: 0})
+    useEffect(() => {
+        axios.get(`${BASE_URL}/campaign/posters/${campaignId}`)
+        .then((response) => {
+            setPostPage(response.data);
+        });
+    }, [campaignId]);
+
+    return(
+        <>
+        <div className="title-container">Biblioteca</div>
+        <div className="nav-list-container">
+            {postPage.content?.map(x => (
+                <div key={x.campaignId} className="nav-list-item">
+                    <CampaignPostCard campaignPost={x}/>
+                </div>
+            ))}
+        </div>
+        </>
+    );
+}
+
 type CampaignUserProps = {
     campaignUser: CampaignUser;
 }
@@ -135,3 +159,22 @@ return(
     </>
 );
     }
+
+
+    type PostProps = {
+        campaignPost: CampaignPost;
+    }
+    
+    export function CampaignPostCard({campaignPost}: PostProps){
+        return (
+
+            <Link to={`/post/${campaignPost.post.id}`} >
+                <div className="article-card-container">
+                    <h3>{ campaignPost.post.title}</h3>                 
+                    <hr />               
+                    <p>"{campaignPost.post.summary}"</p>
+                </div>
+            </Link>
+        );
+        }
+    

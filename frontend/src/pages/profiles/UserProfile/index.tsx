@@ -1,5 +1,4 @@
-import UserCard, { BadgeListByUser, UserCardConquests } from 'components/layout/UserLayout';
-import React from 'react';
+import  {UserCard, BadgeListByUser } from 'components/layout/UserLayout';
 import { useNavigate, useParams } from 'react-router-dom';
 import './styles.css';
 import { PostAddForm } from 'components/form/PostForm';

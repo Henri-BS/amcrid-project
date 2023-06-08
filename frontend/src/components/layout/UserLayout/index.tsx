@@ -9,7 +9,7 @@ import './styles.css'
 import { Props } from 'types/quiz';
 import { UserBadge } from 'types/badge';
 
-function UserCard({ id: userId }: Props) {
+export function UserCard({ id: userId }: Props) {
     const params = useParams();
 
     const [user, setUser] = useState<User>();
@@ -30,7 +30,6 @@ function UserCard({ id: userId }: Props) {
         </div>
     );
 }
-export default UserCard;
 
 export function BadgeListByUser({ id: userId }: Props) {
     const [badgeList, setBadgeList] = useState<UserBadge[]>();
@@ -100,3 +99,4 @@ export function MiniUserCard({ user }: UserProps) {
         </Link>
     );
 }
+

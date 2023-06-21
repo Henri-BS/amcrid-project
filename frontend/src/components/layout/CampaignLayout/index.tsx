@@ -1,16 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Campaign, CampaignBadge, CampaignPost, CampaignPostPage, CampaignUser } from 'types/campaign';
+import { CampaignBadgeProps, CampaignPostPage, CampaignPostProps, CampaignProps, CampaignUserProps } from 'types/campaign';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
 import { Props } from 'types/quiz';
 import { CampaignBadgePage, CampaignUserPage } from 'types/badge';
-import { PostCard } from '../ArticleLayout';
 
 
-type CampaignProps = {
-    campaign: Campaign;
-}
 
 export function CampaignCard({ campaign }: CampaignProps) {
     return (
@@ -53,7 +49,7 @@ export function CampaignCard({ campaign }: CampaignProps) {
 }
 
 export function ListBadgesByCampaign({ id: campaignId }: Props) {
-    const [badgePage, setBadgePage] = useState<CampaignBadgePage>({content:[], number:0});
+    const [badgePage, setBadgePage] = useState<CampaignBadgePage>({ content: [], number: 0 });
     useEffect(() => {
         axios.get(`${BASE_URL}/campaign/badges/${campaignId}`)
             .then((response) => {
@@ -63,7 +59,7 @@ export function ListBadgesByCampaign({ id: campaignId }: Props) {
 
     return (
         <>
-        <div className="title-container">Conquistas</div>
+            <div className="title-container">Conquistas</div>
             <div className="nav-list-container">
                 {badgePage.content?.map(x => (
                     <div key={x.campaignId} className="nav-list-item">
@@ -73,56 +69,81 @@ export function ListBadgesByCampaign({ id: campaignId }: Props) {
             </div>
         </>
     );
+    
+    function BadgeCard({ badge }: CampaignBadgeProps) {
+    return (
+        <>
+            <div className="sm-card-container">
+                <img src={badge.badge.image} alt={badge.badge.name} className="sm-card-image" />
+                <div className="sm-card-title"><h6>{badge.badge.name}</h6>
+                    <ul className="sm-card-info ">
+                        <li> Xp: {badge.badge.xp}</li>
+                    </ul></div>
+            </div>
+        </>
+    );
 }
 
-export function ListUsersByCampaign({id: campaignId}: Props) {
-    const[userPage, setUserPage] = useState<CampaignUserPage>({content: [], number: 0})
+}
+
+export function ListUsersByCampaign({ id: campaignId }: Props) {
+    const [userPage, setUserPage] = useState<CampaignUserPage>({ content: [], number: 0 })
     useEffect(() => {
         axios.get(`${BASE_URL}/campaign/users/${campaignId}`)
-        .then((response) => {
-            setUserPage(response.data);
-        });
+            .then((response) => {
+                setUserPage(response.data);
+            });
     }, [campaignId]);
 
-    return(
+    return (
         <>
-        <div className="title-container">Membros</div>
-        <div className="nav-list-container">
-            {userPage.content?.map(x => (
-                <div key={x.campaignId} className="nav-list-item">
-                    <UserSmCard campaignUser={x}/>
-                </div>
-            ))}
-        </div>
+            <div className="title-container">Membros</div>
+            <div className="nav-list-container">
+                {userPage.content?.map(x => (
+                    <div key={x.campaignId} className="nav-list-item">
+                        <UserSmCard campaignUser={x} />
+                    </div>
+                ))}
+            </div>
         </>
     );
 }
 
-export function ListPostersByCampaign({id: campaignId}: Props) {
-    const[postPage, setPostPage] = useState<CampaignPostPage>({content: [], number: 0})
+export function ListPostersByCampaign({ id: campaignId }: Props) {
+    const [postPage, setPostPage] = useState<CampaignPostPage>({ content: [], number: 0 })
     useEffect(() => {
-        axios.get(`${BASE_URL}/campaign/posters/${campaignId}`)
-        .then((response) => {
-            setPostPage(response.data);
-        });
+        axios.get(`${BASE_URL}/campaign/posts/${campaignId}`)
+            .then((response) => {
+                setPostPage(response.data);
+            });
     }, [campaignId]);
 
-    return(
+    return (
         <>
-        <div className="title-container">Biblioteca</div>
-        <div className="nav-list-container">
-            {postPage.content?.map(x => (
-                <div key={x.campaignId} className="nav-list-item">
-                    <CampaignPostCard campaignPost={x}/>
-                </div>
-            ))}
-        </div>
+            <div className="title-container">Biblioteca</div>
+            <div className="nav-list-container">
+                {postPage.content?.map(x => (
+                    <div key={x.campaignId} className="nav-list-item">
+                        <CampaignPostCard campaignPost={x} />
+                    </div>
+                ))}
+            </div>
         </>
+    );
+
+    function CampaignPostCard({ campaignPost }: CampaignPostProps) {
+    return (
+
+        <Link to={`/post/${campaignPost.post.id}`} >
+            <div className="article-card-container">
+                <h3>{campaignPost.post.title}</h3>
+                <hr />
+                <p>"{campaignPost.post.summary}"</p>
+            </div>
+        </Link>
     );
 }
 
-type CampaignUserProps = {
-    campaignUser: CampaignUser;
 }
 
 export function UserSmCard({ campaignUser }: CampaignUserProps) {
@@ -142,39 +163,5 @@ export function UserSmCard({ campaignUser }: CampaignUserProps) {
     );
 }
 
-type BadgeProps = {
-    badge: CampaignBadge;
-}
-
-export function BadgeCard({badge}: BadgeProps){
-return(
-    <>
-    <div className="sm-card-container">
-        <img src={badge.badge.image} alt={badge.badge.name} className="sm-card-image" />
-          <div className="sm-card-title"><h6>{badge.badge.name}</h6>
-          <ul className="sm-card-info ">
-          <li> Xp: {badge.badge.xp}</li>
-          </ul></div>
-        </div>
-    </>
-);
-    }
-
-
-    type PostProps = {
-        campaignPost: CampaignPost;
-    }
-    
-    export function CampaignPostCard({campaignPost}: PostProps){
-        return (
-
-            <Link to={`/post/${campaignPost.post.id}`} >
-                <div className="article-card-container">
-                    <h3>{ campaignPost.post.title}</h3>                 
-                    <hr />               
-                    <p>"{campaignPost.post.summary}"</p>
-                </div>
-            </Link>
-        );
-        }
-    
+ 
+ 

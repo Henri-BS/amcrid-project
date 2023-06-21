@@ -22,32 +22,11 @@ export type CampaignPage = {
   number: number;
 }
 
-export type CampaignBadge = {
-  campaignId: number;
-  badge: Badge
+export type CampaignProps = {
+  campaign: Campaign;
 }
 
-export type CampaignUser = {
-  campaignId: number;
-  user: User;
-}
 
-export type CampaignPost = {
-  campaignId: number;
-  post: Post;
-}
-
-export type CampaignPostPage = {
-  content?: CampaignPost[];
-  last?: boolean;
-  first?: boolean;
-  empty?: boolean;
-  totalPages?: number;
-  totalElements?: number;
-  numberOfElements?: number;
-  size?: number;
-  number: number;
-};
 
 export type Chapter = {
   id: number;
@@ -67,3 +46,49 @@ export type ChapterPage = {
   size?: number;
   number: number;
 };
+
+
+
+export type CampaignBadge = {
+  campaignId: number;
+  badge: Badge
+}
+
+export type CampaignUser = {
+  campaignId: number;
+  user: User;
+}
+
+export type CampaignPost = {
+  campaignId: number;
+  post: Post;
+}
+
+
+
+export type CampaignBadgeProps = {
+  badge: CampaignBadge;
+}
+
+export type CampaignUserProps = {
+  campaignUser: CampaignUser;
+}
+
+export type CampaignPostProps = {
+  campaignPost: CampaignPost;
+}
+
+export type CampaignPostPage = {
+  content?: CampaignPost[];
+  last?: boolean;
+  first?: boolean;
+  empty?: boolean;
+  totalPages?: number;
+  totalElements?: number;
+  numberOfElements?: number;
+  size?: number;
+  number: number;
+};
+
+
+

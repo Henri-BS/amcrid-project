@@ -7,12 +7,12 @@ export function CampaignProfile() {
 
   return (
     <>
-    <div className="container">        
-    <ListChaptersByCampaing id={`${params.campaignId}`} />
-    <ListPostersByCampaign id={`${params.campaignId}`} />
-    <ListUsersByCampaign id={`${params.campaignId}`} />
-      <ListBadgesByCampaign  id={`${params.campaignId}`}/>
-    </div>
-  </>
+      <div className="container">
+        <ListChaptersByCampaing id={`${params.campaignId}`} />
+        <ListPostersByCampaign id={`${params.campaignId}`} />
+        <ListUsersByCampaign id={`${params.campaignId}`} />
+        <ListBadgesByCampaign id={`${params.campaignId}`} />
+      </div>
+    </>
   );
 }

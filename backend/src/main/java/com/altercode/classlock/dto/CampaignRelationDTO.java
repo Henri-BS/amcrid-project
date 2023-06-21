@@ -21,7 +21,7 @@ public class CampaignRelationDTO implements Serializable {
     private Long id;
     private Long campaignId;
     private UserDTO user;
-    private Long postId;
+    private PostDTO post;
     private BadgeDTO badge;
 
     public CampaignRelationDTO(CampaignUser entity) {
@@ -33,7 +33,7 @@ public class CampaignRelationDTO implements Serializable {
     public CampaignRelationDTO(CampaignPost entity){
         id = entity.getId();
         campaignId = entity.getCampaign().getId();
-        postId = entity.getPost().getId();
+        post = new PostDTO(entity.getPost());
     }
 
     public CampaignRelationDTO(CampaignBadge entity){

@@ -74,7 +74,7 @@ public class CampaignService {
 
     public CampaignRelationDTO addPostInCampaign(CampaignRelationDTO dto) {
         Campaign campaign = campaignRepository.findById(dto.getCampaignId()).orElseThrow();
-        Post post = postRepository.findById(dto.getPostId()).orElseThrow();
+        Post post = postRepository.findById(dto.getPost().getId()).orElseThrow();
 
         CampaignPost add = new CampaignPost();
         add.setCampaign(campaign);

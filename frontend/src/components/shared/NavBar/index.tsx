@@ -33,17 +33,13 @@ function Navbar() {
   return (
     <>
       <nav className='navbar'>
-        <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-        </div>
+        
         <ul className={click ? 'nav-menu-m active' : 'nav-menu-m'}>
-        <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-        </div>
           <li className='profile-nav' >
             <Link to='/profile/1' onClick={closeMobileMenu}>
               <img className='nav-links-image' src={IProf} alt='profile' />
             </Link>
+            <h2 onClick={closeMobileMenu}>❌</h2>
           </li>
           <li>
             <Link to='/' className='nav-links-mobile' onClick={closeMobileMenu}>
@@ -79,10 +75,9 @@ function Navbar() {
 
         <ul className={'nav-menu'}>
           <li className='nav-item'>
-            
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+            <div className='nav-links' onClick={handleClick}>
               Home
-            </Link>
+            </div>
           </li>
 
           <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>

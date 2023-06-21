@@ -2,9 +2,20 @@
     background: linear-gradient(138deg, rgb(31, 23, 26) 18%, rgba(29, 17, 22, 0.982) 70%, rgba(58, 12, 29, 0.982) 95%);
     height: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     font-size: 1.2rem;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: flex-end;
+    margin-right: 2rem;
 }
 
 .navbar-logo {
@@ -21,17 +32,6 @@
 .fa-firstdraft {
     margin-left: 0.5rem;
     font-size: 1.6rem;
-}
-
-.nav-menu {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-gap: 10px;
-    list-style: none;
-    text-align: center;
-    width: 70vw;
-    justify-content: start;
-    margin-right: 2rem;
 }
 
 .nav-item {
@@ -55,6 +55,10 @@
 }
 
 .fa-bars {
+    color: #fff;
+}
+
+.fa-times {
     color: #fff;
 }
 
@@ -113,11 +117,16 @@
     width: 100%;
     align-items: center;
     justify-self: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 10px 10px 20px;
 }
 
+.profile-nav h2 {
+    cursor: pointer;
+}
+
 .menu-icon {
+    color: #fff;
     position: fixed;
     top: 0;
     right: 0;

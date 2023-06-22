@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&display=swap');
 #root {
     --prim: #1d0811;
     --seco: #661829;
@@ -9,6 +10,7 @@
     --octo: #a31836;
     --nona: #141f299c;
     --deca: #0b1218;
+    --dark-prim: #0c171f;
 }
 
 body {
@@ -16,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Comforta', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -40,6 +42,13 @@ hr {
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.dark-card {
+    background-color: var(--dark-prim);
+    color: var(--sena);
+    box-shadow: 1px 0px 3px 2.50px rgba(17, 21, 34, 0.767);
+    border: 0.4px solid #e0e0e036;
 }
 
 .cl-btn {
@@ -106,7 +115,10 @@ code {
     border: 2px solid var(--sept);
 }
 
-.fa-times {
-    color: #fff;
-    font-size: 2rem;
+abbr[title],
+acronym {
+    position: relative;
+    transition: all 0.1s ease-in-out;
+    border-bottom: none;
+    cursor: pointer;
 }

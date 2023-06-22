@@ -49,6 +49,5 @@ export type CampaignBadgePage = {
   userId: number;
   count: number;
   conquestDate: string;
-  badgeName: string;
-  badgeImage: string;
+  badge: Badge;
 }

@@ -1,4 +1,4 @@
-import  {UserCard, BadgeListByUser } from 'components/layout/UserLayout';
+import { UserCard,  } from 'components/layout/UserLayout';
 import { useNavigate, useParams } from 'react-router-dom';
 import './styles.css';
 import { PostAddForm } from 'components/form/PostForm';
@@ -36,17 +36,14 @@ function Profile() {
           </button>
 
         </div>
-        <div className="max-container">
-          <div className="user-box-container row">
-            <div className="col-4">
+
+
+          <div className="user-box-container ">
             < UserCard id={`${params.userId}`} />
-            </div>
-            <div className="col-8">
-            < BadgeListByUser id={`${params.userId}`}  />
-            </div>
           </div>
+          
         </div>
-      </div>
+      
 
       <div className="modal fade" role="dialog" id="addPostModal">
         <div className="modal-dialog" role="document">

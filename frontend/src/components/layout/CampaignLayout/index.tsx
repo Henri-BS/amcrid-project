@@ -6,15 +6,13 @@ import { BASE_URL } from 'utils/requests';
 import { Props } from 'types/quiz';
 import { CampaignBadgePage, CampaignUserPage } from 'types/badge';
 
-
-
 export function CampaignCard({ campaign }: CampaignProps) {
     return (
         <>
             <div className="row quest-chapter-container">
                 <div className="col-sm-6 col-md-3 xl-3">
                     <img className="cl-quest-card-image" src={campaign.image} alt={campaign.name} />
-                    <div className="cl-card-bottom-container">
+                    <div className="card-md-container dark-card">
                         <h3>{campaign.name}</h3>
 
                         <div className="cl-card-info">
@@ -106,7 +104,24 @@ export function ListUsersByCampaign({ id: campaignId }: Props) {
                 ))}
             </div>
         </>
+    ); 
+
+    function UserSmCard({ campaignUser }: CampaignUserProps) {
+    return (
+        <Link to={`/profile/${campaignUser.user?.id}`}>
+            <div className="sm-card-container">
+                <img className="sm-card-image" src={campaignUser.user?.image} alt={campaignUser.user?.userName} />
+                <div className="sm-card-title">
+                    <h6>{campaignUser.user?.userName}</h6>
+                    <ul className="sm-card-info" >
+                        <li>Total XP: {campaignUser.user?.conquest?.totalXp}</li>
+                    </ul>
+                </div>
+            </div>
+        </Link>
     );
+}
+
 }
 
 export function ListPostersByCampaign({ id: campaignId }: Props) {
@@ -135,7 +150,7 @@ export function ListPostersByCampaign({ id: campaignId }: Props) {
     return (
 
         <Link to={`/post/${campaignPost.post.id}`} >
-            <div className="article-card-container">
+            <div className="article-card-container dark-card">
                 <h3>{campaignPost.post.title}</h3>
                 <hr />
                 <p>"{campaignPost.post.summary}"</p>
@@ -146,22 +161,6 @@ export function ListPostersByCampaign({ id: campaignId }: Props) {
 
 }
 
-export function UserSmCard({ campaignUser }: CampaignUserProps) {
-
-    return (
-        <Link to={`/profile/${campaignUser.user?.id}`}>
-            <div className="sm-card-container">
-                <img className="sm-card-image" src={campaignUser.user?.image} alt={campaignUser.user?.userName} />
-                <div className="sm-card-title">
-                    <h6>{campaignUser.user?.userName}</h6>
-                    <ul className="sm-card-info" >
-                        <li>Total XP: {campaignUser.user?.conquest?.totalXp}</li>
-                    </ul>
-                </div>
-            </div>
-        </Link>
-    );
-}
 
  
  

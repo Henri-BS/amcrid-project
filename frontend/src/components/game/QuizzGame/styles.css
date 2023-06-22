@@ -1,4 +1,4 @@
-.card-md-container {
+.card-game-container {
     width: 400px;
     height: max-content;
     padding: 10px;
@@ -9,13 +9,13 @@
     border: 1px solid #b8b6b6;
 }
 
-.card-md-list {
+.card-game-list {
     height: max-content;
     justify-content: space-evenly;
     padding: 0;
 }
 
-.card-md-title {
+.card-game-title {
     display: flex;
     height: 60px;
     padding: 16px;
@@ -26,7 +26,7 @@
     align-items: center;
 }
 
-.card-md-item {
+.card-game-item {
     display: flex;
     padding: 0px;
     margin: 2px;
@@ -36,7 +36,7 @@
     transition: all 0.2s ease-in-out;
 }
 
-.card-md-content {
+.card-game-content {
     align-items: center;
     list-style: none;
     font-size: medium;

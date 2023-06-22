@@ -47,13 +47,10 @@ public class UserService {
         return list.stream().map(UserRelationDTO::new).collect(Collectors.toList());
     }
 
-
-
     public UserDTO findById(Long id) {
         User result = userRepository.findById(id).orElseThrow();
         return new UserDTO(result);
     }
-
 
     public UserDTO saveUser(UserDTO dto) {
         User add = new User();

@@ -21,4 +21,6 @@ export type UserPage = {
     number: number;
   };
   
-  
+export type UserProps = {
+    user: User;
+}

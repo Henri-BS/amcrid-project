@@ -1,4 +1,3 @@
-import './styles.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ChapterDashboard, ListQuizzesByChapter } from 'components/layout/ChapterLayout';
 import { ChapterEditForm } from 'components/form/ChapterForm';

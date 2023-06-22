@@ -55,7 +55,7 @@ export function PostCard({ post }: PostProps) {
     return (
 
         <Link to={`/post/${post.id}`} >
-            <div className="article-card-container">
+            <div className="article-card-container dark-card">
                 <h3>{post.title}</h3>                 
                 <hr />               
                 <p>"{post.summary}"</p>

@@ -1,16 +1,14 @@
-
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Conquest } from 'types/conquest';
-import { User } from 'types/user';
+import { User, UserProps } from 'types/user';
 import { BASE_URL } from 'utils/requests';
 import './styles.css'
 import { Props } from 'types/quiz';
 import { UserBadge } from 'types/badge';
 
 export function UserCard({ id: userId }: Props) {
-    const params = useParams();
 
     const [user, setUser] = useState<User>();
     useEffect(() => {
@@ -21,17 +19,16 @@ export function UserCard({ id: userId }: Props) {
     }, [userId]);
 
     return (
-        <div>
-            <img className="user-card-image" src={user?.image} alt={user?.userName} />
-            <div className="user-card-container ">
-                              <hr />
-  <h3>{user?.userName}</h3>
+        <div className="row m-0">
+            <img className="user-card-image col-4" src={user?.image} alt={user?.userName} />
+            <div className="user-card-container col-8">
+                <h2>{user?.userName}</h2>
+                <BadgeListByUser id={userId}/>
             </div>
         </div>
     );
-}
-
-export function BadgeListByUser({ id: userId }: Props) {
+    
+    function BadgeListByUser({ id: userId }: Props) {
     const [badgeList, setBadgeList] = useState<UserBadge[]>();
     useEffect(() => {
         axios.get(`${BASE_URL}/badge/by-user/${userId}`)
@@ -44,20 +41,21 @@ export function BadgeListByUser({ id: userId }: Props) {
         <>
             <div className="user-badge-container">
                 {badgeList?.map(x => (
-                    <div className="badge-item" key={x.id}>
-                        <img className="badge-item" src={x.badgeImage} alt={x.badgeName} />
+                    <div key={x.id}>
+                        <abbr title={x.badge.name}>
+                            <img className="badge-item" src={x.badge.image} alt={x.badge.name} />
+                        </abbr>
                     </div>
                 ))}
             </div>
         </>
     );
 }
-
-type MyConquests = {
-    conquestId: string;
 }
 
-export function UserCardConquests({ conquestId }: MyConquests) {
+
+
+export function UserCardConquests({ id: conquestId }: Props) {
     const [conquest, setConquest] = useState<Conquest>();
     useEffect(() => {
         axios.get(`${BASE_URL}/conquest/${conquestId}`)
@@ -77,10 +75,6 @@ export function UserCardConquests({ conquestId }: MyConquests) {
             </ul>
         </div>
     );
-}
-
-type UserProps = {
-    user: User;
 }
 
 export function MiniUserCard({ user }: UserProps) {

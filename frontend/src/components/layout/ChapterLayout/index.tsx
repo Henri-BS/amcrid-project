@@ -18,7 +18,7 @@ export function CampaignCard({ campaign }: CampaignProps) {
             <div className="row quest-chapter-container">
                 <div className="col-sm-6 col-md-3 xl-3">
                     <img className="cl-quest-card-image" src={campaign.image} alt={campaign.name} />
-                    <div className="cl-card-bottom-container">
+                    <div className="card-md-container dark-card">
                         <h3>{campaign.name}</h3>
 
                         <div className="cl-card-info">
@@ -87,7 +87,7 @@ export function ChapterCard({ chapter }: ChapterProps) {
     return (
         <>
             <img className="cl-quest-card-image" src={chapter.image} alt={chapter.title} />
-            <div className="cl-card-bottom-container">
+            <div className="card-md-container dark-card">
                 <h3>{chapter.title}</h3>
 
                 <Link to={`/chapter/${chapter.id}`} className="btn btn-primary cl-form-btn">

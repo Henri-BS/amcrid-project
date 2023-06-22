@@ -11,14 +11,14 @@ export function QuizCard({ quiz }: QuizProps) {
   return (
     <>
       <Link to={`/quiz/${quiz.id}`} >
-        <div className="card-md-container">
-          <div className="card-md-title">{quiz.title}</div>
-          <div className="card-md-list">
-            <li className="card-md-item ">Descrição:
-              <p className="card-md-content">{quiz.description}</p>
+        <div className="card-game-container">
+          <div className="card-game-title">{quiz.title}</div>
+          <div className="card-game-list">
+            <li className="card-game-item ">Descrição:
+              <p className="card-game-content">{quiz.description}</p>
             </li>
-            <li className="card-md-item ">Quantidade de Questões:
-              <p className="card-md-content">{quiz.questionQuantity}</p>
+            <li className="card-game-item ">Quantidade de Questões:
+              <p className="card-game-content">{quiz.questionQuantity}</p>
             </li>
           </div>
         </div>

@@ -35,7 +35,6 @@ public class User {
 	@Column(name = "user_name", unique = true , length = 50)
 	private String userName;
 
-
 	@Column(name = "password")
 	private String password;
 

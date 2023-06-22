@@ -1,6 +1,5 @@
 .max-container {
-    padding: 60px;
-    justify-content: center;
+    padding: 10px;
     background-color: var(--sept);
 }
 
@@ -24,25 +23,10 @@
     margin: 30px;
 }
 
-.user-box-container {
-    background-color: var(--deca);
-    border: 5px solid var(--tert);
-    border-style: double;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px 0px;
-    display: flex
-}
-
 @media screen and (max-width: 550px) {
     .max-container {
         display: flex;
-        padding: 40px;
         min-width: 250px;
-    }
-    .user-box-container {
-        max-width: 300px;
-        padding: 10px;
     }
     .max-container li {
         margin: 0px;

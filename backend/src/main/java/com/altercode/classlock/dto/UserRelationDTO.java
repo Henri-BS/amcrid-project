@@ -23,8 +23,8 @@ public class UserRelationDTO implements Serializable {
     private Integer count;
     private LocalDateTime conquestDate;
     private Long userId;
-private BadgeDTO badge;
-private PostDTO post;
+    private BadgeDTO badge;
+    private PostDTO post;
 
     public UserRelationDTO(UserBadge entity) {
         id = entity.getId();
@@ -40,6 +40,5 @@ private PostDTO post;
         conquestDate = entity.getConquestDate();
         userId = entity.getUser().getId();
         post = new PostDTO(entity.getPost());
-
     }
 }

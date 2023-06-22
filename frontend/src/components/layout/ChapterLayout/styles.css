@@ -31,8 +31,7 @@
     border: 1px solid var(--sena);
 }
 
-.cl-card-bottom-container {
-    background-color: #0c171f;
+.card-md-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,7 +41,7 @@
     margin-bottom: 5px;
 }
 
-.cl-card-bottom-container h3 {
+.card-md-container h3 {
     text-align: center;
     font-size: 14px;
     font-weight: 700;
@@ -50,7 +49,7 @@
     color: #fff;
 }
 
-.cl-card-bottom-container h4 {
+.card-md-container h4 {
     text-align: center;
     font-size: 18px;
     font-weight: 700;

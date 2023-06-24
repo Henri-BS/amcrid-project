@@ -42,19 +42,19 @@ export function UserAddForm() {
                 <div className="form-card">
                     <div className="form-group">
                         <label htmlFor="userName">Nome de usuário: </label>
-                        <input id="userName" />
+                        <input id="userName"  className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="id">Email: </label>
-                        <input id="email" />
+                        <input id="email" className="form-control" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Senha: </label>
-                        <input id="password" type="password" />
+                        <input id="password"  type="password"  className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="image">Imagem: </label>
-                        <input id="image" />
+                        <input id="image"  className="form-control"/>
                     </div>
                 </div>
             </form>
@@ -105,11 +105,11 @@ export function UserEditForm({ id: userId }: Props) {
                 <div className="form-card">
                     <div className="form-group">
                         <label htmlFor="userName">Nome de usuário: </label>
-                        <input id="userName" defaultValue={user?.userName}/>
+                        <input id="userName"  className="form-control" defaultValue={user?.userName}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="image">Imagem: </label>
-                        <input id="image"  defaultValue={user?.image}/>
+                        <input id="image"  className="form-control" defaultValue={user?.image}/>
                     </div>
                 </div>
             </form>

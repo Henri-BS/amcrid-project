@@ -57,27 +57,69 @@ code {
     box-shadow: 1px 0px 3px 2.50px rgba(54, 60, 77, 0.767);
 }
 
+.dark-card {
+    background-color: var(--dark-prim);
+    color: var(--sena);
+    box-shadow: 1px 0px 3px 2.50px rgba(17, 21, 34, 0.767);
+    border: 0.4px solid #e0e0e036;
+    transition: all 0.2s ease;
+}
+
+.dark-card:hover {
+    border: 0.4px solid rgb(138, 134, 134);
+    box-shadow: 1px 0px 3px 2.50px rgba(54, 60, 77, 0.767);
+}
+
+.modal-content {
+    padding: 12px;
+    border-radius: 8px;
+    overflow-y: scroll;
+    background-color: var(--sept);
+    color: var(--sena);
+}
+
+.modal-header span {
+    color: var(--deca);
+}
+
+.modal-title {
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    padding: 8px;
+}
+
+.close {
+    background-color: transparent;
+    border-radius: 100%;
+    border: none;
+    transition: all 0.2s ease-in;
+    font-size: large;
+}
+
+.close:hover {
+    background-color: #cccccc34;
+    border-radius: 100%;
+}
+
 .cl-btn {
-    padding: 10px 20px 10px 20px;
-    border-radius: 20px;
-    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: large;
     border: none;
     color: #fff;
     cursor: pointer;
     background-color: transparent;
     border: 2px solid var(--seco);
-    text-decoration-color: transparent;
-    margin-right: 30px;
-    margin-bottom: 40px;
+    border-style: double;
+    transition: all 0.3s ease-out;
 }
 
 .cl-btn:hover {
     background-color: var(--tert);
-    transition: all 0.3s ease-out;
     color: #fff;
-    border-radius: 50px;
     border: 2px solid var(--seco);
-    text-decoration-color: transparent;
+    box-shadow: 1px 0px 2px 1px rgba(54, 60, 77, 0.767);
 }
 
 .menu-options-container {

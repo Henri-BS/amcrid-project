@@ -69,11 +69,11 @@ export function UserCardConquests({ id: conquestId }: Props) {
     return (
         <div className='user-body-container'>
             <ul className="list-unstyled">
-                <li className="user-item mb-2"><b>Quests Principais Finalizadas: </b>{conquest?.principalQuest}</li>
-                <li className="user-item mb-2"><b>Quests Secundárias Finalizadas: </b>{conquest?.secondaryQuest}</li>
-                <li className="user-item mb-2"><b>Capítulos Finalizados: </b>{conquest?.chapterCompleted}</li>
-                <li className="user-item mb-2"><b>Total de Badges: </b>{conquest?.totalBadges}</li>
-                <li className="user-item mb-2"><b>Total de Xp: </b>{conquest?.totalXp}</li>
+                <li className="user-item mb-2"><b>Quests Principais Finalizadas: </b> {conquest?.principalQuest}</li>
+                <li className="user-item mb-2"><b>Quests Secundárias Finalizadas: </b> {conquest?.secondaryQuest}</li>
+                <li className="user-item mb-2"><b>Capítulos Finalizados: </b> {conquest?.chapterCompleted}</li>
+                <li className="user-item mb-2"><b>Total de Badges: </b> {conquest?.totalBadges}</li>
+                <li className="user-item mb-2"><b>Total de Xp: </b> {conquest?.totalXp}</li>
             </ul>
         </div>
     );

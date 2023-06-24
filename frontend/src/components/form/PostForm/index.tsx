@@ -55,18 +55,18 @@ export function PostAddForm({ id: userId }: Props) {
                 <div className="form-card">
                     <div className="form-group">
                         <label htmlFor="title">Título: </label>
-                        <input id="title" />
+                        <input id="title" className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="id">Resumo: </label>
-                        <input id="summary" />
+                        <input id="summary" className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="image">Imagem: </label>
-                        <input id="image" />
+                        <input id="image" className="form-control"/>
                     </div>
                     <div className="form-group body-conatiner">
-                        <input id="body" />
+                        <input id="body" className="form-control"/>
                     </div>
                 </div>
             </form>
@@ -124,18 +124,18 @@ return (
             <div className="form-card">
                 <div className="form-group">
                     <label htmlFor="title">Título: </label>
-                    <input id="title" defaultValue={post?.title}/>
+                    <input id="title"  className="form-control" defaultValue={post?.title}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="id">Resumo: </label>
-                    <input id="summary" defaultValue={post?.summary}/>
+                    <input id="summary"  className="form-control" defaultValue={post?.summary}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="image">Imagem: </label>
-                    <input id="image" defaultValue={post?.image}/>
+                    <input id="image"  className="form-control" defaultValue={post?.image}/>
                 </div>
                 <div className="form-group body-conatiner">
-                    <input id="body" defaultValue={post?.body}/>
+                    <input id="body"  className="form-control" defaultValue={post?.body}/>
                 </div>
             </div>
         </form>

@@ -1,4 +1,4 @@
-import { UserCard, UserCardConquests,  } from 'components/layout/UserLayout';
+import { UserCard, UserCardConquests, } from 'components/layout/UserLayout';
 import { useNavigate, useParams } from 'react-router-dom';
 import './styles.css';
 import { PostAddForm } from 'components/form/PostForm';
@@ -21,28 +21,35 @@ function Profile() {
   return (
     <>
       <div className="container">
-        <div className="menu-options-container row">
-          <button data-bs-target="#editUserModal" data-bs-toggle="modal" className="btn cl-form-btn menu-options-item col-3">
-            Editar Usuário
-          </button>
-          <button data-bs-target="#deleteUserModal" data-bs-toggle="modal" className="btn cl-form-btn menu-options-item col-3">
-            Deletar Usuário
-          </button>
-          <button data-bs-target="#addPostModal" data-bs-toggle="modal" className="btn cl-form-btn menu-options-item col-3">
-            Adcionar Post
-          </button>
-          <button data--bstarget="#addChapterModal" data-bs-toggle="modal" className="btn cl-form-btn menu-options-item col-3">
-            Adicionar Capítulo
-          </button>
+        <div className="user-box-container ">
+          < UserCard id={`${params.userId}`} />
 
-        </div>
+          <div className="user-card-container mx-0 mt-2 p-2 row">
+            <button className="btn cl-btn menu-options-item col-6">
+              Campanhas
+            </button>
+            <button className="btn cl-btn menu-options-item col-6">
+              Biblioteca
+            </button>
+            <button className="btn cl-btn menu-options-item col-6">
+              Conquistas
+            </button>
+            <button className="btn cl-btn menu-options-item col-6">
+              Estatísticas
+            </button>
+            <button className="btn cl-btn menu-options-item col-6">
+              Seguindo
+            </button>
+            <button className="btn cl-btn menu-options-item col-6">
+              Seguidores
+            </button>
+          </div>
 
-          <div className="user-box-container ">
-            < UserCard id={`${params.userId}`} />
-            <UserCardConquests id={`${params.userId}`} />
-          </div>      
+          <UserCardConquests id={`${params.userId}`} />
         </div>
-    
+      </div>
+
+
       <div className="modal fade" role="dialog" id="addPostModal">
         <div className="modal-dialog" role="document">
           <div className="modal-content">

@@ -43,15 +43,15 @@ export function ChapterAddForm() {
                 <div className="form-card">
                     <div className="form-group">
                         <label htmlFor="title">Título: </label>
-                        <input id="title" />
+                        <input id="title" className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="id">Descrição: </label>
-                        <input id="description" />
+                        <input id="description"  className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="image">Imagem: </label>
-                        <input id="image" />
+                        <input id="image" className="form-control" />
                     </div>
                 </div>
             </form>
@@ -105,15 +105,15 @@ export function ChapterEditForm({ id: chapterId }: Props) {
                 <div className="form-card">
                     <div className="form-group">
                         <label htmlFor="title">Título: </label>
-                        <input id="title" />
+                        <input id="title"  className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="id">Descrição: </label>
-                        <input id="description" />
+                        <input id="description"  className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="image">Imagem: </label>
-                        <input id="image" />
+                        <input id="image"  className="form-control"/>
                     </div>
                 </div>
             </form>

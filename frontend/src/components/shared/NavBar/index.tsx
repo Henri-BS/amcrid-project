@@ -66,7 +66,18 @@ function Navbar() {
               Home
             </Link>
           </li>
-
+          <li data-bs-target="#editUserModal" data-bs-toggle="modal" className="nav-links-mobile">
+            Editar Usuário
+          </li>
+          <li data-bs-target="#deleteUserModal" data-bs-toggle="modal" className="nav-links-mobile">
+            Deletar Minha Conta
+          </li>
+          <li data-bs-target="#addPostModal" data-bs-toggle="modal" className="nav-links-mobile">
+            Adcionar Post
+          </li>
+          <li data--bstarget="#addChapterModal" data-bs-toggle="modal" className="nav-links-mobile">
+            Adicionar Capítulo
+          </li>
           <li>
             <Link
               to='/campaign-list' className='nav-links-mobile' onClick={closeMobileMenu} >
@@ -91,7 +102,7 @@ function Navbar() {
             </Link>
             {dropdown && <Dropdown />}
           </li>
-        </ul>
+        </ul >
 
         <li className='nav-item'>
           <div className='nav-links' onClick={handleClick}>
@@ -128,7 +139,7 @@ function Navbar() {
       <>
         <ul className={click ? 'nav-menu-m active' : 'nav-menu-m'}>
           <li className='nav-menu-top' >
-          <button className='cl-btn nav-links' data-bs-target="#addUserModal" data-bs-toggle="modal">
+            <button className='cl-btn nav-links' data-bs-target="#addUserModal" data-bs-toggle="modal">
               Sing Up
             </button>
             <h2 onClick={closeMobileMenu}><i className={"fas fa-times"} /></h2>

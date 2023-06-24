@@ -7,6 +7,10 @@
     font-size: 1.2rem;
 }
 
+.navbar li {
+    cursor: pointer;
+}
+
 .nav-menu {
     display: grid;
     grid-template-columns: repeat(3, auto);

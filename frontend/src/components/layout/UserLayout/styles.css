@@ -31,10 +31,12 @@
 }
 
 .user-item {
+    height: 60px;
     border-radius: 12px;
     background-color: var(--sept);
-    padding: 10px;
-    justify-content: space-between;
+    padding: 12px;
+    display: flex;
+    align-items: center;
 }
 
 .user-badge-container {

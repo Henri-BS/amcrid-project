@@ -19,40 +19,42 @@ export function UserCard({ id: userId }: Props) {
     }, [userId]);
 
     return (
-        <div className="row m-0">
-            <img className="user-card-image col-4" src={user?.image} alt={user?.userName} />
-            <div className="user-card-container col-8">
-                <h2>{user?.userName}</h2>
-                <BadgeListByUser id={userId}/>
+        <div >
+
+            <div className="user-card-container row m-0">
+                <img className="user-card-image col-4" src={user?.image} alt={user?.userName} />
+                <div className="col-10">
+                    <h2>{user?.userName}</h2>
+                    <BadgeListByUser id={userId} />
+                </div>
             </div>
         </div>
     );
-    
+
     function BadgeListByUser({ id: userId }: Props) {
-    const [badgeList, setBadgeList] = useState<UserBadge[]>();
-    useEffect(() => {
-        axios.get(`${BASE_URL}/badge/by-user/${userId}`)
-            .then((response) => {
-                setBadgeList(response.data);
-            })
-    }, [userId]);
+        const [badgeList, setBadgeList] = useState<UserBadge[]>();
+        useEffect(() => {
+            axios.get(`${BASE_URL}/badge/by-user/${userId}`)
+                .then((response) => {
+                    setBadgeList(response.data);
+                })
+        }, [userId]);
 
-    return (
-        <>
-            <div className="user-badge-container">
-                {badgeList?.map(x => (
-                    <div key={x.id}>
-                        <abbr title={x.badge.name}>
-                            <img className="badge-item" src={x.badge.image} alt={x.badge.name} />
-                        </abbr>
-                    </div>
-                ))}
-            </div>
-        </>
-    );
+        return (
+            <>
+                <div className="user-badge-container">
+                    {badgeList?.map(x => (
+                        <div key={x.id}>
+                            <abbr title={x.badge.name}>
+                                <img className="badge-item" src={x.badge.image} alt={x.badge.name} />
+                            </abbr>
+                        </div>
+                    ))}
+                </div>
+            </>
+        );
+    }
 }
-}
-
 
 
 export function UserCardConquests({ id: conquestId }: Props) {
@@ -65,13 +67,13 @@ export function UserCardConquests({ id: conquestId }: Props) {
     }, [conquestId]);
 
     return (
-        <div>
+        <div className='user-body-container'>
             <ul className="list-unstyled">
-                <li className="mb-2"><b>Quests Principais Finalizadas: </b>{conquest?.principalQuest}</li>
-                <li className="mb-2"><b>Quests Secundárias Finalizadas: </b>{conquest?.secondaryQuest}</li>
-                <li className="mb-2"><b>Capítulos Finalizados: </b>{conquest?.chapterCompleted}</li>
-                <li className="mb-2"><b>Total de Badges: </b>{conquest?.totalBadges}</li>
-                <li className="mb-2"><b>Total de Xp: </b>{conquest?.totalXp}</li>
+                <li className="user-item mb-2"><b>Quests Principais Finalizadas: </b>{conquest?.principalQuest}</li>
+                <li className="user-item mb-2"><b>Quests Secundárias Finalizadas: </b>{conquest?.secondaryQuest}</li>
+                <li className="user-item mb-2"><b>Capítulos Finalizados: </b>{conquest?.chapterCompleted}</li>
+                <li className="user-item mb-2"><b>Total de Badges: </b>{conquest?.totalBadges}</li>
+                <li className="user-item mb-2"><b>Total de Xp: </b>{conquest?.totalXp}</li>
             </ul>
         </div>
     );

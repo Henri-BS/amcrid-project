@@ -1,4 +1,4 @@
-import { UserCard,  } from 'components/layout/UserLayout';
+import { UserCard, UserCardConquests,  } from 'components/layout/UserLayout';
 import { useNavigate, useParams } from 'react-router-dom';
 import './styles.css';
 import { PostAddForm } from 'components/form/PostForm';
@@ -37,14 +37,12 @@ function Profile() {
 
         </div>
 
-
           <div className="user-box-container ">
             < UserCard id={`${params.userId}`} />
-          </div>
-          
+            <UserCardConquests id={`${params.userId}`} />
+          </div>      
         </div>
-      
-
+    
       <div className="modal fade" role="dialog" id="addPostModal">
         <div className="modal-dialog" role="document">
           <div className="modal-content">

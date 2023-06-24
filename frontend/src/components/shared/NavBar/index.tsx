@@ -55,7 +55,7 @@ function Navbar() {
     return (
       <>
         <ul className={click ? 'nav-menu-m active' : 'nav-menu-m'}>
-          <li className='profile-nav' >
+          <li className='nav-menu-top' >
             <Link to='/profile/1' onClick={closeMobileMenu}>
               <img className='nav-links-image' src={IProf} alt='profile' />
             </Link>
@@ -127,7 +127,7 @@ function Navbar() {
     return (
       <>
         <ul className={click ? 'nav-menu-m active' : 'nav-menu-m'}>
-          <li className='profile-nav' >
+          <li className='nav-menu-top' >
           <button className='cl-btn nav-links' data-bs-target="#addUserModal" data-bs-toggle="modal">
               Sing Up
             </button>

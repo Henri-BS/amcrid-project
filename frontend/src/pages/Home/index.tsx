@@ -65,7 +65,7 @@ function Home() {
         </div>
 
 
-        <Link to="/chapter-list">
+        <Link to="/campaign-list">
           <h2>Campanhas</h2>
         </Link>
         <Pagination page={campaignPage} onChange={handlePageChange}

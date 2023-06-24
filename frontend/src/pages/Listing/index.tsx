@@ -1,9 +1,9 @@
 import axios from "axios";
 import Pagination from "components/shared/Pagination";
-import {ChapterCard} from "components/layout/ChapterLayout";
+import {CampaignMdCard} from "components/layout/ChapterLayout";
 import { MiniUserCard } from "components/layout/UserLayout";
 import { useEffect, useState } from "react";
-import { ChapterPage } from "types/campaign";
+import { CampaignPage } from "types/campaign";
 import { PostPage } from "types/post";
 import { UserPage } from "types/user";
 import { BASE_URL } from "utils/requests";
@@ -53,15 +53,12 @@ export function ArticleList() {
 export function ChapterList() {
 
     const [pageNumber, setPageNumber] = useState(0);
-    const [chapterPage, setChapterPage] = useState<ChapterPage>({
-        content: [],
-        number: 0
-    });
+    const [campaignPage, setCampaignPage] = useState<CampaignPage>({ content: [], number: 0});
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/chapter?${pageNumber}&size=10`)
+        axios.get(`${BASE_URL}/campaign/list?${pageNumber}&size=10`)
             .then(response => {
-                setChapterPage(response.data);
+                setCampaignPage(response.data);
             });
     }, [pageNumber]);
 
@@ -73,12 +70,12 @@ export function ChapterList() {
         <>
             <div className="container">
                 <div>
-                    <Pagination page={chapterPage} onChange={handlePageChange} />
+                    <Pagination page={campaignPage} onChange={handlePageChange} />
                 </div>
                 <div className="list-container row">
-                    {chapterPage.content?.map(chapter => (
-                        <div key={chapter.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                            <ChapterCard chapter={chapter}/>
+                    {campaignPage.content?.map(x => (
+                        <div key={x.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                            <CampaignMdCard campaign={x}/>
                         </div>
                     ))}
                 </div>

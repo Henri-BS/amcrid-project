@@ -7,10 +7,10 @@
 
 .user-card-container {
     background-color: var(--deca);
-    justify-content: space-around;
+    justify-content: safe;
     align-items: center;
-    padding: 10px;
-    border-radius: 0px 12px 12px 0px;
+    width: 100%;
+    border-radius: 12px;
 }
 
 .user-card-image {
@@ -20,6 +20,21 @@
     max-width: 200px;
     border-radius: 12px 0px 0px 12px;
     margin: 0;
+}
+
+.user-body-container {
+    background-color: var(--deca);
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 6px;
+}
+
+.user-item {
+    border-radius: 12px;
+    background-color: var(--sept);
+    padding: 10px;
+    justify-content: space-between;
 }
 
 .user-badge-container {
@@ -85,6 +100,7 @@
     .user-card-image {
         max-width: 100px;
         padding: 10px;
+        border-radius: 12px;
     }
     .user-card-container {
         align-items: center;

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Campaign, Chapter } from 'types/campaign';
+import { Campaign, CampaignProps, Chapter } from 'types/campaign';
 import './styles.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -8,9 +8,6 @@ import { Props, Quiz } from 'types/quiz';
 import { QuizCard } from 'components/game/QuizzGame';
 
 
-type CampaignProps = {
-    campaign: Campaign;
-}
 
 export function CampaignCard({ campaign }: CampaignProps) {
     return (
@@ -50,32 +47,44 @@ export function CampaignCard({ campaign }: CampaignProps) {
             </div>
         </>
     );
+}
 
-    
+export function CampaignMdCard({ campaign }: CampaignProps) {
+    return(
+    <div>
+        <img className="cl-quest-card-image" src={campaign.image} alt={campaign.name} />
+        <div className="card-md-container dark-card">
+            <h3>{campaign.name}</h3>
+            <Link to={`/campaign/${campaign.id}`} className="btn btn-primary cl-form-btn">
+                Acessar
+            </Link>
+        </div>
+    </div>
+    );
 }
 
 export function ListChaptersByCampaing({ id: campaignId }: Props) {
-        const [chapterList, setChapterList] = useState<Chapter[]>();
-        useEffect(() => {
-            axios.get(`${BASE_URL}/chapter/campaign/${campaignId}`)
-                .then((response) => {
-                    setChapterList(response.data);
-                });
-        }, [campaignId]);
+    const [chapterList, setChapterList] = useState<Chapter[]>();
+    useEffect(() => {
+        axios.get(`${BASE_URL}/chapter/campaign/${campaignId}`)
+            .then((response) => {
+                setChapterList(response.data);
+            });
+    }, [campaignId]);
 
-        return (
-            <>
-                <div className="title-container">Capítulos</div>
-                <div className=" nav-list-container">
-                    {chapterList?.map(x => (
-                        <div key={x.id} className="nav-list-item">
-                            <ChapterCard chapter={x} />
-                        </div>
-                    ))}
-                </div>
-            </>
-        );
-    }
+    return (
+        <>
+            <div className="title-container">Capítulos</div>
+            <div className=" nav-list-container">
+                {chapterList?.map(x => (
+                    <div key={x.id} className="nav-list-item">
+                        <ChapterCard chapter={x} />
+                    </div>
+                ))}
+            </div>
+        </>
+    );
+}
 
 type ChapterProps = {
     chapter: Chapter;

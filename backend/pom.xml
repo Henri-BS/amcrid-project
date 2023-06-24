@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.altercode</groupId>
-    <artifactId>classlock</artifactId>
+    <artifactId>amcrid</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>Amcrid</name>

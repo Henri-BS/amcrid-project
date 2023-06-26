@@ -3,7 +3,7 @@ import "./styles.css";
 import IGithub from "assets/img/git.svg";
 import ILinkedin from "assets/img/linked.svg";
 import IGmail from "assets/img/gmail.svg";
-import IWLogo from "assets/img/w-logo.svg";
+import IWLogo from "assets/img/ac-logo.png";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -58,11 +58,10 @@ function Footer() {
                 </div>
                 <div className="footer-base-container">
                     <div className="row">
-                        <div className="footer-logo col-3">
-                            <img src={IWLogo} alt='logo' />
-                        </div>
+                            <img className="footer-logo col-3" src={IWLogo} alt='logo' />
+
                         <div className="footer-base-text-container col-9">
-                            <h5>ClassLock.Inc</h5>
+                            <h5>Amcrid</h5>
                             todos os direitos reservados.
                         </div>
                     </div>

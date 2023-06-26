@@ -32,10 +32,11 @@ function Navbar() {
 
   function MenuUser() {
     const [click, setClick] = useState(false);
-    const [dropdown, setDropdown] = useState(false);
-
     const handleClick = () => setClick(!click);
+    
     const closeMobileMenu = () => setClick(false);
+
+    const [dropdown, setDropdown] = useState(false);
 
     const onMouseEnter = () => {
       if (window.innerWidth < 960) {
@@ -52,6 +53,7 @@ function Navbar() {
         setDropdown(false);
       }
     };
+    
     return (
       <>
         <ul className={click ? 'nav-menu-m active' : 'nav-menu-m'}>

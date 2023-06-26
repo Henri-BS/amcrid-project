@@ -1,7 +1,5 @@
 .footer-container {
-    background: linear-gradient(130deg, rgb(31, 23, 26) 18%, rgba(29, 17, 22, 0.982) 50%, rgba(117, 13, 13, 0.521) 90%);
-    justify-content: space-between;
-    position: relative;
+    background: var(--deca);
     width: 100%;
     color: #fff;
     padding: 40px 20px 20px 20px;
@@ -25,14 +23,6 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
-}
-
-.footer-container hr {
-    margin: 1rem 0;
-    color: inherit;
-    background-color: var(--sena);
-    border: 0;
-    opacity: 1;
 }
 
 .footer-base-container {
@@ -63,9 +53,11 @@
 
 .footer-logo {
     margin-left: 20px;
-    height: 80px;
-    width: 80px;
-    padding-top: 30px;
+    height: 100px;
+    width: 100px;
+    background-color: #fff;
+    border: 4px solid var(--tert);
+    border-radius: 100%;
 }
 
 @media screen and (max-width: 660px) {

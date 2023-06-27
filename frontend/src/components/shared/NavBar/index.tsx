@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Dropdown from 'components/shared/Dropdown';
 import IProf from "assets/img/prof-img.png";
 import './styles.css';
-import { UserAddForm } from 'components/form/UserForm';
+import { UserAddForm, UserEditForm } from 'components/form/UserForm';
+import { ChapterAddForm } from 'components/form/ChapterForm';
+import { PostAddForm } from 'components/form/PostForm';
 
 function Navbar() {
   return (
@@ -53,6 +55,8 @@ function Navbar() {
         setDropdown(false);
       }
     };
+
+    const params = useParams();
     
     return (
       <>
@@ -111,6 +115,30 @@ function Navbar() {
             Perfil <i className={"fas fa-user"} />
           </div>
         </li>
+        <div className="modal fade" role="dialog" id="addPostModal">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <PostAddForm id={`${params.userId}`} />
+          </div>
+        </div>
+      </div>
+
+      <div className="modal fade" role="dialog" id="addChapterModal">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <ChapterAddForm />
+          </div>
+        </div>
+      </div>
+
+      <div className="modal fade" role="dialog" id="editUserModal">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <UserEditForm id={`${params.userId}`} />
+          </div>
+        </div>
+      </div>
+
       </>
     );
   }

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Campaign, CampaignProps, Chapter } from 'types/campaign';
+import { CampaignProps, Chapter } from 'types/campaign';
 import './styles.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';

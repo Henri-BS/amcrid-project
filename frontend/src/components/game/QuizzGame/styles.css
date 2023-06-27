@@ -123,14 +123,6 @@
     color: var(--sena);
 }
 
-.card-form-container hr {
-    margin: 1rem 0;
-    color: inherit;
-    background-color: var(--tert);
-    border: 0;
-    opacity: 1;
-}
-
 .card-info {
     width: 100%;
     padding: 20px 20px 20px 20px;

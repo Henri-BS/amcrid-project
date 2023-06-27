@@ -28,6 +28,10 @@ public class Campaign {
     private String description;
     private String image;
 
+    @ManyToOne
+    @JoinColumn(name ="user_id")
+    private User user;
+
     @OneToMany(mappedBy = "campaign", cascade = CascadeType.ALL)
     private List<Chapter> chapter = new ArrayList<>();
 

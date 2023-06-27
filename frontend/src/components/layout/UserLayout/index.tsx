@@ -7,8 +7,10 @@ import { BASE_URL } from 'utils/requests';
 import './styles.css'
 import { Props } from 'types/quiz';
 import { UserBadge } from 'types/badge';
-import { PostPage } from 'types/post';
+import { Post } from 'types/post';
 import { PostCard } from '../ArticleLayout';
+import { Campaign, CampaignPage } from 'types/campaign';
+import { CampaignMdCard } from '../ChapterLayout';
 
 export function UserCard({ id: userId }: Props) {
 
@@ -57,9 +59,10 @@ export function UserCard({ id: userId }: Props) {
         );
     }
 }
+
 export function PostListByUser({ id: userId }: Props) {
 
-    const [postPage, setPostPage] = useState<PostPage>({ content: [], number: 0 });
+    const [postPage, setPostPage] = useState<Post[]>();
     useEffect(() => {
         axios.get(`${BASE_URL}/user/posters/${userId}`)
             .then((response) => {
@@ -71,9 +74,35 @@ export function PostListByUser({ id: userId }: Props) {
         <>
             <div className='user-body-container'>
                 <div className="row">
-                    {postPage.content?.map(x => (
-                        <div key={x.id} className="col-12 col-md-4 col-lg-3">
+                    {postPage?.map(x => (
+                        <div key={x.id} className="col-12 col-md-4 col-lg-4">
                             <PostCard post={x} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+        </>
+    );
+}
+
+export function CampaignListByUser({ id: userId }: Props) {
+
+    const [campaignPage, setCampaignPage] = useState<CampaignPage>({content: [], number: 0});
+    useEffect(() => {
+        axios.get(`${BASE_URL}/campaign/user/${userId}`)
+            .then((response) => {
+                setCampaignPage(response.data);
+            })
+    }, [userId]);
+
+    return (
+        <>
+            <div className='user-body-container'>
+                <div className="row">
+                    {campaignPage?.content.map(x => (
+                        <div key={x.id} className="col-12 col-md-4 col-lg-4">
+                            <CampaignMdCard campaign={x} />
                         </div>
                     ))}
                 </div>

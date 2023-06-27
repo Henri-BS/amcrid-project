@@ -32,7 +32,7 @@ function Footer() {
                     </div>
                     <div className="footer-grid-container col-sm-12  col-xl-4 ">
                         <ul className="list-unstyled">
-                            <h3>Contato</h3>
+                            <h3 >Contato</h3>
                             <hr />
                             <li className="row mb-3 mx-16 ">
                                 <Link to="/">
@@ -46,7 +46,7 @@ function Footer() {
                                     /LinkedIn
                                 </Link>
                             </li>
-                            <li className="row mb-3 mx-16 ">
+                            <li className="row mb-3 mx-16">
                                 <Link to="/">
                                     <img className='footer-img' src={IGmail} alt='logo' />
                                     /Gmail

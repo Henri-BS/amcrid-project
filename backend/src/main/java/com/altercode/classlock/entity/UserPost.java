@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tb_post_badge")
+@Table(name = "tb_user_post")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

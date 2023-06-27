@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<UserDTO>> getdByName(@RequestParam String prefix) {
+    public ResponseEntity<List<UserDTO>> getByName(@RequestParam String prefix) {
         List<UserDTO> list = userService.getByName(prefix);
         return ResponseEntity.ok(list);
     }
@@ -49,8 +49,6 @@ public class UserController {
     public UserDTO findById(@PathVariable Long id) {
         return userService.findById(id);
     }
-
-
 
     @PostMapping("/add")
     public ResponseEntity<UserDTO> saveUser(@RequestBody UserDTO dto) {

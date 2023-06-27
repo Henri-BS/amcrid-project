@@ -48,6 +48,11 @@ public class CampaignService {
         return page.map(CampaignDTO::new);
     }
 
+    public Page<CampaignDTO> findAllCampaignsByUser(Pageable pageable, User user) {
+        Page<Campaign> page = campaignRepository.findAllCampaignsByUser(pageable, user);
+        return page.map(CampaignDTO::new);
+    }
+
     @Transactional(readOnly = true)
     public CampaignDTO findCampaignById(Long id) {
         Campaign find = campaignRepository.findById(id).orElseThrow();
@@ -132,4 +137,6 @@ public class CampaignService {
         Page<CampaignPost> page = campaignPostRepository.findAllPostersByCampaign(pageable, campaign);
         return page.map(CampaignRelationDTO::new);
     }
+
+
 }

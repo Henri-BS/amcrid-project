@@ -1,11 +1,11 @@
 import Home from "pages/Home";
 import { Chapter } from "pages/profiles/ChapterProfile/index";
-import Profile from "pages/profiles/UserProfile";
+import { CampaignsByUser, ConquestsByUser, PostersByUser } from "pages/profiles/UserProfile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "components/shared/NavBar";
 import Footer from "components/shared/Footer";
 import Post from "pages/profiles/PostProfile";
-import {ArticleList, ChapterList, UserList} from "pages/Listing";
+import { ArticleList, ChapterList, UserList } from "pages/Listing";
 import { QuizProfile } from "components/game/QuizzGame";
 import { Ranking } from "pages/Ranking";
 import { CampaignProfile } from "pages/profiles/CampaingProfile";
@@ -24,8 +24,19 @@ const PageRoutes = () => {
                     <Route path="/ranking" element={<Ranking />} />
 
                     <Route path="/profile">
-                        <Route path=":userId" element={<Profile />} />
+                        <Route path=":userId" element={<ConquestsByUser />} />
                     </Route>
+
+                    
+                        <Route path="/profile/posters">
+                            <Route path=":userId" element={<PostersByUser />} />
+                        </Route>
+                        <Route path="/profile/campaigns">
+                            <Route path=":userId" element={<CampaignsByUser />} />
+                        </Route>
+                    
+
+
 
                     <Route path="/post">
                         <Route path=":postId" element={<Post />} />

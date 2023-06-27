@@ -1,6 +1,6 @@
 .container {
     background-color: var(--sept);
-    height: 70rem;
+    min-height: 60rem;
     color: #fff;
     max-inline-size: 100%;
     margin: 0;

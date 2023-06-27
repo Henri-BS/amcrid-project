@@ -1,11 +1,3 @@
-INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 1', 'Descrição da Campanha 1', 'https://img.freepik.com/free-vector/gradient-shapes-dark-background_52683-32826.jpg?size=626&ext=jpg')
-INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 2', 'Descrição da Campanha 2', 'https://st4.depositphotos.com/5221209/21719/v/600/depositphotos_217197586-stock-video-abstract-square-shapes-moving-animation.jpg')
-INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 3', 'Descrição da Campanha 3', 'https://image.freepik.com/free-vector/gradient-geometric-shapes-background_23-2148792644.jpg')
-INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 4', 'Descrição da Campanha 4', 'https://image.freepik.com/darmowe-wektory/gradientowe-modele-geometryczne-na-ciemnym-tle_23-2148431523.jpg')
-INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 5', 'Descrição da Campanha 5', 'https://img.freepik.com/vector-gratis/formas-geometricas-sobre-fondo-oscuro_23-2148427246.jpg?size=626&ext=jpg')
-INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 6', 'Descrição da Campanha 6', 'https://image.freepik.com/free-vector/gradient-geometric-purple-shapes-dark-background_23-2148423872.jpg')
-INSERT INTO tb_campaign ( campaign_name, description, image) VALUES ('Campanha 7', 'Descrição da Campanha 7', 'https://torobche.com/wp-content/uploads/2021/07/Abstract.Background.25.EPS_.Thmb_.jpg')
-
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (1, 'jack@gmail.com', 'Jack', 'jack123', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-02/64/bandit-asian-male-cowboy-512.png');
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (2, 'ryan@gmail.com', 'Ryan', 'ryan123', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-05/64/rastafarian-male-formal-512.png');
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (3, 'francis@gmail.com', 'Francis', 'francis123', 'https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-05/64/emo-asian-female-512.png');
@@ -18,6 +10,14 @@ INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (9,
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (10, 'iris@gmail.com', 'Íris', 'iris123', 'https://cdn2.iconfinder.com/data/icons/diversity-avatars-volume-09/64/avatar-cloche-hat-african-woman-512.png');
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (11, 'apollo@gmail.com', 'Apollo', 'apollo123', 'https://cdn2.iconfinder.com/data/icons/diversity-v2-0-volume-08/64/bowler-hat-avatar-mustache-inspector-512.png');
 INSERT INTO tb_user (user_id, email, user_name, password, user_image) VALUES (12, 'gestrudes@gmail.com', 'Gertrudes', 'gertrudes123', 'https://cdn2.iconfinder.com/data/icons/diversity-avatars-volume-09/64/avatar-trenchcoat-investigator-asian-512.png');
+
+INSERT INTO tb_campaign ( campaign_name, description, image, user_id ) VALUES ('Campanha 1', 'Descrição da Campanha 1', 'https://img.freepik.com/free-vector/gradient-shapes-dark-background_52683-32826.jpg?size=626&ext=jpg', 1)
+INSERT INTO tb_campaign ( campaign_name, description, image, user_id) VALUES ('Campanha 2', 'Descrição da Campanha 2', 'https://st4.depositphotos.com/5221209/21719/v/600/depositphotos_217197586-stock-video-abstract-square-shapes-moving-animation.jpg', 2)
+INSERT INTO tb_campaign ( campaign_name, description, image, user_id ) VALUES ('Campanha 3', 'Descrição da Campanha 3', 'https://image.freepik.com/free-vector/gradient-geometric-shapes-background_23-2148792644.jpg', 4)
+INSERT INTO tb_campaign ( campaign_name, description, image, user_id ) VALUES ('Campanha 4', 'Descrição da Campanha 4', 'https://image.freepik.com/darmowe-wektory/gradientowe-modele-geometryczne-na-ciemnym-tle_23-2148431523.jpg', 1)
+INSERT INTO tb_campaign ( campaign_name, description, image, user_id ) VALUES ('Campanha 5', 'Descrição da Campanha 5', 'https://img.freepik.com/vector-gratis/formas-geometricas-sobre-fondo-oscuro_23-2148427246.jpg?size=626&ext=jpg', 1)
+INSERT INTO tb_campaign ( campaign_name, description, image, user_id ) VALUES ('Campanha 6', 'Descrição da Campanha 6', 'https://image.freepik.com/free-vector/gradient-geometric-purple-shapes-dark-background_23-2148423872.jpg', 3)
+INSERT INTO tb_campaign ( campaign_name, description, image, user_id ) VALUES ('Campanha 7', 'Descrição da Campanha 7', 'https://torobche.com/wp-content/uploads/2021/07/Abstract.Background.25.EPS_.Thmb_.jpg', 2)
 
 INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 1', 'Um Breve Resumo Sobre a Postagem 1', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 1.', 1, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
 INSERT INTO tb_post ( title, summary, body, user_id, post_image) VALUES ( 'Postagem 2', 'Um Breve Resumo Sobre a Postagem 2', 'Uma Descrição que Aborda Detalhadamente a Temática Relacionada a Postagem 2.', 2, 'http://sfwallpaper.com/images/blog-wallpaper-3.jpg');
@@ -110,12 +110,18 @@ INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, to
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(20, 24, 8, 14, 5250, 12);
 
 
-INSERT INTO tb_user_badge (badge_id, user_id) VALUES (1, 1);
-INSERT INTO tb_user_badge (badge_id, user_id) VALUES (2, 1);
-INSERT INTO tb_user_badge (badge_id, user_id) VALUES (3, 1);
-INSERT INTO tb_user_badge (badge_id, user_id) VALUES (4, 1);
-INSERT INTO tb_user_badge (badge_id, user_id) VALUES (5, 1);
-INSERT INTO tb_user_badge (badge_id, user_id) VALUES (6, 1);
+
+
+
+INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (3, 1);
+INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (4, 1);
+INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (5, 1);
+INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (6, 1);
+
+INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (1, 1);
+INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (4, 1);
+INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (6, 1);
+INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (7, 1);
 
 INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (1, 1);
 INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (2, 1);
@@ -123,12 +129,14 @@ INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (3, 1);
 INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (4, 1);
 INSERT INTO tb_campaign_post (post_id, campaign_id) VALUES (5, 1);
 
-INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (1, 1);
-INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (4, 1);
-INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (6, 1);
-INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (7, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (1, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (2, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (3, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (4, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (5, 1);
+INSERT INTO tb_user_badge (badge_id, user_id) VALUES (6, 1);
 
-INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (3, 1);
-INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (4, 1);
-INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (5, 1);
-INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (6, 1);
+INSERT INTO tb_user_post (post_id, user_id) VALUES (3, 1);
+INSERT INTO tb_user_post (post_id, user_id) VALUES (4, 1);
+INSERT INTO tb_user_post (post_id, user_id) VALUES (5, 1);
+INSERT INTO tb_user_post (post_id, user_id) VALUES (6, 1);

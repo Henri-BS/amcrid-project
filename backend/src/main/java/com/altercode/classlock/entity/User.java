@@ -48,6 +48,9 @@ public class User {
 	private List<Comment> comments = new ArrayList<>();
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Campaign> campaigns = new ArrayList<>();
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<UserAnswer> userAnswers = new ArrayList<>();
 

@@ -39,45 +39,10 @@ public class CampaignController {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/badges/{campaign}")
-    public ResponseEntity<Page<CampaignRelationDTO>> findAllBadgesByCampaign(Pageable pageable, @PathVariable Campaign campaign){
-        Page<CampaignRelationDTO> page = campaignService.findAllBadgesByCampaign(pageable, campaign);
-        return ResponseEntity.ok(page);
-    }
-
-    @GetMapping("/users/{campaign}")
-    public ResponseEntity<Page<CampaignRelationDTO>> findAllUsersByCampaign(Pageable pageable, @PathVariable Campaign campaign){
-        Page<CampaignRelationDTO> page = campaignService.findAllUsersByCampaign(pageable, campaign);
-        return ResponseEntity.ok(page);
-    }
-
-    @GetMapping("/posts/{campaign}")
-    public ResponseEntity<Page<CampaignRelationDTO>> findAllPostersByCampaign(Pageable pageable, @PathVariable Campaign campaign) {
-        Page<CampaignRelationDTO> page = campaignService.findAllPostersByCampaign(pageable, campaign);
-        return ResponseEntity.ok(page);
-    }
 
     @PostMapping("/add")
     public ResponseEntity<CampaignDTO> saveCampaign(@RequestBody CampaignDTO dto) {
         CampaignDTO add = campaignService.saveCampaign(dto);
-        return new ResponseEntity<>(add, HttpStatus.CREATED);
-    }
-
-    @PostMapping("/add-user")
-    public ResponseEntity<CampaignRelationDTO> addUserInCampaign(@RequestBody CampaignRelationDTO dto) {
-        CampaignRelationDTO add = campaignService.addUserInCampaign(dto);
-        return new ResponseEntity<>(add, HttpStatus.CREATED);
-    }
-
-    @PostMapping("/add-post")
-    public ResponseEntity<CampaignRelationDTO> addPostInCampaign(CampaignRelationDTO dto) {
-        CampaignRelationDTO add = campaignService.addPostInCampaign(dto);
-        return new ResponseEntity<>(add, HttpStatus.CREATED);
-    }
-
-    @PostMapping("/add-badge")
-    public ResponseEntity<CampaignRelationDTO> addBadgeInCampaign(CampaignRelationDTO dto) {
-        CampaignRelationDTO add = campaignService.addBadgeInCampaign(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 
@@ -93,21 +58,5 @@ public class CampaignController {
         this.campaignService.deleteCampaign(id);
     }
 
-    @DeleteMapping("delete-user/{user}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteUserByCampaign(@PathVariable User user) {
-this.campaignService.deleteUserByCampaign(user);
-    }
 
-    @DeleteMapping("delete-post/{post}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletePostByCampaign(@PathVariable Post post) {
-        this.campaignService.deletePostByCampaign(post);
-    }
-
-    @DeleteMapping("delete-badge/{badge}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteBadgeByCampaign(@PathVariable Badge badge) {
-        this.campaignService.deleteBadgeByCampaign(badge);
-    }
 }

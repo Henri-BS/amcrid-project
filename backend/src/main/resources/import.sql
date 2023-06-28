@@ -109,9 +109,9 @@ INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, to
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(24, 27, 10, 17, 5440, 11);
 INSERT INTO tb_conquest (principal_quest, secondary_quest, chapter_completed, total_badges, total_xp, user_id) VALUES(20, 24, 8, 14, 5250, 12);
 
-
-
-
+INSERT INTO tb_follower (from_user, to_user) VALUES (1, 3);
+INSERT INTO tb_follower (from_user, to_user) VALUES (1, 5);
+INSERT INTO tb_follower (from_user, to_user) VALUES (1, 7);
 
 INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (3, 1);
 INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (4, 1);

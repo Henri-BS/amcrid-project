@@ -50,6 +50,13 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Campaign> campaigns = new ArrayList<>();
 
+
+	@OneToMany(mappedBy="to")
+	private List<Follower> followers;
+
+	@OneToMany(mappedBy="from")
+	private List<Follower> following;
+
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<UserAnswer> userAnswers = new ArrayList<>();

@@ -36,8 +36,6 @@ public class UserRelationDTO implements Serializable {
 
     public UserRelationDTO(UserPost entity) {
         id = entity.getId();
-        count = entity.getCount();
-        conquestDate = entity.getConquestDate();
         userId = entity.getUser().getId();
         post = new PostDTO(entity.getPost());
     }

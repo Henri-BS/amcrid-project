@@ -26,6 +26,5 @@ public class UserAnswerDTO implements Serializable {
         id = entity.getId();
         answer = entity.getAnswer();
         questionId = entity.getQuestion().getId();
-        userName = entity.getUser().getUserName();
     }
 }

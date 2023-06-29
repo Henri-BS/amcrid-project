@@ -16,5 +16,4 @@ public interface ResultRepository extends JpaRepository<Result, Long>{
 
 	ResultDTO findResultById(Long id);
 
-    Result findResultByUser(User user);
 }

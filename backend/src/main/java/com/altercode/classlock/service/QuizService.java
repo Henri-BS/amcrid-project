@@ -24,12 +24,6 @@ public class QuizService {
     private QuestionRepository questionRepository;
 
     @Autowired
-    private BadgeRepository badgeRepository;
-
-    @Autowired
-    private QuizBadgeRepository quizBadgeRepository;
-
-    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -94,39 +88,7 @@ public class QuizService {
     }
 
 
-    public ResultDTO getResult(UserAnswerDTO dto) {
-        Question question = questionRepository.findById(dto.getQuestionId()).orElseThrow();
-        User user = userRepository.findByUserName(dto.getUserName());
 
-        UserAnswer userAnswer = new UserAnswer();
-        userAnswer.setQuestion(question);
-        userAnswer.setUser(user);
-        userAnswer.setAnswer(dto.getAnswer());
-        answerRepository.save(userAnswer);
-
-        Result result = resultRepository.findResultByUser(user);
-        userAnswer = answerRepository.findById(userAnswer.getId()).orElseThrow();
-
-        int totalCorrect = 0;
-        int answer = Integer.parseInt(userAnswer.getAnswer());
-        for(Question q : userAnswer.getQuestion().getQuiz().getQuestions()) {
-        if(result == null){
-            result = new Result();
-            result.setUser(userAnswer.getUser());
-            result.setQuiz(userAnswer.getQuestion().getQuiz());
-            resultRepository.saveAndFlush(result);
-        }
-
-            if(answer == q.getCorrectChoice()){
-                result.setMessage("Resposta Correta!");
-                totalCorrect++;
-                result.setTotalCorrect(totalCorrect);
-            }else {
-                result.setMessage("Resposta Incorreta, a resposta corrreta é: " + q.getCorrectChoice());
-            }
-        }
-        return new ResultDTO(resultRepository.save(result));
-    }
 
     public void saveScore(Result result) {
         Result saveResult = new Result();

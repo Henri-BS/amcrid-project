@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -41,6 +39,9 @@ public class User {
 	@Column(name = "user_image")
 	private String image;
 
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	private Conquest conquest;
+
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Post> posts = new ArrayList<>();
 
@@ -50,26 +51,16 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Campaign> campaigns = new ArrayList<>();
 
-
-	@OneToMany(mappedBy="to")
-	private List<Follower> followers;
-
-	@OneToMany(mappedBy="from")
-	private List<Follower> following;
-
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	@LazyCollection(LazyCollectionOption.FALSE)
-	private List<UserAnswer> userAnswers = new ArrayList<>();
-
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<UserBadge> userBadges = new ArrayList<>();
 
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@LazyCollection(LazyCollectionOption.FALSE)
-	private Result result;
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<UserPost> userPosters = new ArrayList<>();
 
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	private Conquest conquest;
+	@OneToMany(mappedBy="follower", cascade = CascadeType.ALL)
+	private List<Follow> followers = new ArrayList<>();
+
+	@OneToMany(mappedBy="following", cascade = CascadeType.ALL)
+	private List<Follow> following = new ArrayList<>();
 
 }

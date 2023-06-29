@@ -55,12 +55,6 @@ public class QuizController {
 		return new ResponseEntity<>(update, HttpStatus.OK);
 	}
 
-	@PutMapping("/play")
-	public ResponseEntity<ResultDTO> playQuiz(@RequestBody UserAnswerDTO dto) {
-		ResultDTO play = quizService.getResult(dto);
-		return new ResponseEntity<>(play, HttpStatus.OK);
-	}
-
 	@DeleteMapping("/delete/{id}")
 	public void deleteQuiz(@PathVariable Long id) {
 		this.quizService.deleteQuiz(id);

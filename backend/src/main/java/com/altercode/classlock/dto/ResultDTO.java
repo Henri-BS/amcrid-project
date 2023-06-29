@@ -20,13 +20,11 @@ public class ResultDTO implements Serializable{
 	private String message;
 	private Integer totalCorrect;
 	private Long quizId;
-	private String userName;
 
 	public ResultDTO(Result entity) {
 		id = entity.getId();
 		message = entity.getMessage();
 		totalCorrect = entity.getTotalCorrect();
 		quizId = entity.getQuiz().getId();
-		userName = entity.getUser().getUserName();
 	}
 }

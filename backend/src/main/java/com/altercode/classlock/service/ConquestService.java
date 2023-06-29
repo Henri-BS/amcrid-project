@@ -1,12 +1,11 @@
 package com.altercode.classlock.service;
 
 import com.altercode.classlock.dto.ConquestDTO;
-import com.altercode.classlock.entity.Badge;
 import com.altercode.classlock.entity.Conquest;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.entity.UserBadge;
 import com.altercode.classlock.repository.ConquestRepository;
-import com.altercode.classlock.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,9 +16,6 @@ public class ConquestService {
 
     @Autowired
     private ConquestRepository conquestRepository;
-
-    @Autowired
-    private UserRepository userRepository;
 
     public ConquestDTO findByUser(User user) {
         Conquest find =  conquestRepository.findByUser(user);

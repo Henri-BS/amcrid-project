@@ -30,8 +30,6 @@ public class Result {
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+
 
 }

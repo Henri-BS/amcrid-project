@@ -121,7 +121,9 @@ INSERT INTO tb_follow (following, follower) VALUES (2, 4);
 INSERT INTO tb_follow (following, follower) VALUES (2, 6);
 INSERT INTO tb_follow (following, follower) VALUES (2, 8);
 INSERT INTO tb_follow (following, follower) VALUES (3, 1);
-
+INSERT INTO tb_follow (following, follower) VALUES (4, 1);
+INSERT INTO tb_follow (following, follower) VALUES (7, 1);
+INSERT INTO tb_follow (following, follower) VALUES (10, 1);
 
 INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (3, 1);
 INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (4, 1);

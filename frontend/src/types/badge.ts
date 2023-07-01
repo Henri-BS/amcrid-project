@@ -51,3 +51,15 @@ export type CampaignBadgePage = {
   conquestDate: string;
   badge: Badge;
 }
+
+export type UserBadgePage = {
+  content: UserBadge[],
+  last?: boolean;
+  first?: boolean;
+  empty?: boolean;
+  totalPages?: number;
+  totalElements?: number;
+  numberOfElements?: number;
+  size?: number;
+  number: number;
+};

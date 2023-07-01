@@ -48,8 +48,8 @@ public class BadgeController {
 	}
 
 	@GetMapping("/by-user/{user}")
-	public ResponseEntity<List<UserRelationDTO>> findAllBadgesByUser(@PathVariable User user) {
-		List<UserRelationDTO> list = badgeService.findAllBadgesByUser(user);
+	public ResponseEntity<Page<UserRelationDTO>> findAllBadgesByUser(Pageable pageable, @PathVariable User user) {
+		Page<UserRelationDTO> list = badgeService.findAllBadgesByUser(pageable, user);
 		return ResponseEntity.ok(list);
 	}
 
@@ -70,7 +70,6 @@ public class BadgeController {
 		UserRelationDTO add = badgeService.saveUserBadge(dto);
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
-
 
 	@PutMapping("/edit")
 	public ResponseEntity<BadgeDTO> updateBadge(@RequestBody BadgeDTO dto) {

@@ -17,6 +17,12 @@ public class CampaignUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "chapter_quantity")
+    private Integer chapterQuantity;
+
+    @Column(name = "post_quantity")
+    private Integer postQuantity;
+
     @ManyToOne
     @JoinColumn(name= "campaign_id")
     private Campaign campaign;

@@ -17,7 +17,6 @@ public class FollowController {
     @Autowired
     private FollowService followService;
 
-
     @GetMapping("/page")
     public ResponseEntity<Page<FollowDTO>> findAll(Pageable pageable) {
         Page<FollowDTO> page = followService.findAll(pageable);

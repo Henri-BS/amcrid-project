@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class FollowService {
 
     @Autowired
@@ -35,8 +37,8 @@ public class FollowService {
     }
 
     public FollowDTO saveFollow(FollowDTO dto) {
-        User following = userRepository.findById(dto.getFollowing()).orElseThrow();
-        User follower = userRepository.findById(dto.getFollower()).orElseThrow();
+        User following = userRepository.findById(dto.getFollowing().getId()).orElseThrow();
+        User follower = userRepository.findById(dto.getFollower().getId()).orElseThrow();
 
         Follow add = new Follow();
         add.setFollowing(following);

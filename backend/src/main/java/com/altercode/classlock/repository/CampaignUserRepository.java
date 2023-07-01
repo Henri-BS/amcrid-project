@@ -13,4 +13,6 @@ public interface CampaignUserRepository extends JpaRepository<CampaignUser, Long
     void deleteByUser(User user);
 
     Page<CampaignUser> findAllUsersByCampaign(Pageable pageable, Campaign campaign);
+
+    CampaignUser findByUser(User user);
 }

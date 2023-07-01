@@ -1,6 +1,6 @@
 import Home from "pages/Home";
 import { Chapter } from "pages/profiles/ChapterProfile/index";
-import { CampaignsByUser, ConquestsByUser, PostersByUser } from "pages/profiles/UserProfile";
+import { BadgeByUser, CampaignsByUser, ConquestsByUser, Followers, Following, PostersByUser } from "pages/profiles/UserProfile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "components/shared/NavBar";
 import Footer from "components/shared/Footer";
@@ -27,16 +27,24 @@ const PageRoutes = () => {
                         <Route path=":userId" element={<ConquestsByUser />} />
                     </Route>
 
-                    
-                        <Route path="/profile/posters">
-                            <Route path=":userId" element={<PostersByUser />} />
-                        </Route>
-                        <Route path="/profile/campaigns">
-                            <Route path=":userId" element={<CampaignsByUser />} />
-                        </Route>
-                    
-
-
+                    <Route path="/profile/stats">
+                        <Route path=":userId" element={<ConquestsByUser />} />
+                    </Route>
+                    <Route path="/profile/posters">
+                        <Route path=":userId" element={<PostersByUser />} />
+                    </Route>
+                    <Route path="/profile/campaigns">
+                        <Route path=":userId" element={<CampaignsByUser />} />
+                    </Route>
+                    <Route path="/profile/conquests">
+                        <Route path=":userId" element={<BadgeByUser />} />
+                    </Route>
+                    <Route path="/profile/followers">
+                        <Route path=":userId" element={<Followers />} />
+                    </Route>
+                    <Route path="/profile/following">
+                        <Route path=":userId" element={<Following />} />
+                    </Route>
 
                     <Route path="/post">
                         <Route path=":postId" element={<Post />} />

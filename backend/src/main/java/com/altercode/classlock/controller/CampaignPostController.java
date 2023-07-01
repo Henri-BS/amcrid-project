@@ -14,13 +14,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/campaign-post")
 public class CampaignPostController {
 
     @Autowired
     private CampaignPostService campaignPostService;
 
-    @GetMapping("/posts/{campaign}")
+    @GetMapping("/list/{campaign}")
     public ResponseEntity<Page<CampaignRelationDTO>> findAllPostersByCampaign(Pageable pageable, @PathVariable Campaign campaign) {
         Page<CampaignRelationDTO> page = campaignPostService.findAllPostersByCampaign(pageable, campaign);
         return ResponseEntity.ok(page);

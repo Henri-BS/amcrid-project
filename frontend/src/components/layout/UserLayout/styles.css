@@ -48,22 +48,16 @@
 
 .badge-item {
     padding: 4px;
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
 }
 
 .sm-card-container {
     height: 84px;
-    background-color: var(--deca);
-    color: #fff;
     border-radius: 14px 0px;
     display: flex;
     cursor: pointer;
     transition: all 0.2s ease-in;
-}
-
-.sm-card-container:hover {
-    box-shadow: 0px 20px 30px 8px rgba(156, 15, 34, 0.315);
 }
 
 .sm-card-image {
@@ -100,14 +94,13 @@
 
 @media screen and (max-width: 550px) {
     .user-card-image {
-        max-width: 100px;
-        padding: 10px;
+        max-width: 140px;
+        padding: 6px;
         border-radius: 12px;
     }
     .user-card-container {
         align-items: center;
         text-decoration-color: transparent;
-        padding: 10px;
     }
     .badge-item {
         width: 30px;

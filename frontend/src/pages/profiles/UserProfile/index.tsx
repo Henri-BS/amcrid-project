@@ -1,8 +1,11 @@
-import { CampaignListByUser, PostListByUser, UserCard, UserCardConquests, } from 'components/layout/UserLayout';
+import { BadgeListByUser, CampaignListByUser, FollowerUserList, FollowingUserList, PostListByUser, UserCard, UserCardConquests, } from 'components/layout/UserLayout';
 import { useNavigate, useParams } from 'react-router-dom';
 import './styles.css';
 import { BASE_URL } from 'utils/requests';
 import axios from 'axios';
+import { Follow } from 'types/user';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export function UserProfile() {
   const params = useParams();
@@ -18,14 +21,28 @@ export function UserProfile() {
 
   return (
     <>
-      <div className="container">
-        <div className="user-box-container ">
           < UserCard id={`${params.userId}`} />
 
+        <div className="user-card-container mx-0 mt-2 p-2 row">
+          <Link to={`/profile/campaigns/${params.userId}`} className="btn cl-btn menu-options-item col-6">
+            Campanhas
+          </Link>
+          <Link to={`/profile/posters/${params.userId}`} className="btn cl-btn menu-options-item col-6">
+            Biblioteca
+          </Link>
+          <Link to={`/profile/conquests/${params.userId}`} className="btn cl-btn menu-options-item col-6" >
+            Conquistas
+          </Link>
+          <Link to={`/profile/stats/${params.userId}`} className="btn cl-btn menu-options-item col-6">
+            Estatísticas
+          </Link>
+          <Link to={`/profile/following/${params.userId}`} className="btn cl-btn menu-options-item col-6">
+            Seguindo
+          </Link>
+          <Link to={`/profile/followers/${params.userId}`}   className="btn cl-btn menu-options-item col-6">
+            Seguidores
+          </Link>
         </div>
-      </div>
-
-
       <div className="modal fade" role="dialog" id="deletePostModal">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
@@ -43,38 +60,9 @@ export function UserProfile() {
           </div>
         </div>
       </div>
-
-
     </>
   );
 
-
-
-
-}
-
-function UserSelector() {
-  return (
-    <div className="user-card-container mx-0 mt-2 p-2 row">
-      <button className="btn cl-btn menu-options-item col-6">
-        Campanhas
-      </button>
-      <button className="btn cl-btn menu-options-item col-6">Biblioteca</button>
-      <button className="btn cl-btn menu-options-item col-6" >
-        Conquistas
-      </button>
-
-      <button className="btn cl-btn menu-options-item col-6">
-        Estatísticas
-      </button>
-      <button className="btn cl-btn menu-options-item col-6">
-        Seguindo
-      </button>
-      <button className="btn cl-btn menu-options-item col-6">
-        Seguidores
-      </button>
-    </div>
-  );
 }
 
 export function CampaignsByUser() {
@@ -84,9 +72,8 @@ export function CampaignsByUser() {
     <>
       <div className="container">
         <div className="user-box-container ">
-          <UserCard id={`${params.userId}`} />
-          <UserSelector />
-          <CampaignListByUser id={`${params.userId}`} />
+<UserProfile/>          
+<CampaignListByUser id={`${params.userId}`} />
         </div>
       </div>
     </>
@@ -100,9 +87,53 @@ export function ConquestsByUser() {
     <>
       <div className="container">
         <div className="user-box-container ">
-          <UserCard id={`${params.userId}`} />
-          <UserSelector />
+          <UserProfile />
           <UserCardConquests id={`${params.userId}`} />
+        </div>
+      </div>
+    </>
+  );
+}
+
+export function BadgeByUser() {
+  const params = useParams();
+
+  return (
+    <>
+      <div className="container">
+        <div className="user-box-container ">
+          <UserProfile/>
+          <BadgeListByUser id={`${params.userId}`} />
+        </div>
+      </div>
+    </>
+  );
+}
+
+export function Followers() {
+  const params = useParams();
+
+  return (
+    <>
+      <div className="container">
+        <div className="user-box-container ">
+          <UserProfile/>
+          <FollowerUserList id={`${params.userId}`} />
+        </div>
+      </div>
+    </>
+  );
+}
+
+export function Following() {
+  const params = useParams();
+
+  return (
+    <>
+      <div className="container">
+        <div className="user-box-container ">
+          <UserProfile />
+          <FollowingUserList id={`${params.userId}`} />
         </div>
       </div>
     </>
@@ -116,8 +147,7 @@ export function PostersByUser() {
     <>
       <div className="container">
         <div className="user-box-container ">
-          <UserCard id={`${params.userId}`} />
-          <UserSelector />
+          <UserProfile />
           <PostListByUser id={`${params.userId}`} />
         </div>
       </div>

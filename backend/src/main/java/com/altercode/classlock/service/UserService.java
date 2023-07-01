@@ -17,8 +17,10 @@ import com.altercode.classlock.dto.UserDTO;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.repository.ConquestRepository;
 import com.altercode.classlock.repository.UserRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class UserService {
 
     @Autowired

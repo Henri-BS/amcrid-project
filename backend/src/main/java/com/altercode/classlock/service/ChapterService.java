@@ -12,9 +12,11 @@ import org.springframework.stereotype.Service;
 import com.altercode.classlock.dto.ChapterDTO;
 import com.altercode.classlock.entity.Chapter;
 import com.altercode.classlock.repository.ChapterRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
+@Transactional
 public class ChapterService {
 	
 	@Autowired

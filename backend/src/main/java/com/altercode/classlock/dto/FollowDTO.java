@@ -12,16 +12,16 @@ public class FollowDTO implements  Serializable{
     private final static long serialVersionUID = 1L;
 
     private Long id;
-    private Long following;
-    private Long follower;
+    private UserDTO following;
+    private UserDTO follower;
 
     public FollowDTO() {
     }
 
     public FollowDTO(Follow entity) {
         id = entity.getId();
-        following = entity.getFollowing().getId();
-        follower = entity.getFollower().getId();
+        following = new UserDTO(entity.getFollowing());
+        follower = new UserDTO(entity.getFollower());
     }
 
     public Long getId() {
@@ -32,19 +32,19 @@ public class FollowDTO implements  Serializable{
         this.id = id;
     }
 
-    public Long getFollowing() {
+    public UserDTO getFollowing() {
         return following;
     }
 
-    public void setFollowing(Long following) {
+    public void setFollowing(UserDTO following) {
         this.following = following;
     }
 
-    public Long getFollower() {
+    public UserDTO getFollower() {
         return follower;
     }
 
-    public void setFollower(Long follower) {
+    public void setFollower(UserDTO follower) {
         this.follower = follower;
     }
 }

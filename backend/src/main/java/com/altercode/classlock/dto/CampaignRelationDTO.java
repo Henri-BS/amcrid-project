@@ -21,12 +21,16 @@ public class CampaignRelationDTO implements Serializable {
     private Long id;
     private Long campaignId;
     private UserDTO user;
+    private Integer chapterQuantity;
+    private Integer postQuantity;
     private PostDTO post;
     private BadgeDTO badge;
 
     public CampaignRelationDTO(CampaignUser entity) {
         id = entity.getId();
         user = new UserDTO(entity.getUser());
+        chapterQuantity = entity.getChapterQuantity();
+        postQuantity = entity.getPostQuantity();
         campaignId = entity.getCampaign().getId();
     }
 

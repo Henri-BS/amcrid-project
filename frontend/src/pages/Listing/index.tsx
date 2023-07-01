@@ -1,7 +1,7 @@
 import axios from "axios";
 import Pagination from "components/shared/Pagination";
 import {CampaignMdCard} from "components/layout/ChapterLayout";
-import { MiniUserCard } from "components/layout/UserLayout";
+import { UserSmallCard } from "components/layout/UserLayout";
 import { useEffect, useState } from "react";
 import { CampaignPage } from "types/campaign";
 import { PostPage } from "types/post";
@@ -106,7 +106,7 @@ export function UserList() {
                 <div className="list-container row">
                     {page.content?.map(user => (
                         <div key={user.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                            <MiniUserCard user={user} />
+                            <UserSmallCard user={user} />
                         </div>
                     ))}
                 </div>

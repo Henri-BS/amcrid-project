@@ -14,13 +14,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/campaign-badge")
 public class CampaignBadgeController {
 
     @Autowired
     private CampaignBadgeService campaignBadgeService;
 
-    @GetMapping("/badges/{campaign}")
+    @GetMapping("/list/{campaign}")
     public ResponseEntity<Page<CampaignRelationDTO>> findAllBadgesByCampaign(Pageable pageable, @PathVariable Campaign campaign){
         Page<CampaignRelationDTO> page = campaignBadgeService.findAllBadgesByCampaign(pageable, campaign);
         return ResponseEntity.ok(page);

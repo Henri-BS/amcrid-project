@@ -20,7 +20,13 @@ public class CampaignUserController {
     @Autowired
     private CampaignUserService campaignService;
 
-    @GetMapping("/{campaign}")
+    @GetMapping("/find-by-user/{user}")
+    public ResponseEntity<CampaignRelationDTO> findByUser(@PathVariable User user){
+        CampaignRelationDTO find = campaignService.findByUser(user);
+        return ResponseEntity.ok(find);
+    }
+
+    @GetMapping("/list/{campaign}")
     public ResponseEntity<Page<CampaignRelationDTO>> findAllUsersByCampaign(Pageable pageable, @PathVariable Campaign campaign){
         Page<CampaignRelationDTO> page = campaignService.findAllUsersByCampaign(pageable, campaign);
         return ResponseEntity.ok(page);

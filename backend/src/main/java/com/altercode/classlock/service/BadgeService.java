@@ -13,8 +13,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.altercode.classlock.dto.BadgeDTO;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class BadgeService {
 
 	@Autowired
@@ -55,9 +57,9 @@ public class BadgeService {
 		return list.stream().map(QuizBadgeDTO::new).collect(Collectors.toList());
 	}
 
-	public List<UserRelationDTO> findAllBadgesByUser(User user) {
-		List<UserBadge> list = userBadgeRepository.findAllBadgesByUser(user);
-		return list.stream().map(UserRelationDTO::new).collect(Collectors.toList());
+	public Page<UserRelationDTO> findAllBadgesByUser(Pageable pageable, User user) {
+		Page<UserBadge> page = userBadgeRepository.findAllBadgesByUser(pageable, user);
+		return page.map(UserRelationDTO::new);
 	}
 
 

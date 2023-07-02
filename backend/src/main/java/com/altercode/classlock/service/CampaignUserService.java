@@ -24,7 +24,7 @@ public class CampaignUserService {
 
 
     public CampaignRelationDTO addUserInCampaign(CampaignRelationDTO dto) {
-        Campaign campaign = campaignRepository.findById(dto.getCampaignId()).orElseThrow();
+        Campaign campaign = campaignRepository.findById(dto.getCampaign().getId()).orElseThrow();
         User user = userRepository.findByUserName(dto.getUser().getUserName());
 
         CampaignUser add = new CampaignUser();

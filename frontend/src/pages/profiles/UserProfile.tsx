@@ -1,4 +1,4 @@
-import { BadgeListByUser, FollowerUserList, FollowingUserList, ListSavedPostsByUser, UserCard, UserCardConquests, ListCreatedCampaignByUser, } from 'components/layout/UserLayout';
+import { BadgeListByUser, FollowerUserList, FollowingUserList, ListSavedPostsByUser, UserCard, UserCardConquests, ListCreatedCampaignByUser, ListSavedCampaignByUser, } from 'components/layout/UserLayout';
 import { useNavigate, useParams } from 'react-router-dom';
 import './styles.css';
 import { BASE_URL } from 'utils/requests';
@@ -73,6 +73,7 @@ export function CampaignsByUser() {
         <div className="user-box-container ">
           <UserProfile />
           <ListCreatedCampaignByUser id={`${params.userId}`} />
+          <ListSavedCampaignByUser id={`${params.userId}`} />
         </div>
       </div>
     </>

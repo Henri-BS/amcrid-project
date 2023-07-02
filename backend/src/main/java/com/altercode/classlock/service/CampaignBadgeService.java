@@ -28,7 +28,7 @@ public class CampaignBadgeService {
     }
 
     public CampaignRelationDTO addBadgeInCampaign(CampaignRelationDTO dto) {
-        Campaign campaign = campaignRepository.findById(dto.getCampaignId()).orElseThrow();
+        Campaign campaign = campaignRepository.findById(dto.getCampaign().getId()).orElseThrow();
         Badge badge = badgeRepository.findById(dto.getBadge().getId()).orElseThrow();
 
         CampaignBadge add = new CampaignBadge();

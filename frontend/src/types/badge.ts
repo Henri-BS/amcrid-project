@@ -33,7 +33,7 @@ export type CampaignBadgePage = {
   };
 
   export type CampaignUserPage = {
-    content?: CampaignUser[];
+    content: CampaignUser[];
     last?: boolean;
     first?: boolean;
     empty?: boolean;

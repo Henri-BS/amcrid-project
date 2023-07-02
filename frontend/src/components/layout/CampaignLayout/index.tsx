@@ -97,7 +97,7 @@ export function ListUsersByCampaign({ id: campaignId }: Props) {
             <div className="title-container">Membros</div>
             <div className="nav-list-container">
                 {userPage.content?.map(x => (
-                    <div key={x.campaignId} className="nav-list-item">
+                    <div key={x.id} className="nav-list-item">
                         <UserSmCard campaignUser={x} />
                     </div>
                 ))}

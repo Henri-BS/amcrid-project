@@ -55,7 +55,8 @@ export type CampaignBadge = {
 }
 
 export type CampaignUser = {
-  campaignId: number;
+  id: number;
+  campaign: Campaign;
   user: User;
   chapterQuantity: number;
   postQuantity: number;

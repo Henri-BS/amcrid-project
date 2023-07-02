@@ -131,6 +131,8 @@ INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (5, 1);
 INSERT INTO tb_campaign_badge (badge_id, campaign_id) VALUES (6, 1);
 
 INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (1, 1);
+INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (1, 3);
+INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (1, 7);
 INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (4, 1);
 INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (6, 1);
 INSERT INTO tb_campaign_user (user_id, campaign_id) VALUES (7, 1);

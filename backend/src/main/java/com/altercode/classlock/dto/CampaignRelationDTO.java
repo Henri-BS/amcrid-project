@@ -19,7 +19,7 @@ public class CampaignRelationDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-    private Long campaignId;
+    private CampaignDTO campaign;
     private UserDTO user;
     private Integer chapterQuantity;
     private Integer postQuantity;
@@ -31,19 +31,19 @@ public class CampaignRelationDTO implements Serializable {
         user = new UserDTO(entity.getUser());
         chapterQuantity = entity.getChapterQuantity();
         postQuantity = entity.getPostQuantity();
-        campaignId = entity.getCampaign().getId();
+        campaign = new CampaignDTO(entity.getCampaign());
     }
 
     public CampaignRelationDTO(CampaignPost entity){
         id = entity.getId();
-        campaignId = entity.getCampaign().getId();
+        campaign = new CampaignDTO(entity.getCampaign());
         post = new PostDTO(entity.getPost());
     }
 
     public CampaignRelationDTO(CampaignBadge entity){
         id = entity.getId();
         badge = new BadgeDTO(entity.getBadge());
-        campaignId = entity.getCampaign().getId();
+        campaign = new CampaignDTO(entity.getCampaign());
     }
 
 }

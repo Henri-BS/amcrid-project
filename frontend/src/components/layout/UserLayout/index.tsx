@@ -6,8 +6,8 @@ import { Conquest } from 'types/conquest';
 import { FollowPage, FollowProps, User, UserPostPage, UserPostProps, UserProps } from 'types/user';
 import { BASE_URL } from 'utils/requests';
 import { Props } from 'types/quiz';
-import { UserBadgePage } from 'types/badge';
-import { CampaignPage, CampaignUser } from 'types/campaign';
+import { CampaignUserPage, UserBadgePage } from 'types/badge';
+import { CampaignPage, CampaignUser, CampaignUserProps } from 'types/campaign';
 import { CampaignMdCard } from '../ChapterLayout';
 
 export function UserCard({ id: userId }: Props) {
@@ -98,7 +98,45 @@ export function ListSavedPostsByUser({ id: userId }: Props) {
     }
 }
 
+export function ListSavedCampaignByUser({ id: userId }: Props) {
 
+    const [campaignPage, setCampaignPage] = useState<CampaignUserPage>({ content: [], number: 0 });
+    useEffect(() => {
+        axios.get(`${BASE_URL}/campaign-user/list-user/${userId}`)
+            .then((response) => {
+                setCampaignPage(response.data);
+            })
+    }, [userId]);
+
+    return (
+        <>
+            <div className='user-body-container'>
+                <h3>Campanhas que Participo</h3>
+                <div className="row">
+                    {campaignPage?.content.map(x => (
+                        <div key={x.id} className="col-12 col-md-4 col-lg-4">
+                            <CampaignUserMdCard campaignUser={x} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+        </>
+    );
+    function CampaignUserMdCard({ campaignUser }: CampaignUserProps) {
+        return(
+        <div>
+            <img className="cl-quest-card-image" src={campaignUser.campaign.image} alt={campaignUser.campaign.name} />
+            <div className="card-md-container dark-card">
+                <h3>{campaignUser.campaign.name}</h3>
+                <Link to={`/campaign/${campaignUser.campaign.id}`} className="btn btn-primary cl-form-btn">
+                    Acessar
+                </Link>
+            </div>
+        </div>
+        );
+    }
+}
 
 export function ListCreatedCampaignByUser({ id: userId }: Props) {
 
@@ -122,7 +160,6 @@ export function ListCreatedCampaignByUser({ id: userId }: Props) {
                     ))}
                 </div>
             </div>
-
         </>
     );
 }

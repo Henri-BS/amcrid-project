@@ -98,7 +98,9 @@ export function ListSavedPostsByUser({ id: userId }: Props) {
     }
 }
 
-export function CampaignListByUser({ id: userId }: Props) {
+
+
+export function ListCreatedCampaignByUser({ id: userId }: Props) {
 
     const [campaignPage, setCampaignPage] = useState<CampaignPage>({ content: [], number: 0 });
     useEffect(() => {
@@ -111,7 +113,7 @@ export function CampaignListByUser({ id: userId }: Props) {
     return (
         <>
             <div className='user-body-container'>
-                <h3>Campanhas que Participo</h3>
+                <h3>Campanhas Criadas</h3>
                 <div className="row">
                     {campaignPage?.content.map(x => (
                         <div key={x.id} className="col-12 col-md-4 col-lg-4">

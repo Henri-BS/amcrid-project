@@ -22,9 +22,6 @@ public class CampaignUserService {
     @Autowired
     private CampaignUserRepository campaignUserRepository;
 
-    public void deleteUserByCampaign(User user) {
-        this.campaignUserRepository.deleteByUser(user);
-    }
 
     public CampaignRelationDTO addUserInCampaign(CampaignRelationDTO dto) {
         Campaign campaign = campaignRepository.findById(dto.getCampaignId()).orElseThrow();
@@ -37,7 +34,6 @@ public class CampaignUserService {
         add.setPostQuantity(campaign.getCampaignPosts().size());
         return new CampaignRelationDTO(campaignUserRepository.saveAndFlush(add));
     }
-
 
     public Page<CampaignRelationDTO> findAllUsersByCampaign(Pageable pageable, Campaign campaign) {
         Page<CampaignUser> page = campaignUserRepository.findAllUsersByCampaign(pageable, campaign);
@@ -52,4 +48,12 @@ public class CampaignUserService {
         return new CampaignRelationDTO(find);
     }
 
+    public void deleteUserByCampaign(User user) {
+        this.campaignUserRepository.deleteByUser(user);
+    }
+
+    public Page<CampaignRelationDTO> findAllByUser(Pageable pageable, User user) {
+        Page<CampaignUser> page = campaignUserRepository.findAllByUser(pageable, user);
+        return page.map(CampaignRelationDTO::new);
+    }
 }

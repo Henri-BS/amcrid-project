@@ -1,9 +1,7 @@
 package com.altercode.classlock.controller;
 
 import com.altercode.classlock.dto.CampaignRelationDTO;
-import com.altercode.classlock.entity.Badge;
 import com.altercode.classlock.entity.Campaign;
-import com.altercode.classlock.entity.Post;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.service.CampaignUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +27,12 @@ public class CampaignUserController {
     @GetMapping("/list/{campaign}")
     public ResponseEntity<Page<CampaignRelationDTO>> findAllUsersByCampaign(Pageable pageable, @PathVariable Campaign campaign){
         Page<CampaignRelationDTO> page = campaignService.findAllUsersByCampaign(pageable, campaign);
+        return ResponseEntity.ok(page);
+    }
+
+    @GetMapping("/list-user/{user}")
+    public ResponseEntity<Page<CampaignRelationDTO>> findAllCampaignsByUser(Pageable pageable, @PathVariable User user){
+        Page<CampaignRelationDTO> page = campaignService.findAllByUser(pageable, user);
         return ResponseEntity.ok(page);
     }
 

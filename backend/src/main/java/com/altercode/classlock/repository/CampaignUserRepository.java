@@ -15,4 +15,6 @@ public interface CampaignUserRepository extends JpaRepository<CampaignUser, Long
     Page<CampaignUser> findAllUsersByCampaign(Pageable pageable, Campaign campaign);
 
     CampaignUser findByUser(User user);
+
+    Page<CampaignUser> findAllByUser(Pageable pageable, User user);
 }

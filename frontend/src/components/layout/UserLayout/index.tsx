@@ -3,13 +3,13 @@ import './styles.css';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Conquest } from 'types/conquest';
-import { FollowPage, FollowProps, User, UserProps } from 'types/user';
+import { FollowPage, FollowProps, User, UserPostPage, UserPostProps, UserProps } from 'types/user';
 import { BASE_URL } from 'utils/requests';
 import { Props } from 'types/quiz';
 import { UserBadgePage } from 'types/badge';
 import { Post } from 'types/post';
 import { PostCard } from '../ArticleLayout';
-import { CampaignPage, CampaignUser } from 'types/campaign';
+import { CampaignPage, CampaignPostProps, CampaignUser } from 'types/campaign';
 import { CampaignMdCard } from '../ChapterLayout';
 
 export function UserCard({ id: userId }: Props) {
@@ -30,7 +30,6 @@ export function UserCard({ id: userId }: Props) {
                 <div className="col-10">
                     <h5>{user?.userName}</h5>
                     <h6>Minha Biografia</h6>
-
                 </div>
             </div>
         </div>
@@ -65,9 +64,9 @@ export function BadgeListByUser({ id: userId }: Props) {
 
 export function PostListByUser({ id: userId }: Props) {
 
-    const [postPage, setPostPage] = useState<Post[]>();
+    const [postPage, setPostPage] = useState<UserPostPage>({content: [], number: 0});
     useEffect(() => {
-        axios.get(`${BASE_URL}/user/posters/${userId}`)
+        axios.get(`${BASE_URL}/user/list-post/${userId}`)
             .then((response) => {
                 setPostPage(response.data);
             })
@@ -75,18 +74,30 @@ export function PostListByUser({ id: userId }: Props) {
 
     return (
         <>
-            <div className='user-body-container'>
+            <div className="user-body-container">
+                Publicações Salvas
                 <div className="row">
-                    {postPage?.map(x => (
+                    {postPage?.content.map(x => (
                         <div key={x.id} className="col-12 col-md-4 col-lg-4">
-                            <PostCard post={x} />
+                            <CampaignPostCard userPost={x} />
                         </div>
                     ))}
                 </div>
             </div>
-
         </>
     );
+    function CampaignPostCard({ userPost }: UserPostProps) {
+
+        return (
+            <Link to={`/post/${userPost.post.id}`} >
+                <div className="article-card-container dark-card">
+                    <h3>{userPost.post.title}</h3>
+                    <hr />
+                    <p>"{userPost.post.summary}"</p>
+                </div>
+            </Link>
+        );
+    }
 }
 
 export function CampaignListByUser({ id: userId }: Props) {

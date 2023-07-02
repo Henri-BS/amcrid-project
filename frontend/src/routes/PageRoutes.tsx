@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "components/shared/NavBar";
 import Footer from "components/shared/Footer";
 import Post from "pages/profiles/PostProfile";
-import { ArticleList, ChapterList, UserList } from "pages/Listing";
+import { ArticleList, CampaignList, UserList } from "pages/Listing";
 import { QuizProfile } from "components/game/QuizzGame";
 import { Ranking } from "pages/Ranking";
 import { CampaignProfile } from "pages/profiles/CampaingProfile";
@@ -18,7 +18,7 @@ const PageRoutes = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/post-list" element={<ArticleList />} />
-                    <Route path="/chapter-list" element={<ChapterList />} />
+                    <Route path="/campaign-list" element={<CampaignList />} />
                     <Route path="/user-list" element={<UserList />} />
 
                     <Route path="/ranking" element={<Ranking />} />

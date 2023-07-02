@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { PostPage } from 'types/post';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
-import {CampaignPage } from 'types/campaign';
+import { CampaignPage } from 'types/campaign';
 
 function Home() {
 
@@ -49,9 +49,11 @@ function Home() {
       <div className="side-menu">
       </div>
       <div className="container">
-        <Link to="/post-list">
-          <h2>Artigos</h2>
-        </Link>
+        <h2>
+          <Link to="/post-list">
+            Artigos
+          </Link>
+        </h2>
         <div className="article-max-container">
           <div className="d-flex">
             <div className="nav-list-container">
@@ -64,10 +66,11 @@ function Home() {
           </div>
         </div>
 
-
-        <Link to="/campaign-list">
-          <h2>Campanhas</h2>
-        </Link>
+        <h2>
+          <Link to="/campaign-list">
+            Campanhas
+          </Link>
+        </h2>
         <Pagination page={campaignPage} onChange={handlePageChange}
         />
         <div className="row quest-chapter-container">

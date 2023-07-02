@@ -25,6 +25,11 @@ public class PostService {
     	Page<Post> result = postRepository.findAll(pageable);
 		return result.map(PostDTO::new);
 	}
+
+	public Page<PostDTO> findAllByUser(Pageable pageable, User user){
+		Page<Post> page = postRepository.findAllByUser(pageable, user);
+		return page.map(PostDTO::new);
+	}
     
     public PostDTO findById(Long id) {
     	Post result = postRepository.findById(id).orElseThrow();

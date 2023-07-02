@@ -8,18 +8,18 @@ import { Link } from 'react-router-dom';
 import { Props } from 'types/quiz';
 
 
-export function ArticlePost({id: postId}: Props) {
+export function ArticlePost({ id: postId }: Props) {
 
     const [post, setPost] = useState<Post>();
 
     useEffect(() => {
         axios.get(`${BASE_URL}/post/${postId}`)
-        .then(response => {
-            setPost(response.data);
-        });
+            .then(response => {
+                setPost(response.data);
+            });
     }, [postId]);
 
-    
+
     return (
         <>
             <div className="row ">
@@ -56,8 +56,8 @@ export function PostCard({ post }: PostProps) {
 
         <Link to={`/post/${post.id}`} >
             <div className="article-card-container dark-card">
-                <h3>{post.title}</h3>                 
-                <hr />               
+                <h3>{post.title}</h3>
+                <hr />
                 <p>"{post.summary}"</p>
             </div>
         </Link>

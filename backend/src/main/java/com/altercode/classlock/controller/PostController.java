@@ -1,6 +1,7 @@
 package com.altercode.classlock.controller;
 
 
+import com.altercode.classlock.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,6 +23,12 @@ public class PostController {
     public ResponseEntity<Page<PostDTO>> findAll(Pageable pageable) {
         Page<PostDTO> list = postService.findAll(pageable);
         return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/list-user")
+    public ResponseEntity<Page<PostDTO>> findAllPostersByUser(Pageable pageable, User user) {
+        Page<PostDTO> page = postService.findAllByUser(pageable, user);
+        return ResponseEntity.ok(page);
     }
 
     @GetMapping("/{id}")

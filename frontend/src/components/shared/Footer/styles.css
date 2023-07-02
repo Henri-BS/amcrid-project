@@ -3,21 +3,28 @@
     width: 100%;
     color: #fff;
     padding: 40px 20px 20px 20px;
+    top: 10;
+}
+
+.footer-container li {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
 }
 
 .footer-base-container {
+    border-top: solid var(--sept);
+    margin-top: 40px;
     height: max-content;
     width: 100%;
+    padding: 12px;
 }
 
 .footer-base-text-container {
     padding: 20px;
     text-align: center;
-}
-
-.footer-grid-container {
-    justify-content: center;
-    align-items: center;
 }
 
 .footer-img {
@@ -33,8 +40,8 @@
 
 .footer-logo {
     margin-left: 20px;
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     background-color: #fff;
     border: 4px solid var(--tert);
     border-radius: 100%;
@@ -55,5 +62,11 @@
     .footer-base-container {
         height: 60px;
         padding-top: 20px;
+    }
+    .footer-container li {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        font-size: x-large;
     }
 }

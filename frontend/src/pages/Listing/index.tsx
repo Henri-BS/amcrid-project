@@ -50,7 +50,7 @@ export function ArticleList() {
     );
 }
 
-export function ChapterList() {
+export function CampaignList() {
 
     const [pageNumber, setPageNumber] = useState(0);
     const [campaignPage, setCampaignPage] = useState<CampaignPage>({ content: [], number: 0});

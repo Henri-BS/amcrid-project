@@ -9,6 +9,7 @@
 
 .container h2 {
     color: #fff;
+    width: max-content;
 }
 
 .pagination-page-container {

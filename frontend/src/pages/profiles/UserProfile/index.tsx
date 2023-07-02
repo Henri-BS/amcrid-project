@@ -3,8 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './styles.css';
 import { BASE_URL } from 'utils/requests';
 import axios from 'axios';
-import { Follow } from 'types/user';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export function UserProfile() {
@@ -21,28 +19,28 @@ export function UserProfile() {
 
   return (
     <>
-          < UserCard id={`${params.userId}`} />
+      < UserCard id={`${params.userId}`} />
 
-        <div className="user-card-container mx-0 mt-2 p-2 row">
-          <Link to={`/profile/campaigns/${params.userId}`} className="btn cl-btn menu-options-item col-6">
-            Campanhas
-          </Link>
-          <Link to={`/profile/posters/${params.userId}`} className="btn cl-btn menu-options-item col-6">
-            Biblioteca
-          </Link>
-          <Link to={`/profile/conquests/${params.userId}`} className="btn cl-btn menu-options-item col-6" >
-            Conquistas
-          </Link>
-          <Link to={`/profile/stats/${params.userId}`} className="btn cl-btn menu-options-item col-6">
-            Estatísticas
-          </Link>
-          <Link to={`/profile/following/${params.userId}`} className="btn cl-btn menu-options-item col-6">
-            Seguindo
-          </Link>
-          <Link to={`/profile/followers/${params.userId}`}   className="btn cl-btn menu-options-item col-6">
-            Seguidores
-          </Link>
-        </div>
+      <div className="user-card-container mx-0 mt-2 p-2 row">
+        <Link to={`/profile/campaigns/${params.userId}`} className="btn cl-btn menu-options-item col-6">
+          Campanhas
+        </Link>
+        <Link to={`/profile/posters/${params.userId}`} className="btn cl-btn menu-options-item col-6">
+          Biblioteca
+        </Link>
+        <Link to={`/profile/conquests/${params.userId}`} className="btn cl-btn menu-options-item col-6" >
+          Conquistas
+        </Link>
+        <Link to={`/profile/stats/${params.userId}`} className="btn cl-btn menu-options-item col-6">
+          Estatísticas
+        </Link>
+        <Link to={`/profile/following/${params.userId}`} className="btn cl-btn menu-options-item col-6">
+          Seguindo
+        </Link>
+        <Link to={`/profile/followers/${params.userId}`} className="btn cl-btn menu-options-item col-6">
+          Seguidores
+        </Link>
+      </div>
       <div className="modal fade" role="dialog" id="deletePostModal">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
@@ -72,8 +70,8 @@ export function CampaignsByUser() {
     <>
       <div className="container">
         <div className="user-box-container ">
-<UserProfile/>          
-<CampaignListByUser id={`${params.userId}`} />
+          <UserProfile />
+          <CampaignListByUser id={`${params.userId}`} />
         </div>
       </div>
     </>
@@ -102,7 +100,7 @@ export function BadgeByUser() {
     <>
       <div className="container">
         <div className="user-box-container ">
-          <UserProfile/>
+          <UserProfile />
           <BadgeListByUser id={`${params.userId}`} />
         </div>
       </div>
@@ -117,7 +115,7 @@ export function Followers() {
     <>
       <div className="container">
         <div className="user-box-container ">
-          <UserProfile/>
+          <UserProfile />
           <FollowerUserList id={`${params.userId}`} />
         </div>
       </div>
@@ -148,6 +146,7 @@ export function PostersByUser() {
       <div className="container">
         <div className="user-box-container ">
           <UserProfile />
+          
           <PostListByUser id={`${params.userId}`} />
         </div>
       </div>

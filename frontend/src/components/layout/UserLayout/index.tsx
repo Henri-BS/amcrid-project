@@ -7,9 +7,7 @@ import { FollowPage, FollowProps, User, UserPostPage, UserPostProps, UserProps }
 import { BASE_URL } from 'utils/requests';
 import { Props } from 'types/quiz';
 import { UserBadgePage } from 'types/badge';
-import { Post } from 'types/post';
-import { PostCard } from '../ArticleLayout';
-import { CampaignPage, CampaignPostProps, CampaignUser } from 'types/campaign';
+import { CampaignPage, CampaignUser } from 'types/campaign';
 import { CampaignMdCard } from '../ChapterLayout';
 
 export function UserCard({ id: userId }: Props) {
@@ -62,11 +60,11 @@ export function BadgeListByUser({ id: userId }: Props) {
     );
 }
 
-export function PostListByUser({ id: userId }: Props) {
+export function ListSavedPostsByUser({ id: userId }: Props) {
 
     const [postPage, setPostPage] = useState<UserPostPage>({content: [], number: 0});
     useEffect(() => {
-        axios.get(`${BASE_URL}/user/list-post/${userId}`)
+        axios.get(`${BASE_URL}/user/list-post/${userId}?size=12`)
             .then((response) => {
                 setPostPage(response.data);
             })
@@ -75,7 +73,7 @@ export function PostListByUser({ id: userId }: Props) {
     return (
         <>
             <div className="user-body-container">
-                Publicações Salvas
+                <h3>Publicações Salvas</h3>
                 <div className="row">
                     {postPage?.content.map(x => (
                         <div key={x.id} className="col-12 col-md-4 col-lg-4">
@@ -113,6 +111,7 @@ export function CampaignListByUser({ id: userId }: Props) {
     return (
         <>
             <div className='user-body-container'>
+                <h3>Campanhas que Participo</h3>
                 <div className="row">
                     {campaignPage?.content.map(x => (
                         <div key={x.id} className="col-12 col-md-4 col-lg-4">
@@ -189,7 +188,6 @@ export function FollowingUserList({ id: userId }: Props) {
                     ))}
                 </div>
             </div>
-
         </>
     );
     function FollowSmallCard({ follow }: FollowProps){

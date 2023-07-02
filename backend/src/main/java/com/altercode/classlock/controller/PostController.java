@@ -25,8 +25,8 @@ public class PostController {
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping("/list-user")
-    public ResponseEntity<Page<PostDTO>> findAllPostersByUser(Pageable pageable, User user) {
+    @GetMapping("/list-user/{user}")
+    public ResponseEntity<Page<PostDTO>> findAllPostersByUser(Pageable pageable, @PathVariable User user) {
         Page<PostDTO> page = postService.findAllByUser(pageable, user);
         return ResponseEntity.ok(page);
     }

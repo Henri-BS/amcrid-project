@@ -13,7 +13,7 @@ export type Post = {
 };
 
 export type PostPage = {
-  content?: Post[];
+  content: Post[];
   last?: boolean;
   first?: boolean;
   empty?: boolean;
@@ -23,3 +23,7 @@ export type PostPage = {
   size?: number;
   number: number;
 };
+
+export type PostProps = {
+  post: Post;
+}

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { PostEditForm } from "components/form/PostForm";
-import { ArticlePost } from "components/layout/ArticleLayout";
+import { PostProfile } from "components/layout/ArticleLayout";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "utils/requests";
 
@@ -26,7 +26,7 @@ function Post() {
             Deletar Post
           </button>
         </div>
-        <ArticlePost id={`${params.postId}`} />
+        <PostProfile id={`${params.postId}`} />
       </div>
 
       <div className="modal fade" role="dialog" id="editPostModal">

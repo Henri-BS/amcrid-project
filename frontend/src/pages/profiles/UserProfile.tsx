@@ -1,9 +1,10 @@
-import { BadgeListByUser, CampaignListByUser, FollowerUserList, FollowingUserList, PostListByUser, UserCard, UserCardConquests, } from 'components/layout/UserLayout';
+import { BadgeListByUser, CampaignListByUser, FollowerUserList, FollowingUserList, ListSavedPostsByUser, UserCard, UserCardConquests, } from 'components/layout/UserLayout';
 import { useNavigate, useParams } from 'react-router-dom';
 import './styles.css';
 import { BASE_URL } from 'utils/requests';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { ListPostsCreatedByUser } from 'components/layout/ArticleLayout';
 
 export function UserProfile() {
   const params = useParams();
@@ -146,8 +147,8 @@ export function PostersByUser() {
       <div className="container">
         <div className="user-box-container ">
           <UserProfile />
-          
-          <PostListByUser id={`${params.userId}`} />
+          <ListPostsCreatedByUser id={`${params.userId}`}/>
+          <ListSavedPostsByUser id={`${params.userId}`} />
         </div>
       </div>
     </>

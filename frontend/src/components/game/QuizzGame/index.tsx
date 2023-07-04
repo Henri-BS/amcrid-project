@@ -2,7 +2,7 @@
 import { Link, useParams } from "react-router-dom";
 import "./styles.css"
 import { useState, useEffect } from "react";
-import { Option, Props, Question, QuestionPage, Quiz } from "types/quiz";
+import { Option, OptionProps, Props, Question, QuestionPage, QuestionProps, Quiz, QuizProps } from "types/quiz";
 import { BASE_URL } from "utils/requests";
 import axios from "axios";
 
@@ -51,20 +51,16 @@ export function QuizGame({ id: quizId }: Props) {
 
   return (
     <>
-    <h2>Quiz {quiz?.title}</h2>
+      <h2>Quiz: {quiz?.title}</h2>
       <div className="menu-options-container">
-        <button type="submit" className="menu-options-item  cl-form-btn-container btn cl-form-btn">Iniciar</button>
-        <button type="submit" className="menu-options-item cl-form-btn-container btn cl-form-btn">Concluir</button>
+        <button type="submit" className="menu-options-item cl-btn">Iniciar</button>
+        <button type="submit" className="menu-options-item cl-btn">Concluir</button>
       </div>
       {question?.content.map(x => (
         <QuestionCard question={x} />
       ))}
     </>
   );
-}
-
-type QuizProps = {
-  quiz: Quiz;
 }
 
 export function QuizProfile() {
@@ -75,10 +71,6 @@ export function QuizProfile() {
       <QuizGame id={`${params.quizId}`} />
     </div>
   );
-}
-
-type QuestionProps = {
-  question: Question;
 }
 
 export function QuestionCard({ question }: QuestionProps) {
@@ -100,36 +92,29 @@ export function QuestionCard({ question }: QuestionProps) {
   }, [question.id]);
 
   return (
-    <>        <form className="form ">      
-
-    <div className="row">
-      <div className="quest-container col-6" >        
-      {questionProf?.title}      
-      </div>
-          <div className="card-form-container col-6">
-            <div className="form-group">
-              <ul>
+    <>        
+    <form className="form ">
+      <div className="row">
+        <div className="quest-container col-6" >
+          {questionProf?.title}
+        </div>
+        <div className="card-form-container col-6">
+          <div className="form-group">
+            <ul>
               <h3>{optionList?.length} Alternativas</h3>
-                {optionList?.map(x => (
-                  <li key={x.id} >
-                    <OptionCard option={x} />
-                  </li>
-                ))}
-              </ul>
-            </div>
+              {optionList?.map(x => (
+                <li key={x.id} >
+                  <OptionCard option={x} />
+                </li>
+              ))}
+            </ul>
           </div>
-      </div>        
-</form >
+        </div>
+      </div>
+    </form >
     </>
   );
-}
-
-type OptionProps = {
-  option: Option;
-}
-
-export function OptionCard({ option }: OptionProps) {
-
+  function OptionCard({ option }: OptionProps) {
   return (
     <>
       <div>
@@ -138,3 +123,5 @@ export function OptionCard({ option }: OptionProps) {
     </>
   );
 }
+}
+

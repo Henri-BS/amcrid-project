@@ -35,7 +35,7 @@ export function UserCard({ id: userId }: Props) {
 }
 
 export function BadgeListByUser({ id: userId }: Props) {
-    const [badgeList, setBadgeList] = useState<UserBadgePage>({content: [], number: 0});
+    const [badgeList, setBadgeList] = useState<UserBadgePage>({ content: [], number: 0 });
     useEffect(() => {
         axios.get(`${BASE_URL}/badge/by-user/${userId}`)
             .then((response) => {
@@ -48,13 +48,20 @@ export function BadgeListByUser({ id: userId }: Props) {
             <div className='user-body-container'>
                 <div className="row">
                     {badgeList?.content.map(x => (
-                        <div key={x.id} className="col-12 col-md-4 col-lg-4">
-                        <abbr title={x.badge.name}>
-                            <img className="badge-item" src={x.badge.image} alt={x.badge.name} />
-                        </abbr>
-                    </div>
-                ))}
-            </div>  
+                        <div key={x.id} className="col-12 col-md-6 col-lg-4 mb-2">
+                            <abbr title={x.badge.description}>
+                            <div className="sm-card-container dark-card ">
+                                <img src={x.badge.image} alt={x.badge.name} className="sm-card-image" />
+                                <div className="sm-card-title"><h6>{x.badge.name}</h6>
+                                    <ul className="sm-card-info ">
+                                        <li> Xp: {x.badge.xp}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </abbr>
+                        </div>
+                    ))}
+                </div>
             </div>
         </>
     );
@@ -62,7 +69,7 @@ export function BadgeListByUser({ id: userId }: Props) {
 
 export function ListSavedPostsByUser({ id: userId }: Props) {
 
-    const [postPage, setPostPage] = useState<UserPostPage>({content: [], number: 0});
+    const [postPage, setPostPage] = useState<UserPostPage>({ content: [], number: 0 });
     useEffect(() => {
         axios.get(`${BASE_URL}/user/list-post/${userId}?size=12`)
             .then((response) => {
@@ -88,10 +95,12 @@ export function ListSavedPostsByUser({ id: userId }: Props) {
 
         return (
             <Link to={`/post/${userPost.post.id}`} >
-                <div className="article-card-container dark-card">
+                <img className="card-md-image " src={userPost.post.image} alt={userPost.post.title} />
+                <div className="card-md-container dark-card">
                     <h3>{userPost.post.title}</h3>
-                    <hr />
-                    <p>"{userPost.post.summary}"</p>
+                    <abbr title={userPost.post.summary}>
+                        <p className="text-center">Sumário <i className="fas fa-eye" /></p>
+                    </abbr>
                 </div>
             </Link>
         );
@@ -124,16 +133,16 @@ export function ListSavedCampaignByUser({ id: userId }: Props) {
         </>
     );
     function CampaignUserMdCard({ campaignUser }: CampaignUserProps) {
-        return(
-        <div>
-            <img className="cl-quest-card-image" src={campaignUser.campaign.image} alt={campaignUser.campaign.name} />
-            <div className="card-md-container dark-card">
-                <h3>{campaignUser.campaign.name}</h3>
-                <Link to={`/campaign/${campaignUser.campaign.id}`} className="btn btn-primary cl-form-btn">
-                    Acessar
+        return (
+            <div>
+                <Link to={`/campaign/${campaignUser.campaign.id}`} >
+                    <img className="card-md-image" src={campaignUser.campaign.image} alt={campaignUser.campaign.name} />
+                    <div className="card-md-container dark-card">
+                        <h3>{campaignUser.campaign.name}</h3>
+                        Acessar
+                    </div>
                 </Link>
             </div>
-        </div>
         );
     }
 }
@@ -188,7 +197,7 @@ export function FollowerUserList({ id: userId }: Props) {
 
         </>
     );
-    function FollowSmallCard({ follow }: FollowProps){
+    function FollowSmallCard({ follow }: FollowProps) {
 
         return (
             <Link to={`/profile/${follow?.following.id}`}>
@@ -221,7 +230,7 @@ export function FollowingUserList({ id: userId }: Props) {
             <div className='user-body-container'>
                 <div className="row">
                     {followPage?.content.map(x => (
-                        <div key={x.id} className="col-12 col-md-4 col-lg-4">
+                        <div key={x.id} className="col-12 col-md-6 col-lg-4">
                             <FollowSmallCard follow={x} />
                         </div>
                     ))}
@@ -229,7 +238,7 @@ export function FollowingUserList({ id: userId }: Props) {
             </div>
         </>
     );
-    function FollowSmallCard({ follow }: FollowProps){
+    function FollowSmallCard({ follow }: FollowProps) {
 
         return (
             <Link to={`/profile/${follow?.follower.id}`}>
@@ -245,7 +254,7 @@ export function FollowingUserList({ id: userId }: Props) {
             </Link>
         );
     }
-    
+
 }
 
 export function UserCardConquests({ id: conquestId }: Props) {
@@ -263,7 +272,6 @@ export function UserCardConquests({ id: conquestId }: Props) {
     return (
         <div className='user-body-container'>
             <ul className="list-unstyled">
-                <CampaingUserStats id={`${params.userId}`} />
                 <li className="user-item mb-2"><b>Quests Principais Finalizadas: </b> {conquest?.principalQuest}</li>
                 <li className="user-item mb-2"><b>Quests Secundárias Finalizadas: </b> {conquest?.secondaryQuest}</li>
                 <li className="user-item mb-2"><b>Capítulos Finalizados: </b> {conquest?.chapterCompleted}</li>

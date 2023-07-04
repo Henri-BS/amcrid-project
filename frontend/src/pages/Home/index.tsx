@@ -1,7 +1,6 @@
 
-import Pagination from 'components/shared/Pagination';
 import './styles.css'
-import { CampaignCard } from 'components/layout/ChapterLayout';
+import { CampaignMdCard } from 'components/layout/ChapterLayout';
 import { Link } from 'react-router-dom';
 import { PostCard } from 'components/layout/ArticleLayout';
 import { useEffect, useState } from 'react';
@@ -12,7 +11,6 @@ import { CampaignPage } from 'types/campaign';
 
 function Home() {
 
-  const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState<PostPage>({
     content: [],
     number: 0
@@ -20,12 +18,12 @@ function Home() {
   });
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/post?${pageNumber}&size=10&sort=createdDate`)
+    axios.get(`${BASE_URL}/post?&size=10&sort=id,desc`)
       .then(response => {
         const data = response.data as PostPage;
         setPage(data);
       });
-  }, [pageNumber]);
+  }, []);
 
 
   const [campaignPage, setCampaignPage] = useState<CampaignPage>({
@@ -34,15 +32,12 @@ function Home() {
   });
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/campaign/list?page=${pageNumber}&size=1&sort=id`)
+    axios.get(`${BASE_URL}/campaign/list?&size=10&sort=id`)
       .then((response) => {
         setCampaignPage(response.data);
       })
-  }, [pageNumber]);
+  }, []);
 
-  const handlePageChange = (newPageNumber: number) => {
-    setPageNumber(newPageNumber);
-  }
 
   return (
     <>
@@ -71,12 +66,10 @@ function Home() {
             Campanhas
           </Link>
         </h2>
-        <Pagination page={campaignPage} onChange={handlePageChange}
-        />
-        <div className="row quest-chapter-container">
+        <div className="nav-list-container">
           {campaignPage.content?.map(campaign => (
-            <div key={campaign.id}>
-              <CampaignCard campaign={campaign} />
+            <div key={campaign.id} className='nav-list-item'>
+              <CampaignMdCard campaign={campaign} />
             </div>
           ))}
         </div>

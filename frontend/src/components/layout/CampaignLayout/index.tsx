@@ -11,10 +11,20 @@ export function CampaignCard({ campaign }: CampaignProps) {
         <>
             <div className="row quest-chapter-container">
                 <div className="col-sm-6 col-md-3 xl-3">
-                    <img className="cl-quest-card-image" src={campaign.image} alt={campaign.name} />
-                    <div className="card-md-container dark-card">
-                        <h3>{campaign.name}</h3>
+                    <Link to={`/campaign/${campaign.id}`} >
 
+                        <img className="card-md-image" src={campaign.image} alt={campaign.name} />
+                        <div className="card-md-container dark-card">
+                            <h3>{campaign.name}</h3>
+                            Acessar
+                        </div>
+                    </Link>
+
+                </div>
+                <div className="article-container col-sm-6 col-md-9 col-xl-9">
+                    <div className="article-content">
+                        <h2>"{campaign.name}"</h2>
+                        <p>{campaign.description}</p>
                         <div className="cl-card-info">
                             <label htmlFor="touch" >
                                 <span>Etapas</span>
@@ -29,16 +39,6 @@ export function CampaignCard({ campaign }: CampaignProps) {
                             </nav>
                             <hr />
                         </div>
-
-                        <Link to={`/campaign/${campaign.id}`} className="btn btn-primary cl-form-btn">
-                            Acessar
-                        </Link>
-                    </div>
-                </div>
-                <div className="article-container col-sm-6 col-md-9 col-xl-9">
-                    <div className="article-content">
-                        <h2>"{campaign.name}"</h2>
-                        <p>{campaign.description}</p>
                     </div>
                 </div>
             </div>
@@ -71,12 +71,13 @@ export function ListBadgesByCampaign({ id: campaignId }: Props) {
     function BadgeCard({ badge }: CampaignBadgeProps) {
         return (
             <>
-                <div className="sm-card-container">
+                <div className="sm-card-container dark-card">
                     <img src={badge.badge.image} alt={badge.badge.name} className="sm-card-image" />
                     <div className="sm-card-title"><h6>{badge.badge.name}</h6>
                         <ul className="sm-card-info ">
                             <li> Xp: {badge.badge.xp}</li>
-                        </ul></div>
+                        </ul>
+                        </div>
                 </div>
             </>
         );
@@ -108,7 +109,7 @@ export function ListUsersByCampaign({ id: campaignId }: Props) {
     function UserSmCard({ campaignUser }: CampaignUserProps) {
         return (
             <Link to={`/profile/${campaignUser.user?.id}`}>
-                <div className="sm-card-container">
+                <div className="sm-card-container dark-card">
                     <img className="sm-card-image" src={campaignUser.user?.image} alt={campaignUser.user?.userName} />
                     <div className="sm-card-title">
                         <h6>{campaignUser.user?.userName}</h6>
@@ -149,11 +150,13 @@ export function ListPostersByCampaign({ id: campaignId }: Props) {
         return (
 
             <Link to={`/post/${campaignPost.post.id}`} >
-                <div className="article-card-container dark-card">
-                    <h3>{campaignPost.post.title}</h3>
-                    <hr />
-                    <p>"{campaignPost.post.summary}"</p>
-                </div>
+                <img className="card-md-image " src={campaignPost.post.image} alt={campaignPost.post.title} />
+            <div className="card-md-container dark-card">
+                <h3>{campaignPost.post.title}</h3>
+                <abbr title={campaignPost.post.summary}>
+                <p className="text-center">Sumário <i className="fas fa-eye" /></p>
+                </abbr>
+            </div>
             </Link>
         );
     }

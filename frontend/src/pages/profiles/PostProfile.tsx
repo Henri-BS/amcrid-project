@@ -1,6 +1,6 @@
 import axios from "axios";
 import { PostEditForm } from "components/form/PostForm";
-import { PostProfile } from "components/layout/ArticleLayout";
+import { PostLayout } from "components/layout/ArticleLayout";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "utils/requests";
 
@@ -18,15 +18,15 @@ function Post() {
   return (
     <>
       <div className="container">
-        <div className="menu-options-container">
-          <button data-bs-target="#editPostModal" data-bs-toggle="modal" className="btn cl-form-btn">
-            Editar Post
+        <div className="menu-options-container user-body-container">
+          <button data-bs-target="#editPostModal" data-bs-toggle="modal" className="btn cl-btn mx-2">
+            <i className="fa fa-edit"/> Editar Post
           </button>
-          <button data-bs-target="#deletePostModal" data-bs-toggle="modal" className="btn cl-form-btn">
-            Deletar Post
+          <button data-bs-target="#deletePostModal" data-bs-toggle="modal" className="btn cl-btn">
+          <i className="fa fa-trash"/> Deletar Post
           </button>
         </div>
-        <PostProfile id={`${params.postId}`} />
+        <PostLayout id={`${params.postId}`} />
       </div>
 
       <div className="modal fade" role="dialog" id="editPostModal">

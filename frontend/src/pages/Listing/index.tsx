@@ -19,7 +19,7 @@ export function ArticleList() {
     });
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/post?page=${pageNumber}&size=8&sort=createdDate`)
+        axios.get(`${BASE_URL}/post?page=${pageNumber}&size=8&sort=id`)
             .then(response => {
                 const data = response.data as PostPage;
                 setPostPage(data);

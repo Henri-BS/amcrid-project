@@ -1,30 +1,35 @@
 import { Link } from 'react-router-dom';
 import { CampaignProps, Chapter } from 'types/campaign';
-import './styles.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
 import { Props, Quiz } from 'types/quiz';
 import { QuizCard } from 'components/game/QuizzGame';
-
-
+import './styles.css';
 
 export function CampaignCard({ campaign }: CampaignProps) {
     return (
         <>
             <div className="row quest-chapter-container">
                 <div className="col-sm-6 col-md-3 xl-3">
-                    <img className="cl-quest-card-image" src={campaign.image} alt={campaign.name} />
-                    <div className="card-md-container dark-card">
-                        <h3>{campaign.name}</h3>
-
+                    <Link to={`/campaign/${campaign.id}`}>
+                        <img className="card-md-image" src={campaign.image} alt={campaign.name} />
+                        <div className="card-md-container dark-card">
+                            <h3>{campaign.name}</h3>
+                        </div>
+                    </Link>
+                </div>
+                <div className="article-container col-sm-6 col-md-9 col-xl-9">
+                    <div className="article-content">
+                        <h2>"{campaign.name}"</h2>
+                        <p>{campaign.description}</p>
                         <div className="cl-card-info">
                             <label htmlFor="touch" >
                                 <span>Etapas</span>
                             </label>
                             <nav>
                                 <input type="checkbox" id="touch" />
-                                <ul className=" list-unstyled slide">
+                                <ul className="list-unstyled slide">
                                     <li>  <b>1</b> - Quizz Princípios Básicos da Segurança da Informação</li>
                                     <li>  <b>2</b> - Quizz Confiabilidade e Integridade</li>
                                     <li>  <b>3</b> - Quizz Autenticidade e Disponibilidade</li>
@@ -32,16 +37,6 @@ export function CampaignCard({ campaign }: CampaignProps) {
                             </nav>
                             <hr />
                         </div>
-
-                        <Link to={`/campaign/${campaign.id}`} className="btn btn-primary cl-form-btn">
-                            Acessar
-                        </Link>
-                    </div>
-                </div>
-                <div className="article-container col-sm-6 col-md-9 col-xl-9">
-                    <div className="article-content">
-                        <h2>"{campaign.name}"</h2>
-                        <p>{campaign.description}</p>
                     </div>
                 </div>
             </div>
@@ -50,16 +45,14 @@ export function CampaignCard({ campaign }: CampaignProps) {
 }
 
 export function CampaignMdCard({ campaign }: CampaignProps) {
-    return(
-    <div>
-        <img className="cl-quest-card-image" src={campaign.image} alt={campaign.name} />
-        <div className="card-md-container dark-card">
-            <h3>{campaign.name}</h3>
-            <Link to={`/campaign/${campaign.id}`} className="btn btn-primary cl-form-btn">
-                Acessar
-            </Link>
-        </div>
-    </div>
+    return (
+        <Link to={`/campaign/${campaign.id}`} >
+            <img className="card-md-image" src={campaign.image} alt={campaign.name} />
+            <div className="card-md-container dark-card">
+                <h3>{campaign.name}</h3>
+            </div>
+        </Link>
+
     );
 }
 
@@ -90,19 +83,16 @@ type ChapterProps = {
     chapter: Chapter;
 }
 
-
 export function ChapterCard({ chapter }: ChapterProps) {
 
     return (
         <>
-            <img className="cl-quest-card-image" src={chapter.image} alt={chapter.title} />
-            <div className="card-md-container dark-card">
-                <h3>{chapter.title}</h3>
-
-                <Link to={`/chapter/${chapter.id}`} className="btn btn-primary cl-form-btn">
-                    Acessar
-                </Link>
-            </div>
+            <Link to={`/chapter/${chapter.id}`} className="">
+                <img className="card-md-image" src={chapter.image} alt={chapter.title} />
+                <div className="card-md-container dark-card">
+                    <h3>{chapter.title}</h3>
+                </div>
+            </Link>
         </>
     );
 

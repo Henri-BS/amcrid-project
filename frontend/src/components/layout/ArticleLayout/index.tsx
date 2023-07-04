@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { Props } from 'types/quiz';
 
 
-export function PostProfile({ id: postId }: Props) {
+export function PostLayout({ id: postId }: Props) {
 
     const [post, setPost] = useState<Post>();
 
@@ -23,14 +23,15 @@ export function PostProfile({ id: postId }: Props) {
     return (
         <>
             <div className="row ">
-                <div className="col-xl-6 article-header">
+                <div className="col-xl-6 article-header">                    
+                <h2 className="mb-3">{post?.title}</h2>
+
                     <img className="article-image" src={post?.image} alt={post?.title} />
                     <div className="article-summary">
                         <i>"{post?.summary}"</i>
                     </div>
                 </div>
                 <div className="col-xl-6 article-card-info">
-                    <h2 className="mb-3">{post?.title}</h2>
                     <ul className="list-unstyled">
                         <li><b>Data de publicação: </b>{moment(post?.createdDate).format("DD/MM/YYYY - hh:mm")}</li>
                         <li><b>Autor: </b>{post?.createdBy}</li>
@@ -57,7 +58,7 @@ export function ListPostsCreatedByUser({ id: userId }: Props) {
     return (
         <>
             <div className='user-body-container'>
-            <h3>Publicações Criadas</h3>
+                <h3>Publicações Criadas</h3>
                 <div className="row">
                     {postList?.content.map(x => (
                         <div key={x.id} className="col-12 col-md-4 col-lg-4">
@@ -73,11 +74,13 @@ export function ListPostsCreatedByUser({ id: userId }: Props) {
 export function PostCard({ post }: PostProps) {
     return (
 
-        <Link to={`/post/${post.id}`} >
-            <div className="article-card-container dark-card">
+        <Link  to={`/post/${post.id}`} >
+            <img className="card-md-image " src={post.image} alt={post.title} />
+            <div className="card-md-container dark-card">
                 <h3>{post.title}</h3>
-                <hr />
-                <p>"{post.summary}"</p>
+                <abbr title={post.summary}>
+                <p className="text-center">Sumário <i className="fas fa-eye" /></p>
+                </abbr>
             </div>
         </Link>
     );

@@ -48,7 +48,8 @@ abbr[title],
 acronym {
     position: relative;
     transition: all 0.1s ease-in-out;
-    border-bottom: none;
+    border-radius: 8px;
+    text-decoration: none;
     cursor: pointer;
 }
 

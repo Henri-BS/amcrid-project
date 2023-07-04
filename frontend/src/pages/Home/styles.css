@@ -7,7 +7,7 @@
     padding: 20px;
 }
 
-.container h2 {
+.container h2 a {
     color: #fff;
     width: max-content;
 }

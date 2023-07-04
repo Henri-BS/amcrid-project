@@ -2,14 +2,14 @@ import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Post } from "types/post";
-import { Props } from "types/quiz";
+import { Props } from "types/page";
 import { User } from "types/user";
 import { BASE_URL } from "utils/requests";
 
 export function PostAddForm({ id: userId }: Props) {
     const navigate = useNavigate();
 
-    const [user, setUser] = useState<User>();
+    const [, setUser] = useState<User>();
     useEffect(() => {
         axios.get(`${BASE_URL}/user/${userId}`)
             .then((response) => {

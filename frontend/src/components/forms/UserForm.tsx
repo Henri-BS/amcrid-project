@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
-import { Props } from "types/quiz";
+import { Props } from "types/page";
 import { User } from "types/user";
 import { BASE_URL } from "utils/requests";
 

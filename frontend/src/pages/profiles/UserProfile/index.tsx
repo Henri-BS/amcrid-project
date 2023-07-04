@@ -1,10 +1,13 @@
-import { BadgeListByUser, FollowerUserList, FollowingUserList, ListSavedPostsByUser, UserCard, UserCardConquests, ListCreatedCampaignByUser, ListSavedCampaignByUser, } from 'components/layout/UserLayout';
+import '../styles.css';
+import { BadgeListByUser, FollowerUserList, FollowingUserList, ListSavedPostsByUser, ListCreatedCampaignByUser, ListSavedCampaignByUser, ListPostsCreatedByUser } from 'components/layout/UserLayout';
 import { useNavigate, useParams } from 'react-router-dom';
-import './styles.css';
 import { BASE_URL } from 'utils/requests';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { ListPostsCreatedByUser } from 'components/layout/ArticleLayout';
+import { UserLgCard, UserCardConquests, UserSmallCard } from 'components/cards/UserCard';
+import Pagination from 'components/shared/Pagination';
+import { useState, useEffect } from 'react';
+import { UserPage } from 'types/user';
 
 export function UserProfile() {
   const params = useParams();
@@ -20,7 +23,7 @@ export function UserProfile() {
 
   return (
     <>
-      < UserCard id={`${params.userId}`} />
+      < UserLgCard id={`${params.userId}`} />
 
       <div className="user-card-container mx-0 mt-2 p-2 row">
         <Link to={`/profile/campaigns/${params.userId}`} className="btn cl-btn menu-options-item col-6">
@@ -62,6 +65,37 @@ export function UserProfile() {
     </>
   );
 
+}
+
+export function UserList() {
+
+  const [pageNumber, setPageNumber] = useState(0);
+  const [page, setPage] = useState<UserPage>({ content: [], number: 0 });
+  useEffect(() => {
+      axios.get(`${BASE_URL}/user?page=${pageNumber}&size=8&sort=userName`)
+          .then(response => {
+              setPage(response.data);
+          });
+  }, [pageNumber]);
+
+  const handlePageChange = (newPageNumber: number) => {
+      setPageNumber(newPageNumber);
+  }
+
+  return (
+      <>
+          <div className="container">
+            <Pagination page={page} onChange={handlePageChange}/>
+              <div className="list-container row">
+                  {page.content?.map(user => (
+                      <div key={user.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                          <UserSmallCard user={user} />
+                      </div>
+                  ))}
+              </div>
+          </div>
+      </>
+  );
 }
 
 export function CampaignsByUser() {

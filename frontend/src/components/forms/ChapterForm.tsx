@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Chapter } from "types/campaign";
-import { Props } from "types/quiz";
+import { Props } from "types/page";
 import { BASE_URL } from "utils/requests";
 
 export function ChapterAddForm() {
@@ -105,15 +105,15 @@ export function ChapterEditForm({ id: chapterId }: Props) {
                 <div className="form-card">
                     <div className="form-group">
                         <label htmlFor="title">Título: </label>
-                        <input id="title"  className="form-control"/>
+                        <input id="title"  className="form-control" defaultValue={chapter?.title}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="id">Descrição: </label>
-                        <input id="description"  className="form-control"/>
+                        <input id="description"  className="form-control" defaultValue={chapter?.description}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="image">Imagem: </label>
-                        <input id="image"  className="form-control"/>
+                        <input id="image"  className="form-control" defaultValue={chapter?.image}/>
                     </div>
                 </div>
             </form>

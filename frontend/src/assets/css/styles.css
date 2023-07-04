@@ -53,19 +53,6 @@ acronym {
     cursor: pointer;
 }
 
-.dark-card {
-    background-color: var(--dark-prim);
-    color: var(--sena);
-    box-shadow: 1px 0px 3px 2.50px rgba(17, 21, 34, 0.767);
-    border: 0.4px solid #e0e0e036;
-    transition: all 0.2s ease;
-}
-
-.dark-card:hover {
-    border: 0.4px solid rgb(138, 134, 134);
-    box-shadow: 1px 0px 3px 2.50px rgba(54, 60, 77, 0.767);
-}
-
 .modal-content {
     padding: 12px;
     border-radius: 8px;

@@ -47,6 +47,9 @@ export type ChapterPage = {
   number: number;
 };
 
+export type ChapterProps = {
+  chapter: Chapter;
+}
 
 
 export type CampaignBadge = {

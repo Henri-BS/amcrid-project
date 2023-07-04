@@ -1,6 +1,4 @@
-export type Props = {
-  id: string;
-};
+
 
 export type Quiz = {
   id: number;

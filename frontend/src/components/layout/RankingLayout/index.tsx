@@ -1,4 +1,4 @@
-import './styles.css'
+import '../styles.css';
 import TerceiroLugar from 'assets/img/terceiro.svg'
 import SegundoLugar from 'assets/img/segundo.svg'
 import PrimeiroLugar from 'assets/img/primeiro.svg'

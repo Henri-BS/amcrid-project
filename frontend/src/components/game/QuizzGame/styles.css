@@ -1,5 +1,5 @@
 .card-game-container {
-    width: 400px;
+    width: 360px;
     height: max-content;
     padding: 10px;
     transition: all 0.2s ease-in;
@@ -7,6 +7,8 @@
     background-color: var(--deca);
     border-radius: 12px;
     border: 1px solid #b8b6b6;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .card-game-list {
@@ -43,6 +45,7 @@
     font-weight: 300;
     padding: 8px;
     margin: 0;
+    text-overflow: ellipsis;
 }
 
 .quizz-container {
@@ -59,68 +62,6 @@
     font-size: x-large;
     overflow-y: scroll;
     border-right: 1px solid var(--tert);
-}
-
-.form {
-    background-color: #0c171f;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 10px;
-    color: var(--sena);
-}
-
-.form-group {
-    margin-bottom: 20px;
-    line-height: 30px;
-    list-style: none;
-    width: 100%;
-}
-
-.form-group ul {
-    list-style: none;
-    padding: 0;
-}
-
-.form-group li {
-    background-color: var(--sept);
-    padding: 8px;
-    margin-bottom: 3px;
-    border: 2px solid transparent;
-    transition: all 0.2s ease-out;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.form-group li:hover {
-    background-color: transparent;
-    border: 2px solid var(--tert)
-}
-
-.card-form-image {
-    width: 100%;
-    border-radius: 8px 8px 0 0;
-}
-
-.card-form-container {
-    background-color: #0c171f;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border-radius: 8px;
-    text-decoration-color: transparent;
-    margin-bottom: 5px;
-    overflow-x: scroll;
-}
-
-.card-form-container h3 {
-    display: flex;
-    padding: 4px 8px 4px 8px;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--sena);
 }
 
 .card-info {

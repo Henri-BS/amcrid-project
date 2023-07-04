@@ -2,24 +2,24 @@
 import { Link, useParams } from "react-router-dom";
 import "./styles.css"
 import { useState, useEffect } from "react";
-import { Option, OptionProps, Props, Question, QuestionPage, QuestionProps, Quiz, QuizProps } from "types/quiz";
+import { Option, OptionProps, Question, QuestionPage, QuestionProps, Quiz, QuizProps } from "types/quiz";
 import { BASE_URL } from "utils/requests";
 import axios from "axios";
+import { Props } from "types/page";
 
 export function QuizCard({ quiz }: QuizProps) {
 
   return (
     <>
       <Link to={`/quiz/${quiz.id}`} >
-        <div className="card-game-container">
+        <div className="card-game-container dark-card">
           <div className="card-game-title">{quiz.title}</div>
           <div className="card-game-list">
+            <abbr title={quiz.description}>
             <li className="card-game-item ">Descrição:
               <p className="card-game-content">{quiz.description}</p>
             </li>
-            <li className="card-game-item ">Quantidade de Questões:
-              <p className="card-game-content">{quiz.questionQuantity}</p>
-            </li>
+            </abbr>
           </div>
         </div>
       </Link>

@@ -1,13 +1,13 @@
 
 import './styles.css'
-import { CampaignMdCard } from 'components/layout/ChapterLayout';
 import { Link } from 'react-router-dom';
-import { PostCard } from 'components/layout/ArticleLayout';
+import { PostCard } from 'components/layout/PostLayout';
 import { useEffect, useState } from 'react';
 import { PostPage } from 'types/post';
 import axios from 'axios';
 import { BASE_URL } from 'utils/requests';
 import { CampaignPage } from 'types/campaign';
+import { CampaignMdCard } from 'components/cards/CampaignCard';
 
 function Home() {
 

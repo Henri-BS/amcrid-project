@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router-dom';
 import Dropdown from 'components/shared/Dropdown';
 import IProf from "assets/img/prof-img.png";
 import './styles.css';
-import { UserAddForm, UserEditForm } from 'components/form/UserForm';
-import { ChapterAddForm } from 'components/form/ChapterForm';
-import { PostAddForm } from 'components/form/PostForm';
+import { UserAddForm, UserEditForm } from 'components/forms/UserForm';
+import { ChapterAddForm } from 'components/forms/ChapterForm';
+import { PostAddForm } from 'components/forms/PostForm';
 
 function Navbar() {
   return (

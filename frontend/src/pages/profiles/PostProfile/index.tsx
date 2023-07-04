@@ -1,10 +1,13 @@
 import axios from "axios";
-import { PostEditForm } from "components/form/PostForm";
-import { PostLayout } from "components/layout/ArticleLayout";
+import { PostEditForm } from "components/forms/PostForm";
+import { PostCard, PostLayout } from "components/layout/PostLayout";
+import Pagination from "components/shared/Pagination";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { PostPage } from "types/post";
 import { BASE_URL } from "utils/requests";
 
-function Post() {
+export function Post() {
 
   const params = useParams();
   const navigate = useNavigate();
@@ -58,4 +61,42 @@ function Post() {
   );
 }
 
-export default Post;
+export function ArticleList() {
+
+  const [pageNumber, setPageNumber] = useState(0);
+  const [postPage, setPostPage] = useState<PostPage>({
+      content: [],
+      number: 0
+  });
+
+  useEffect(() => {
+      axios.get(`${BASE_URL}/post?page=${pageNumber}&size=8&sort=id`)
+          .then(response => {
+              const data = response.data as PostPage;
+              setPostPage(data);
+          });
+
+  }, [pageNumber]);
+
+  const handlePageChange = (newPageNumber: number) => {
+      setPageNumber(newPageNumber);
+  }
+
+  return (
+      <>
+          <div className="container">
+              <div><Pagination 
+               page={postPage}
+               onChange={handlePageChange}/>
+               </div>
+              <div className="list-container row">
+                  {postPage.content?.map(post => (
+                      <div key={post.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                          <PostCard post={post} />
+                      </div>
+                  ))}
+              </div>
+          </div>
+      </>
+  );
+}

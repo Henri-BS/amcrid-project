@@ -23,6 +23,23 @@
     margin: 30px;
 }
 
+.list-container {
+    padding: 6px;
+}
+
+.datatable-container {
+    color: var(--sena);
+    justify-content: center;
+    align-items: center;
+}
+
+.rank-details-container {
+    display: grid;
+    min-height: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 550px) {
     .max-container {
         display: flex;

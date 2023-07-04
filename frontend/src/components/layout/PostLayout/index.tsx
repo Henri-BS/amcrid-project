@@ -1,11 +1,11 @@
 import axios from 'axios';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
-import { Post, PostPage, PostProps } from 'types/post';
+import { Post, PostProps } from 'types/post';
 import { BASE_URL } from 'utils/requests';
-import './styles.css';
+import '../styles.css';
 import { Link } from 'react-router-dom';
-import { Props } from 'types/quiz';
+import { Props } from 'types/page';
 
 
 export function PostLayout({ id: postId }: Props) {
@@ -44,31 +44,6 @@ export function PostLayout({ id: postId }: Props) {
             </div>
         </>
     )
-}
-
-export function ListPostsCreatedByUser({ id: userId }: Props) {
-    const [postList, setPostList] = useState<PostPage>({ content: [], number: 0 });
-    useEffect(() => {
-        axios.get(`${BASE_URL}/post/list-user/${userId}?size=12`)
-            .then((response) => {
-                setPostList(response.data);
-            });
-    }, [userId]);
-
-    return (
-        <>
-            <div className='user-body-container'>
-                <h3>Publicações Criadas</h3>
-                <div className="row">
-                    {postList?.content.map(x => (
-                        <div key={x.id} className="col-12 col-md-4 col-lg-4">
-                            <PostCard post={x} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </>
-    );
 }
 
 export function PostCard({ post }: PostProps) {

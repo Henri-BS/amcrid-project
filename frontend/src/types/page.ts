@@ -14,3 +14,7 @@ export type Page = {
     size?: number;
     number: number;
   };
+
+  export type Props = {
+    id: string;
+  };

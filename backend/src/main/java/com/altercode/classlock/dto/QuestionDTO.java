@@ -3,7 +3,7 @@ package com.altercode.classlock.dto;
 import java.io.Serial;
 import java.io.Serializable;
 
-import com.altercode.classlock.entity.Question;
+import com.altercode.classlock.entity.game.Question;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

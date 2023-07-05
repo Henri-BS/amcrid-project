@@ -2,6 +2,8 @@ package com.altercode.classlock.service;
 
 import com.altercode.classlock.dto.CampaignRelationDTO;
 import com.altercode.classlock.entity.*;
+import com.altercode.classlock.entity.campaign.Campaign;
+import com.altercode.classlock.entity.campaign.CampaignBadge;
 import com.altercode.classlock.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,11 +1,12 @@
 package com.altercode.classlock.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.altercode.classlock.dto.*;
 import com.altercode.classlock.entity.*;
+import com.altercode.classlock.entity.game.Quiz;
+import com.altercode.classlock.entity.game.Result;
 import com.altercode.classlock.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

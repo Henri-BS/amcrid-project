@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.altercode.classlock.dto.QuizBadgeDTO;
 import com.altercode.classlock.dto.UserRelationDTO;
-import com.altercode.classlock.entity.Quiz;
+import com.altercode.classlock.entity.game.Quiz;
 import com.altercode.classlock.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -47,11 +47,6 @@ public class BadgeController {
 		return ResponseEntity.ok(list);
 	}
 
-	@GetMapping("/by-user/{user}")
-	public ResponseEntity<Page<UserRelationDTO>> findAllBadgesByUser(Pageable pageable, @PathVariable User user) {
-		Page<UserRelationDTO> list = badgeService.findAllBadgesByUser(pageable, user);
-		return ResponseEntity.ok(list);
-	}
 
 	@PostMapping("/add")
 	public ResponseEntity<BadgeDTO> saveBadge(@RequestBody BadgeDTO dto) {

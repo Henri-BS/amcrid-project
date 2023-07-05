@@ -1,7 +1,7 @@
 package com.altercode.classlock.controller;
 
 import com.altercode.classlock.dto.CampaignRelationDTO;
-import com.altercode.classlock.entity.Campaign;
+import com.altercode.classlock.entity.campaign.Campaign;
 import com.altercode.classlock.entity.User;
 import com.altercode.classlock.service.CampaignUserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -44,10 +44,7 @@ public class UserService {
         return result.stream().map(UserDTO::new).collect(Collectors.toList());
     }
 
-    public Page<UserRelationDTO> findAllPostersByUser(Pageable pageable, User user){
-        Page<UserPost> page = userPostRepository.findAllPostersByUser(pageable, user);
-        return page.map(UserRelationDTO::new);
-    }
+
 
     public UserDTO findById(Long id) {
         User result = userRepository.findById(id).orElseThrow();

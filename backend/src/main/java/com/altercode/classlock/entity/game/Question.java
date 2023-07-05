@@ -1,4 +1,4 @@
-package com.altercode.classlock.entity;
+package com.altercode.classlock.entity.game;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

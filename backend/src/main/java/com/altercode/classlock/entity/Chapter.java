@@ -5,11 +5,12 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.altercode.classlock.entity.campaign.Campaign;
+import com.altercode.classlock.entity.game.Quiz;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "tb_chapter")

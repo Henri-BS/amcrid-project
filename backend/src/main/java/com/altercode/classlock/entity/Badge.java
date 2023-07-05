@@ -1,10 +1,10 @@
 package com.altercode.classlock.entity;
 
+import com.altercode.classlock.entity.campaign.CampaignBadge;
+import com.altercode.classlock.entity.game.QuizBadge;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.ArrayList;

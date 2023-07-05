@@ -1,6 +1,6 @@
 package com.altercode.classlock.dto;
 
-import com.altercode.classlock.entity.UserAnswer;
+import com.altercode.classlock.entity.game.UserAnswer;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

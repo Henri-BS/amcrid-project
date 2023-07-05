@@ -1,5 +1,6 @@
-package com.altercode.classlock.entity;
+package com.altercode.classlock.entity.campaign;
 
+import com.altercode.classlock.entity.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,12 +1,9 @@
 package com.altercode.classlock.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import com.altercode.classlock.dto.*;
 import com.altercode.classlock.entity.Chapter;
-import com.altercode.classlock.entity.Quiz;
-import com.altercode.classlock.entity.QuizBadge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

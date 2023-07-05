@@ -1,7 +1,7 @@
 package com.altercode.classlock.controller;
 
 import com.altercode.classlock.dto.OptionDTO;
-import com.altercode.classlock.entity.Question;
+import com.altercode.classlock.entity.game.Question;
 import com.altercode.classlock.service.OptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

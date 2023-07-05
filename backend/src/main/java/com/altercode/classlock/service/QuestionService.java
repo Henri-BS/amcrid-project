@@ -1,8 +1,8 @@
 package com.altercode.classlock.service;
 
 import com.altercode.classlock.dto.QuestionDTO;
-import com.altercode.classlock.entity.Question;
-import com.altercode.classlock.entity.Quiz;
+import com.altercode.classlock.entity.game.Question;
+import com.altercode.classlock.entity.game.Quiz;
 import com.altercode.classlock.repository.QuestionRepository;
 import com.altercode.classlock.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +10,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional

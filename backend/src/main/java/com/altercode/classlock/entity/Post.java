@@ -5,13 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 
-import com.altercode.classlock.dto.CampaignRelationDTO;
+import com.altercode.classlock.entity.campaign.CampaignPost;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 

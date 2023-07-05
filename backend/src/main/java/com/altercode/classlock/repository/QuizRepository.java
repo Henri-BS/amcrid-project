@@ -1,7 +1,7 @@
 package com.altercode.classlock.repository;
 
 import com.altercode.classlock.entity.Chapter;
-import com.altercode.classlock.entity.Quiz;
+import com.altercode.classlock.entity.game.Quiz;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 import com.altercode.classlock.dto.QuizBadgeDTO;
 import com.altercode.classlock.dto.UserRelationDTO;
 import com.altercode.classlock.entity.*;
+import com.altercode.classlock.entity.game.Quiz;
+import com.altercode.classlock.entity.game.QuizBadge;
 import com.altercode.classlock.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -57,10 +59,6 @@ public class BadgeService {
 		return list.stream().map(QuizBadgeDTO::new).collect(Collectors.toList());
 	}
 
-	public Page<UserRelationDTO> findAllBadgesByUser(Pageable pageable, User user) {
-		Page<UserBadge> page = userBadgeRepository.findAllBadgesByUser(pageable, user);
-		return page.map(UserRelationDTO::new);
-	}
 
 
     public BadgeDTO saveBadge(BadgeDTO dto) {

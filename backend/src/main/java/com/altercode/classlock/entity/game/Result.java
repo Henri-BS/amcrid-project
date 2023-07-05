@@ -1,5 +1,4 @@
-package com.altercode.classlock.entity;
-
+package com.altercode.classlock.entity.game;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,23 +7,29 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+
 @Entity
-@Table(name = "tb_user_answer")
+@Table(name = "tb_result")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class UserAnswer {
+public class Result {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "result_id")
     private Long id;
 
-    private String answer;
+    private String message;
+
+    @Column(name = "total_correct")
+    private Integer totalCorrect = 0;
 
     @ManyToOne
-    @JoinColumn(name = "question_id")
-    private Question question;
+    @JoinColumn(name = "quiz_id")
+    private Quiz quiz;
+
 
 
 }

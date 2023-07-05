@@ -39,11 +39,6 @@ public class UserController {
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping("/list-post/{user}")
-    public ResponseEntity<Page<UserRelationDTO>> findAllPostersByUser(Pageable pageable, User user){
-        Page<UserRelationDTO> page = userService.findAllPostersByUser(pageable, user);
-        return ResponseEntity.ok(page);
-    }
 
     @GetMapping("/{id}")
     public UserDTO findById(@PathVariable Long id) {

@@ -3,7 +3,7 @@ package com.altercode.classlock.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.altercode.classlock.entity.Campaign;
+import com.altercode.classlock.entity.campaign.Campaign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

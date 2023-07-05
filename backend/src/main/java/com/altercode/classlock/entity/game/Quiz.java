@@ -1,18 +1,16 @@
-package com.altercode.classlock.entity;
+package com.altercode.classlock.entity.game;
 
+import com.altercode.classlock.entity.Chapter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-import org.hibernate.type.StringNVarcharType;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "tb_quiz")

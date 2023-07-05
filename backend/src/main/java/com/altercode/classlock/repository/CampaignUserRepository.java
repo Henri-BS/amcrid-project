@@ -1,7 +1,7 @@
 package com.altercode.classlock.repository;
 
-import com.altercode.classlock.entity.Campaign;
-import com.altercode.classlock.entity.CampaignUser;
+import com.altercode.classlock.entity.campaign.Campaign;
+import com.altercode.classlock.entity.campaign.CampaignUser;
 import com.altercode.classlock.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

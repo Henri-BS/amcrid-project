@@ -1,8 +1,8 @@
 package com.altercode.classlock.controller.game;
 
-import com.altercode.classlock.dto.QuestionDTO;
-import com.altercode.classlock.controller.campaign.entity.game.Quiz;
-import com.altercode.classlock.service.QuestionService;
+import com.altercode.classlock.dto.game.QuestionDTO;
+import com.altercode.classlock.entity.game.Quiz;
+import com.altercode.classlock.service.game.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

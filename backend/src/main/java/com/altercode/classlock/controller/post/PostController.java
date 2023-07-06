@@ -1,7 +1,7 @@
 package com.altercode.classlock.controller.post;
 
 
-import com.altercode.classlock.controller.campaign.entity.user.User;
+import com.altercode.classlock.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,8 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.altercode.classlock.dto.PostDTO;
-import com.altercode.classlock.service.PostService;
+import com.altercode.classlock.dto.post.PostDTO;
+import com.altercode.classlock.service.post.PostService;
 
 @RestController
 @RequestMapping("/post")

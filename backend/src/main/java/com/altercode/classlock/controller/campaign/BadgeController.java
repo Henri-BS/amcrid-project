@@ -2,9 +2,6 @@ package com.altercode.classlock.controller.campaign;
 
 import java.util.List;
 
-import com.altercode.classlock.dto.QuizBadgeDTO;
-import com.altercode.classlock.dto.UserRelationDTO;
-import com.altercode.classlock.controller.campaign.entity.game.Quiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,8 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.altercode.classlock.dto.BadgeDTO;
-import com.altercode.classlock.service.BadgeService;
+import com.altercode.classlock.dto.campaign.BadgeDTO;
+import com.altercode.classlock.service.campaign.BadgeService;
 
 @RestController
 @RequestMapping("/badge")
@@ -40,28 +37,9 @@ public class BadgeController {
 	return ResponseEntity.ok(find);
 	}
 
-	@GetMapping("/by-quiz/{quiz}")
-	public ResponseEntity<List<QuizBadgeDTO>> findAllBadgesByQuiz(@PathVariable Quiz quiz) {
-		List<QuizBadgeDTO> list = badgeService.findAllBadgesByQuiz(quiz);
-		return ResponseEntity.ok(list);
-	}
-
-
 	@PostMapping("/add")
 	public ResponseEntity<BadgeDTO> saveBadge(@RequestBody BadgeDTO dto) {
 		BadgeDTO add = badgeService.saveBadge(dto);
-		return new ResponseEntity<>(add, HttpStatus.CREATED);
-	}
-
-	@PostMapping("/add-quiz")
-	public ResponseEntity<QuizBadgeDTO> saveQuizBadge(@RequestBody QuizBadgeDTO dto) {
-		QuizBadgeDTO add = badgeService.saveQuizBadge(dto);
-		return new ResponseEntity<>(add, HttpStatus.CREATED);
-	}
-
-	@PostMapping("/add-user")
-	public ResponseEntity<UserRelationDTO> saveUserBadge(@RequestBody UserRelationDTO dto) {
-		UserRelationDTO add = badgeService.saveUserBadge(dto);
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
 

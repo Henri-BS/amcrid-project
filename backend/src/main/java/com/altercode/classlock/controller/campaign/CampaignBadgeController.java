@@ -1,9 +1,9 @@
 package com.altercode.classlock.controller.campaign;
 
-import com.altercode.classlock.dto.CampaignRelationDTO;
-import com.altercode.classlock.controller.campaign.entity.campaign.Badge;
-import com.altercode.classlock.controller.campaign.entity.campaign.Campaign;
-import com.altercode.classlock.service.CampaignBadgeService;
+import com.altercode.classlock.dto.campaign.CampaignRelationDTO;
+import com.altercode.classlock.entity.campaign.Badge;
+import com.altercode.classlock.entity.campaign.Campaign;
+import com.altercode.classlock.service.campaign.CampaignBadgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

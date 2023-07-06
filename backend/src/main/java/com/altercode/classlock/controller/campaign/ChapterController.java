@@ -2,7 +2,7 @@ package com.altercode.classlock.controller.campaign;
 
 import java.util.List;
 
-import com.altercode.classlock.controller.campaign.entity.campaign.Campaign;
+import com.altercode.classlock.entity.campaign.Campaign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,8 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.altercode.classlock.dto.ChapterDTO;
-import com.altercode.classlock.service.ChapterService;
+import com.altercode.classlock.dto.campaign.ChapterDTO;
+import com.altercode.classlock.service.campaign.ChapterService;
 
 @RestController
 @RequestMapping("/chapter")

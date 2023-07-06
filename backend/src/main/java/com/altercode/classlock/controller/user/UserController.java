@@ -9,8 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.altercode.classlock.dto.UserDTO;
-import com.altercode.classlock.service.UserService;
+import com.altercode.classlock.dto.user.UserDTO;
+import com.altercode.classlock.service.user.UserService;
 
 
 @RestController

@@ -1,8 +1,8 @@
 package com.altercode.classlock.service.post;
 
-import com.altercode.classlock.controller.campaign.entity.post.Comment;
-import com.altercode.classlock.controller.campaign.entity.post.Post;
-import com.altercode.classlock.dto.CommentDTO;
+import com.altercode.classlock.entity.post.Comment;
+import com.altercode.classlock.entity.post.Post;
+import com.altercode.classlock.dto.post.CommentDTO;
 import com.altercode.classlock.repository.post.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -2,8 +2,9 @@ package com.altercode.classlock.controller.game;
 
 import java.util.List;
 
-import com.altercode.classlock.dto.*;
-import com.altercode.classlock.controller.campaign.entity.campaign.Chapter;
+import com.altercode.classlock.dto.game.QuizDTO;
+import com.altercode.classlock.dto.game.ResultDTO;
+import com.altercode.classlock.entity.campaign.Chapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.altercode.classlock.service.QuizService;
+import com.altercode.classlock.service.game.QuizService;
 
 
 @RestController

@@ -1,8 +1,8 @@
 package com.altercode.classlock.controller.campaign;
 
-import com.altercode.classlock.dto.CampaignDTO;
-import com.altercode.classlock.controller.campaign.entity.user.User;
-import com.altercode.classlock.service.CampaignService;
+import com.altercode.classlock.dto.campaign.CampaignDTO;
+import com.altercode.classlock.entity.user.User;
+import com.altercode.classlock.service.campaign.CampaignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

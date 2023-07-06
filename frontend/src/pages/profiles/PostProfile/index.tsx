@@ -1,6 +1,7 @@
 import axios from "axios";
+import { PostCard } from "components/cards/PostCard";
 import { PostEditForm } from "components/forms/PostForm";
-import { PostCard, PostLayout } from "components/layout/PostLayout";
+import {  PostLayout } from "components/layout/PostLayout";
 import Pagination from "components/shared/Pagination";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -21,11 +22,11 @@ export function Post() {
   return (
     <>
       <div className="container">
-        <div className="menu-options-container user-body-container">
-          <button data-bs-target="#editPostModal" data-bs-toggle="modal" className="btn cl-btn mx-2">
+        <div className="user-body-container mb-2">
+          <button data-bs-target="#editPostModal" data-bs-toggle="modal" className="btn cl-btn mx-1">
             <i className="fa fa-edit"/> Editar Post
           </button>
-          <button data-bs-target="#deletePostModal" data-bs-toggle="modal" className="btn cl-btn">
+          <button data-bs-target="#deletePostModal" data-bs-toggle="modal" className="btn cl-btn mx-1">
           <i className="fa fa-trash"/> Deletar Post
           </button>
         </div>

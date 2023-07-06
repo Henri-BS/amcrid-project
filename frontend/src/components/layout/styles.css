@@ -30,6 +30,28 @@
     margin-top: 6px;
 }
 
+.dashboard-container {
+    background-color: var(--deca);
+    width: 100%;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.bg-img-container {
+    padding: 0;
+    border: 5px solid var(--tert);
+    border-style: double;
+    max-width: 400px;
+    border-radius: 12px 0px 0px 12px;
+}
+
+.dashboard-image {
+    border: 3px solid var(--tert);
+    border-style: double;
+    max-width: 400px;
+    border-radius: 12px;
+}
+
 .user-item {
     height: 60px;
     border-radius: 12px;

@@ -95,7 +95,7 @@ export function ChapterDashboard({ id: chapterId }: Props) {
 
     return (
         <>
-            <div className="dashboard-container row m-0">
+            <div className="card-lg-container row m-0">
                 <img className="bg-img-container col-12 col-lg-5" src={chapter?.image} alt={chapter?.title} />
                 <div className=" description-container col-12 col-lg-7">
                     <div className="title-container">Capítulo: {chapter?.title}</div>

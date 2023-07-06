@@ -1,5 +1,6 @@
 .dropdonw-menu {
-    background-color: var(--seco);
+    border: solid var(--seco);
+    background-color: var(--sept);
     width: 90%;
     list-style: none;
     text-align: center;
@@ -15,9 +16,6 @@
 
 .dropdonw-menu li:hover {
     height: 64px;
-    border-radius: 50px;
-    background-color: var(--tert);
-    border-radius: 12px 0px;
 }
 
 .dropdown-menu.clicked {
@@ -25,15 +23,21 @@
 }
 
 .dropdown-link {
+    border: 2px solid transparent;
     display: block;
     height: 100%;
     width: 100%;
     text-decoration: none;
-    color: #fff;
+    color: var(--sena);
     padding: 16px;
 }
 
 .dropdown-link:hover {
+    border-radius: 12px 0px;
+    border: 2px solid var(--seco);
+    cursor: pointer;
+    background-color: var(--seco);
+    transition: all 0.3s ease-out;
     color: #fff;
 }
 

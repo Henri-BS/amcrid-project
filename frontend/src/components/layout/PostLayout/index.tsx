@@ -3,10 +3,9 @@ import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { Post, PostProps } from 'types/post';
 import { BASE_URL } from 'utils/requests';
-import '../styles.css';
 import { Link } from 'react-router-dom';
 import { Props } from 'types/page';
-
+import '../styles.css';
 
 export function PostLayout({ id: postId }: Props) {
 
@@ -22,16 +21,14 @@ export function PostLayout({ id: postId }: Props) {
 
     return (
         <>
-            <div className="row ">
-                <div className="col-xl-6 article-header">                    
-                <h2 className="mb-3">{post?.title}</h2>
-
-                    <img className="article-image" src={post?.image} alt={post?.title} />
-                    <div className="article-summary">
-                        <i>"{post?.summary}"</i>
-                    </div>
+            <div className="row dashboard-container m-0">
+                <div className="col-12 col-lg-5 box-lf-container">
+                    <h2 className="mb-3">{post?.title}</h2>
+                    <img className="dashboard-image p-0" src={post?.image} alt={post?.title} />
                 </div>
-                <div className="col-xl-6 article-card-info">
+                <div className="col-12 col-lg-7 ">
+                        <i>"{post?.summary}"</i>
+                    <hr></hr>
                     <ul className="list-unstyled">
                         <li><b>Data de publicação: </b>{moment(post?.createdDate).format("DD/MM/YYYY - hh:mm")}</li>
                         <li><b>Autor: </b>{post?.createdBy}</li>
@@ -39,24 +36,10 @@ export function PostLayout({ id: postId }: Props) {
                 </div>
             </div>
 
-            <div className="article-content">
+            <div className="user-body-container">
                 <p>{post?.body}</p>
             </div>
         </>
     )
 }
 
-export function PostCard({ post }: PostProps) {
-    return (
-
-        <Link  to={`/post/${post.id}`} >
-            <img className="card-md-image " src={post.image} alt={post.title} />
-            <div className="card-md-container dark-card">
-                <h3>{post.title}</h3>
-                <abbr title={post.summary}>
-                <p className="text-center">Sumário <i className="fas fa-eye" /></p>
-                </abbr>
-            </div>
-        </Link>
-    );
-}

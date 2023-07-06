@@ -40,8 +40,13 @@
     color: #fff;
     text-decoration: none;
     padding: 8px;
-    border-radius: 20px;
     transition: all 0.2s ease-out;
+    border-radius: 12px 0px;
+    border: 2px solid var(--seco);
+    color: var(--sena);
+    cursor: pointer;
+    background-color: var(--sept);
+    transition: all 0.3s ease-out;
 }
 
 .nav-links:hover {
@@ -73,7 +78,7 @@
 }
 
 .nav-menu-m.active {
-    background: var(--quin);
+    background: var(--nona);
     left: 0;
     opacity: 1;
     z-index: 1;
@@ -86,12 +91,15 @@
     overflow-y: scroll;
     text-align: center;
     width: 90%;
-    padding: 1.4rem;
-    border-radius: 12px 0px;
-    color: var(--sena);
     font-size: 20px;
-    background-color: var(--quar);
     margin-bottom: 4px;
+    padding: 1.2rem;
+    border-radius: 12px 0px;
+    border: 2px solid var(--seco);
+    color: var(--sena);
+    cursor: pointer;
+    background-color: var(--sept);
+    transition: all 0.3s ease-out;
 }
 
 .nav-links-mobile:hover {

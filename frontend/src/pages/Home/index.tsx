@@ -1,7 +1,7 @@
 
 import './styles.css'
 import { Link } from 'react-router-dom';
-import { PostCard } from 'components/layout/PostLayout';
+import { PostCard } from 'components/cards/PostCard';
 import { useEffect, useState } from 'react';
 import { PostPage } from 'types/post';
 import axios from 'axios';

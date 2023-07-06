@@ -7,7 +7,7 @@ import { Props } from 'types/page';
 import { CampaignUserPage, UserBadgePage } from 'types/badge';
 import { CampaignPage } from 'types/campaign';
 import { CampaignUserMdCard, FollowerSmallCard, FollowingSmallCard, UserPostCard } from 'components/cards/UserCard';
-import { PostCard } from '../PostLayout';
+import { PostCard } from 'components/cards/PostCard';
 import { PostPage } from 'types/post';
 import { CampaignMdCard } from 'components/cards/CampaignCard';
 

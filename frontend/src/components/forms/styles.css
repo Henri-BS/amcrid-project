@@ -1,38 +1,3 @@
-.form {
-    background-color: #0c171f;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 10px;
-    color: var(--sena);
-}
-
-.form-group {
-    margin-bottom: 20px;
-    line-height: 30px;
-    list-style: none;
-    width: 100%;
-}
-
-.form-group ul {
-    list-style: none;
-    padding: 0;
-}
-
-.form-group li {
-    background-color: var(--sept);
-    padding: 8px;
-    margin-bottom: 3px;
-    border: 2px solid transparent;
-    transition: all 0.2s ease-out;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.form-group li:hover {
-    background-color: transparent;
-    border: 2px solid var(--tert)
-}
-
 .card-form-image {
     width: 100%;
     border-radius: 8px 8px 0 0;

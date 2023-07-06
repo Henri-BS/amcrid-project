@@ -1,7 +1,7 @@
 package com.altercode.classlock.repository;
 
-import com.altercode.classlock.entity.game.Quiz;
-import com.altercode.classlock.entity.game.QuizBadge;
+import com.altercode.classlock.controller.campaign.entity.game.Quiz;
+import com.altercode.classlock.controller.campaign.entity.game.QuizBadge;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

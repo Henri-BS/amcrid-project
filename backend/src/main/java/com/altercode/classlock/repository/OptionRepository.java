@@ -1,7 +1,7 @@
 package com.altercode.classlock.repository;
 
-import com.altercode.classlock.entity.game.Option;
-import com.altercode.classlock.entity.game.Question;
+import com.altercode.classlock.controller.campaign.entity.game.Option;
+import com.altercode.classlock.controller.campaign.entity.game.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

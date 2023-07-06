@@ -1,8 +1,8 @@
 package com.altercode.classlock.service;
 
 import com.altercode.classlock.dto.FollowDTO;
-import com.altercode.classlock.entity.Follow;
-import com.altercode.classlock.entity.User;
+import com.altercode.classlock.controller.campaign.entity.user.Follow;
+import com.altercode.classlock.controller.campaign.entity.user.User;
 import com.altercode.classlock.repository.FollowRepository;
 import com.altercode.classlock.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

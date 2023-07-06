@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.altercode.classlock.dto.ConquestDTO;
 import com.altercode.classlock.dto.UserRankDTO;
-import com.altercode.classlock.entity.Conquest;
-import com.altercode.classlock.entity.User;
+import com.altercode.classlock.controller.campaign.entity.user.Conquest;
+import com.altercode.classlock.controller.campaign.entity.user.User;
 
 @Repository
 public interface ConquestRepository extends JpaRepository<Conquest, Long> {

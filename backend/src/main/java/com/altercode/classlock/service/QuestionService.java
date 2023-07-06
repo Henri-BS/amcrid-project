@@ -1,8 +1,8 @@
 package com.altercode.classlock.service;
 
 import com.altercode.classlock.dto.QuestionDTO;
-import com.altercode.classlock.entity.game.Question;
-import com.altercode.classlock.entity.game.Quiz;
+import com.altercode.classlock.controller.campaign.entity.game.Question;
+import com.altercode.classlock.controller.campaign.entity.game.Quiz;
 import com.altercode.classlock.repository.QuestionRepository;
 import com.altercode.classlock.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;

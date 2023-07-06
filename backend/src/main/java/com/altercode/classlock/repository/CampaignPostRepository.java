@@ -1,8 +1,8 @@
 package com.altercode.classlock.repository;
 
-import com.altercode.classlock.entity.campaign.Campaign;
-import com.altercode.classlock.entity.campaign.CampaignPost;
-import com.altercode.classlock.entity.Post;
+import com.altercode.classlock.controller.campaign.entity.campaign.Campaign;
+import com.altercode.classlock.controller.campaign.entity.campaign.CampaignPost;
+import com.altercode.classlock.controller.campaign.entity.post.Post;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

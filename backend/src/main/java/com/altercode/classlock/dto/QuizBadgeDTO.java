@@ -1,6 +1,6 @@
 package com.altercode.classlock.dto;
 
-import com.altercode.classlock.entity.game.QuizBadge;
+import com.altercode.classlock.controller.campaign.entity.game.QuizBadge;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

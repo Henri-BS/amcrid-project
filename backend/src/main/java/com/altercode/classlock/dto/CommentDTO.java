@@ -4,7 +4,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import com.altercode.classlock.entity.Comment;
+import com.altercode.classlock.controller.campaign.entity.post.Comment;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

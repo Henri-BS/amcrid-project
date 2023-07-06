@@ -1,6 +1,6 @@
 package com.altercode.classlock.dto;
 
-import com.altercode.classlock.entity.Follow;
+import com.altercode.classlock.controller.campaign.entity.user.Follow;
 
 
 import java.io.Serial;

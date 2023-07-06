@@ -1,9 +1,9 @@
 package com.altercode.classlock.service;
 
 import com.altercode.classlock.dto.ConquestDTO;
-import com.altercode.classlock.entity.Conquest;
-import com.altercode.classlock.entity.User;
-import com.altercode.classlock.entity.UserBadge;
+import com.altercode.classlock.controller.campaign.entity.user.Conquest;
+import com.altercode.classlock.controller.campaign.entity.user.User;
+import com.altercode.classlock.controller.campaign.entity.user.UserBadge;
 import com.altercode.classlock.repository.ConquestRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.altercode.classlock.dto;
 
-import com.altercode.classlock.entity.campaign.Campaign;
+import com.altercode.classlock.controller.campaign.entity.campaign.Campaign;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

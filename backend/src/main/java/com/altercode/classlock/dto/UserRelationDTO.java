@@ -1,7 +1,7 @@
 package com.altercode.classlock.dto;
 
-import com.altercode.classlock.entity.UserBadge;
-import com.altercode.classlock.entity.UserPost;
+import com.altercode.classlock.controller.campaign.entity.user.UserBadge;
+import com.altercode.classlock.controller.campaign.entity.user.UserPost;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

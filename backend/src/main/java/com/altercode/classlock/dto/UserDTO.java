@@ -2,7 +2,7 @@ package com.altercode.classlock.dto;
 
 import java.io.Serializable;
 
-import com.altercode.classlock.entity.User;
+import com.altercode.classlock.controller.campaign.entity.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

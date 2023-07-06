@@ -5,9 +5,11 @@ import java.util.stream.Collectors;
 
 import com.altercode.classlock.dto.QuizBadgeDTO;
 import com.altercode.classlock.dto.UserRelationDTO;
-import com.altercode.classlock.entity.*;
-import com.altercode.classlock.entity.game.Quiz;
-import com.altercode.classlock.entity.game.QuizBadge;
+import com.altercode.classlock.controller.campaign.entity.campaign.Badge;
+import com.altercode.classlock.controller.campaign.entity.game.Quiz;
+import com.altercode.classlock.controller.campaign.entity.game.QuizBadge;
+import com.altercode.classlock.controller.campaign.entity.user.User;
+import com.altercode.classlock.controller.campaign.entity.user.UserBadge;
 import com.altercode.classlock.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

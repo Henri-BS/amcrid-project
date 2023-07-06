@@ -1,8 +1,8 @@
 package com.altercode.classlock.service;
 
 import com.altercode.classlock.dto.OptionDTO;
-import com.altercode.classlock.entity.game.Option;
-import com.altercode.classlock.entity.game.Question;
+import com.altercode.classlock.controller.campaign.entity.game.Option;
+import com.altercode.classlock.controller.campaign.entity.game.Question;
 import com.altercode.classlock.repository.OptionRepository;
 import com.altercode.classlock.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;

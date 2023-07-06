@@ -1,9 +1,9 @@
 package com.altercode.classlock.service;
 
 import com.altercode.classlock.dto.UserRelationDTO;
-import com.altercode.classlock.entity.Badge;
-import com.altercode.classlock.entity.User;
-import com.altercode.classlock.entity.UserBadge;
+import com.altercode.classlock.controller.campaign.entity.campaign.Badge;
+import com.altercode.classlock.controller.campaign.entity.user.User;
+import com.altercode.classlock.controller.campaign.entity.user.UserBadge;
 import com.altercode.classlock.repository.UserBadgeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

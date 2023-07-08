@@ -21,23 +21,17 @@ public class ChapterController {
 	private ChapterService chapterService;
 
 	@GetMapping
-	public Page<ChapterDTO> findAll(Pageable pageable) {
+	public Page<ChapterDTO> findAllChapters(Pageable pageable) {
 		return chapterService.findAll(pageable);
 	}
 
-	@GetMapping("/all")
-	public ResponseEntity<List<ChapterDTO>> findAll() {
-		List<ChapterDTO> list = chapterService.findAll();
-		return ResponseEntity.ok(list);
-	}
-
-	@GetMapping("/campaign/{campaign}")
+	@GetMapping("/list-by-campaign/{campaign}")
 	public ResponseEntity<List<ChapterDTO>> findAllChaptersByCampaign(@PathVariable Campaign campaign) {
 		List<ChapterDTO> list =  chapterService.findAllChaptersByCampaign(campaign);
 		return ResponseEntity.ok(list);
 	}
 
-	@GetMapping(value = "/{id}")
+	@GetMapping("/{id}")
 	public ChapterDTO findById(@PathVariable Long id) {
 		return chapterService.findById(id);
 	}

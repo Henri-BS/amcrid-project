@@ -18,7 +18,7 @@ function Home() {
   });
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/post?&size=10&sort=id,desc`)
+    axios.get(`${BASE_URL}/post/list?size=10&sort=id,asc`)
       .then(response => {
         const data = response.data as PostPage;
         setPage(data);

@@ -25,13 +25,13 @@ public class CampaignPostController {
     }
 
 
-    @PostMapping("/add-post")
+    @PostMapping("/add-by-post")
     public ResponseEntity<CampaignRelationDTO> addPostInCampaign(CampaignRelationDTO dto) {
         CampaignRelationDTO add = campaignPostService.addPostInCampaign(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("delete-post/{post}")
+    @DeleteMapping("delete-by-post/{post}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePostByCampaign(@PathVariable Post post) {
         this.campaignPostService.deletePostByCampaign(post);

@@ -17,7 +17,7 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @GetMapping("/list-user/{user}")
+    @GetMapping("/list-by-user/{user}")
     public ResponseEntity<Page<CommentDTO>> findAllCommentsByPost(Pageable pageable, @PathVariable Post post) {
         Page<CommentDTO> page = commentService.findAllByPost(pageable, post);
         return ResponseEntity.ok(page);

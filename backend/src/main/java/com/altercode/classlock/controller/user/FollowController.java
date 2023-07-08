@@ -17,19 +17,19 @@ public class FollowController {
     @Autowired
     private FollowService followService;
 
-    @GetMapping("/page")
+    @GetMapping("/list")
     public ResponseEntity<Page<FollowDTO>> findAll(Pageable pageable) {
         Page<FollowDTO> page = followService.findAll(pageable);
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/follower/{follower}")
+    @GetMapping("/list-by-follower/{follower}")
     public ResponseEntity<Page<FollowDTO>> findAllFollowers(Pageable pageable, @PathVariable User follower) {
         Page<FollowDTO> page = followService.findAllFollowers(pageable, follower);
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/following/{following}")
+    @GetMapping("/list-by-following/{following}")
     public ResponseEntity<Page<FollowDTO>> findAllFollowing(Pageable pageable, @PathVariable User following) {
         Page<FollowDTO> page = followService.findAllFollowing(pageable, following);
         return ResponseEntity.ok(page);

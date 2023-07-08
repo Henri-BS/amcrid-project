@@ -19,13 +19,13 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<Page<PostDTO>> findAll(Pageable pageable) {
         Page<PostDTO> list = postService.findAll(pageable);
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping("/list-user/{user}")
+    @GetMapping("/list-by-user/{user}")
     public ResponseEntity<Page<PostDTO>> findAllPostersByUser(Pageable pageable, @PathVariable User user) {
         Page<PostDTO> page = postService.findAllByUser(pageable, user);
         return ResponseEntity.ok(page);

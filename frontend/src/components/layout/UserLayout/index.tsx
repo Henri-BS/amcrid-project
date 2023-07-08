@@ -10,12 +10,14 @@ import { CampaignUserMdCard, FollowerSmallCard, FollowingSmallCard, UserPostCard
 import { PostCard } from 'components/cards/PostCard';
 import { PostPage } from 'types/post';
 import { CampaignMdCard } from 'components/cards/CampaignCard';
+import { useParams } from 'react-router-dom';
+import { PostAddForm } from 'components/forms/PostForm';
 
 
 export function BadgeListByUser({ id: userId }: Props) {
     const [badgeList, setBadgeList] = useState<UserBadgePage>({ content: [], number: 0 });
     useEffect(() => {
-        axios.get(`${BASE_URL}/badge/by-user/${userId}`)
+        axios.get(`${BASE_URL}/user-badge/list-by-user/${userId}`)
             .then((response) => {
                 setBadgeList(response.data);
             })
@@ -28,14 +30,14 @@ export function BadgeListByUser({ id: userId }: Props) {
                     {badgeList?.content.map(x => (
                         <div key={x.id} className="col-12 col-md-6 col-lg-4 mb-2">
                             <abbr title={x.badge.description}>
-                            <div className="sm-card-container dark-card ">
-                                <img src={x.badge.image} alt={x.badge.name} className="sm-card-image" />
-                                <div className="sm-card-title"><h6>{x.badge.name}</h6>
-                                    <ul className="sm-card-info ">
-                                        <li> Xp: {x.badge.xp}</li>
-                                    </ul>
+                                <div className="sm-card-container dark-card ">
+                                    <img src={x.badge.image} alt={x.badge.name} className="sm-card-image" />
+                                    <div className="sm-card-title"><h6>{x.badge.name}</h6>
+                                        <ul className="sm-card-info ">
+                                            <li> Xp: {x.badge.xp}</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
                             </abbr>
                         </div>
                     ))}
@@ -49,7 +51,7 @@ export function ListSavedPostsByUser({ id: userId }: Props) {
 
     const [postPage, setPostPage] = useState<UserPostPage>({ content: [], number: 0 });
     useEffect(() => {
-        axios.get(`${BASE_URL}/user/list-post/${userId}?size=12`)
+        axios.get(`${BASE_URL}/user-post/list-by-user/${userId}?size=12`)
             .then((response) => {
                 setPostPage(response.data);
             })
@@ -73,9 +75,10 @@ export function ListSavedPostsByUser({ id: userId }: Props) {
 }
 
 export function ListPostsCreatedByUser({ id: userId }: Props) {
+    const params = useParams();
     const [postList, setPostList] = useState<PostPage>({ content: [], number: 0 });
     useEffect(() => {
-        axios.get(`${BASE_URL}/post/list-user/${userId}?size=12`)
+        axios.get(`${BASE_URL}/post/list-by-user/${userId}?size=12`)
             .then((response) => {
                 setPostList(response.data);
             });
@@ -84,13 +87,23 @@ export function ListPostsCreatedByUser({ id: userId }: Props) {
     return (
         <>
             <div className='user-body-container'>
-                <h3>Publicações Criadas</h3>
+                <h3>Publicações Criadas  <div data-bs-target="#addPostModal" data-bs-toggle="modal" className="menu-options-item btn cl-btn">
+                    Adicionar Publicação <i className="fa fa-plus" />
+                </div>
+                </h3>
                 <div className="row">
                     {postList?.content.map(x => (
                         <div key={x.id} className="col-12 col-md-4 col-lg-4">
                             <PostCard post={x} />
                         </div>
                     ))}
+                </div>
+            </div>
+            <div className="modal fade" role="dialog" id="addPostModal">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <PostAddForm id={`${params.userId}`} />
+                    </div>
                 </div>
             </div>
         </>
@@ -101,7 +114,7 @@ export function ListSavedCampaignByUser({ id: userId }: Props) {
 
     const [campaignPage, setCampaignPage] = useState<CampaignUserPage>({ content: [], number: 0 });
     useEffect(() => {
-        axios.get(`${BASE_URL}/campaign-user/list-user/${userId}`)
+        axios.get(`${BASE_URL}/campaign-user/list-by-user/${userId}`)
             .then((response) => {
                 setCampaignPage(response.data);
             })
@@ -122,7 +135,7 @@ export function ListSavedCampaignByUser({ id: userId }: Props) {
 
         </>
     );
-    
+
 }
 
 export function ListCreatedCampaignByUser({ id: userId }: Props) {
@@ -138,7 +151,10 @@ export function ListCreatedCampaignByUser({ id: userId }: Props) {
     return (
         <>
             <div className='user-body-container'>
-                <h3>Campanhas Criadas</h3>
+                <h3>Campanhas Criadas <div data--bstarget="#addCampaignModal" data-bs-toggle="modal" className="menu-options-item btn cl-btn">
+                    Adicionar Campanha <i className="fa fa-plus" />
+                </div>
+                </h3>
                 <div className="row">
                     {campaignPage?.content.map(x => (
                         <div key={x.id} className="col-12 col-md-4 col-lg-4">
@@ -155,7 +171,7 @@ export function FollowerUserList({ id: userId }: Props) {
 
     const [followPage, setFollowPage] = useState<FollowPage>({ content: [], number: 0 });
     useEffect(() => {
-        axios.get(`${BASE_URL}/follow/follower/${userId}`)
+        axios.get(`${BASE_URL}/follow/list-by-follower/${userId}`)
             .then((response) => {
                 setFollowPage(response.data);
             })
@@ -175,14 +191,14 @@ export function FollowerUserList({ id: userId }: Props) {
 
         </>
     );
-   
+
 }
 
 export function FollowingUserList({ id: userId }: Props) {
 
     const [followPage, setFollowPage] = useState<FollowPage>({ content: [], number: 0 });
     useEffect(() => {
-        axios.get(`${BASE_URL}/follow/following/${userId}`)
+        axios.get(`${BASE_URL}/follow/list-by-following/${userId}`)
             .then((response) => {
                 setFollowPage(response.data);
             })
@@ -201,5 +217,5 @@ export function FollowingUserList({ id: userId }: Props) {
             </div>
         </>
     );
-   
+
 }

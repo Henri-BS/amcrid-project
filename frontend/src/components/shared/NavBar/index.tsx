@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Dropdown from 'components/shared/Dropdown';
 import IProf from "assets/img/prof-img.png";
 import './styles.css';
 import { UserAddForm, UserEditForm } from 'components/forms/UserForm';
 import { ChapterAddForm } from 'components/forms/ChapterForm';
 import { PostAddForm } from 'components/forms/PostForm';
+import axios from 'axios';
+import { BASE_URL } from 'utils/requests';
 
 function Navbar() {
   return (
@@ -35,7 +37,7 @@ function Navbar() {
   function MenuUser() {
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
-    
+
     const closeMobileMenu = () => setClick(false);
 
     const [dropdown, setDropdown] = useState(false);
@@ -57,7 +59,14 @@ function Navbar() {
     };
 
     const params = useParams();
-    
+    const navigate = useNavigate();
+
+    const deleteUser = () => {
+      axios.get(`${BASE_URL}/user/delete/${params.userId}`)
+        .then((response) => {
+          navigate(`/`);
+        });
+    }
     return (
       <>
         <ul className={click ? 'nav-menu-m active' : 'nav-menu-m'}>
@@ -78,30 +87,50 @@ function Navbar() {
           <li data-bs-target="#deleteUserModal" data-bs-toggle="modal" className="nav-links-mobile">
             Deletar Minha Conta
           </li>
-          <li data-bs-target="#addPostModal" data-bs-toggle="modal" className="nav-links-mobile">
-            Adcionar Post
-          </li>
-          <li data--bstarget="#addChapterModal" data-bs-toggle="modal" className="nav-links-mobile">
-            Adicionar Capítulo
-          </li>
+        
           <li>
             <Link
-              to='/campaign-list' className='nav-links-mobile' onClick={closeMobileMenu} >
+              to='/profile/campaigns/1' className='nav-links-mobile' onClick={closeMobileMenu} >
               Minhas Campanhas
             </Link>
           </li>
           <li>
             <Link
-              to='/post-list' className='nav-links-mobile' onClick={closeMobileMenu} >
+              to='/profile/post/1' className='nav-links-mobile' onClick={closeMobileMenu} >
               Minha Biblioteca
             </Link>
           </li>
           <li>
             <Link
-              to='/user-list' className='nav-links-mobile' onClick={closeMobileMenu} >
+              to='/profile/conquests/1' className='nav-links-mobile' onClick={closeMobileMenu} >
+              Minhas Conquistas
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/profile/stats/1' className='nav-links-mobile' onClick={closeMobileMenu} >
+              Minhas Estatísticas
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/profile/post/1' className='nav-links-mobile' onClick={closeMobileMenu} >
+              Minhas Metas
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/profile/following/1' className='nav-links-mobile' onClick={closeMobileMenu} >
+              Seguidores
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/profile/follower/1' className='nav-links-mobile' onClick={closeMobileMenu} >
               Seguindo
             </Link>
           </li>
+
           <li onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             <Link to='/' className='nav-links-mobile' onClick={closeMobileMenu}>
               Explorar <i className='fas fa-caret-down' />
@@ -115,30 +144,33 @@ function Navbar() {
             Perfil <i className={"fas fa-user"} />
           </div>
         </li>
-        <div className="modal fade" role="dialog" id="addPostModal">
+
+        <div className="modal fade" role="dialog" id="editUserModal">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <UserEditForm id={`${params.userId}`} />
+            </div>
+          </div>
+        </div>
+
+
+        <div className="modal fade" role="dialog" id="deletePostModal">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
-            <PostAddForm id={`${params.userId}`} />
+            <div className="modal-header">
+              <div className="modal-title" id="itemLabel">Deseja deletar sua conta ?</div>
+              <button type="button" className="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i className="fa fa-times" /></span>
+              </button>
+            </div>
+            <div className="modal-footer">
+              <button onClick={() => deleteUser()} data-bs-dismiss="modal" className="btn">
+                Deletar
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="modal fade" role="dialog" id="addChapterModal">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <ChapterAddForm />
-          </div>
-        </div>
-      </div>
-
-      <div className="modal fade" role="dialog" id="editUserModal">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <UserEditForm id={`${params.userId}`} />
-          </div>
-        </div>
-      </div>
-
       </>
     );
   }

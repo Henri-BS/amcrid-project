@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import {  ListChaptersByCampaing } from 'components/layout/ChapterLayout';
 import { ListBadgesByCampaign, ListPostersByCampaign, ListUsersByCampaign } from 'components/layout/CampaignLayout';
 import axios from 'axios';
-import { CampaignMdCard } from 'components/cards/CampaignCard';
+import { CampaignLgCard, CampaignMdCard } from 'components/cards/CampaignCard';
 import Pagination from 'components/shared/Pagination';
 import { useState, useEffect } from 'react';
 import { CampaignPage } from 'types/campaign';
@@ -14,6 +14,7 @@ export function CampaignProfile() {
   return (
     <>
       <div className="container">
+      <CampaignLgCard id={`${params.campaignId}`} />
         <ListChaptersByCampaing id={`${params.campaignId}`} />        
         <ListUsersByCampaign id={`${params.campaignId}`} />
         <ListPostersByCampaign id={`${params.campaignId}`} />

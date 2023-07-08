@@ -18,7 +18,7 @@ public class ConquestController {
 	@Autowired
 	private ConquestService conquestService;
 	
-	@GetMapping
+	@GetMapping("/list")
 	public Page<ConquestDTO> findAllConquests(Pageable pageable) {
 		return conquestService.findAllConquests(pageable);
 	}

@@ -62,7 +62,7 @@ export function Post() {
   );
 }
 
-export function ArticleList() {
+export function PostList() {
 
   const [pageNumber, setPageNumber] = useState(0);
   const [postPage, setPostPage] = useState<PostPage>({
@@ -71,7 +71,7 @@ export function ArticleList() {
   });
 
   useEffect(() => {
-      axios.get(`${BASE_URL}/post?page=${pageNumber}&size=8&sort=id`)
+      axios.get(`${BASE_URL}/post/list?page=${pageNumber}&size=8&sort=id`)
           .then(response => {
               const data = response.data as PostPage;
               setPostPage(data);

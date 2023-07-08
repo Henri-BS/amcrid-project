@@ -3,7 +3,6 @@ import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { Post, PostProps } from 'types/post';
 import { BASE_URL } from 'utils/requests';
-import { Link } from 'react-router-dom';
 import { Props } from 'types/page';
 import '../styles.css';
 
@@ -30,7 +29,6 @@ export function PostLayout({ id: postId }: Props) {
                         <i>"{post?.summary}"</i>
                     <hr></hr>
                     <ul className="list-unstyled">
-                        <li><b>Data de publicação: </b>{moment(post?.createdDate).format("DD/MM/YYYY - hh:mm")}</li>
                         <li><b>Autor: </b>{post?.createdBy}</li>
                     </ul>
                 </div>

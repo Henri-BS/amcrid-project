@@ -22,11 +22,16 @@
 .card-md-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 10px 10px 20px 10px;
+    padding: 30px 10px 30px 10px;
     border-radius: 0 0 8px 8px;
-    text-decoration-color: transparent;
     margin-bottom: 5px;
+}
+
+.card-md-title {
+    text-align: start;
+    overflow-y: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .card-md-container h3 {
@@ -37,18 +42,18 @@
     color: #fff;
 }
 
-.card-md-container h4 {
-    text-align: center;
-    font-size: 18px;
-    font-weight: 700;
-    min-height: 40px;
-    color: #fff;
-}
-
 .card-lg-container {
     background-color: var(--deca);
     width: 100%;
     border-radius: 12px;
+}
+
+.card-lg-image {
+    padding: 0;
+    border: 5px solid var(--tert);
+    border-style: double;
+    max-width: 400px;
+    border-radius: 12px 0px 0px 12px;
 }
 
 .description-container {

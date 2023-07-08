@@ -7,7 +7,6 @@ import { Props } from 'types/page';
 import { CampaignBadgePage, CampaignUserPage } from 'types/badge';
 
 
-
 export function ListBadgesByCampaign({ id: campaignId }: Props) {
     const [badgePage, setBadgePage] = useState<CampaignBadgePage>({ content: [], number: 0 });
     useEffect(() => {
@@ -49,7 +48,7 @@ export function ListBadgesByCampaign({ id: campaignId }: Props) {
 export function ListUsersByCampaign({ id: campaignId }: Props) {
     const [userPage, setUserPage] = useState<CampaignUserPage>({ content: [], number: 0 })
     useEffect(() => {
-        axios.get(`${BASE_URL}/campaign-user/list/${campaignId}`)
+        axios.get(`${BASE_URL}/campaign-user/list-by-campaign/${campaignId}`)
             .then((response) => {
                 setUserPage(response.data);
             });
@@ -114,7 +113,9 @@ export function ListPostersByCampaign({ id: campaignId }: Props) {
             <Link to={`/post/${campaignPost.post.id}`} >
                 <img className="card-md-image " src={campaignPost.post.image} alt={campaignPost.post.title} />
                 <div className="card-md-container dark-card">
-                    <h3>{campaignPost.post.title}</h3>
+                    <div className="card-md-title">
+                        <h3>{campaignPost.post.title}</h3>
+                    </div>
                     <abbr title={campaignPost.post.summary}>
                         <p className="text-center">Sumário <i className="fas fa-eye" /></p>
                     </abbr>

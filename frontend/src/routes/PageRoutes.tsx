@@ -7,7 +7,7 @@ import Footer from "components/shared/Footer";
 import { QuizProfile } from "components/game/QuizzGame";
 import { Ranking } from "pages/profiles/RankingProfile";
 import { CampaignList, CampaignProfile } from "pages/profiles/CampaignProfile";
-import { ArticleList, Post } from "pages/profiles/PostProfile";
+import { PostList, Post } from "pages/profiles/PostProfile";
 
 const PageRoutes = () => {
     return (
@@ -16,7 +16,7 @@ const PageRoutes = () => {
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/post-list" element={<ArticleList />} />
+                    <Route path="/post-list" element={<PostList />} />
                     <Route path="/campaign-list" element={<CampaignList />} />
                     <Route path="/user-list" element={<UserList />} />
 

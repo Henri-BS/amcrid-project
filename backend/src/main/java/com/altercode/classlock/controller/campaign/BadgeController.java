@@ -19,13 +19,8 @@ public class BadgeController {
 	@Autowired
 	private BadgeService badgeService;
 
-	@GetMapping("/all")
-	public ResponseEntity<List<BadgeDTO>> findAll() {
-		List<BadgeDTO> list = badgeService.findAll();
-		return ResponseEntity.ok(list);
-	}
 
-	@GetMapping
+	@GetMapping("/page")
 	public ResponseEntity<Page<BadgeDTO>> findAll(Pageable pageable) {
 	Page<BadgeDTO> page = badgeService.findAll(pageable);
 	return ResponseEntity.ok(page);

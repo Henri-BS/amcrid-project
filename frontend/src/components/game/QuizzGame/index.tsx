@@ -34,7 +34,7 @@ export function QuizGame({ id: quizId }: Props) {
     number: 0
   });
   useEffect(() => {
-    axios.get(`${BASE_URL}/question/quiz/${quizId}?size=1`)
+    axios.get(`${BASE_URL}/question/list-by-quiz/${quizId}?size=1`)
       .then((response) => {
         setQuestion(response.data);
       });
@@ -77,7 +77,7 @@ export function QuestionCard({ question }: QuestionProps) {
 
   const [optionList, setOptionList] = useState<Option[]>();
   useEffect(() => {
-    axios.get(`${BASE_URL}/option/question/${question.id}`)
+    axios.get(`${BASE_URL}/option/list-by-question/${question.id}`)
       .then((response) => {
         setOptionList(response.data);
       });

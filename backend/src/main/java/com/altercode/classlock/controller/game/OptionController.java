@@ -17,7 +17,7 @@ public class OptionController {
     @Autowired
     private OptionService optionService;
 
-    @GetMapping("/question/{question}")
+    @GetMapping("/list-by-question/{question}")
     public ResponseEntity<List<OptionDTO>> findOptionByQuestion(@PathVariable Question question) {
         List<OptionDTO> list = optionService.findOptionByQuestion(question);
         return ResponseEntity.ok(list);

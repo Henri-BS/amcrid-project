@@ -53,6 +53,10 @@ acronym {
     cursor: pointer;
 }
 
+.fa-times {
+    color: #fff;
+}
+
 .form {
     background-color: #0c171f;
     margin-top: 5px;

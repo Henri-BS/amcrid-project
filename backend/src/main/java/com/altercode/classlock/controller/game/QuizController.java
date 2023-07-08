@@ -35,7 +35,7 @@ public class QuizController {
 		return ResponseEntity.ok(find);
 	}
 
-	@GetMapping("/chapter/{chapter}")
+	@GetMapping("/list-by-chapter/{chapter}")
 	public ResponseEntity<List<QuizDTO>> findQuizzesByChapter(@PathVariable Chapter chapter) {
 		List<QuizDTO> list = quizService.findQuizzesByChapter(chapter);
 		return ResponseEntity.ok(list);

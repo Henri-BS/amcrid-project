@@ -11,21 +11,15 @@ import { UserPage } from 'types/user';
 
 export function UserProfile() {
   const params = useParams();
-  const navigate = useNavigate();
-
-
-  const deleteUser = () => {
-    axios.get(`${BASE_URL}/user/delete/${params.userId}`)
-      .then((response) => {
-        navigate(`/`);
-      });
-  }
+  
 
   return (
     <>
       < UserLgCard id={`${params.userId}`} />
 
       <div className="user-card-container mx-0 mt-2 p-2 row">
+        
+
         <Link to={`/profile/campaigns/${params.userId}`} className="btn cl-btn menu-options-item col-6">
           Campanhas
         </Link>
@@ -44,24 +38,9 @@ export function UserProfile() {
         <Link to={`/profile/followers/${params.userId}`} className="btn cl-btn menu-options-item col-6">
           Seguidores
         </Link>
+      
       </div>
-      <div className="modal fade" role="dialog" id="deletePostModal">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <div className="modal-title" id="itemLabel">Deseja deletar sua conta ?</div>
-              <button type="button" className="close" data-bs-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i className="fa fa-times" /></span>
-              </button>
-            </div>
-            <div className="modal-footer">
-              <button onClick={() => deleteUser()} data-bs-dismiss="modal" className="btn">
-                Deletar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </>
   );
 
@@ -72,29 +51,29 @@ export function UserList() {
   const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState<UserPage>({ content: [], number: 0 });
   useEffect(() => {
-      axios.get(`${BASE_URL}/user?page=${pageNumber}&size=8&sort=userName`)
-          .then(response => {
-              setPage(response.data);
-          });
+    axios.get(`${BASE_URL}/user?page=${pageNumber}&size=8&sort=userName`)
+      .then(response => {
+        setPage(response.data);
+      });
   }, [pageNumber]);
 
   const handlePageChange = (newPageNumber: number) => {
-      setPageNumber(newPageNumber);
+    setPageNumber(newPageNumber);
   }
 
   return (
-      <>
-          <div className="container">
-            <Pagination page={page} onChange={handlePageChange}/>
-              <div className="list-container row">
-                  {page.content?.map(user => (
-                      <div key={user.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                          <UserSmallCard user={user} />
-                      </div>
-                  ))}
-              </div>
-          </div>
-      </>
+    <>
+      <div className="container">
+        <Pagination page={page} onChange={handlePageChange} />
+        <div className="list-container row">
+          {page.content?.map(user => (
+            <div key={user.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+              <UserSmallCard user={user} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -182,7 +161,8 @@ export function PostersByUser() {
       <div className="container">
         <div className="user-box-container ">
           <UserProfile />
-          <ListPostsCreatedByUser id={`${params.userId}`}/>
+         
+          <ListPostsCreatedByUser id={`${params.userId}`} />
           <ListSavedPostsByUser id={`${params.userId}`} />
         </div>
       </div>

@@ -24,7 +24,7 @@ public class UserBadgeController {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/by-user/{user}")
+    @GetMapping("/list-by-user/{user}")
     public ResponseEntity<Page<UserRelationDTO>> findAllBadgesByUser(Pageable pageable, @PathVariable User user) {
         Page<UserRelationDTO> list = userBadgeService.findAllByUser(pageable, user);
         return ResponseEntity.ok(list);

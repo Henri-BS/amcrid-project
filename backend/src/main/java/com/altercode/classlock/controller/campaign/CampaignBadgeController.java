@@ -24,13 +24,13 @@ public class CampaignBadgeController {
         return ResponseEntity.ok(page);
     }
 
-    @PostMapping("/add-badge")
+    @PostMapping("/add-by-badge")
     public ResponseEntity<CampaignRelationDTO> addBadgeInCampaign(CampaignRelationDTO dto) {
         CampaignRelationDTO add = campaignBadgeService.addBadgeInCampaign(dto);
         return new ResponseEntity<>(add, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("delete-badge/{badge}")
+    @DeleteMapping("delete-by-badge/{badge}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBadgeByCampaign(@PathVariable Badge badge) {
         this.campaignBadgeService.deleteBadgeByCampaign(badge);

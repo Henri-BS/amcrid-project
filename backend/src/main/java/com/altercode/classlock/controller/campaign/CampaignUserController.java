@@ -18,22 +18,22 @@ public class CampaignUserController {
     @Autowired
     private CampaignUserService campaignService;
 
-    @GetMapping("/find-by-user/{user}")
-    public ResponseEntity<CampaignRelationDTO> findByUser(@PathVariable User user){
-        CampaignRelationDTO find = campaignService.findByUser(user);
-        return ResponseEntity.ok(find);
-    }
-
-    @GetMapping("/list/{campaign}")
+    @GetMapping("/list-by-campaign/{campaign}")
     public ResponseEntity<Page<CampaignRelationDTO>> findAllUsersByCampaign(Pageable pageable, @PathVariable Campaign campaign){
         Page<CampaignRelationDTO> page = campaignService.findAllUsersByCampaign(pageable, campaign);
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/list-user/{user}")
+    @GetMapping("/list-by-user/{user}")
     public ResponseEntity<Page<CampaignRelationDTO>> findAllCampaignsByUser(Pageable pageable, @PathVariable User user){
         Page<CampaignRelationDTO> page = campaignService.findAllByUser(pageable, user);
         return ResponseEntity.ok(page);
+    }
+
+    @GetMapping("/find-by-user/{user}")
+    public ResponseEntity<CampaignRelationDTO> findByUser(@PathVariable User user){
+        CampaignRelationDTO find = campaignService.findByUser(user);
+        return ResponseEntity.ok(find);
     }
 
     @PostMapping("/add")

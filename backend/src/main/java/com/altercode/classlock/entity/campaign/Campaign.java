@@ -26,6 +26,7 @@ public class Campaign {
     @Column(name = "campaign_name")
     private String name;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
     private String image;
 

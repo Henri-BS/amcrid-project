@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CampaignProps, ChapterProps, Chapter } from "types/campaign";
+import { CampaignProps, ChapterProps, Chapter, Campaign } from "types/campaign";
 import { Props } from "types/page";
 import { BASE_URL } from "utils/requests";
 import "../styles.css";
+
 export function CampaignCard({ campaign }: CampaignProps) {
     return (
         <>
@@ -13,7 +14,9 @@ export function CampaignCard({ campaign }: CampaignProps) {
                     <Link to={`/campaign/${campaign.id}`}>
                         <img className="card-md-image" src={campaign.image} alt={campaign.name} />
                         <div className="card-md-container dark-card">
-                            <h3>{campaign.name}</h3>
+                            <div className="card-md-title">
+                                <h3>{campaign.name}</h3>
+                            </div>
                         </div>
                     </Link>
                 </div>
@@ -42,12 +45,37 @@ export function CampaignCard({ campaign }: CampaignProps) {
     );
 }
 
+export function CampaignLgCard({ id: camapaignId }: Props) {
+
+    const [campaign, setCampaign] = useState<Campaign>();
+    useEffect(() => {
+        axios.get(`${BASE_URL}/campaign/${camapaignId}`)
+            .then((response) => {
+                setCampaign(response.data);
+            })
+    }, [camapaignId]);
+
+    return (
+        <>
+            <div className="card-lg-container row m-0">
+                <img className="card-lg-image col-12 col-lg-5" src={campaign?.image} alt={campaign?.name} />
+                <div className=" description-container col-12 col-lg-7">
+                    <div className="title-container">Campanha: {campaign?.name}</div>
+                    {campaign?.description}
+                </div>
+            </div>
+        </>
+    );
+}
+
 export function CampaignMdCard({ campaign }: CampaignProps) {
     return (
         <Link to={`/campaign/${campaign.id}`} >
             <img className="card-md-image" src={campaign.image} alt={campaign.name} />
             <div className="card-md-container dark-card">
-                <h3>{campaign.name}</h3>
+                <div className="card-md-title">
+                    <h3>{campaign.name}</h3>
+                </div>
             </div>
         </Link>
 
@@ -61,7 +89,9 @@ export function ChapterCard({ chapter }: ChapterProps) {
             <Link to={`/chapter/${chapter.id}`} className="">
                 <img className="card-md-image" src={chapter.image} alt={chapter.title} />
                 <div className="card-md-container dark-card">
-                    <h3>{chapter.title}</h3>
+                    <div className="card-md-title">
+                        <h3>{chapter.title}</h3>
+                    </div>
                 </div>
             </Link>
         </>
@@ -96,7 +126,7 @@ export function ChapterDashboard({ id: chapterId }: Props) {
     return (
         <>
             <div className="card-lg-container row m-0">
-                <img className="bg-img-container col-12 col-lg-5" src={chapter?.image} alt={chapter?.title} />
+                <img className="card-lg-image col-12 col-lg-5" src={chapter?.image} alt={chapter?.title} />
                 <div className=" description-container col-12 col-lg-7">
                     <div className="title-container">Capítulo: {chapter?.title}</div>
                     {chapter?.description}

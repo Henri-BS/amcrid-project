@@ -17,7 +17,7 @@ public class QuizBadgeController {
     @Autowired
     private QuizBadgeService quizBadgeService;
 
-    @GetMapping("/by-quiz/{quiz}")
+    @GetMapping("/list-by-quiz/{quiz}")
     public ResponseEntity<List<QuizBadgeDTO>> findAllBadgesByQuiz(@PathVariable Quiz quiz) {
         List<QuizBadgeDTO> list = quizBadgeService.findAllBadgesByQuiz(quiz);
         return ResponseEntity.ok(list);

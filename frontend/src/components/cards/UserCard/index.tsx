@@ -1,7 +1,7 @@
 import axios from "axios";
-import {  useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {CampaignUserProps } from "types/campaign";
+import { CampaignUserProps } from "types/campaign";
 import { Conquest } from "types/conquest";
 import { Props } from "types/page";
 import { FollowProps, User, UserPostProps, UserProps } from "types/user";
@@ -45,8 +45,8 @@ export function UserCardConquests({ id: conquestId }: Props) {
     return (
         <div className='user-body-container'>
             <ul className="list-unstyled">
-                <li className="user-item mb-2"><b>Quests Principais Finalizadas: </b> {conquest?.principalQuest}</li>
-                <li className="user-item mb-2"><b>Quests Secundárias Finalizadas: </b> {conquest?.secondaryQuest}</li>
+                <li className="user-item mb-2"><b>Campanhas Finalizadas: </b> {conquest?.principalQuest}</li>
+                <li className="user-item mb-2"><b>Publicações Lidas: </b> {conquest?.secondaryQuest}</li>
                 <li className="user-item mb-2"><b>Capítulos Finalizados: </b> {conquest?.chapterCompleted}</li>
                 <li className="user-item mb-2"><b>Total de Badges: </b> {conquest?.totalBadges}</li>
                 <li className="user-item mb-2"><b>Total de Xp: </b> {conquest?.totalXp}</li>
@@ -54,7 +54,7 @@ export function UserCardConquests({ id: conquestId }: Props) {
         </div>
     );
 
-    
+
 }
 
 export function UserSmallCard({ user }: UserProps) {
@@ -80,7 +80,9 @@ export function UserPostCard({ userPost }: UserPostProps) {
         <Link to={`/post/${userPost.post.id}`} >
             <img className="card-md-image " src={userPost.post.image} alt={userPost.post.title} />
             <div className="card-md-container dark-card">
-                <h3>{userPost.post.title}</h3>
+                <div className="card-md-title">
+                    <h3>{userPost.post.title}</h3>
+                </div>
                 <abbr title={userPost.post.summary}>
                     <p className="text-center">Sumário <i className="fas fa-eye" /></p>
                 </abbr>
@@ -95,8 +97,9 @@ export function CampaignUserMdCard({ campaignUser }: CampaignUserProps) {
             <Link to={`/campaign/${campaignUser.campaign.id}`} >
                 <img className="card-md-image" src={campaignUser.campaign.image} alt={campaignUser.campaign.name} />
                 <div className="card-md-container dark-card">
-                    <h3>{campaignUser.campaign.name}</h3>
-                    Acessar
+                    <div className="card-md-title">
+                        <h3>{campaignUser.campaign.name}</h3>
+                    </div>
                 </div>
             </Link>
         </div>

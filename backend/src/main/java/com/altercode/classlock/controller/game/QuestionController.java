@@ -24,7 +24,7 @@ public class QuestionController {
 
     }
 
-    @GetMapping("/quiz/{quiz}")
+    @GetMapping("/list-by-quiz/{quiz}")
     public ResponseEntity<Page<QuestionDTO>> findQuestionsByQuiz(Pageable pageable, @PathVariable Quiz quiz) {
         Page<QuestionDTO> page = questionService.findQuestionsByQuiz(pageable, quiz);
         return ResponseEntity.ok(page);
@@ -43,7 +43,7 @@ public class QuestionController {
     }
 
     @DeleteMapping("/delete/{id}")
-    @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Questão Deletada")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteQuestion(@PathVariable Long id) {
         this.questionService.deleteQuestion(id);
     }

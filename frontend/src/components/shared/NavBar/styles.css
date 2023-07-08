@@ -54,13 +54,8 @@
     background-color: var(--octo);
 }
 
-.fa-bars {
+.fa:hover {
     color: #fff;
-}
-
-.fa-times {
-    color: #fff;
-    font-size: 2rem;
 }
 
 .nav-menu-m {
